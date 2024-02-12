@@ -42,9 +42,9 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline()
     tl.to(hero.current,{
-      y:'110%',
+      y:'100%',
        ease:[0.76, 0, 0.24, 1],
-       opacity:.3,
+       opacity:0,
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
@@ -120,7 +120,8 @@ const Home = () => {
          ref={about} 
          >
          <div className='p-[5vw] flex flex-col  bg-zinc-950 rounded-t-3xl h-[800px] '>
-         <h1 className='text-3xl uppercase primary-font self-center mb-20 leading-tight font-bold text-gray-200'>About me</h1>
+              <h1 className='text-2xl uppercase primary-font self-center mt-10 mb-20 leading-tight font-bold text-gray-200'>
+                   About me</h1>
               <div className='flex flex-col gap-y-5'>
               <h1 className='capitalize font-semibold text-xl primary-font text-gray-200'>Web development</h1>
             <p className='secondary-font text-lg lg:w-1/2 text-balance text-stone-400 leading-tight mb-10'>
