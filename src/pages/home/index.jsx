@@ -44,7 +44,7 @@ const Home = () => {
     tl.to(hero.current,{
       y:'100%',
        ease:[0.76, 0, 0.24, 1],
-       opacity:.1,
+       opacity:.5,
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
@@ -106,7 +106,7 @@ const Home = () => {
         </h1>
           <h3
           className='text-xl text-gray-700 font-base leading-tight mx-2 secondary-font'>
-          A front-end developer advancing to transform your visions  into  digital masterpiece.
+          A frontend developer advancing to transform your visions  into  digital masterpiece.
           </h3>
         </div >
 
@@ -119,7 +119,7 @@ const Home = () => {
         id='about'
          ref={about} 
          >
-         <div className='p-[5vw] flex flex-col  bg-zinc-950 rounded-t-3xl h-[800px] '>
+         <div className='p-[5vw] flex flex-col  bg-zinc-950 h-[800px] '>
               <h1 className='text-2xl uppercase primary-font self-center mt-10 mb-20 leading-tight font-bold text-gray-200'>
                    About me</h1>
               <div className='flex flex-col gap-y-5'>
