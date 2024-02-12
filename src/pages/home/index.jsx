@@ -44,7 +44,7 @@ const Home = () => {
     tl.to(hero.current,{
       y:'100%',
        ease:[0.76, 0, 0.24, 1],
-       opacity:0,
+       opacity:.1,
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
