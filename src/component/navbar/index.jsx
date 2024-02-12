@@ -90,7 +90,7 @@ const Navbar = () => {
                     to={link.to}
                     onClick={handleClick}
                     className={`text-gray-50 z-10 relative bg-transparent cursor-pointer text-[6vh] font-semibold capitalize primary-font
-                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-orange-500' : 'text-gray-50'} `}
+                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-500' : 'text-gray-50'} `}
                     key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  

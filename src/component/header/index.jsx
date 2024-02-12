@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 
 const Header = ({refs}) => {
   // const [homeButton, setHomeButton] = useState(false)
-  const { isMobile, isScrolled, isToggleMenu, bgColor} = useContext(DataContext)
+  const { isMobile, isScrolled, isToggleMenu, color} = useContext(DataContext)
   const location = useLocation()
 
   // useEffect(() => {
@@ -19,8 +19,8 @@ const Header = ({refs}) => {
 
   return (
     <header
-          className={`w-screen  top-0 transition flex flex-col fixed lg:backdrop-brightness-95 z-10
-           backdrop-blur-lg ${isScrolled ? '-translate-y-full' : ''} `}>
+          className={`w-screen top-0 transition flex flex-col relative lg:backdrop-brightness-95 z-10 
+           backdrop-blur-lg`}>
         <motion.section
             initial={{opacity: 0}}
             animate={{opacity: 1}}

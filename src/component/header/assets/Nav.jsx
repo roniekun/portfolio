@@ -1,9 +1,11 @@
 import { Link, useParams } from 'react-router-dom';
-import { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
+import { useState, useEffect, useRef, forwardRef, useImperativeHandle, useContext } from 'react';
+import { DataContext } from '../../../context/DataContext';
 
 const Nav = forwardRef(({refs},  ref)=> {
     const button = useRef(null)
     const [height, setHeight] = useState()
+    const { color } = useContext(DataContext)
 
 
     let { id } = useParams()
@@ -34,7 +36,7 @@ const Nav = forwardRef(({refs},  ref)=> {
                 <Link
                 to={link.to}
                 style={{ height: index === links.length - 1 ? `${height}px` : '' }}
-                className={`primary-font cursor-pointer text-sm relative flex flex-col group justify-center uppercase 
+                className={`primary-font mix-blend-difference cursor-pointer text-sm relative flex flex-col group justify-center uppercase 
                 items-center ${index === links.length-1 ? 'px-10' : '' }`}
                 key={link.name}>
                     {link.name} 

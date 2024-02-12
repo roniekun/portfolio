@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Home = () => {
-  const { user, setTitle } = useContext(DataContext)
+  const { user, setTitle, setColor, color } = useContext(DataContext)
   const cards = useRef(null)
   const services = useRef(null)
   const about = useRef(null)
@@ -42,13 +42,13 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline()
     tl.to(hero.current,{
-      y:'100%',
+      y:'110%',
        ease:[0.76, 0, 0.24, 1],
-       opacity:.5,
+       opacity:.3,
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
-        end: 'bottom-=10% top+=10%',
+        end: 'bottom-=20% top+=10%',
         scrub: true,
       }
     })
@@ -71,16 +71,21 @@ const Home = () => {
       start: "top top",
       end: "bottom bottom",
       onEnter: () => {
-        id = 'about'
+        setColor('lightgray')
+        console.log(color)
+      },
+      onLeaveBack: () =>{
+        setColor('black')
       },
       onEnterBack: ()=> {
-          id = 'about'
+      setColor('lightgray')
+
       }
     });
     return () => {
       trigger.kill(); 
     };
-  }, [about]); 
+  }, [about,color]); 
   
 
   return (
@@ -114,18 +119,18 @@ const Home = () => {
         id='about'
          ref={about} 
          >
-         <div className='p-[5vw] flex flex-col  bg-zinc-400  rounded-t-3xl h-[800px] '>
-         <h1 className='text-3xl uppercase primary-font self-center mb-20 leading-tight'>About me</h1>
+         <div className='p-[5vw] flex flex-col  bg-zinc-950 rounded-t-3xl h-[800px] '>
+         <h1 className='text-3xl uppercase primary-font self-center mb-20 leading-tight font-bold text-gray-200'>About me</h1>
               <div className='flex flex-col gap-y-5'>
-              <h1 className='capitalize font-semibold text-xl primary-font'>Web development</h1>
-            <p className='secondary-font text-lg lg:w-1/2 text-balance text-gray-700 leading-tight mb-10'>
+              <h1 className='capitalize font-semibold text-xl primary-font text-gray-200'>Web development</h1>
+            <p className='secondary-font text-lg lg:w-1/2 text-balance text-stone-400 leading-tight mb-10'>
             Adapting to the ever-evolving world of web development, crafting intuitive interfaces and functional websites
             that engage users and convey the essence of a brand or concept. </p>
               </div>
 
             <div className='flex flex-col gap-y-5 '>
-             <h1 className='capitalize font-semibold text-xl primary-font leading-snug'>exploring backend Technologies</h1>
-             <p className='secondary-font text-lg lg:w-1/2 text-balance text-gray-700 leading-tight mb-10'>
+             <h1 className='capitalize font-semibold text-xl primary-font leading-snug text-gray-200'>exploring backend Technologies</h1>
+             <p className='secondary-font text-lg lg:w-1/2 text-balance text-stone-400 leading-tight mb-10'>
                   My journey extends beyond frontend design; I continually explore and master back-end technologies, databases,
                   and server management, to create end-to-end 
                   solutions that provide seamless functionality and deliver an exceptional user experience.

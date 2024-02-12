@@ -6,6 +6,7 @@ import Notfound from "./pages/notfound";
 import Lenis from '@studio-freight/lenis'
 import gsap from "gsap";
 import Navbar from "./component/navbar";
+import Scrollbtn from "./assets/scrollto";
 import { ScrollTrigger } from "gsap/all";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   
   return (
         <main className="flex flex-col bg-stone-100">
+        <Scrollbtn />
         <Navbar />
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>

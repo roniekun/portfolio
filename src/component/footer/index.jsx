@@ -21,21 +21,21 @@ const Footer = () => {
                 onClick={()=>handleClick(user)}>info@yourownstudio.co</a> or book an intro call.</h1>
         </section>
 
-    <section className='relative flex flex-col lg:place-items-center p-[2vw]'>
+    <section className='lg:items-center p-[2vw] relative flex flex-col'>
+    <div className='p-[2vw] secondary-font'>
+        <p>Terms of Services</p>
+        <p>Privacy policy</p>
+    </div>
+    </section>
+
+    <section className='p-[2vw]'>
     <div className='text-left'>
-        <h2 className='primary-font capitalize font-medium'>
+        <h2 className='capitalize secondart-font font-base'>
             all rights reserved  <br /> &copy;{date.getUTCFullYear()}
         </h2>
         <h4>created by <a href="http://roniecode.vercel.app" target='_blank'>
          Ronie</a>
         </h4>
-    </div>
-    </section>
-
-        <section>
-    <div className='p-[2vw]'>
-        <p>terms of services</p>
-        <p>privacy policy</p>
     </div>
     </section>
 

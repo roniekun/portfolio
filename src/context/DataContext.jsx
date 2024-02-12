@@ -65,6 +65,8 @@ const DataProvider = ({ children  }) => {
                 window.removeEventListener('resize', handleResize)
           }
         }, [])
+
+
         
   return (
     <DataContext.Provider 
