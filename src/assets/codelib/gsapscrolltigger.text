@@ -1,0 +1,26 @@
+    gsap.registerPlugin(ScrollTrigger);
+
+    const trigger = ScrollTrigger.create({
+      trigger: cards.current,
+      start: "top top",
+      end: "bottom bottom",
+      onEnter: () => {
+        console.log('entered')
+        
+      },
+      onLeaveBack: () => {
+        console.log('leave back')
+
+      },
+      onLeave:() =>{
+        console.log('leave')
+
+      },
+      onEnterBack: ()=> {
+        console.log('entered back')
+
+      }
+    });
+
+    return () => {
+      trigger.kill(); 

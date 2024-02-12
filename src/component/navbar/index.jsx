@@ -1,25 +1,23 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useContext, useRef, useEffect } from 'react'
 import { DataContext } from '../../context/DataContext'
 import gsap from 'gsap'
 import Socials from './assets/Socials'
-import Clock from './assets/Clock'
 import Close from './assets/Close'
 import { Timeline } from 'gsap/gsap-core'
-import { motion } from 'framer-motion'
 
 const Navbar = () => {
     const {setToggleMenu, isToggleMenu, setLoading, isLoading} = useContext(DataContext)
     const menu = useRef(null)
     const linkItems= useRef(null)
     const socialsRef = useRef(null);  
-    const navigate = useNavigate()
 
     const links = [
-        { name: 'works', to: '/gallery' },
-        { name: 'pricing', to: '/pricing' },
-        { name: 'info', to: '/contact' }
+         { name: 'about', to: '/about' },
+        { name: 'services', to: '/services'},
+        { name: 'works', to: '/works' },
+        { name: 'contact', to: '/contact' },
     ];
 
     useEffect(() => {
@@ -68,16 +66,9 @@ const Navbar = () => {
 
     }, [isToggleMenu]);
 
-    const handleClick = (link) => {
+    const handleClick = () => {
         setToggleMenu(!isToggleMenu)
         setLoading(!isLoading)
-         navigate(link)
-         setTimeout(() => {
-                    window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-         });
-         }, 200);
     }
 
   return (
@@ -95,14 +86,15 @@ const Navbar = () => {
         
                 {links.map((link, index) => (
                 <div className='flex w-fit justify-center relative items-center gap-5 group '>
-                    <a
+                    <Link
+                    to={link.to}
+                    onClick={handleClick}
                     className={`text-gray-50 z-10 relative bg-transparent cursor-pointer text-[6vh] font-md capitalize title-font flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-orange-500' : 'text-gray-50'} `}
-                    key={link.name} 
-                    onClick={() => handleClick(link.to)}>
+                    key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  
                                     ${link.to===location.pathname ? 'bg-orange-500' : 'bg-gray-100'} rounded-lg scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100 group-hover:origin-left`}></span> */}
-                    </a>
+                    </Link>
                  </div>
             ))}
 

@@ -7,13 +7,14 @@ const Footer = () => {
     const { user } = useContext(DataContext)
     const date = new Date()
 
-    const handleClick = (user) =>{
+    const handleClick = (user) =>{  
             SendGmail(user)
     }
 
   return (
   <footer className='h-auto relative min-h-[400px] w-full  grid lg:grid-cols-2 p-[5vw] bg-stone-200'>
     <div className='absolute h-[1px] w-11/12 bg-zinc-700 top-0 left-1/2 transform -translate-x-1/2' />
+
         <section className='relative col-span-1 w-full h-full'>
             <h1 className='text-left text-xl p-[2vw] lg:leading-10 md:leading-9 leading-8'>Interested in working together? <br />
                 Get in touch at <a className='text-blue-700 cursor-pointer hover:opacity-85'
@@ -30,6 +31,14 @@ const Footer = () => {
         </h4>
     </div>
     </section>
+
+        <section>
+    <div className='p-[2vw]'>
+        <p>terms of services</p>
+        <p>privacy policy</p>
+    </div>
+    </section>
+
 </footer>
 
   )

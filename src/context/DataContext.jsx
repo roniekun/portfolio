@@ -15,6 +15,7 @@ const DataProvider = ({ children  }) => {
     const [currentScroll, setCurrentScroll] = useState(0)
     const [isMobile, setMobile] = useState(false)
     const [isDesktop, setDesktop] = useState(false)
+    const [ scrollRef, setScrollRef ] = useState()
 
     const user = {
       title: 'Ronie Benitez',
@@ -69,6 +70,7 @@ const DataProvider = ({ children  }) => {
     <DataContext.Provider 
       value={{
               user,
+              scrollRef,setScrollRef,
               defaultColor, defaultBgColor,
               color, bgColor, setColor, setBgColor,
               title, setTitle,

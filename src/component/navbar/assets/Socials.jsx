@@ -3,11 +3,10 @@ import {linksData } from '../utils/linksData';
 import gsap from 'gsap';
 import { DataContext } from '../../../context/DataContext';
 
-const Socials = forwardRef((props, ref) => {
+const Socials = forwardRef((_, ref) => {
     const { isToggleMenu } = useContext(DataContext)
     const socialRefs = useRef([]);
 
-    // Expose the refs to the parent (Navbar) component
     useImperativeHandle(ref, () => ({
         socialRefs: socialRefs.current,
     }), [socialRefs]);
