@@ -44,7 +44,7 @@ const Home = () => {
     const tl = gsap.timeline()
     tl.to(hero.current,{
       scale: 1.09,
-      filter:'blur(5px)',
+      filter:'blur(1px)',
       y:'100%',
        ease:[0.76, 0, 0.24, 1],
       opacity: 0,
@@ -53,7 +53,6 @@ const Home = () => {
         start: 'top+=20% top',
         end: 'bottom top+=20%',
         scrub: true,
-        markers:true
       }
     })
   }, [])
