@@ -44,7 +44,7 @@ const Home = () => {
     tl.to(hero.current,{
       y:'100%',
        ease:[0.76, 0, 0.24, 1],
-      opacity: .5,
+       opacity:.5,
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
@@ -53,11 +53,10 @@ const Home = () => {
       }
     })
     gsap.to(home.current,{
-      filter: 'brightness(85%)',
       scrollTrigger:{
-        trigger:hero.current,
-        start: 'top top',
-        end:'bottom+=100% top',
+        trigger:home.current,
+        start: 'center top',
+        end:'bottom top',
         scrub: true,
       }}
       )
