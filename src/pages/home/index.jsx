@@ -18,7 +18,7 @@ const Home = () => {
   const home = useRef(null)
   const hero = useRef(null)
   const refsArray = [ about, services, works, contact]
-  const { id } = useParams()
+  let { id } = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -63,38 +63,24 @@ const Home = () => {
 
   }, [])
 
-// splitText
-
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const trigger = ScrollTrigger.create({
-      trigger: cards.current,
+      trigger: about.current,
       start: "top top",
       end: "bottom bottom",
       onEnter: () => {
-        console.log('entered')
-        
-      },
-      onLeaveBack: () => {
-        console.log('leave back')
-
-      },
-      onLeave:() =>{
-        console.log('leave')
-
+        id = 'about'
       },
       onEnterBack: ()=> {
-        console.log('entered back')
-
+          id = 'about'
       }
     });
-
     return () => {
       trigger.kill(); 
     };
-  }, [footer]); 
+  }, [about]); 
   
 
   return (
@@ -115,7 +101,7 @@ const Home = () => {
         </h1>
           <h3
           className='text-xl text-gray-700 font-base leading-tight mx-2 secondary-font'>
-          A front-end developer advancing to transform your visions  into  <em>digital masterpiece.</em> 
+          A front-end developer advancing to transform your visions  into  digital masterpiece.
           </h3>
         </div >
 
@@ -124,16 +110,30 @@ const Home = () => {
         </div>
         </section>
        <section
-        className='z-10 rounded-t-3xl '
+        className='z-10 rounded-t-3xl min-h-[800px]'
         id='about'
-         ref={about}>
-         <div className='p-[5vw]  bg-zinc-400 h-auto rounded-t-3xl overflow-scroll'>
-         <div>
-                          <h1 className='text-3xl uppercase mb-10 primary-font'>About me</h1>
-                          <p className='secondary-font text-lg lg:w-1/2 text-balance text-gray-700 leading-snug mb-10'>Adapts to the ever-evolving world of web development, crafting captivating webpage and functional websites,  striving for visually appealing and intuitive interfaces that engage users and convey the essence of a brand or concept. Continuing to explore back-end technologies, databases, and server management, to create end-to-end solutions that provide seamless functionality and an exceptional user experience.I look forward to connecting with you and bringing your web development ideas to life. Let's create something extraordinary together!</p>
+         ref={about} 
+         >
+         <div className='p-[5vw] flex flex-col  bg-zinc-400  rounded-t-3xl h-[800px] '>
+         <h1 className='text-3xl uppercase primary-font self-center mb-20 leading-tight'>About me</h1>
+              <div className='flex flex-col gap-y-5'>
+              <h1 className='capitalize font-semibold text-xl primary-font'>Web development</h1>
+            <p className='secondary-font text-lg lg:w-1/2 text-balance text-gray-700 leading-tight mb-10'>
+            Adapting to the ever-evolving world of web development, crafting intuitive interfaces and functional websites
+            that engage users and convey the essence of a brand or concept. </p>
+              </div>
+
+            <div className='flex flex-col gap-y-5 '>
+             <h1 className='capitalize font-semibold text-xl primary-font leading-snug'>exploring backend Technologies</h1>
+             <p className='secondary-font text-lg lg:w-1/2 text-balance text-gray-700 leading-tight mb-10'>
+                  My journey extends beyond frontend design; I continually explore and master back-end technologies, databases,
+                  and server management, to create end-to-end 
+                  solutions that provide seamless functionality and deliver an exceptional user experience.
+             </p>
+            </div>
          </div>
-         </div>
-  
+        </section>
+          
           <section
           id='services'
           ref={services}
@@ -142,12 +142,11 @@ const Home = () => {
                               <h1 className='text-3xl'>Services</h1>
           </div>
             </section>
-        </section>
 
           <section
           ref={works}
           id='works'
-            className='flex flex-col lg:gap-10 gap-5 z-20 rounded-t-3xl bg-stone-400 w-full box-border h-[800px]'>
+            className='flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border h-[800px]'>
             <div 
               ref={cards}
             className='w-full h-full bg-stone-500 overflow-auto'>

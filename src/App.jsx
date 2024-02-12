@@ -23,7 +23,7 @@ function App() {
   gsap.ticker.lagSmoothing(0)
   
   return (
-        <main className="flex flex-col">
+        <main className="flex flex-col bg-stone-100">
         <Navbar />
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
