@@ -34,7 +34,8 @@ const Nav = forwardRef(({refs},  ref)=> {
                 <Link
                 to={link.to}
                 style={{ height: index === links.length - 1 ? `${height}px` : '' }}
-                className={`cursor-pointer secondary-font text-sm relative flex flex-col group justify-center uppercase items-center ${index === links.length-1 ? 'px-10' : '' }`}
+                className={`primary-font cursor-pointer text-sm relative flex flex-col group justify-center uppercase 
+                items-center ${index === links.length-1 ? 'px-10' : '' }`}
                 key={link.name}>
                     {link.name} 
                     {index !== links.length-1 &&

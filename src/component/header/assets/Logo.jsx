@@ -11,7 +11,7 @@ const Logo = () => {
   return (
     <main 
     onClick={handleClick}
-    className='bg-blend-difference tracking-wide title-font text-base transition duration-500 text-gray-800
+    className='primary-font tracking-wide title-font text-base transition duration-500 text-gray-800
     text-left font-medium relative select-none cursor-pointer'>
       <h1>favicon</h1>
     </main>

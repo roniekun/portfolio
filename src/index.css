@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 /* CUSTOM FONTS */
-body{
+.primary-font{
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.secondary-font{
   font-family: 'Author', sans-serif;
 }
