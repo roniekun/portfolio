@@ -25,7 +25,7 @@ const Header = ({refs}) => {
             initial={{opacity: 0}}
             animate={{opacity: 1}}
             transition={{duration: .3, delay: .7}}
-            className={`flex relative justify-between px-[8vw]  items-center w-screen  h-20   opacity-0  z-0 `}>
+            className={`flex relative justify-between px-[8vw]  items-center w-screen  h-16   opacity-0  z-0 `}>
               <Logo />
             { !isToggleMenu && (isMobile ? <Menu /> : <Nav refs={refs}/>)}
         </motion.section>

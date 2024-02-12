@@ -3,7 +3,6 @@ import { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 import Header from '../../component/header'
 import Footer from '../../component/footer'
-import PageAnimator from '../../assets/anim/PageTransition'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -43,7 +42,6 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline()
     tl.to(hero.current,{
-      scale: 1.09,
       filter:'blur(1px)',
       y:'100%',
        ease:[0.76, 0, 0.24, 1],
@@ -51,11 +49,13 @@ const Home = () => {
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
-        end: 'bottom top+=20%',
+        end: 'bottom-=10% top+=10%',
         scrub: true,
       }
     })
   }, [])
+
+// splitText
 
 
   useEffect(() => {
@@ -90,7 +90,6 @@ const Home = () => {
   
 
   return (
-    <PageAnimator>
       <motion.main 
         className='relative flex flex-col'>
         <section className='z-20'>
@@ -102,10 +101,14 @@ const Home = () => {
          items-center z-0 overflow-hidden'>
         <div 
         ref={hero}
-        className='w-full self-center flex justify-center items-center flex-col'>
-          <h1 
-          className='text-3xl text-center font-bold uppercase'>transform your visions <br />  into digital masterpiece 
-          </h1>
+        className='w-full self-center flex j flex-col gap-y-3'>
+        <h1 className='text-4xl text-balance tracking-tight  font-semibold uppercase'>
+          Good to see you,  i'm Ronie.
+        </h1>
+          <h3
+          className='text-xl text-gray-700 font-base leading-tight mx-2'>
+          A front-end developer advancing to transform your visions  into  <em>digital masterpiece.</em> 
+          </h3>
         </div >
 
         <div>
@@ -113,23 +116,30 @@ const Home = () => {
         </div>
         </section>
        <section
-        className='min-h-[800px] bg-stone-200 z-10 rounded-t-3xl  '
+        className='z-10 rounded-t-3xl '
         id='about'
          ref={about}>
-                          <h1 className='text-3xl'>About</h1>
-        </section>
-
-        <section
-        id='services'
-        ref={services}
-       className='min-h-[800px] bg-stone-300 z-10 rounded-t-3xl  '>
-                 <h1 className='text-3xl'>Services</h1>
+         <div className='p-[5vw]  bg-zinc-400 h-auto rounded-t-3xl overflow-scroll'>
+         <div>
+                          <h1 className='text-3xl uppercase mb-10'>About me</h1>
+                          <p className='text-lg lg:w-1/2 text-balance text-gray-700 leading-snug mb-10'>Adapts to the ever-evolving world of web development, crafting captivating webpage and functional websites,  striving for visually appealing and intuitive interfaces that engage users and convey the essence of a brand or concept. Continuing to explore back-end technologies, databases, and server management, to create end-to-end solutions that provide seamless functionality and an exceptional user experience.I look forward to connecting with you and bringing your web development ideas to life. Let's create something extraordinary together!</p>
+         </div>
+         </div>
+  
+          <section
+          id='services'
+          ref={services}
+          className=' bg-stone-300  rounded-t-3xl '>
+          <div className='min-h-[800px]  bg-zinc-600 flex justify-center items-center'>
+                              <h1 className='text-3xl'>Services</h1>
+          </div>
+            </section>
         </section>
 
           <section
           ref={works}
           id='works'
-            className='flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border h-[800px]'>
+            className='flex flex-col lg:gap-10 gap-5 z-20 rounded-t-3xl bg-stone-400 w-full box-border h-[800px]'>
             <div 
               ref={cards}
             className='w-full h-full bg-stone-500 overflow-auto'>
@@ -137,6 +147,8 @@ const Home = () => {
 
             </div>
         </section>
+
+
 
         <section 
         className='min-h-[800px] bg-stone-600 z-10'
@@ -155,7 +167,6 @@ const Home = () => {
         </div>
       </section>
     </motion.main>
-    </PageAnimator>
   )
 }
 
