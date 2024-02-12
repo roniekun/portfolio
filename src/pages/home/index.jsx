@@ -42,10 +42,9 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline()
     tl.to(hero.current,{
-      filter:'blur(1px)',
       y:'100%',
        ease:[0.76, 0, 0.24, 1],
-      opacity: 0,
+      opacity: .5,
       scrollTrigger:{
         trigger: home.current,
         start: 'top+=20% top',
@@ -53,6 +52,16 @@ const Home = () => {
         scrub: true,
       }
     })
+    gsap.to(home.current,{
+      filter: 'brightness(85%)',
+      scrollTrigger:{
+        trigger:hero.current,
+        start: 'top top',
+        end:'bottom+=100% top',
+        scrub: true,
+      }}
+      )
+
   }, [])
 
 // splitText
