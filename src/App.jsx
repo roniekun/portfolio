@@ -1,16 +1,19 @@
 import {  Routes, Route, useLocation,useParams } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import Home from "./pages/home";
-import Gallery from "./pages/gallery";
-import Notfound from "./pages/notfound";
+import Home from "./pages/home"
+import Gallery from "./pages/gallery"
+import Notfound from "./pages/notfound"
 import Lenis from '@studio-freight/lenis'
 import gsap from "gsap";
-import Navbar from "./component/navbar";
-import Scrollbtn from "./assets/scrollto";
-import { ScrollTrigger } from "gsap/all";
+import Navbar from "./component/navbar"
+import Scrollbtn from "./assets/scrollto"
+import { ScrollTrigger } from "gsap/all"
+import { useRef } from 'react'
+import useWindowSize from "./hooks/useWIndowHooks/useWIndowSize";
+import { useScroll, useTransform, AnimatePresence, motion } from 'framer-motion'
 
 function App() {
   const { id } = useParams()
+  const {width} =useWindowSize()
   const location = useLocation();
   const lenis = new Lenis()
 
@@ -22,9 +25,21 @@ function App() {
   })
 
   gsap.ticker.lagSmoothing(0)
-  
+
+    const container = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target:container,
+        offset: ['start start', 'end end' ]
+         })
+         
+     const transfromWidth = useTransform(scrollYProgress, [0 , 1], [0, width])
   return (
-        <main className="flex flex-col bg-stone-100">
+        <main 
+        ref={container}
+          className="flex flex-col bg-stone-100 w-screen">
+         <motion.div
+         style={{width: transfromWidth}} 
+         className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />
         <Scrollbtn />
         <Navbar />
           <AnimatePresence mode="wait">

@@ -16,7 +16,7 @@ const Footer = () => {
     <div className='absolute h-[1px] w-11/12 bg-zinc-700 top-0 left-1/2 transform -translate-x-1/2' />
 
         <section className='relative col-span-1 w-full h-full'>
-            <h1 className='primary-font text-left text-xl p-[2vw] lg:leading-10 md:leading-9 leading-8'>Interested in working together? <br />
+            <h1 className='primary-font text-left font-medium text-xl p-[2vw] lg:leading-10 md:leading-9 leading-8'>Interested in working together? <br />
                 Get in touch at <a className='text-blue-700 cursor-pointer hover:opacity-85'
                 onClick={()=>handleClick(user)}>info@yourownstudio.co</a> or book an intro call.</h1>
         </section>
