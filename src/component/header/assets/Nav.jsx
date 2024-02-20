@@ -32,18 +32,16 @@ const Nav = forwardRef(({refs},  ref)=> {
             {links.map((link,index) => (
                 <div
                 ref={button}
-                 className={`relative flex justify-center items-center flex-col cursor-pointer group ${index === links.length-1 ? 'border rounded-md border-black  transition duration-300 hover:bg-black hover:text-gray-50 h-1/2 ease-in-out-expo' : ''}`}>
+                 className={`relative flex justify-center items-center flex-col cursor-pointer group`}>
                 <Link
                 to={link.to}
-                style={{ height: index === links.length - 1 ? `${height}px` : '' }}
-                className={`primary-font mix-blend-difference cursor-pointer text-sm relative flex flex-col group justify-center uppercase 
-                items-center ${index === links.length-1 ? 'px-10' : '' }`}
+                className={`primary-font mix-blend-difference font-medium cursor-pointer text-sm relative flex flex-col group justify-center uppercase 
+                items-center`}
                 key={link.name}>
                     {link.name} 
-                    {index !== links.length-1 &&
-                    <span key={link} className={`absolute -bottom-0 h-[1px] w-full  bg-zinc-700 rounded-lg scale-x-0 origin-right group-hover:origin-left  group-hover:scale-x-100 transition duration-300 ease-in-out-quart`}> 
+                    <span key={link} className={`absolute -bottom-0 h-[1px] w-full  bg-zinc-700 rounded-lg scale-x-0 origin-right group-hover:origin-left  group-hover:scale-x-100 transition tracking-tight duration-300 ease-in-out-quart`}> 
                     {/* ${location.pathname===link.to ? 'scale-x-100': 'scale-x-0'} */}
-                    </span>}
+                    </span>
 
                 </Link>
                 </div>

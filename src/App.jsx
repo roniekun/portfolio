@@ -33,10 +33,11 @@ function App() {
          })
          
      const transfromWidth = useTransform(scrollYProgress, [0 , 1], [0, width])
+     
   return (
         <main 
         ref={container}
-          className="flex flex-col bg-stone-100 w-screen">
+          className="flex flex-col bg-stone-100 w-screen overflow-hidden">
          <motion.div
          style={{width: transfromWidth}} 
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />

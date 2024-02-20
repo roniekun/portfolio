@@ -42,7 +42,7 @@ const Home = () => {
     gsap.registerPlugin(ScrollTrigger)
     const tl = gsap.timeline()
     tl.to(hero.current,{
-      y:'100%',
+      y:'50%',
        ease:[0.76, 0, 0.24, 1],
        opacity:.5,
       scrollTrigger:{
@@ -52,45 +52,25 @@ const Home = () => {
         scrub: true,
       }
     })
-    gsap.to(home.current,{
-      duration:1,
-      scrollTrigger:{
-        trigger:home.current,
-        start: 'center top',
-        end:'bottom top',
-      }}
+    tl.fromTo(home.current,{
+          filter:'brightness(100%)',
+    },
+      {
+        filter:'brightness(0%)',
+        scrollTrigger:{
+            trigger:hero.current,
+            start: 'center top',
+            end:'bottom+=800px top',
+            scrub:true,
+      }
+      }
       )
 
-  }, [])
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const trigger = ScrollTrigger.create({
-      trigger: about.current,
-      start: "top top",
-      end: "bottom bottom",
-      onEnter: () => {
-        setColor('lightgray')
-        console.log(color)
-      },
-      onLeaveBack: () =>{
-        setColor('black')
-      },
-      onEnterBack: ()=> {
-      setColor('lightgray')
-
-      }
-    });
-    return () => {
-      trigger.kill(); 
-    };
-  }, [about,color]); 
-  
+  }, [,hero,home])
 
   return (
       <motion.main 
-        className='relative flex flex-col'>
+        className='relative flex flex-col top-0'>
         <section className='z-20'>
        <Header refs={refsArray} />
         </section>
@@ -101,13 +81,18 @@ const Home = () => {
         <div 
         ref={hero}
         className='w-full self-center flex j flex-col gap-y-3'>
-        <h1 className='text-4xl text-balance tracking-tight  font-semibold uppercase primary-font'>
-          Good to see you,  i'm Ronie.
+        <h1 className='text-4xl tracking-tight  font-semibold uppercase primary-font text-balance'>
+          Good to see you, <br /> I'm Ronie 
         </h1>
-          <h3
-          className='text-xl text-gray-700 font-medium leading-tight mx-2 secondary-font'>
+        <div className='flex gap-2 items-center w-fit whitespace-nowrap flex-nowrap'> 
+
+            <span
+          className='text-lg text-gray-700 font-medium leading-tight mx-2 secondary-font whitespace-normal w-3/4'>
           A frontend developer advancing to transform your visions  into  digital masterpiece.
-          </h3>
+          </span>
+        </div>
+
+
         </div >
 
         <div>
@@ -121,7 +106,7 @@ const Home = () => {
          >
          <div className='p-[5vw] flex flex-col  bg-zinc-950 h-[800px] '>
               <h1 className='text-2xl uppercase primary-font self-center mt-10 mb-20 leading-tight font-semibold text-gray-200'>
-                   About me</h1>
+                   About</h1>
               <div className='flex flex-col gap-y-5'>
               <h1 className='capitalize font-medium text-xl primary-font text-gray-200'>Web development</h1>
             <p className='secondary-font text-lg lg:w-1/2 text-balance text-stone-400 leading-tight mb-10'>
