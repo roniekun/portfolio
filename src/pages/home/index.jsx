@@ -140,16 +140,14 @@ const Home = () => {
             className='flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border h-[800px]'>
             <div 
               ref={cards}
-            className='w-full h-full bg-stone-500 overflow-auto'>
+            className='w-full h-full bg-stone-500 overflow-auto flex justify-center items-center'>
                              <h1 className='text-3xl'>Works</h1>
 
             </div>
         </section>
 
-
-
         <section 
-        className='min-h-[800px] bg-stone-600 z-10'
+        className='min-h-[800px] bg-stone-600 z-10 flex justify-center items-center'
         id='contact'
         ref={contact}>
           <h1 className='text-3xl'>Contact</h1>

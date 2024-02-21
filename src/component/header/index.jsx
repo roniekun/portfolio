@@ -19,7 +19,7 @@ const Header = ({refs}) => {
 
   return (
     <header
-          className={`w-screen top-0 transition flex flex-col relative lg:backdrop-brightness-95 z-10 
+          className={`w-screen top-0 transition flex flex-col relative  z-10 
            backdrop-blur-lg`}>
         <motion.section
             initial={{opacity: 0}}

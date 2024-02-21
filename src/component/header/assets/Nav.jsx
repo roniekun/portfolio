@@ -39,7 +39,7 @@ const Nav = forwardRef(({refs},  ref)=> {
                 items-center`}
                 key={link.name}>
                     {link.name} 
-                    <span key={link} className={`absolute -bottom-0 h-[1px] w-full  bg-zinc-700 rounded-lg scale-x-0 origin-right group-hover:origin-left  group-hover:scale-x-100 transition tracking-tight duration-300 ease-in-out-quart`}> 
+                    <span key={link} className={`absolute -bottom-[1px] h-[1px] w-full  bg-zinc-700 rounded-lg scale-x-0 origin-right group-hover:origin-left  group-hover:scale-x-100 transition tracking-tight duration-300 ease-in-out-quart`}> 
                     {/* ${location.pathname===link.to ? 'scale-x-100': 'scale-x-0'} */}
                     </span>
 
