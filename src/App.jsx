@@ -1,10 +1,10 @@
 import {  Routes, Route, useLocation,useParams } from "react-router-dom";
+import Header from "./component/header";
 import Home from "./pages/home"
 import Gallery from "./pages/gallery"
 import Notfound from "./pages/notfound"
 import Lenis from '@studio-freight/lenis'
 import gsap from "gsap";
-import Navbar from "./component/navbar"
 import Scrollbtn from "./assets/scrollto"
 import { ScrollTrigger } from "gsap/all"
 import { useRef } from 'react'
@@ -42,14 +42,15 @@ function App() {
          style={{width: transfromWidth}} 
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />
         <Scrollbtn />
-        <Navbar />
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
-            <Route exact path="/" element={<Home />} />
-             <Route exact path="/:id/" element={<Home />} />
-             <Route exact path="/gallery/" element={<Gallery />} />
-            <Route exact path="/gallery/:id/" element={<Gallery />} />
+            <Route path="/" element={<Header/>}>
+              <Route exact path="/" element={<Home />} />
+             <Route path="/:id/" element={<Home />} />
+             <Route path="/gallery/" element={<Gallery />} />
+            <Route path="/gallery/:id/" element={<Gallery />} />
             <Route  path="*" element={<Notfound/>} />
+            </Route>
           </Routes>
         </AnimatePresence>
         </main>

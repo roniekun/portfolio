@@ -4,7 +4,6 @@ import { useContext, useRef, useEffect } from 'react'
 import { DataContext } from '../../context/DataContext'
 import gsap from 'gsap'
 import Socials from './assets/Socials'
-import Close from './assets/Close'
 import { Timeline } from 'gsap/gsap-core'
 
 const Navbar = () => {
@@ -21,51 +20,51 @@ const Navbar = () => {
         { name: 'contact', to: '/contact' },
     ];
 
-    useEffect(() => {
-        gsap.registerPlugin(Timeline)
-        const tl = gsap.timeline()
+    // useEffect(() => {
+    //     gsap.registerPlugin(Timeline)
+    //     const tl = gsap.timeline()
     
-        if (isToggleMenu) {
-         document.body.style.overflow = 'hidden'
-        tl.to(menu.current, {
-             duration: .7,
-            height: '100vh',
-            ease: 'power1.in',
-             clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
-        }, 
-             tl.to(linkItems.current, {
-            opacity:1,
-            ease: 'power2.in',
-            scale: 1
-             },'+=.4',),
-        )
-        }
-        else {
-         document.body.style.overflow = 'scroll'
-        tl.to(linkItems.current, {
-                        scale: 1.1,
-                        duration: 1,
-                        rotate: -5,
-                         ease: 'power2.in',
-                         transformOrigin: '-5% -5%',
-        },'-=.3')
+    //     if (isToggleMenu) {
+    //      document.body.style.overflow = 'hidden'
+    //     tl.to(menu.current, {
+    //          duration: .7,
+    //         height: '100vh',
+    //         ease: 'power1.in',
+    //          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
+    //     }, 
+    //          tl.to(linkItems.current, {
+    //         opacity:1,
+    //         ease: 'power2.in',
+    //         scale: 1
+    //          },'+=.4',),
+    //     )
+    //     }
+    //     else {
+    //      document.body.style.overflow = 'scroll'
+    //     tl.to(linkItems.current, {
+    //                     scale: 1.1,
+    //                     duration: 1,
+    //                     rotate: -5,
+    //                      ease: 'power2.in',
+    //                      transformOrigin: '-5% -5%',
+    //     },'-=.3')
 
-        tl.to(menu.current, {
-            ease: 'power2.inOut',
-            height:'0',
-            clipPath:'polygon(0 0, 100% 0, 100% 49%, 0 16%)',
-           onComplete: () =>{
-                linkItems.current.style.opacity = 0;
-                linkItems.current.style.transform = 'rotate(0deg) translateY(-50%)';
-            }
-        },'-=.5')
-             tl.to(linkItems.current, {
-            scale: 1,
-            rotate: 0
-             })
-        }
+    //     tl.to(menu.current, {
+    //         ease: 'power2.inOut',
+    //         height:'0',
+    //         clipPath:'polygon(0 0, 100% 0, 100% 49%, 0 16%)',
+    //        onComplete: () =>{
+    //             linkItems.current.style.opacity = 0;
+    //             linkItems.current.style.transform = 'rotate(0deg) translateY(-50%)';
+    //         }
+    //     },'-=.5')
+    //          tl.to(linkItems.current, {
+    //         scale: 1,
+    //         rotate: 0
+    //          })
+    //     }
 
-    }, [isToggleMenu]);
+    // }, [isToggleMenu]);
 
     const handleClick = () => {
         setToggleMenu(!isToggleMenu)
@@ -75,15 +74,14 @@ const Navbar = () => {
   return (
     <nav
      ref={menu}
-     className='fixed w-screen flex  bg-stone-950 brightness-90 h-0 flex-col items-start justify-around  overflow-hidden z-50'>
+     className='fixed w-full flex  brightness-90 h-full flex-col items-start justify-around  overflow-hidden z-50'>
 
     <section className='absolute z-10 top-[3vw] right-[3vw]'>
-        <Close />
     </section>
 
         <section
           ref={linkItems}
-          className='flex flex-col w-fit justify-center relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-0'>
+          className='flex flex-col w-fit justify-center relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
         
                 {links.map((link, index) => (
                 <div className='flex w-fit justify-center relative items-center gap-5 group '>
@@ -91,7 +89,7 @@ const Navbar = () => {
                     to={link.to}
                     onClick={handleClick}
                     className={`z-10 relative bg-transparent cursor-pointer text-[6vh] font-semibold capitalize primary-font
-                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-gray-50'} `}
+                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-gray-700'} `}
                     key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  
