@@ -26,7 +26,7 @@ const Header = ({refs}) => {
     <>
     <header
           style={{height: isToggleMenu ? '90%' : ''}}
-          className={`w-11/12 top-5 transition flex flex-col absolute  z-20 left-1/2  transform  -translate-x-1/2 bg-opacity-25 rounded-3xl shadow-sm  backdrop-blur-lg bg-black overflow-hidden bg-blend-difference`}>
+          className={`w-11/12 top-5 transition flex flex-col absolute  z-20 left-1/2  transform  -translate-x-1/2 bg-opacity-25 rounded-3xl shadow-sm  backdrop-blur-lg bg-gray-500 overflow-hidden bg-blend-difference`}>
         <motion.section
             initial={{opacity: 0}}
             animate={{opacity: 1}}
