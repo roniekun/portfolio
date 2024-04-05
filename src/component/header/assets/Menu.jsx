@@ -29,7 +29,6 @@ const Menu = () => {
             <motion.button 
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
-                transition={{duration: .3, delay: .7}}
                 ref={btn}
                 onClick={handleClick}
                 className='bg-blend-difference group flex items-center justify-center absolute right-[5vw] text-black uppercase text-[12px] py-1 w-auto px-2 -z-10'> 

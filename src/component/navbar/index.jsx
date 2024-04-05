@@ -74,21 +74,18 @@ const Navbar = () => {
   return (
     <nav
      ref={menu}
-     className='fixed w-full flex  brightness-90 h-full flex-col items-start justify-around  overflow-hidden z-50'>
-
-    <section className='absolute z-10 top-[3vw] right-[3vw]'>
-    </section>
+     className='relative w-full flex h-full  brightness-90 flex-col gap-20 items-start justify-start overflow-hidden z-50 py-[10vw]'>
 
         <section
           ref={linkItems}
-          className='flex flex-col w-fit justify-center relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
+          className='flex flex-col w-fit justify-start relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
         
                 {links.map((link, index) => (
-                <div className='flex w-fit justify-center relative items-center gap-5 group '>
+                <div className='flex w-fit justify-start relative items-start gap-5 group  overflow-hidden'>
                     <Link
                     to={link.to}
                     onClick={handleClick}
-                    className={`z-10 relative bg-transparent cursor-pointer text-[6vh] font-semibold capitalize primary-font
+                    className={`z-10 relative bg-transparent cursor-pointer text-[5vh] font-semibold capitalize primary-font
                      flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-gray-700'} `}
                     key={link.name}>
                      {link.name} 

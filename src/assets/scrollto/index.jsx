@@ -27,7 +27,7 @@ const Scrollbtn = () => {
     {showbtn &&
         <button
         onClick={handleClick}
-         className='w-12 h-12 cursor-pointer bg-blue-600 fixed z-20 bottom-10 lg:right-10 right-5 rounded-full flex justify-center items-center shadow-2xl'>
+         className='w-16 h-16 cursor-pointer bg-blue-600 fixed z-20 bottom-10 lg:right-10 right-5 rounded-full flex justify-center items-center shadow-2xl'>
          <IoIosArrowUp className='fill-white' />
          </button>}
     </>
