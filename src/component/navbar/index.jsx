@@ -2,9 +2,7 @@ import React from 'react'
 import { useParams, Link, useLocation } from 'react-router-dom'
 import { useContext, useRef, useEffect } from 'react'
 import { DataContext } from '../../context/DataContext'
-import gsap from 'gsap'
 import Socials from './assets/Socials'
-import { Timeline } from 'gsap/gsap-core'
 
 const Navbar = () => {
     const {setToggleMenu, isToggleMenu, setLoading, isLoading} = useContext(DataContext)
@@ -86,7 +84,7 @@ const Navbar = () => {
                     to={link.to}
                     onClick={handleClick}
                     className={`z-10 relative bg-transparent cursor-pointer text-[5vh] font-semibold capitalize primary-font
-                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-gray-700'} `}
+                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-stone-900'} `}
                     key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  

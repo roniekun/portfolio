@@ -11,10 +11,10 @@ const Socials = forwardRef((_, ref) => {
         socialRefs: socialRefs.current,
     }), [socialRefs]);
 
-    useEffect(() => {
-        gsap.fromTo(socialRefs.current, { opacity: 0,  }, 
-        {opacity: 1, delay: .5, stagger: 0.1, duration: 0.3});
-    }, [socialRefs, isToggleMenu]);
+    // useEffect(() => {
+    //     gsap.fromTo(socialRefs.current, { opacity: 0,  }, 
+    //     {opacity: 1, delay: .5, stagger: 0.1, duration: 0.3});
+    // }, [socialRefs, isToggleMenu]);
 
   return (
   <main 
@@ -25,7 +25,7 @@ const Socials = forwardRef((_, ref) => {
           <a
            ref={(el) => (socialRefs.current[index] = el)}
             href={link.url}
-            className={` hover:opacity-90 w-7 h-7 justify-center flex items-center fill-gray-800 transition group-hover:-translate-y-1   text-md text-gray-800 bg-blend-difference opacity-0 uppercasexl px-1`}
+            className={` hover:opacity-90 w-8 h-8 justify-center flex items-center fill-stone-900 transition group-hover:-translate-y-1   text-md text-gray-800 bg-blend-difference opacity-1 uppercasexl px-1`}
             key={link.name}
             target="_blank"
             rel="noopener noreferrer"
