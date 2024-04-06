@@ -31,7 +31,7 @@ const Home = () => {
         setTimeout(() => {
        ref.current.scrollIntoView({behavior:'smooth'})
         setTitle(`${id.charAt(0).toUpperCase()+id.slice(1)} - ${user.title}`)
-        },300);
+        },100);
     } 
     }
     );

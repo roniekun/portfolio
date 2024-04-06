@@ -16,6 +16,7 @@ const DataProvider = ({ children  }) => {
     const [isMobile, setMobile] = useState(false)
     const [isDesktop, setDesktop] = useState(false)
     const [ scrollRef, setScrollRef ] = useState()
+    const [ yProgress, setYProgress ] = useState(0)
 
     const user = {
       title: 'Ronie Benitez',
@@ -80,7 +81,8 @@ const DataProvider = ({ children  }) => {
               isScrolled,
               isMobile, setMobile,
               isDesktop, setDesktop,
-              setToggleMenu, isToggleMenu
+              setToggleMenu, isToggleMenu,
+              yProgress, setYProgress
               }}> 
               
       {children}

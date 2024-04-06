@@ -51,7 +51,7 @@ useEffect(() => {
           animate={{opacity: 1}}
           transition={{delay: .3, duration: .3}}
           ref={header}
-          className={`mt-5 flex flex-col absolute h-auto  z-20 transform left-1/2 -translate-x-1/2  bg-opacity-25  w-11/12 rounded-3xl shadow-sm  backdrop-blur-lg bg-gray-500 overflow-hidden bg-blend-difference`}>
+          className={`mt-5 flex flex-col absolute h-auto  z-20 transform left-1/2 -translate-x-1/2  bg-opacity-25  w-11/12 rounded-3xl shadow-sm  backdrop-blur-lg bg-zinc-400 overflow-hidden bg-blend-difference`}>
         <motion.section
             className={`flex relative justify-between px-[8vw]  items-center  h-16 z-0 `}>
               <Logo />

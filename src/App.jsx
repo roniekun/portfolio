@@ -7,9 +7,10 @@ import Lenis from '@studio-freight/lenis'
 import gsap from "gsap";
 import Scrollbtn from "./assets/scrollto"
 import { ScrollTrigger } from "gsap/all"
-import { useRef } from 'react'
+import { useRef, useContext, useEffect } from 'react'
 import useWindowSize from "./hooks/useWIndowHooks/useWIndowSize";
-import { useScroll, useTransform, AnimatePresence, motion } from 'framer-motion'
+import { useScroll, useTransform, AnimatePresence, motion} from 'framer-motion'
+import { DataContext } from "./context/DataContext";
 
 function App() {
   const { id } = useParams()
@@ -27,19 +28,24 @@ function App() {
   gsap.ticker.lagSmoothing(0)
 
     const container = useRef(null)
+    const {setYProgress } = useContext(DataContext)
     const { scrollYProgress } = useScroll({
         target:container,
         offset: ['start start', 'end end' ]
          })
          
-     const transfromWidth = useTransform(scrollYProgress, [0 , 1], [0, width])
-     
+    useEffect(() => {
+      setYProgress( scrollYProgress )
+    }, [scrollYProgress])
+    
+      const calcWidth = useTransform(scrollYProgress, [0 , 1], [0, width])
+    
   return (
         <main 
         ref={container}
           className="flex flex-col bg-stone-100 w-screen overflow-hidden">
          <motion.div
-         style={{width: transfromWidth}} 
+         style={{width: calcWidth}} 
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />
         <Scrollbtn />
           <AnimatePresence mode="wait">
