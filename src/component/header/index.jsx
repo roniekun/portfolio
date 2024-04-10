@@ -10,7 +10,6 @@ import Nav from './assets/Nav'
 import { Outlet } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
-import { Timeline } from 'gsap/gsap-core';
 
 const Header = ({refs}) => {
   // const [homeButton, setHomeButton] = useState(false)
@@ -30,14 +29,14 @@ const Header = ({refs}) => {
 
 useEffect(() => {
   if(isToggleMenu){
-    gsap.to(nav.current,{height: '80vh', ease:'power2.inOut'})
-    gsap.fromTo(nav.current,{duration: .5, delay: 1, y: -25, ease: 'power1.in'},{y: 0, opacity: 1})
+    gsap.to(nav.current,{height: 'auto', ease:'power2.inOut'})
+    gsap.fromTo(nav.current,{duration: .5, delay: 1, y: -5, ease: 'power1.in'},{delay: .3, y: 0, opacity: 1})
   }
   else{
     gsap.to(nav.current,{
-        ease: '[0.76, 0, 0.24, 1]',
         height: 0,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        opacity: 0
       })
   }
 }, [isToggleMenu])
