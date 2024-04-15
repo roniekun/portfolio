@@ -101,7 +101,7 @@ const Home = () => {
          ref={about} 
          >
          <div className='p-[5vw] flex flex-col  bg-zinc-950 h-[800px] '>
-              <h1 className='text-2xl uppercase primary-font self-center mt-20 mb-20 leading-tight font-semibold text-gray-200'>
+              <h1 className='text-2xl uppercase primary-font self-center mt-20 mb-10 leading-tight font-semibold text-gray-200'>
                    About</h1>
               <div className='flex flex-col gap-y-5'>
               <h1 className='capitalize font-medium text-xl primary-font text-gray-200'>Web development</h1>
