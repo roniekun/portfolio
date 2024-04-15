@@ -11,7 +11,7 @@ import { Outlet } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 
-const Header = ({refs}) => {
+const Header = () => {
   // const [homeButton, setHomeButton] = useState(false)
   const { isMobile, isScrolled, isToggleMenu, color, setToggleMenu} = useContext(DataContext)
   const location = useLocation()
@@ -32,6 +32,7 @@ useEffect(() => {
     gsap.to(nav.current,{height: 'auto', ease:'power2.inOut'})
     gsap.fromTo(nav.current,{duration: .5, delay: 1, y: -5, ease: 'power1.in'},{delay: .3, y: 0, opacity: 1})
   }
+
   else{
     gsap.to(nav.current,{
         height: 0,
@@ -51,9 +52,9 @@ useEffect(() => {
           ref={header}
           className={`mt-5 flex flex-col fixed h-auto  z-20 transform left-1/2 -translate-x-1/2  bg-opacity-20  w-11/12 rounded-3xl shadow-md  backdrop-blur-lg bg-zinc-200 overflow-hidden bg-blend-difference`}>
         <motion.section
-            className={`flex relative justify-between px-[8vw]  items-center  h-16 z-0 `}>
+            className={`flex relative justify-between px-[5vw]  items-center  py-6 z-0 `}>
               <Logo />
-            { !isToggleMenu ? (isMobile ? <Menu /> : <Nav refs={refs}/>) : 
+            { !isToggleMenu ? (isMobile ? <Menu /> : <Nav />) : 
             <button className='px-2 absolute right-[5vw] '  onClick={handleClose}><SlClose className='h-7 w-7' /></button>}
         </motion.section>
         <section

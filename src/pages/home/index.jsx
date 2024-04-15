@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useRef, useEffect, useContext } from 'react'
+import { useRef, useEffect, useContext, useMemo } from 'react'
 import { DataContext } from '../../context/DataContext'
 import Footer from '../../component/footer'
 import gsap from 'gsap'
@@ -25,7 +25,7 @@ const Home = () => {
     setTitle(`${location.title} - ${user.title} `)
   }, [location.pathname])
 
-  useEffect(() => {
+ useEffect(() => {
     refsArray.forEach((ref) => {
       if(ref.current.id === id){
         setTimeout(() => {
@@ -35,7 +35,7 @@ const Home = () => {
     } 
     }
     );
-  }, [])
+  }, [id])
 
     useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -101,7 +101,7 @@ const Home = () => {
          ref={about} 
          >
          <div className='p-[5vw] flex flex-col  bg-zinc-950 h-[800px] '>
-              <h1 className='text-2xl uppercase primary-font self-center mt-10 mb-20 leading-tight font-semibold text-gray-200'>
+              <h1 className='text-2xl uppercase primary-font self-center mt-20 mb-20 leading-tight font-semibold text-gray-200'>
                    About</h1>
               <div className='flex flex-col gap-y-5'>
               <h1 className='capitalize font-medium text-xl primary-font text-gray-200'>Web development</h1>

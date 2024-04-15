@@ -2,16 +2,11 @@ import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect, useRef, forwardRef, useImperativeHandle, useContext } from 'react';
 import { DataContext } from '../../../context/DataContext';
 
-const Nav = forwardRef(({refs},  ref)=> {
+const Nav = () => {
     const button = useRef(null)
     const [height, setHeight] = useState()
     const { color } = useContext(DataContext)
-
-
     let { id } = useParams()
-     useImperativeHandle(ref, () => ({
-      refs
-    }));
 
     const links = [
         { name: 'about', to: '/about' },
@@ -35,7 +30,7 @@ const Nav = forwardRef(({refs},  ref)=> {
                  className={`relative flex justify-center items-center flex-col cursor-pointer group`}>
                 <Link
                 to={link.to}
-                className={`primary-font mix-blend-difference font-medium cursor-pointer text-sm relative flex flex-col group justify-center uppercase 
+                className={`primary-font mix-blend-difference font-medium cursor-pointer text-md relative flex flex-col group justify-center uppercase 
                 items-center`}
                 key={link.name}>
                     {link.name} 
@@ -48,6 +43,6 @@ const Nav = forwardRef(({refs},  ref)=> {
             ))}
         </main>
     );
-});
+};
 
 export default Nav;

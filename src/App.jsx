@@ -50,7 +50,7 @@ function App() {
         <Scrollbtn />
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
-            <Route path="/" element={<Header/>}>
+            <Route path="/" element={<Header />}>
               <Route exact path="/" element={<Home />} />
              <Route path="/:id/" element={<Home />} />
              <Route path="/gallery/" element={<Gallery />} />
