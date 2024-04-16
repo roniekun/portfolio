@@ -53,7 +53,7 @@ const DataProvider = ({ children  }) => {
       // responsive screen size
         useEffect(() => {
                   const handleResize = () => {
-                    setMobile(window.innerWidth <= 640 && window.innerWidth < 1024 )
+                    setMobile(window.innerWidth  < 1024 )
                     setDesktop(window.innerWidth >= 1024)
                     setToggleMenu(false)
                 }
