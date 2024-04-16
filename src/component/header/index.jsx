@@ -55,7 +55,7 @@ useEffect(() => {
             className={`flex relative justify-between px-[5vw]  items-center  md:py-6 py-4 z-0 `}>
               <Logo />
             { !isToggleMenu ? (isMobile ? <Menu /> : <Nav />) : 
-            <button className='px-2 absolute right-[5vw] '  onClick={handleClose}><SlClose className='h-7 w-7' /></button>}
+            <button className='absolute right-[5vw] '  onClick={handleClose}><SlClose className='h-7 w-7' /></button>}
         </motion.section>
         <section
         className='relative flex overflow-hidden'
