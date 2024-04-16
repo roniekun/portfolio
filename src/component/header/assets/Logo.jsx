@@ -12,8 +12,8 @@ const Logo = () => {
     <main 
     onClick={handleClick}
     className='primary-font tracking-wide title-font text-base transition duration-500 text-gray-800
-    text-left font-medium relative select-none cursor-pointer'>
-      <h1>favicon</h1>
+    text-left font-bold relative select-none cursor-pointer'>
+      <h1>RONIECODE</h1>
     </main>
   )
 }
