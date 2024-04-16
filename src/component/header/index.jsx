@@ -52,7 +52,7 @@ useEffect(() => {
           ref={header}
           className={`mt-5 flex flex-col fixed h-auto  z-20 transform left-1/2 -translate-x-1/2  bg-opacity-20  w-11/12 rounded-3xl  backdrop-blur-lg bg-zinc-200 overflow-hidden bg-blend-difference`}>
         <motion.section
-            className={`flex relative justify-between px-[5vw]  items-center  py-6 z-0 `}>
+            className={`flex relative justify-between px-[5vw]  items-center  md:py-6 py-4 z-0 `}>
               <Logo />
             { !isToggleMenu ? (isMobile ? <Menu /> : <Nav />) : 
             <button className='px-2 absolute right-[5vw] '  onClick={handleClose}><SlClose className='h-7 w-7' /></button>}

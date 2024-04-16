@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
   <footer className='h-auto relative min-h-[400px] w-full  grid lg:grid-cols-2 p-[5vw] bg-stone-200'>
-    <div className='absolute h-[1px] w-11/12 bg-zinc-700 top-0 left-1/2 transform -translate-x-1/2' />
+    {/* <div className='absolute h-[1px] w-11/12 bg-zinc-700 top-0 left-1/2 transform -translate-x-1/2' /> */}
 
         <section className='relative col-span-1 flex w-full h-full flex-wrap'>
             <h1 className='primary-font text-left font-medium  md:text-xl text-lg p-[2vw] lg:leading-10 md:leading-9 leading-8'>
