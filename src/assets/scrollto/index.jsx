@@ -5,14 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 
-
-
-
 const Scrollbtn = () => {
     const [showbtn, setShowbtn] = useState(false)
     const navigate = useNavigate()
     const button = useRef(null)
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,11 +21,10 @@ const Scrollbtn = () => {
       }
     }, [])
     
-
 gsap.registerPlugin(useGSAP);
   useGSAP (() => {
     if(showbtn){
-    gsap.fromTo(button.current, {
+    gsap.fromTo('.w-16', {
       scale: 0, duration: .3, ease: 'power1.in'
     }
     , {scale: 1})
@@ -40,7 +35,7 @@ gsap.registerPlugin(useGSAP);
     })
     }
   }
-  ,[showbtn])
+  , {dependencies: [showbtn]})
   
     const handleClick = () =>{
         window.scrollTo({top, behavior: 'smooth'})
@@ -51,6 +46,7 @@ gsap.registerPlugin(useGSAP);
     <>
         <button
         ref={button}
+        id='btn'
         onClick={handleClick}
          className='w-16 h-16 cursor-pointer scale-0 bg-blue-600 fixed z-20 bottom-10 lg:right-10 right-5 rounded-full flex justify-center
           items-center shadow-2xl'>
