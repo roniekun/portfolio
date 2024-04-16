@@ -16,27 +16,17 @@ const Footer = () => {
     <div className='absolute h-[1px] w-11/12 bg-zinc-700 top-0 left-1/2 transform -translate-x-1/2' />
 
         <section className='relative col-span-1 flex w-full h-full flex-wrap'>
-            <h1 className='primary-font text-left font-medium text-xl p-[2vw] lg:leading-10 md:leading-9 leading-8'>
+            <h1 className='primary-font text-left font-medium  md:text-xl text-lg p-[2vw] lg:leading-10 md:leading-9 leading-8'>
                 Interested in working together? <br />
                 Get in touch at <a className='text-blue-700 cursor-pointer hover:opacity-85'
                 onClick={()=>handleClick(user)}>roniebenitez01@gmail.com</a> or book an intro call.</h1>
         </section>
 
-    <section className='lg:items-center p-[2vw] relative flex flex-col'>
-    <div className='p-[2vw] secondary-font'>
-        <p>Terms of Services</p>
-        <p>Privacy policy</p>
-    </div>
-    </section>
-
-    <section className='p-[2vw]'>
+    <section className='p-[2vw] flex justify-end primary-font font-semi-bold'>
     <div className='text-left'>
         <h2 className='capitalize secondart-font font-base'>
             all rights reserved  <br /> &copy;{date.getUTCFullYear()}
         </h2>
-        <h4>created by <a href="http://roniecode.vercel.app" target='_blank'>
-         Ronie</a>
-        </h4>
     </div>
     </section>
 

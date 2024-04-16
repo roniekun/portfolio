@@ -31,9 +31,9 @@ const Menu = () => {
                 animate={{opacity: 1}}
                 ref={btn}
                 onClick={handleClick}
-                className='bg-blend-difference group flex items-center justify-center absolute right-[5vw] text-black uppercase text-[12px] py-1 w-auto px-2 -z-10'> 
+                className='bg-blend-difference group flex items-center justify-center absolute right-[5vw]  uppercase text-[12px] py-1 w-auto px-2 -z-10'> 
        
-                <CgMenuRight className='opacity-90 group-hover:opacity-80 w-7 h-7' />
+                <CgMenuRight className='group-hover:opacity-80 w-7 h-7' />
                 </motion.button>
          </AnimatePresence>
   )
