@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useContext, useMemo } from 'react'
 import { DataContext } from '../../context/DataContext'
+import Works from './res/Works'
 import Footer from '../../component/footer'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -120,7 +121,7 @@ const Home = () => {
           className='flex min-h-[800px] flex-col  bg-zinc-600'>
           <div className='p-[5vw] flex flex-col gap-5 mt-20'>
             <h1 className='uppercase text-4xl font-semibold primary-font'>what i do</h1>
-              <p className='text-xl leading-tight'>
+              <p className='text-xl leading-tight md:w-3/4  self-end'>
                 My goal is to provide a digital experience that serves a meaningful purpose while also giving your business a significant advantage.</p> 
           </div>
             </section>
@@ -128,13 +129,8 @@ const Home = () => {
           <section
           ref={works}
           id='works'
-            className='flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border h-[800px]'>
-            <div 
-              ref={cards}
-            className='w-full h-full bg-stone-500 overflow-auto flex justify-center items-center'>
-                             <h1 className='text-3xl'>Works</h1>
-
-            </div>
+            className='flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border min-h-[800px]'>
+            <Works/>
         </section>
 
         <section 
