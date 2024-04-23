@@ -5,13 +5,13 @@ import About from './res/About'
 import Works from './res/Works'
 import Services from './res/Services'
 import Footer from '../../component/footer'
+import Contact from './res/Contact'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const Home = () => {
   const { user, setTitle, setColor, color } = useContext(DataContext)
-  const cards = useRef(null)
   const services = useRef(null)
   const about = useRef(null)
   const works = useRef(null)
@@ -114,10 +114,10 @@ const Home = () => {
         </section>
 
         <section 
-        className='min-h-[800px] bg-stone-600 z-10 flex justify-center items-center'
+        className='min-h-[800px] bg-stone-600 z-10 flex justify-center'
         id='contact'
         ref={contact}>
-          <h1 className='text-3xl'>Contact</h1>
+        <Contact />
         </section>
       
       {/* footer */}
