@@ -2,10 +2,9 @@ import React from 'react';
 import {linksData } from '../utils/linksData';
 
 const Socials = ({footerStyles, navbarStyles}) => {
-
   return (
   <main 
-    style={{...footerStyles, navbarStyles}}
+    style={{...footerStyles, navbarStyles}} 
     className="gap-5 flex flex-wrap  relative p-2 px-5 mx-[5vw]">
       {linksData.map((link, index) => (
         <div className="flex justify-evenly gap-5" 

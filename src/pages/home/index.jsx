@@ -87,13 +87,7 @@ const Home = () => {
           A frontend developer advancing to transform your visions  into  digital masterpiece.
           </span>
         </div>
-
-
         </div >
-
-        <div>
-        <h3></h3>
-        </div>
         </section>
        <section
         className='z-10 rounded-t-3xl min-h-[800px]'
@@ -120,13 +114,14 @@ const Home = () => {
             </div>
          </div>
         </section>
-          
           <section
           id='services'
           ref={services}
-          className=' bg-stone-300  rounded-t-3xl '>
-          <div className='min-h-[800px]  bg-zinc-600 flex justify-center items-center'>
-                              <h1 className='text-3xl'>Services</h1>
+          className='flex min-h-[800px] flex-col  bg-zinc-600'>
+          <div className='p-[5vw] flex flex-col gap-5 mt-20'>
+            <h1 className='uppercase text-4xl font-semibold primary-font'>what i do</h1>
+              <p className='text-xl leading-tight'>
+                My goal is to provide a digital experience that serves a meaningful purpose while also giving your business a significant advantage.</p> 
           </div>
             </section>
 
