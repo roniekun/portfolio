@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { useState, useEffect,useContext, useRef } from 'react'
 import { DataContext } from '../../context/DataContext'
 import Logo from './assets/Logo'
+import { motion } from 'framer-motion'
 import FloatingMenu from './assets/FloatingMenu'
 import Navbar from '../navbar'
 import Nav from './assets/Nav'
@@ -38,9 +39,11 @@ useEffect(() => {
 }, [isToggleMenu, isMobile])
 
   return (
-    <header
+    <motion.header
+     initial={{opacity: 0}}
+     animate={{opacity: 1, transition:{ duration: .3, delay: .3}}}
       ref={header}
-      className={`mt-5 fixed h-auto z-20  overflow-hidden w-auto bg-opacity-20 backdrop-blur-lg bg-white  rounded-3xl transform left-1/2 -translate-x-1/2 `}>
+      className={`mt-5 fixed h-auto z-20  overflow-hidden w-auto bg-opacity-20 backdrop-blur-lg bg-white  rounded-3xl transform left-1/2 -translate-x-1/2 opacity-0 `}>
           {/* {isScrolled ?
           <section className='p-5'> 
           <FloatingMenu />
@@ -61,7 +64,7 @@ useEffect(() => {
         ref={nav}>
         {isMobile && <Navbar/>}
         </section>
-    </header>
+    </motion.header>
   )
 }
 
