@@ -2,17 +2,15 @@ import React from 'react'
 import Menu from './assets/Menu'
 import { useLocation } from 'react-router-dom'
 import { useState, useEffect,useContext, useRef } from 'react'
-import { SlClose } from "react-icons/sl";
 import { DataContext } from '../../context/DataContext'
 import Logo from './assets/Logo'
+import FloatingMenu from './assets/FloatingMenu'
 import Navbar from '../navbar'
 import Nav from './assets/Nav'
-import { Outlet } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import gsap from 'gsap'
+import { useGSAP } from '@gsap/react';
 
 const Header = () => {
-  // const [homeButton, setHomeButton] = useState(false)
   const { isMobile, isScrolled, isToggleMenu, color, setToggleMenu} = useContext(DataContext)
   const location = useLocation()
 
@@ -20,9 +18,6 @@ const Header = () => {
   const header = useRef(null)
   const nav = useRef(null)
 
-  // useEffect(() => {
-  //   setHomeButton(location.pathname !== '/' ? true : false)
-  // }, [location])
   const handleClose = () => {
     setToggleMenu(false)
   }
@@ -36,35 +31,37 @@ useEffect(() => {
   else{
     gsap.to(nav.current,{
         height: 0,
-        overflow: 'hidden',
         opacity: 0
       })
   }
-}, [isToggleMenu])
 
+}, [isToggleMenu, isMobile])
 
   return (
-    <>
-    <motion.header
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
-          transition={{delay: .3, duration: .3}}
-          ref={header}
-          className={`mt-5 flex flex-col fixed h-auto  z-20 transform left-1/2 -translate-x-1/2  bg-opacity-20  w-11/12 rounded-3xl  backdrop-blur-lg bg-white overflow-hidden bg-blend-difference`}>
-        <motion.section
-            className={`flex relative justify-between px-[5vw]  items-center  md:py-6 py-4 z-0 `}>
+    <header
+      ref={header}
+      className={`mt-5 fixed h-auto z-20  overflow-hidden w-auto bg-opacity-20 backdrop-blur-lg bg-white  rounded-3xl transform left-1/2 -translate-x-1/2 `}>
+          {/* {isScrolled ?
+          <section className='p-5'> 
+          <FloatingMenu />
+          </section>
+          : */}
+          <section className='flex flex-col  md:w-[calc(100vw-100px)] w-[calc(100vw-50px)  overflow-hidden'>
+        <div
+            className={`flex relative  justify-between  items-center  h-16  z-0  w-[90vw]`}>
+            <div >
               <Logo />
-            { !isToggleMenu ? (isMobile ? <Menu /> : <Nav />) : 
-            <button className='absolute right-[5vw] '  onClick={handleClose}><SlClose className='h-7 w-7' /></button>}
-        </motion.section>
+            </div>
+              {isMobile ? <Menu /> : <Nav />}
+        </div>
+          </section>
+
         <section
-        className='relative flex overflow-hidden'
+        className='relative flex'
         ref={nav}>
         {isMobile && <Navbar/>}
         </section>
-    </motion.header>
-    <Outlet />
-    </>
+    </header>
   )
 }
 

@@ -47,16 +47,15 @@ function App() {
          <motion.div
          style={{width: calcWidth}} 
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />
+         <Header />
         <Scrollbtn />
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
-            <Route path="/" element={<Header />}>
               <Route exact path="/" element={<Home />} />
              <Route path="/:id/" element={<Home />} />
              <Route path="/gallery/" element={<Gallery />} />
             <Route path="/gallery/:id/" element={<Gallery />} />
             <Route  path="*" element={<Notfound/>} />
-            </Route>
           </Routes>
         </AnimatePresence>
         </main>
