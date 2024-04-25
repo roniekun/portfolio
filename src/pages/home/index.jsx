@@ -7,6 +7,7 @@ import Services from './res/Services'
 import Footer from '../../component/footer'
 import Contact from './res/Contact'
 import gsap from 'gsap'
+import Avatar from './assets/Avatar'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -49,7 +50,7 @@ const Home = () => {
        opacity:.5,
       scrollTrigger:{
         trigger: home.current,
-        start: 'top+=20% top',
+        start: 'top+=80% top',
         end: 'bottom-=20% top+=10%',
         scrub: true,
       }
@@ -61,7 +62,7 @@ const Home = () => {
         filter:'brightness(0%)',
         scrollTrigger:{
             trigger:hero.current,
-            start: 'center top',
+            start: 'center+=50% top',
             end:'bottom+=800px top',
             scrub:true,
       }
@@ -75,23 +76,24 @@ const Home = () => {
         className='relative flex flex-col top-0'>
         <section 
         ref={home}
-        className='min-h-[800px] flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center
+        className='min-h-[800px] flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-auto
          items-center z-0 overflow-hidden'>
         <div 
         ref={hero}
-        className='w-full self-center flex j flex-col gap-y-3'>
+        className='w-full self-center flex  flex-col gap-y-3 mt-[20%]'>
         <h1 className='text-4xl tracking-tight  font-semibold uppercase primary-font text-balance'>
           Good to see you, <br /> I'm Ronie 
         </h1>
-        <div className='flex gap-2 items-center w-fit whitespace-nowrap flex-nowrap'> 
+        </div >
 
+         <div className='flex gap-2 items-center w-fit whitespace-nowrap flex-nowrap my-[20%]'> 
             <span
-          className='text-lg text-gray-700 font-medium leading-tight mx-2 secondary-font whitespace-normal w-3/4'>
-          A frontend developer advancing to transform your visions  into  digital masterpiece.
+          className='text-xl text-gray-700 font-medium leading-tight mx-2 primary-font text-center  whitespace-normal w-full'>
+          A frontend developer <br />
+          advancing to transform <br /> your visions  into <br />  digital masterpiece.
           </span>
         </div>
-        </div >
-        <span className='absolute bottom-20  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
+        <span className='absolute bottom-50  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
         </section>
 
        <section
