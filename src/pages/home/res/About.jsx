@@ -2,9 +2,8 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>         
-         <div className='p-[5vw] flex flex-col  bg-zinc-950 h-[800px] '>
-              <h1 className='text-2xl uppercase primary-font self-center mt-20 mb-10 leading-tight font-semibold text-gray-200'>
+         <main className='p-[5vw] flex flex-col  bg-zinc-950 min-h-[800px] '>
+              <h1 className='text-3xl uppercase primary-font self-center mt-20 mb-10 leading-tight font-semibold text-gray-200'>
                    About</h1>
               <div className='flex flex-col gap-y-5'>
               <h1 className='capitalize font-medium text-xl primary-font text-gray-200'>Web development</h1>
@@ -20,9 +19,14 @@ const About = () => {
                   and server management, to create end-to-end 
                   solutions that provide seamless functionality and deliver an exceptional user experience.
              </p>
-            </div>
-         </div>
-         </div>
+            </div> 
+            <section className='w-full flex justify-center min-h-[400px] py-20'>
+              <h1 className='text-blue-200 uppercase primary-font text-2xl font-semibold '>tech stack</h1>
+            </section>
+             <section className='w-full flex justify-center min-h-[400px] py-20'>
+              <h1 className='text-blue-200 primary-font text-2xl font-semibold uppercase'>roadmap</h1>
+            </section>
+         </main>
   )
 }
 

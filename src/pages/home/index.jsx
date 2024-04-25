@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useRef, useEffect, useContext, useMemo } from 'react'
+import { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 import About from './res/About'
 import Works from './res/Works'
@@ -91,7 +91,9 @@ const Home = () => {
           </span>
         </div>
         </div >
+        <span className='absolute bottom-20  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
         </section>
+
        <section
         className='z-10 rounded-t-3xl min-h-[800px]'
         id='about'
