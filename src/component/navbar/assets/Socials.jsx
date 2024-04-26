@@ -1,6 +1,5 @@
 import {forwardRef ,useRef, useEffect, useImperativeHandle, useContext} from 'react';
-import {linksData } from '../utils/linksData';
-import gsap from 'gsap';
+import {linksData } from '../../../utils/data/linksData';
 import { DataContext } from '../../../context/DataContext';
 
 const Socials = forwardRef((_, ref) => {

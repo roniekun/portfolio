@@ -79,12 +79,12 @@ const Navbar = () => {
           className='flex flex-col w-fit justify-start relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
         
                 {links.map((link, index) => (
-                <div className='flex w-fit justify-start relative items-start gap-5 group  overflow-hidden'>
+                <div className='flex w-fit justify-start relative items-start group  overflow-hidden'>
                     <Link
                     to={link.to}
                     onClick={handleClick}
-                    className={`z-10 relative bg-transparent cursor-pointer text-[5vh] font-semibold capitalize primary-font
-                     flex text-balance h-[5vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-stone-900'} `}
+                    className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-semibold capitalize primary-font
+                     flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-stone-900'} `}
                     key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  
