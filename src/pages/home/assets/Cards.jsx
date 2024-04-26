@@ -14,18 +14,17 @@ const Cards = () => {
   }
 
   return (
-    <main  className='space-y-5  place-items-center h-auto l group relative w-full '>
+    <main  className='gap-10 place-items-center h-auto l group relative w-full lg:grid lg:grid-cols-2 '>
     {cardData.map((card, index)=>( 
     <div key={index}
         onClick={()=>handleClick(index)}
           onMouseEnter={() => setHoveredItem(index)}
           onMouseLeave={() => setHoveredItem(null)}
-         className={`flex group flex-col w-[calc(100vw-5vw)] h-[500px] lg:w-[calc(100vw-500px)] lg:h-[600px] md:h-[800px]  
-          gap-5 relative border contrast-100 border-black  
-         cursor-pointer rounded-lg`}>
+         className={`flex group my-5 flex-col w-[calc(100vw-7vw)] h-[500px] lg:w-[700px] lg:h-[600px] md:h-[800px]  
+          gap-5 relative border contrast-100 border-black cursor-pointer rounded-lg`}>
         <img className='lg:w-11/12 w-full h-5/6 relative border border-zinc-400 self-center object-cover mt-2' 
         src="" alt="thumbnail" />
-        <div className='px-[2vw] flex flex-col gap-2'>
+        <div className=' flex flex-col gap-2'>
          <h1 className='text-lg capitalize text-zinc-900 primary-font font-semibold'>
           {card.title}
          </h1>
