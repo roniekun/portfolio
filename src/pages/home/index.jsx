@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
 import { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
-import About from './res/About'
-import Works from './res/Works'
-import Services from './res/Services'
+import About from './section/About'
+import Works from './section/Works'
+import Services from './section/Services'
 import Footer from '../../component/footer'
-import Contact from './res/Contact'
+import Contact from './section/Contact'
 import gsap from 'gsap'
 import Avatar from './assets/Avatar'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -80,21 +80,25 @@ const Home = () => {
          items-center z-0 overflow-hidden'>
         <div 
         ref={hero}
-        className='w-full self-center flex  flex-col gap-y-3 mt-[20%]'>
+        className='w-full self-center flex  flex-col gap-y-3 '>
         <h1 className='text-4xl tracking-tight  font-semibold uppercase primary-font text-balance'>
           Good to see you, <br /> I'm Ronie 
         </h1>
         </div >
+        <span className='absolute bottom-20  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
+        </section>
 
-         <div className='flex gap-2 items-center w-fit whitespace-nowrap flex-nowrap my-[20%]'> 
+        <section className='w-full flex justify-center items-center flex-col py-20 bg-black'>
+         <div><Avatar /></div>
+         <div className='flex gap-2 items-center w-fit whitespace-nowrap flex-nowrap my-[5%]'> 
             <span
-          className='text-xl text-gray-700 font-medium leading-tight mx-2 primary-font text-center  whitespace-normal w-full'>
+          className='md:text-2xl text-xl  text-gray-50  font-medium leading-tight mx-2 primary-font text-center  whitespace-normal w-full'>
           A frontend developer <br />
           advancing to transform <br /> your visions  into <br />  digital masterpiece.
           </span>
         </div>
-        <span className='absolute bottom-50  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
         </section>
+
 
        <section
         className='z-10 rounded-t-3xl min-h-[800px]'
