@@ -1,13 +1,12 @@
 import React from 'react'
+import myImage from "./images/avatar.jpg"
 
 const Avatar = () => {
   return (
-    <main className='flex flex-col place-items-center gap-y-2'>
-      <div className='rounded-xl border-2 border-gray-100 h-[500px] md:w-[500px] w-[calc(100vw-1rem)] object-cover flex justify-center items-center' >
-            <img src="" alt="avatar" placeholder='blur' />
+      <div className='rounded-xl border-2 border-gray-100 h-[500px] md:w-[500px] w-[calc(100vw-1rem)] object-cover  flex overflow-hidden' >
+            <img className='object-cover' src={myImage} alt="avatar" placeholder='blur' />
           </div>
 
-    </main>
   )
 }
 
