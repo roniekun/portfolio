@@ -90,12 +90,12 @@ const Home = () => {
 
         <section className='w-full flex justify-center items-center flex-col py-20 bg-black'>
          <div><Avatar /></div>
-         <div className='flex gap-2 items-center w-fit whitespace-nowrap flex-nowrap my-[5%]'> 
-            <span
-          className='md:text-2xl text-xl  text-gray-50  font-medium leading-tight mx-2 primary-font text-center  whitespace-normal w-full'>
+         <div className='flex gap-5 items-center w-fit whitespace-nowrap flex-nowrap my-[5%]'> 
+          <h3
+          className='md:text-2xl text-xl leading-10 text-blue-100  font-medium mx-2 primary-font text-center  whitespace-normal w-full'>
           A frontend developer <br />
-          advancing to transform <br /> your visions  into <br />  digital masterpiece.
-          </span>
+          advancing to transform <br /> your visions  into <br /> <span className='capitalize text-blue-300'> digital masterpiece.</span>
+          </h3>
         </div>
         </section>
 
