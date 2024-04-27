@@ -50,7 +50,7 @@ const Home = () => {
        opacity:.5,
       scrollTrigger:{
         trigger: home.current,
-        start: 'top+=80% top',
+        start: 'top+=20% top',
         end: 'bottom-=20% top+=10%',
         scrub: true,
       }
@@ -62,8 +62,8 @@ const Home = () => {
         filter:'brightness(0%)',
         scrollTrigger:{
             trigger:hero.current,
-            start: 'center+=50% top',
-            end:'bottom+=800px top',
+            start: 'center top',
+            end:'bottom+=600px top',
             scrub:true,
       }
       }

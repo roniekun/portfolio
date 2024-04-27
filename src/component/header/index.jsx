@@ -46,7 +46,7 @@ useEffect(() => {
       className={`mt-5 fixed h-auto z-20  overflow-hidden w-auto bg-opacity-20 backdrop-blur-lg bg-white  rounded-3xl transform left-1/2 -translate-x-1/2 opacity-0 `}>
           <section className='flex flex-col  md:w-[calc(100vw-100px)] w-[calc(100vw-50px)  overflow-hidden'>
         <div
-            className={`flex relative  justify-between  items-center  md:h-16 h-14  z-0  w-[90vw]`}>
+            className={`flex relative  justify-between  items-center  md:h-16 h-[3.5rem]  z-0  w-[90vw]`}>
             <div >
               <Logo />
             </div>
