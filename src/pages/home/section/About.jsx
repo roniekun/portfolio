@@ -1,8 +1,45 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const About = () => {
+
+  const container = useRef(null)
+
+  useGSAP (()=> {
+      gsap.registerPlugin(ScrollTrigger);
+      const trigger = ScrollTrigger.create({
+      trigger: container.current,
+      start: "top-=400px top",
+      end: "bottom bottom",
+      onEnter: () => {
+            gsap.to(container.current,{opacity: 1})
+      },
+      onLeaveBack: () => {
+                    gsap.to(container.current,{opacity: 0})        
+
+      },
+      onLeave:() =>{
+        console.log('leave')
+
+      },
+      onEnterBack: ()=> {
+        console.log('entered back')
+
+      }
+    });
+
+    return () => {
+      trigger.kill(); 
+    }
+
+  },{scope: container.current}) 
+
   return (
-         <main className='p-[5vw] flex flex-col  bg-zinc-950 min-h-[800px] '>
+    <main className=' bg-zinc-950'>
+     <div ref={container}
+         className='main p-[5vw] flex flex-col  bg-zinc-950 min-h-[800px] w-full opacity-0'>
               <h1 className='text-3xl uppercase primary-font self-center mt-20 mb-10 leading-tight font-semibold text-gray-200'>
                    About</h1>
               <div className='flex flex-col gap-y-5'>
@@ -26,7 +63,8 @@ const About = () => {
              <section className='w-full flex justify-center min-h-[400px] py-20'>
               <h1 className='text-blue-200 primary-font text-2xl font-semibold uppercase'>roadmap</h1>
             </section>
-         </main>
+         </div>
+    </main>
   )
 }
 
