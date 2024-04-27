@@ -28,8 +28,8 @@ const Menu = () => {
                 animate={{opacity: 1}}
                 ref={btn}
                 onClick={handleClick}
-                className='bg-blend-difference group flex items-center justify-center relative mx-[5vw] font-bold uppercase primary-font w-auto  -z-10 border px-1 border-black rounded-lg'> 
-                    {isToggleMenu ? <span className='transition duration-300'>close</span> : <span className='transition duration-300'>menu</span>}
+                className='bg-blend-difference group flex items-center justify-center uppercase primary-font relative mx-[7vw] w-auto  -z-10 rounded-lg'> 
+                    {isToggleMenu ? <span className='transition duration-300'>Close</span> : <span className='transition duration-300'>Menu</span>}
                  </motion.button>
          </AnimatePresence>
   )

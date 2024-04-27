@@ -25,7 +25,7 @@ const Header = () => {
 
 useEffect(() => {
   if(isToggleMenu){
-    gsap.to(nav.current,{height: 'auto', ease:'power2.inOut'})
+    gsap.to(nav.current,{height: 'auto',  ease:'power2.inOut'})
     gsap.fromTo(nav.current,{duration: .5, delay: 1, y: -5, ease: 'power1.in'},{delay: .3, y: 0, opacity: 1})
   }
 
@@ -43,7 +43,7 @@ useEffect(() => {
      initial={{opacity: 0}}
      animate={{opacity: 1, transition:{ duration: .3, delay: .3}}}
       ref={header}
-      className={`mt-5 fixed h-auto z-20  overflow-hidden w-auto bg-opacity-[10%] backdrop-blur-lg bg-white bg-blend-difference  rounded-3xl transform left-1/2 -translate-x-1/2 opacity-0 `}>
+      className={`mt-5 fixed h-auto z-20  overflow-hidden w-auto bg-opacity-[10%] bg-white backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2 -translate-x-1/2 opacity-0 `}>
           <section className='flex flex-col  md:w-[calc(100vw-100px)] w-[calc(100vw-50px)  overflow-hidden'>
         <div
             className={`flex relative  justify-between  items-center  md:h-16 h-[3.5rem]  z-0  w-[90vw]`}>
