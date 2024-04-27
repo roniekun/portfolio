@@ -30,7 +30,7 @@ const Nav = () => {
                 ref={button}
                  className={`relative flex justify-center items-center flex-col cursor-pointer group`}>
                 <a
-                className={`primary-font mix-blend-difference font-medium cursor-pointer text-md relative flex flex-col group justify-center uppercase 
+                className={`primary-font mix-blend-difference cursor-pointer text-md relative flex flex-col group justify-center uppercase 
                 items-center`}
                 onClick={() => handleClick(link.to)}
                 key={link.name}>

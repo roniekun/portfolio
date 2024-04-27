@@ -50,7 +50,6 @@ function App() {
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />
          <Header />
         <Scrollbtn />
-        <Cookie />
           <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
               <Route exact path="/" element={<Home />} />
