@@ -92,7 +92,7 @@ const Home = () => {
          <div><Avatar /></div>
          <div className='flex gap-5 items-center w-fit whitespace-nowrap flex-nowrap my-[5%]'> 
           <h3
-          className='md:text-2xl text-xl leading-10 text-blue-100  font-medium mx-2 primary-font text-center  whitespace-normal w-full'>
+          className='md:text-2xl text-xl leading-10 md:leading-relaxed text-blue-100  font-medium mx-2 primary-font text-center w-full'>
           A frontend developer <br />
           advancing to transform <br /> your visions  into <br /> <span className='capitalize text-blue-300'> digital masterpiece.</span>
           </h3>

@@ -22,7 +22,7 @@ const Cards = () => {
           onMouseLeave={() => setHoveredItem(null)}
          className={`flex group my-5 flex-col w-[calc(100vw-7vw)] h-[500px] lg:w-[700px] lg:h-[600px] md:h-[800px]  
           gap-5 relative border contrast-100 border-black cursor-pointer rounded-lg overflow-hidden`}>
-        <img className='lg:w-11/12 w-full h-full relative border border-zinc-400 self-center object-cover md:mt-5 ' 
+        <img className='lg:w-11/12 w-full h-full relative border border-zinc-400 self-center object-cover lg:mt-5' 
         src="" alt="thumbnail" />
         <div className=' flex flex-col gap-2 self-center'>
          <h1 className='text-md uppercase text-zinc-900 primary-font font-semibold'>
