@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { animate, motion } from 'framer-motion'
 import { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 import About from './section/About'
@@ -10,6 +10,7 @@ import gsap from 'gsap'
 import Avatar from './assets/Avatar'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useNavigate, useParams } from 'react-router-dom'
+import splitString from '../../assets/anim/SplitStrings'
 
 const Home = () => {
   const { user, setTitle, setColor, color } = useContext(DataContext)
@@ -23,12 +24,18 @@ const Home = () => {
   const refsArray = [ about, services, works, contact]
   let { id } = useParams()
   const navigate = useNavigate()
+  const heroText = "Good to see you, I'm Ronie";
+  const wordsArray = heroText.split(/(\s+)/);
+    const heroChars = useRef([])
+
+  // gsap.registerPlugin(SplitText)
+  // let splitText = new SplitText("split", {type: "chars"})
 
   useEffect(() => {
     location.title = 'Freelance'
     setTitle(`${location.title} - ${user.title} `)
   }, [location.pathname])
-
+  
  useEffect(() => {
     refsArray.forEach((ref) => {
       if(ref.current.id === id){
@@ -40,6 +47,17 @@ const Home = () => {
     }
     );
   }, [id])
+
+  useEffect(() => {
+    heroChars.current.forEach((el) => {
+      const randomDelay = Math.random(.3, 3) 
+      gsap.to(el, {
+        opacity: 1,
+        duration: .3,
+        delay: randomDelay
+      });
+    });
+  }, [heroChars.current]);
 
     useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -71,6 +89,8 @@ const Home = () => {
 
   }, [,hero,home])
 
+  const text = splitString(heroText)
+
   return (
       <motion.main 
         className='relative flex flex-col top-0'>
@@ -79,12 +99,17 @@ const Home = () => {
         className='min-h-[800px] flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-auto
          items-center z-0 overflow-hidden'>
         <div 
-        ref={hero}
-        className='w-full self-center flex  flex-col gap-y-3 '>
-        <h1 className='text-4xl tracking-tight  font-semibold uppercase primary-font text-balance'>
-          Good to see you, <br /> I'm Ronie 
-        </h1>
-        </div >
+          ref={hero}
+          className='w-full self-center flex gap-y-3' >
+            <h1
+             className='text-4xl tracking-tight font-semibold uppercase primary-font text-balance'>
+               {text.map((char, index) => (
+                <span className='opacity-0' key={index}  ref={(el) => (heroChars.current[index] = el)} >
+                {char}{index === 15 && <br/>}</span>
+               ))}
+            </h1>
+   
+        </div>
         <span className='absolute bottom-20  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
         </section>
 
