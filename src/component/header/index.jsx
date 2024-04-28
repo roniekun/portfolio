@@ -34,13 +34,13 @@ const Header = () => {
 
   useGSAP(()=>{
     if(isScrolled){
-    gsap.to(header.current,{opacity: 0, duration: .3})
+    gsap.to(header.current,{opacity: 0, y: -10, duration: .3})
     setTimeout(() => {
               header.current.style.display="none"
       }, 100);
     }
     else{
-      gsap.to(header.current,{opacity: 1,duration: .3})
+      gsap.to(header.current,{opacity: 1, y: 0, duration: .3})
       setTimeout(() => {
               header.current.style.display="block"
       }, 100);

@@ -21,21 +21,21 @@ const Scrollbtn = () => {
       }
     }, [])
     
-gsap.registerPlugin(useGSAP);
-  useGSAP (() => {
-    if(showbtn){
-    gsap.fromTo('.w-16', {
-      scale: 0, duration: .3, ease: 'power1.in'
-    }
-    , {scale: 1})
-    }
-    else{
-      gsap.to(button.current, {
-      scale: 0, duration: .3, ease: 'power2.out'
-    })
-    }
-  }
-  , {dependencies: [showbtn]})
+    gsap.registerPlugin(useGSAP);
+      useGSAP (() => {
+        if(showbtn){
+        gsap.fromTo('.w-16', {
+          scale: 0, duration: .3, ease: 'power1.in'
+        }
+        , {scale: 1})
+        }
+        else{
+          gsap.to(button.current, {
+          scale: 0, duration: .3, ease: 'power2.out'
+        })
+        }
+      }
+      , {dependencies: [showbtn]})
   
     const handleClick = () =>{
         window.scrollTo({top, behavior: 'smooth'})
