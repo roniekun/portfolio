@@ -39,7 +39,6 @@ gsap.registerPlugin(useGSAP);
   
     const handleClick = () =>{
         window.scrollTo({top, behavior: 'smooth'})
-                navigate('/', { replace: true });
     }
 
   return (
