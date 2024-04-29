@@ -10,11 +10,6 @@ const Socials = forwardRef((_, ref) => {
         socialRefs: socialRefs.current,
     }), [socialRefs]);
 
-    // useEffect(() => {
-    //     gsap.fromTo(socialRefs.current, { opacity: 0,  }, 
-    //     {opacity: 1, delay: .5, stagger: 0.1, duration: 0.3});
-    // }, [socialRefs, isToggleMenu]);
-
   return (
   <main 
     className="gap-x-5 gap-y-3 flex flex-wrap relative mx-[10vw]">
