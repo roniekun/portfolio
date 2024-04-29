@@ -19,52 +19,6 @@ const Navbar = () => {
         { name: 'contact', to: '/contact' },
     ];
 
-    // useEffect(() => {
-    //     gsap.registerPlugin(Timeline)
-    //     const tl = gsap.timeline()
-    
-    //     if (isToggleMenu) {
-    //      document.body.style.overflow = 'hidden'
-    //     tl.to(menu.current, {
-    //          duration: .7,
-    //         height: '100vh',
-    //         ease: 'power1.in',
-    //          clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
-    //     }, 
-    //          tl.to(linkItems.current, {
-    //         opacity:1,
-    //         ease: 'power2.in',
-    //         scale: 1
-    //          },'+=.4',),
-    //     )
-    //     }
-    //     else {
-    //      document.body.style.overflow = 'scroll'
-    //     tl.to(linkItems.current, {
-    //                     scale: 1.1,
-    //                     duration: 1,
-    //                     rotate: -5,
-    //                      ease: 'power2.in',
-    //                      transformOrigin: '-5% -5%',
-    //     },'-=.3')
-
-    //     tl.to(menu.current, {
-    //         ease: 'power2.inOut',
-    //         height:'0',
-    //         clipPath:'polygon(0 0, 100% 0, 100% 49%, 0 16%)',
-    //        onComplete: () =>{
-    //             linkItems.current.style.opacity = 0;
-    //             linkItems.current.style.transform = 'rotate(0deg) translateY(-50%)';
-    //         }
-    //     },'-=.5')
-    //          tl.to(linkItems.current, {
-    //         scale: 1,
-    //         rotate: 0
-    //          })
-    //     }
-
-    // }, [isToggleMenu]);
-
     const handleClick = () => {
         setToggleMenu(!isToggleMenu)
         setLoading(!isLoading)
@@ -95,9 +49,9 @@ const Navbar = () => {
             ))}
 
         </section>
-    <section className='flex flex-col gap-5'>
+    <section className='flex flex-col gap-5 w-full'>
             <Socials ref={socialsRef} /> 
-       <div className='flex flex-col gap-1 mx-[11vw] mt-[5vw]'>
+       <div className='flex flex-col gap-1 mx-[5vw] mt-[5vw] self-end w-32 '>
         <span className='uppercase text-black primary-font text-[11px]'>local time</span>
         <Clock /></div>
     </section>
