@@ -4,6 +4,7 @@
       trigger: cards.current,
       start: "top top",
       end: "bottom bottom",
+
       onEnter: () => {
         console.log('entered')
         

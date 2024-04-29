@@ -3,6 +3,7 @@ import { useParams, Link, useLocation } from 'react-router-dom'
 import { useContext, useRef, useEffect } from 'react'
 import { DataContext } from '../../context/DataContext'
 import Socials from './assets/Socials'
+import Clock from './assets/Clock'
 
 const Navbar = () => {
     const {setToggleMenu, isToggleMenu, setLoading, isLoading} = useContext(DataContext)
@@ -73,7 +74,7 @@ const Navbar = () => {
     <nav
      ref={menu}
      className='relative w-full flex h-full  brightness-90 flex-col gap-20 items-start justify-start overflow-hidden z-50 py-[10vw]'>
-
+        <div className='self-end bg-black p-2 mx-[5vw]'><Clock /></div>
         <section
           ref={linkItems}
           className='flex flex-col w-fit justify-start relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
@@ -84,7 +85,7 @@ const Navbar = () => {
                     to={link.to}
                     onClick={handleClick}
                     className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-medium capitalize primary-font
-                     flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-blue-600' : 'text-stone-900'} `}
+                     flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-lime-400' : 'text-black'} `}
                     key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  

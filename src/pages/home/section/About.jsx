@@ -17,7 +17,7 @@ const About = () => {
       start: "top-=300px top",
       end: "bottom bottom",
       onEnter: () => {
-            tl.to(container.current,{opacity: 1, stagger: .2, duration: .3})
+            tl.to(container.current,{opacity: 1, stagger: .1, duration: .3})
             tl.from(wd.current,{opacity: 0 , y: 5})
             tl.from(ebt.current,{opacity: 0, y: 5})
 
@@ -51,8 +51,8 @@ const About = () => {
               <div
               ref={wd}
                className='flex flex-col gap-y-5'>
-              <h1 className='capitalize font-medium text-xl primary-font text-blue-300'>Web development</h1>
-            <p className='secondary-font text-lg lg:w-1/2  text-stone-400 leading-tight mb-10 indent-5'>
+              <h1 className='capitalize font-medium text-xl primary-font text-blue-500'>Web development</h1>
+            <p className='secondary-font text-lg lg:w-1/2  text-blue-50 leading-tight mb-10 indent-5'>
             Adapting to the ever-evolving world of web development, crafting intuitive interfaces and functional websites
             that engage users and convey the essence of a brand or concept. </p>
               </div>
@@ -60,8 +60,8 @@ const About = () => {
             <div
             ref={ebt}  
              className='flex flex-col gap-y-5'>
-             <h1 className='capitalize font-medium text-xl primary-font leading-snug text-blue-300'>exploring backend Technologies</h1>
-             <p className='secondary-font text-lg lg:w-1/2  text-stone-400 leading-tight mb-10 indent-5'>
+             <h1 className='capitalize font-medium text-xl primary-font leading-snug text-blue-500'>exploring backend Technologies</h1>
+             <p className='secondary-font text-lg lg:w-1/2  text-blue-50 leading-tight mb-10 indent-5'>
                   My journey extends beyond frontend design; I continually explore and master back-end technologies, databases,
                   and server management, to create end-to-end 
                   solutions that provide seamless functionality and deliver an exceptional user experience.

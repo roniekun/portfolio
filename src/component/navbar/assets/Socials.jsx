@@ -24,7 +24,7 @@ const Socials = forwardRef((_, ref) => {
           <a
            ref={(el) => (socialRefs.current[index] = el)}
             href={link.url}
-            className={` hover:opacity-90 w-7 h-7 justify-center flex items-center fill-stone-900 transition group-hover:-translate-y-1   text-md text-gray-800 bg-blend-difference opacity-1 uppercasexl px-1`}
+            className={` hover:opacity-90 w-7 h-7 justify-center flex items-center fill-black transition group-hover:-translate-y-1   text-md text-gray-800 bg-blend-difference opacity-1 uppercasexl px-1`}
             key={link.name}
             target="_blank"
             rel="noopener noreferrer"

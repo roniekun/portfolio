@@ -21,10 +21,9 @@ const Clock = () => {
     timeZone: 'Asia/Manila',
   };
 
-
   return (
-    <main className='mx-[10vw]'>
-        <h1 className='text-zinc-200 text-2xl uppercase'>
+    <main >
+        <h1 className='text-lime-400 text-sm lowercase'>
         {currentTime.toLocaleTimeString([], timeOptions)}
         </h1>
     </main>

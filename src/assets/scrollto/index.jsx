@@ -47,9 +47,9 @@ const Scrollbtn = () => {
         ref={button}
         id='btn'
         onClick={handleClick}
-         className='w-16 h-16 cursor-pointer scale-0 bg-blue-600 fixed z-50 bottom-10 rounded-full flex lg:mx-[calc(100vw-100px)] mx-[calc(100vw-80px)] justify-center
+         className='w-16 h-16 cursor-pointer scale-0 bg-lime-400 fixed z-50 bottom-10 rounded-full flex lg:mx-[calc(100vw-100px)] mx-[calc(100vw-80px)] justify-center
           items-center shadow-2xl'>
-                 <IoIosArrowUp className='fill-white w-7 h-7' />
+                 <IoIosArrowUp className='fill-black w-7 h-7' />
          </button>
     </>
   )

@@ -1,13 +1,13 @@
-import { animate, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
+import Profile from './section/Profile'
 import About from './section/About'
 import Works from './section/Works'
 import Services from './section/Services'
 import Footer from '../../component/footer'
 import Contact from './section/Contact'
 import gsap from 'gsap'
-import Avatar from './assets/Avatar'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useNavigate, useParams } from 'react-router-dom'
 import splitString from '../../assets/anim/SplitStrings'
@@ -23,13 +23,8 @@ const Home = () => {
   const hero = useRef(null)
   const refsArray = [ about, services, works, contact]
   let { id } = useParams()
-  const navigate = useNavigate()
-  const heroText = "Good to see you, I'm Ronie";
-  const wordsArray = heroText.split(/(\s+)/);
-    const heroChars = useRef([])
-
-  // gsap.registerPlugin(SplitText)
-  // let splitText = new SplitText("split", {type: "chars"})
+  const heroText = "Good to see you, I'm Ronie"
+  const heroChars = useRef([])
 
   useEffect(() => {
     location.title = 'Freelance'
@@ -57,6 +52,7 @@ const Home = () => {
         delay: randomDelay
       });
     });
+
   }, [heroChars.current]);
 
     useEffect(() => {
@@ -113,20 +109,12 @@ const Home = () => {
         <span className='absolute bottom-20  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
         </section>
 
-        <section className='w-full flex justify-center items-center flex-col py-20 bg-black'>
-         <div><Avatar /></div>
-         <div className='flex gap-5 items-center w-fit whitespace-nowrap flex-nowrap my-[5%]'> 
-          <h3
-          className='md:text-2xl text-xl leading-8 md:leading-normal text-blue-100  font-medium mx-2 primary-font text-center w-full'>
-          A frontend developer <br />
-          advancing to transform <br /> your visions  into <br /> <span className='capitalize text-blue-300'> digital masterpiece.</span>
-          </h3>
-        </div>
+        <section>
+          <Profile />
         </section>
 
-
        <section
-        className='z-10 rounded-t-3xl min-h-[800px]'
+        className='min-h-[800px]'
         id='about'
          ref={about} >
             <About />
