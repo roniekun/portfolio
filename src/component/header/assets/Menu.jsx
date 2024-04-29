@@ -9,6 +9,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Menu = () => {
     const { setToggleMenu, isToggleMenu } = useContext(DataContext)
     const btn = useRef(null) 
+
+      useEffect(() => {
+                 let interval = null
+                let iteration = 0;
+                const initialContent = btn.current.textContent
+                clearInterval(interval);
+                 interval = setInterval(() => {
+                btn.current.textContent = btn.current.textContent.split("")
+                .map((letter, index) => {
+                    if(index < iteration) {
+                    return initialContent[index];
+                    }
+                    return letters[Math.floor(Math.random() * 26)]
+                })
+                .join("");
+                
+                if(iteration >= btn.current.textContent.length){ 
+                clearInterval(interval);
+                }
+                iteration += 1/3;
+            }, 100);
+    }, [])
+    
  
         useEffect(() => {
         if (isToggleMenu) {

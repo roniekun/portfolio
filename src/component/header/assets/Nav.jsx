@@ -13,6 +13,30 @@ const Nav = () => {
         { name: 'works', to: '/works' },
         { name: 'contact', to: '/contact' }
     ];
+    useEffect(() => {
+            linkArray.current.forEach((linkRef, index)=>{
+                 let interval = null
+                let iteration = 0;
+                const initialContent = linkRef.textContent
+                clearInterval(interval);
+                 interval = setInterval(() => {
+                linkRef.textContent = linkRef.textContent.split("")
+                .map((letter, index) => {
+                    if(index < iteration) {
+                    return initialContent[index];
+                    }
+                    return letters[Math.floor(Math.random() * 26)]
+                })
+                .join("");
+                
+                if(iteration >= linkRef.textContent.length){ 
+                clearInterval(interval);
+                }
+                iteration += 1/3 ;
+            }, 30);
+            })
+    }, [])
+    
           const handleMouseEvent = (i, event) => {
             linkArray.current.forEach((linkRef, index)=>{
                 if(i===index){
@@ -32,8 +56,8 @@ const Nav = () => {
                 if(iteration >= linkRef.textContent.length){ 
                 clearInterval(interval);
                 }
-                iteration += 1/2 ;
-            }, 30);
+                iteration += 1 ;
+            }, 100);
                 }
             })
             }
