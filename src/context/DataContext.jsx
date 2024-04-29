@@ -17,12 +17,13 @@ const DataProvider = ({ children  }) => {
     const [isDesktop, setDesktop] = useState(false)
     const [ scrollRef, setScrollRef ] = useState()
     const [ yProgress, setYProgress ] = useState(0)
-
+    const [ inView, setInView ] = useState(false)
+    
     const user = {
       title: 'Ronie Benitez',
       name: 'Ronie Benitez',
       email: 'roniebenitez01@gmail.com',
-      subject: 'Project Request'
+      subject: 'Web Development Project'
     }
     useEffect(() => {
       setTimeout(() => {
@@ -67,8 +68,6 @@ const DataProvider = ({ children  }) => {
           }
         }, [])
 
-
-        
   return (
     <DataContext.Provider 
       value={{
@@ -82,7 +81,8 @@ const DataProvider = ({ children  }) => {
               isMobile, setMobile,
               isDesktop, setDesktop,
               setToggleMenu, isToggleMenu,
-              yProgress, setYProgress
+              yProgress, setYProgress,
+              inView, setInView
               }}> 
               
       {children}

@@ -14,7 +14,6 @@ import { useGSAP } from '@gsap/react';
 const Header = () => {
   const { isMobile, isScrolled, isToggleMenu, color, setToggleMenu} = useContext(DataContext)
   const location = useLocation()
-
   // refs
   const header = useRef(null)
   const nav = useRef(null)
@@ -50,7 +49,7 @@ const Header = () => {
   return (
     <motion.header
       ref={header}
-      className={`md:mt-5 mt-3 fixed transition duration-300  border-2   h-auto z-20 border-lime-400 overflow-hidden w-auto bg-opacity-[10%] bg-white backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2 -translate-x-1/2`}>
+      className={`md:mt-5 mt-3 fixed transition shadow-inner duration-300  h-auto z-20 overflow-hidden w-auto bg-opacity-[10%] bg-white backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2 -translate-x-1/2`}>
           <section className='flex flex-col   md:w-[calc(100vw-100px)] w-[calc(100vw-50px)   overflow-hidden'>
         <motion.div
           nitial={{opacity:0}}

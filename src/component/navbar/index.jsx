@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <nav
      ref={menu}
-     className='relative w-full flex h-full  brightness-90 flex-col gap-20 items-start justify-start overflow-hidden z-50 py-[10vw]'>
+     className='relative w-full flex h-full  brightness-90 flex-col gap-16 items-start justify-start overflow-hidden z-50 py-[10vw]'>
         <div className='self-end bg-black py-2 px-4 mx-[5vw]'><Clock /></div>
         <section
           ref={linkItems}
