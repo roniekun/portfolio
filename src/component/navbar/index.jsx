@@ -51,7 +51,7 @@ const Navbar = () => {
         </section>
     <section className='flex flex-col gap-5 w-full'>
             <Socials ref={socialsRef} /> 
-       <div className='flex flex-col gap-1 mx-[5vw] mt-[5vw] self-end w-32 '>
+       <div className='flex flex-col gap-1 mx-[2vw] mt-[5vw] self-end w-32 '>
         <span className='uppercase text-black primary-font text-[11px]'>local time</span>
         <Clock /></div>
     </section>
