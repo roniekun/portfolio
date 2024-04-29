@@ -1,9 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { letters } from '../../../utils/letters';
 
 const Nav = () => {
     const button = useRef(null)
     const [height, setHeight] = useState()
+    const linkArray = useRef([])
 
     const links = [
         { name: 'about', to: '/about' },
@@ -11,36 +13,53 @@ const Nav = () => {
         { name: 'works', to: '/works' },
         { name: 'contact', to: '/contact' }
     ];
+          const handleMouseEvent = (i, event) => {
+            linkArray.current.forEach((linkRef, index)=>{
+                if(i===index){
+                 let interval = null
+                let iteration = 0;
+                clearInterval(interval);
+                 interval = setInterval(() => {
+                linkRef.textContent = linkRef.textContent.split("")
+                .map((letter, index) => {
+                    if(index < iteration) {
+                    return event.target.dataset.value[index];
+                    }
+                    return letters[Math.floor(Math.random() * 26)]
+                })
+                .join("");
+                
+                if(iteration >= linkRef.textContent.length){ 
+                clearInterval(interval);
+                }
+                iteration += 1/2 ;
+            }, 30);
+                }
+            })
+            }
 
-    useEffect(() => {
-        if(button){
-            const height = button.current.offsetHeight
-            setHeight(height)
-        }
-    }, [button])
+            const navigate = useNavigate()
+            const handleClick = (link) => {
+                    navigate(link, {replace: true})
+            }
 
-     const navigate = useNavigate()
-     const handleClick = (link) => {
-            navigate(link, {replace: true})
-    }    
     return (
-        <main className='gap-14 flex items-center  relative  justify-center h-full mx-10'>
+        <main className='gap-x-10 flex items-center  relative  justify-center mx-5 h-full'>
             {links.map((link,index) => (
-                <div
-                ref={button}
-                 className={`relative flex justify-center items-center flex-col cursor-pointer group`}>
-                <a
-                className={`primary-font mix-blend-difference cursor-pointer text-md relative flex flex-col group justify-center uppercase 
-                items-center`}
+            <div key={index} 
+            className='flex flex-col'>
+            <a
+                onMouseEnter={(e)=> handleMouseEvent(index, e)}
+                onMouseLeave={(e)=> handleMouseEvent(index, e)}
+                 ref={(el) => (linkArray.current[index] = el)}
+                data-value={link.name}
                 onClick={() => handleClick(link.to)}
-                key={link.name}>
-                    {link.name} 
-                    <span key={link} className={`absolute -bottom-[1px] h-[1px] w-full  bg-black rounded-lg scale-x-0 origin-right group-hover:origin-left  group-hover:scale-x-100 transition tracking-tight duration-300 ease-in-out-quart`}> 
-                    {/* ${location.pathname===link.to ? 'scale-x-100': 'scale-x-0'} */}
-                    </span>
-
+                key={link.name}
+                 className={`group w-28 primary-font mix-blend-difference cursor-pointer text-md  rounded-3xl relative flex flex-col group justify-center uppercase hover:bg-lime-300
+                items-center`}>
+                 {link.name} 
                 </a>
-                </div>
+            </div>
             ))}
         </main>
     );

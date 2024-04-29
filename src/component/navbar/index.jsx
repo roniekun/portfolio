@@ -7,7 +7,6 @@ import Clock from './assets/Clock'
 
 const Navbar = () => {
     const {setToggleMenu, isToggleMenu, setLoading, isLoading} = useContext(DataContext)
-    const linkArray = useRef([])
     const location = useLocation()
     const menu = useRef(null)
     const linkItems= useRef(null)
@@ -24,32 +23,6 @@ const Navbar = () => {
         setToggleMenu(!isToggleMenu)
         setLoading(!isLoading)
     }
-        const handleMouseEvent = (i, event) => {
-            linkArray.current.forEach((linkRef, index)=>{
-                if(i===index){
-                 let interval = null
-                let iteration = 0;
-                clearInterval(interval);
-                 interval = setInterval(() => {
-                linkRef.textContent = linkRef.textContent.split("")
-                .map((letter, index) => {
-                    if(index < iteration) {
-                    return event.target.dataset.value[index];
-                    }
-                    return lettersComp[Math.floor(Math.random() * 52)]
-                })
-                .join("");
-                
-                if(iteration >= linkRef.textContent.length){ 
-                clearInterval(interval);
-                }
-                iteration += 1/2 ;
-            }, 30);
-                }
-
-            })
-
-            }
 
   return (
     <nav
@@ -64,10 +37,6 @@ const Navbar = () => {
                 <div className='flex w-fit justify-start relative items-start group  overflow-hidden'>
                     <Link
                     to={link.to}
-                    data-value={link.name}
-                    ref={(el) => (linkArray.current[index] = el)}
-                    onMouseEnter={(e)=> handleMouseEvent(index, e)}
-                    onMouseLeave={(e)=> handleMouseEvent(index, e)}
                     onClick={handleClick}
                     className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-medium capitalize primary-font
                      flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-lime-400' : 'text-black'} `}
