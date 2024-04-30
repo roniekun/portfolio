@@ -1,12 +1,56 @@
 import React from 'react'
+import gsap from 'gsap'
+ import ScrollTrigger from 'gsap/ScrollTrigger'
+ import { useGSAP } from '@gsap/react'
 
 const Services = () => {
+
+  const text ="My goal is to provide a digital experience that serves a meaningful purpose while also giving your business a significant advantage."
+  const words = text.split(" ")
+  console.log(words)
+
+  useGSAP(()=>{
+     gsap.registerPlugin(ScrollTrigger);
+
+    const trigger = ScrollTrigger.create({
+      trigger: ".parent",
+      start: "top-=400px top",
+      end: "bottom bottom",
+
+      onEnter: () => {
+        gsap.fromTo(".word", { y: "100%"},{y:"0%", stagger: .01, duration: .3})
+        
+      },
+      onLeaveBack: () => {
+        gsap.to(".word", { y: "100%",})
+
+      },
+      onLeave:() =>{
+
+      },
+      onEnterBack: ()=> {
+        console.log('entered back')
+
+      }
+    });
+
+    return () => {
+      trigger.kill(); 
+    }
+  })
+
   return (
-          <div className='p-[5vw] flex flex-col lg:gap-5 gap-2 mt-14'>
-              <h1 className='uppercase text-2xl font-semibold primary-font my-5 text-blue-600'></h1>
-              <p className='text-xl leading-tight md:w-3/4  self-end primary-font indent-10'>
-                My goal is to provide a digital experience that serves a meaningful purpose while also giving your business a significant advantage.</p> 
+    <main className='relative flex justify-center items-center min-h-[800px] bg-white'>
+          <div className='flex flex-wrap mt-14 mx-[5vw] justify-left'>
+              {words.map((word,idx) => (
+            <div className='parent flex w-fit h-fit mr-2 overflow-hidden'>
+                 <div className='word md:text-3xl text-[6vw] text-stone-900 leading-normal font-semibold primary-font transform translate-y-10'>
+                  {word}
+               </div> 
+           </div>
+              ))}
           </div>
+    </main>
   )
 }
 
