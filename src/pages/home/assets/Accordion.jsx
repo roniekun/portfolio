@@ -21,19 +21,19 @@ const Accordion = () => {
                     <div className='group lg:py-8 md:py-7 py-5 space-y-5'>
                     <span className='text-sm border rounded-lg border-gray-600 px-1 bg-lime-400 m-2  text-black'>
                     #0{index+1}</span>
-                        <h1
+                        <h2
                             key={index}
                             onClick={() =>  handleClick(index)} 
-                            className='cursor-pointer text-lg font-base px-2 text-stone-950'>
+                            className='cursor-pointer text-base font-base px-2 text-stone-950'>
                              {data.question}
-                        </h1>
+                        </h2>
                     </div>
                     <motion.div 
                     animate={{height: isActive[index]? 'auto' : '0'}}
                     transition={{ease: [0.87, 0, 0.13, 1], duration: .5}}
                     // ref={(el) => (answers.current[index] = el)}
                     className='overflow-hidden  transition h-0 duration-300 flex rounded-md'>
-                        <h1 className='mx-2 text-stone-600 text-md text-balance leading-snug lg:my-5 my-2 indent-10' >{data.answer}</h1>
+                        <h3 className='mx-2 text-stone-600 text-base text-balance leading-snug lg:my-5 my-2 indent-10' >{data.answer}</h3>
                     </motion.div>
                   { index !== questions.length-1 && <span className='h-[1px] w-full bg-stone-700'/>}
                 </div>
