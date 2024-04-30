@@ -26,7 +26,7 @@ export const questions = [
     },
     {
         question: "What technologies and frameworks do you work with?",
-        answer: "I work with a variety of technologies and frameworks such as HTML5, CSS3, ReactJS, TailwindCSS, Node.js, ExpressJS, NestJS MongoDB, MySQL, and more."
+        answer: "I work with a variety of technologies and frameworks such as HTML5, CSS3, ReactJS, TailwindCSS, Node.js, ExpressJS, NestJS, MongoDB, MySQL, and more."
     },
     {
         question: "Can you redesign existing websites?",
