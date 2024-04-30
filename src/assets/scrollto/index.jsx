@@ -1,5 +1,5 @@
 import React from 'react'
-import { IoIosArrowUp } from "react-icons/io";
+import { LuArrowUpToLine } from "react-icons/lu";
 import { useState, useEffect, useRef} from 'react'
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
@@ -12,7 +12,7 @@ const Scrollbtn = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-        setShowbtn(window.scrollY > 0)
+        setShowbtn(window.scrollY > 400)
         }
 
         window.addEventListener('scroll', handleScroll)
@@ -24,7 +24,7 @@ const Scrollbtn = () => {
     gsap.registerPlugin(useGSAP);
       useGSAP (() => {
         if(showbtn){
-        gsap.fromTo('.w-16', {
+        gsap.fromTo(button.current, {
           scale: 0, duration: .3, ease: 'power1.in'
         }
         , {scale: 1})
@@ -47,9 +47,8 @@ const Scrollbtn = () => {
         ref={button}
         id='btn'
         onClick={handleClick}
-         className='w-16 h-16 cursor-pointer scale-0 bg-lime-400 fixed z-50 bottom-10 rounded-full flex lg:mx-[calc(100vw-100px)] mx-[calc(100vw-80px)] justify-center
-          items-center shadow-2xl'>
-                 <IoIosArrowUp className='fill-black w-7 h-7' />
+         className='cursor-pointer scale-0 bg-white fixed z-50 bottom-10 rounded-full flex justify-center md:h-16 md:w-16 h-12 w-12 items-center shadow-2xl left-1/2 transform -translate-x-1/2 shadow-glow hover:shadow-glow-hover transition duration-300'>
+                 <LuArrowUpToLine className='w-7 h-7 brightness-200' />
          </button>
     </>
   )

@@ -32,7 +32,6 @@ const Menu = () => {
             }, 100);
     }, [])
     
- 
         useEffect(() => {
         if (isToggleMenu) {
             document.body.style.overflow = 'hidden'
