@@ -5,6 +5,7 @@ import Profile from './section/Profile'
 import About from './section/About'
 import Works from './section/Works'
 import Services from './section/Services'
+import Accordion from './assets/Accordion'
 import Footer from '../../component/footer'
 import Contact from './section/Contact'
 import gsap from 'gsap'
@@ -133,6 +134,11 @@ const Home = () => {
             className='flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border min-h-[800px]'>
             <Works/>
         </section>
+
+          <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center primary-font py-[5vw]'>
+          <h1 className='mt-5 font-semibold text-3xl'>FAQ's</h1>
+            <Accordion />
+          </section>
 
         <section 
         className='min-h-[800px] bg-stone-600 z-10 flex justify-center'

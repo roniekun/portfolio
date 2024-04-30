@@ -24,7 +24,7 @@ const Gallery = () => {
         <div className='h-screen flex place-items-center justify-center'>
          { isValid ?  
          <div className='h-full w-full flex flex-col justify-center items-center'>
-          <h1 className='text-3xl'> Featured Posts {id}</h1>
+          <h1 className='text-2xl lg:text-3xl primary-font'> Featured Posts {id}</h1>
           <p>Display grid of images*</p>
          </div>
           :
