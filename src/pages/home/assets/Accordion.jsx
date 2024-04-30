@@ -33,7 +33,7 @@ const Accordion = () => {
                     transition={{ease: [0.87, 0, 0.13, 1], duration: .5}}
                     // ref={(el) => (answers.current[index] = el)}
                     className='overflow-hidden  transition h-0 duration-300 flex rounded-md'>
-                        <h1 className='mx-2 text-stone-600 text-lg leading-snug lg:my-5 my-2' >{data.answer}</h1>
+                        <h1 className='mx-2 text-stone-600 text-lg leading-snug lg:my-5 my-2 indent-10 text-balance' >{data.answer}</h1>
                     </motion.div>
                   { index !== questions.length-1 && <span className='h-[1px] w-full bg-stone-700'/>}
                 </div>
