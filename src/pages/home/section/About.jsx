@@ -45,7 +45,7 @@ const About = () => {
   return (
     <main className=' bg-zinc-950'>
      <div ref={container}
-         className='main p-[5vw] flex flex-col  bg-zinc-950 min-h-[800px] w-full opacity-0'>
+         className='main p-[5vw] flex flex-col  bg-black min-h-[800px] w-full opacity-0'>
               <h1 className='text-3xl uppercase primary-font self-center mt-20 mb-10 leading-tight font-semibold text-gray-200'>
                    About</h1>
               <div
