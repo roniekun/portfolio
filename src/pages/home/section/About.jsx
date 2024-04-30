@@ -67,12 +67,12 @@ const About = () => {
                   solutions that provide seamless functionality and deliver an exceptional user experience.
              </p>
             </div> 
-            <section className='w-full flex justify-center min-h-[400px] py-20'>
+            {/* <section className='w-full flex justify-center min-h-[400px] py-20'>
               <h1 className='text-gray-100 uppercase primary-font text-2xl font-semibold '>tech stack</h1>
             </section>
              <section className='w-full flex justify-center min-h-[400px] py-20'>
               <h1 className='text-gray-100 primary-font text-2xl font-semibold uppercase'>roadmap</h1>
-            </section>
+            </section> */}
          </div>
     </main>
   )
