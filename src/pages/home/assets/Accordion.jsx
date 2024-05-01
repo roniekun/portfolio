@@ -15,11 +15,11 @@ const Accordion = () => {
     };
 
     return (
-        <main className='h-auto w-full flex flex-col'>
+        <main className='h-auto w-full flex flex-col gap-5'>
             {questions.map((data, index) => (
-                <div key={index} className='flex flex-col '>
-                    <div className='group lg:py-8 md:py-7 py-5 space-y-5'>
-                    <span className='text-sm border rounded-lg border-gray-600 px-1 bg-lime-400 m-2  text-black'>
+                <div key={index} className='flex flex-col gap-2'>
+                    <div className='group flex justify-start items-center'>
+                    <span className='text-sm border rounded-lg border-gray-600 px-1 bg-lime-400 m-2 text-black'>
                     #0{index+1}</span>
                         <h2
                             key={index}
@@ -33,7 +33,7 @@ const Accordion = () => {
                     transition={{ease: [0.87, 0, 0.13, 1], duration: .5}}
                     // ref={(el) => (answers.current[index] = el)}
                     className='overflow-hidden  transition h-0 duration-300 flex rounded-md'>
-                        <h3 className='mx-2 text-stone-600 text-base text-balance leading-snug md:text-lg lg:my-5 my-2 indent-5 md:indent-10' >{data.answer}</h3>
+                        <h3 className=' text-stone-600 text-base text-justify leading-snug md:text-lg indent-5 md:indent-10' >{data.answer}</h3>
                     </motion.div>
                   { index !== questions.length-1 && <span className='h-[1px] w-full bg-stone-700'/>}
                 </div>

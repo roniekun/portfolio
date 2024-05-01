@@ -136,7 +136,7 @@ const Home = () => {
         </section>
 
           <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center primary-font py-[5vw]'>
-          <h1 className='mt-5 font-semibold text-3xl'>FAQ's</h1>
+          <h1 className='my-10 font-semibold text-3xl'>FAQ's</h1>
             <Accordion />
           </section>
 
