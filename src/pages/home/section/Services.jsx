@@ -14,7 +14,7 @@ const Services = () => {
 
     const trigger = ScrollTrigger.create({
       trigger: ".parent",
-      start: "top-=500px top",
+      start: "top center",
       end: "bottom bottom",
 
       onEnter: () => {

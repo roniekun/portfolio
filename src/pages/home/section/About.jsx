@@ -14,7 +14,7 @@ const About = () => {
       gsap.registerPlugin(ScrollTrigger);
       const trigger = ScrollTrigger.create({
       trigger: container.current,
-      start: "top bottom+=200px",
+      start: "top center",
       end: "bottom bottom",
       onEnter: () => {
             tl.to(container.current,{opacity: 1, stagger: .1, duration: .3})
