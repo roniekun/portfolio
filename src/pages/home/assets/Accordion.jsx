@@ -32,8 +32,8 @@ const Accordion = () => {
                     animate={{height: isActive[index]? 'auto' : '0'}}
                     transition={{ease: [0.87, 0, 0.13, 1], duration: .5}}
                     // ref={(el) => (answers.current[index] = el)}
-                    className='overflow-hidden  transition h-0 duration-300 flex rounded-md'>
-                        <h3 className=' text-stone-600 text-base text-left eading-snug md:text-lg indent-5 md:indent-10' >{data.answer}</h3>
+                    className='overflow-hidden  transition h-0 duration-300 flex rounded-md  self-end w-10/12'>
+                        <h3 className=' text-stone-600 text-base text-left eading-snug md:text-lg' >{data.answer}</h3>
                     </motion.div>
                   { index !== questions.length-1 && <span className='h-[1px] w-full bg-stone-700'/>}
                 </div>
