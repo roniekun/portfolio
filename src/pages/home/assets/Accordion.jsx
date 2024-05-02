@@ -17,7 +17,7 @@ const Accordion = () => {
     return (
         <main className='h-auto w-full flex flex-col gap-5'>
             {questions.map((data, index) => (
-                <div key={index} className='flex flex-col gap-2'>
+                <div key={index} className='flex flex-col gap-2 lg:mt-10 mt-2'>
                     <div className='group flex justify-start items-center'>
                     <span className='text-sm border rounded-lg border-gray-600 px-1 bg-lime-400 m-2 text-black'>
                     #0{index+1}</span>

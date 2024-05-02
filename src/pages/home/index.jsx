@@ -124,7 +124,7 @@ const Home = () => {
           <section
           id='services'
           ref={services}
-          className='flex min-h-[800px] flex-col  bg-zinc-600'>
+          className='flex min-h-[800px] flex-col  bg-zinc-300'>
           <Services />
             </section>
 
