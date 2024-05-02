@@ -46,7 +46,7 @@ const About = () => {
     <main className=' bg-zinc-100'>
      <div ref={container}
          className='main p-[5vw] flex flex-col min-h-[800px] w-full opacity-0'>
-              <h1 className='text-3xl uppercase primary-font self-center mt-10 mb-10 leading-tight font-semibold text-zinc-900'>
+              <h1 className='text-3xl uppercase primary-font self-center mt-5 opacity-0  mb-10 leading-tight font-semibold text-zinc-900'>
                    About</h1>
               <div
               ref={wd}

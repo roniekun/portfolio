@@ -141,7 +141,7 @@ const Home = () => {
           </section>
 
         <section 
-        className='min-h-[800px] bg-stone-600 z-10 flex justify-center'
+        className='min-h-[800px] z-10 flex justify-center'
         id='contact'
         ref={contact}>
         <Contact />
