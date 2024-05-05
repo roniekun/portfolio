@@ -95,7 +95,7 @@ const Home = () => {
         className='relative flex flex-col top-0'>
         <section 
         ref={home}
-        className='flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-[700px]
+        className='flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-screen
          items-center z-0 overflow-hidden'>
         <div 
           ref={hero}
