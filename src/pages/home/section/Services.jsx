@@ -40,7 +40,7 @@ const Services = () => {
   })
 
   return (
-    <main className='parent relative flex justify-left h-[400px] flex-col'>
+    <main className='parent relative flex justify-left h-full flex-col'>
           <div className='flex flex-wrap mt-14 mx-[5vw] justify-left max-w-[70%]'>
               {words.map((word,idx) => (
             <div className='flex w-fit h-fit mr-2 overflow-hidden md:py-2'>
@@ -49,6 +49,8 @@ const Services = () => {
                </div> 
            </div>
               ))}
+          </div>
+          <div className='relative rounded-2xl border mt-5 w-5/6 bg-neutral-100 bg-opacity-25 h-[500px] mx-[5vw] self-end'> 
           </div>
 
     </main>

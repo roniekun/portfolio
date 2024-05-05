@@ -45,7 +45,7 @@ const About = () => {
   return (
     <main className=' bg-black'>
      <div ref={container}
-         className='main p-[5vw] flex flex-col min-h-[800px] w-full '>
+         className='main p-[5vw] flex flex-col min-h-[800px] w-full opacity-0'>
               <h1 className='text-sm  font-primary self-center mt-5 mb-10 leading-tight font-semibold text-neutral-50 capitalize'>
                    About</h1>
               <div
