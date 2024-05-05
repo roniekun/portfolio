@@ -10,7 +10,7 @@ import Footer from '../../component/footer'
 import Contact from './section/Contact'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import splitString from '../../assets/anim/SplitStrings'
 
 const Home = () => {
@@ -22,6 +22,7 @@ const Home = () => {
   const footer = useRef(null)
   const home = useRef(null)
   const hero = useRef(null)
+  const container = useRef(null)
   const refsArray = [ about, services, works, contact]
   let { id } = useParams()
   const heroText = "Good to see you, I'm Ronie"
@@ -84,12 +85,13 @@ const Home = () => {
       }
       )
 
-  }, [,hero,home])
+  }, [,hero,home,container])
 
   const text = splitString(heroText)
 
   return (
-      <motion.main 
+      <motion.main
+        ref={container}
         className='relative flex flex-col top-0'>
         <section 
         ref={home}
@@ -99,7 +101,7 @@ const Home = () => {
           ref={hero}
           className='w-full self-center flex gap-y-3' >
             <h1
-             className='text-4xl tracking-tight font-semibold uppercase primary-font text-balance'>
+             className='text-4xl tracking-normal font-bold uppercase font-primary text-balance'>
                {text.map((char, index) => (
                 <span className='opacity-0' key={index}  ref={(el) => (heroChars.current[index] = el)} >
                 {char}{index === 15 && <br/>}</span>
@@ -107,7 +109,8 @@ const Home = () => {
             </h1>
    
         </div>
-        <span className='absolute bottom-20  text-base font-base primary-font tracking-10 underline'> scroll to explore</span>
+        <span className='absolute bottom-20  text-base font-base font-primary tracking-10'>
+         scroll to explore</span>
         </section>
 
         <section>
@@ -135,17 +138,18 @@ const Home = () => {
             <Works/>
         </section>
 
-          <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center primary-font py-[5vw]'>
-          <h1 className='my-10 font-semibold text-3xl'>FAQ's</h1>
+          <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center font-secondary  py-[5vw]'>
+          <h1 className='my-10 font-semibold text-2xl font-primary'>FAQ's</h1>
             <Accordion />
           </section>
 
         <section 
-        className='min-h-[800px] z-10 flex justify-center'
+        className='min-h-[800px] z-10 flex justify-center bg-neutral-100'
         id='contact'
         ref={contact}>
         <Contact />
         </section>
+
       
       {/* footer */}
       <section 

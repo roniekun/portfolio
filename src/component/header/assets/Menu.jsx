@@ -77,8 +77,8 @@ const Menu = () => {
                 onMouseEnter={handleMouseEvent}
                 onMouseLeave={handleMouseEvent}
                 onClick={handleClick}
-                className='bg-blend-difference group flex items-center justify-center uppercase primary-font relative 
-                mx-[7vw] w-auto  -z-10 rounded-lg text-black'> 
+                className='bg-blend-difference group flex items-center justify-center uppercase font-secondary relative 
+                mx-[5vw] w-auto  -z-10 rounded-lg text-black'> 
                { isToggleMenu ? "close": "menu"}
                  </motion.button>
          </AnimatePresence>

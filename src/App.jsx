@@ -44,7 +44,7 @@ function App() {
   return (
         <main 
         ref={container}
-          className="flex flex-col bg-stone-100 w-screen overflow-hidden">
+          className="flex flex-col bg-stone-100 w-screen relative">
          <motion.div
          style={{width: calcWidth}} 
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />

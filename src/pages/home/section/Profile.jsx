@@ -61,9 +61,9 @@ const Profile = () => {
          </div>
          <div className='flex items-center w-fit m-[5%] lg:w-[50%]'> 
           <h3
-          className='md:text-2xl text-xl leading-8 md:leading-normal   font-medium mx-2 primary-font text-center w-full'>
+          className='md:text-2xl text-xl leading-8 md:leading-normal   font-medium mx-2  text-center w-full'>
                {text2.map((char, index) => (
-                <span className={`opacity-0 ${index > text2.length - 21 ? 'text-lime-300' : 'text-blue-50' }`} key={index}  ref={(el) => (avatarChars.current[index] = el)} >
+                <span className={`opacity-0 ${index > text2.length - 21 ? 'text-blue-600 font-primary' : 'text-blue-50' }`} key={index}  ref={(el) => (avatarChars.current[index] = el)} >
                 {char}{index === text2.length - 21  && <br/>}
       </span>
        ))}

@@ -3,9 +3,20 @@
 @tailwind utilities;
 
 /* CUSTOM FONTS */
-.primary-font{
+.font-primary{
     font-family: "Orbitron", sans-serif;
 }
-.secondary-font{
-  font-family:sans-serif;
+.font-secondary{
+  font-family: "Kode Mono", monospace;
+  font-optical-sizing: auto;
+
+}
+
+/* CUSTOM CSS */
+::selection{
+  background-color: greenyellow;
+  color: black;
+}
+::-webkit-scrollbar {
+  display: none;
 }

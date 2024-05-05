@@ -3,7 +3,7 @@ const Works = () => {
   return (
          <div 
              className='w-full h-full bg-zinc-100 flex flex-col justify-center items-center'>
-            <h1 className='text-3xl mt-20 p-[2vw]  primary-font font-semibold uppercase'>Works</h1>
+            <h1 className='text-2xl mt-20 p-[2vw] font-primary font-semibold uppercase'>Works</h1>
             <div className='flex my-5'>
             <Cards/>
             </div>

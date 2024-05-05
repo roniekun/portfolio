@@ -43,16 +43,16 @@ const About = () => {
   },{scope: container.current}) 
 
   return (
-    <main className=' bg-zinc-100'>
+    <main className=' bg-black'>
      <div ref={container}
          className='main p-[5vw] flex flex-col min-h-[800px] w-full opacity-0'>
-              <h1 className='text-3xl uppercase primary-font self-center mt-5 opacity-0  mb-10 leading-tight font-semibold text-zinc-900'>
+              <h1 className='text-3xl uppercase font-primary self-center mt-5 opacity-0  mb-10 leading-tight font-semibold text-zinc-900'>
                    About</h1>
               <div
               ref={wd}
                className='flex flex-col gap-y-5'>
-              <h1 className='capitalize font-medium text-xl primary-font text-blue-600'>Web development</h1>
-            <p className='secondary-font text-lg lg:w-1/2  text-stone-700 leading-tight mb-10 indent-5'>
+              <h1 className='capitalize font-medium text-xl font-primary  text-blue-600'>Web development</h1>
+            <p className='text-lg lg:w-1/2 font-secondary  text-neutral-300 leading-tight mb-10 indent-5'>
             Adapting to the ever-evolving world of web development, crafting intuitive interfaces and functional websites
             that engage users and convey the essence of a brand or concept. </p>
               </div>
@@ -60,18 +60,18 @@ const About = () => {
             <div
             ref={ebt}  
              className='flex flex-col gap-y-5'>
-             <h1 className='capitalize font-medium text-xl primary-font leading-snug text-blue-600'>exploring backend Technologies</h1>
-             <p className='secondary-font text-lg lg:w-1/2  text-stone-700 leading-tight mb-10 indent-5'>
+             <h1 className='capitalize font-medium text-xl font-primary  leading-snug text-blue-600'>exploring backend Technologies</h1>
+             <p className='text-lg lg:w-1/2 font-secondary text-neutral-300 leading-tight mb-10 indent-5'>
                   My journey extends beyond frontend design; I continually explore and master back-end technologies, databases,
                   and server management, to create end-to-end 
                   solutions that provide seamless functionality and deliver an exceptional user experience.
              </p>
             </div> 
             {/* <section className='w-full flex justify-center min-h-[400px] py-20'>
-              <h1 className='text-gray-100 uppercase primary-font text-2xl font-semibold '>tech stack</h1>
+              <h1 className='text-gray-100 uppercase font-primary t text-2xl font-semibold '>tech stack</h1>
             </section>
              <section className='w-full flex justify-center min-h-[400px] py-20'>
-              <h1 className='text-gray-100 primary-font text-2xl font-semibold uppercase'>roadmap</h1>
+              <h1 className='text-gray-100 font-primary t text-2xl font-semibold uppercase'>roadmap</h1>
             </section> */}
          </div>
     </main>

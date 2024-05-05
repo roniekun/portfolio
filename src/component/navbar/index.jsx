@@ -31,14 +31,14 @@ const Navbar = () => {
   
         <section
           ref={linkItems}
-          className='flex flex-col w-fit justify-start relative items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
+          className='flex flex-col w-fit justify-start relative mt-5 items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
         
                 {links.map((link, index) => (
                 <div className='flex w-fit justify-start relative items-start group  overflow-hidden'>
                     <Link
                     to={link.to}
                     onClick={handleClick}
-                    className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-medium capitalize primary-font
+                    className={`z-10 relative bg-transparent cursor-pointer text-[3vh] font-medium capitalize font-primary
                      flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-lime-400' : 'text-black'} `}
                     key={link.name}>
                      {link.name} 
