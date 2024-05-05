@@ -95,7 +95,7 @@ const Home = () => {
         className='relative flex flex-col top-0'>
         <section 
         ref={home}
-        className='min-h-[800px] flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-auto
+        className='flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-screen
          items-center z-0 overflow-hidden'>
         <div 
           ref={hero}
@@ -139,7 +139,7 @@ const Home = () => {
         </section>
 
           <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center font-secondary  py-[5vw]'>
-          <h1 className='my-10 font-semibold text-2xl font-primary'>FAQ's</h1>
+          <h1 className='mt-5 font-semibold text-2xl font-primary'>FAQ's</h1>
             <Accordion />
           </section>
 
