@@ -15,6 +15,7 @@ import splitString from '../../assets/anim/SplitStrings'
 
 const Home = () => {
   const { user, setTitle, setColor, color } = useContext(DataContext)
+  const profile = useRef(null)
   const services = useRef(null)
   const about = useRef(null)
   const works = useRef(null)
@@ -103,17 +104,20 @@ const Home = () => {
             <h1
              className='text-4xl tracking-normal font-bold uppercase font-primary text-balance'>
                {text.map((char, index) => (
-                <span className='opacity-0' key={index}  ref={(el) => (heroChars.current[index] = el)} >
+                <span
+                 className='opacity-0' key={index}  ref={(el) => (heroChars.current[index] = el)} >
                 {char}{index === 15 && <br/>}</span>
                ))}
             </h1>
    
         </div>
-        <span className='absolute bottom-20  text-base font-base font-primary tracking-10'>
+        <span 
+        onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
+        className='absolute bottom-20 cursor-pointer  text-sm font-base font-primary tracking-10 border rounded-3xl px-3 py-2'>
          scroll to explore</span>
         </section>
 
-        <section>
+        <section ref={profile}>
           <Profile />
         </section>
 
@@ -139,7 +143,7 @@ const Home = () => {
         </section>
 
           <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center font-secondary  py-[5vw]'>
-          <h1 className='mt-5 font-semibold text-2xl font-primary'>FAQ's</h1>
+          <h1 className='mt-5 font-semibold text-sm font-primary'>FAQ's</h1>
             <Accordion />
           </section>
 

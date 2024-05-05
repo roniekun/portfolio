@@ -15,7 +15,7 @@ const Profile = () => {
 
     const trigger = ScrollTrigger.create({
       trigger: profile.current,
-      start: "top top",
+      start: "top top+=100px",
       end: "bottom bottom",
       onEnter: () => {
         avatarChars.current.forEach((el) => {
