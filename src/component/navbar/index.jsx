@@ -38,7 +38,7 @@ const Navbar = () => {
                     <Link
                     to={link.to}
                     onClick={handleClick}
-                    className={`z-10 relative bg-transparent cursor-pointer text-[3vh] font-medium capitalize font-primary
+                    className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-medium capitalize font-primary
                      flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-lime-400' : 'text-black'} `}
                     key={link.name}>
                      {link.name} 
