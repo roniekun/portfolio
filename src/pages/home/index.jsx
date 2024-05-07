@@ -113,7 +113,7 @@ const Home = () => {
         </div>
         <span 
         onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-        className='absolute bottom-20 cursor-pointer  text-sm font-base font-primary tracking-10 border rounded-3xl px-3 py-2'>
+        className='absolute bottom-20 cursor-pointer  text-sm font-base font-secondary tracking-10 border rounded-3xl px-3 py-2'>
          scroll to explore</span>
         </section>
 
@@ -122,7 +122,7 @@ const Home = () => {
         </section>
 
        <section
-        className='min-h-[800px]'
+        className='min-h-[800px] font-primary'
         id='about'
          ref={about} >
             <About />
