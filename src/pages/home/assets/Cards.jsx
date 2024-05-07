@@ -14,7 +14,7 @@ const Cards = () => {
   }
 
   return (
-    <main  className='gap-10 place-items-center h-auto l group relative w-full lg:grid lg:grid-cols-2'>
+    <main  className='gap-10 place-items-center h-auto l group relative w-full lg:grid lg:grid-cols-2 font-secondary'>
     {cards.map((card, index)=>( 
     <div key={index}
         onClick={()=>handleClick(index)}
@@ -23,9 +23,9 @@ const Cards = () => {
          className={`flex group my-5 flex-col w-[calc(100vw-7vw)] h-[500px] lg:w-[700px] lg:h-[600px] md:h-[800px]  
           gap-5 relative border-2 contrast-100  cursor-pointer rounded-lg overflow-hidden`}>
         <img className='lg:w-11/12 w-full h-full relative border  self-center object-cover lg:mt-5' 
-        src="" alt="thumbnail" />
+        src="" alt="albumcover" />
         <div className=' flex flex-col gap-2 self-center'>
-         <h1 className='text-md uppercase text-zinc-900 primary-font font-semibold'>
+         <h1 className='text-md uppercase text-zinc-900  font-semibold'>
           {card.title}
          </h1>
          <p  className='text-zinc-700'></p>
