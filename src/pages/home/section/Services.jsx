@@ -50,7 +50,7 @@ const Services = () => {
            </div>
               ))}
           </div>
-          <div className='relative rounded-2xl border mt-5 w-5/6 bg-neutral-100 bg-opacity-25 h-[500px] mx-[5vw] self-end'> 
+          <div className='relative rounded-2xl border my-5 w-5/6 bg-neutral-100 bg-opacity-25 h-[500px] mx-[5vw] self-end'> 
           </div>
 
     </main>

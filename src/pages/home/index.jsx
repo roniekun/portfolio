@@ -142,7 +142,7 @@ const Home = () => {
             <Works/>
         </section>
 
-          <section className='mx-[5vw] gap-5 flex flex-col justify-center items-center font-secondary  py-[5vw]'>
+          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center font-secondary bg-black brightness-75 py-[5vw]'>
           <h1 className='mt-5 font-semibold text-sm font-primary'>FAQ's</h1>
             <Accordion />
           </section>
