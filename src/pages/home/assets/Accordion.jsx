@@ -25,7 +25,7 @@ const Accordion = () => {
                     <span className='text-sm border rounded-lg border-gray-600 px-1 m-2 text-gray-400'>
                     #0{index+1}</span>
                         <h2
-                            className='cursor-pointer text-base font-medium text-left leading-relaxed md:text-lg font-base px-2 text-gray-50'>
+                            className='cursor-pointer text-base font-bold text-left leading-relaxed md:text-lg font-base px-2 text-gray-50'>
                              {data.question}
                         </h2>
                     </div>

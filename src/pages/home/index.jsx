@@ -142,8 +142,8 @@ const Home = () => {
             <Works/>
         </section>
 
-          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center font-secondary bg-black brightness-75 py-[5vw]'>
-          <h1 className='mt-5 font-semibold text-sm font-primary'>FAQ's</h1>
+          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center font-primary bg-black py-[5vw]'>
+          <h1 className='mt-5 font-semibold text-white text-sm font-secondary'>FAQ's</h1>
             <Accordion />
           </section>
 
