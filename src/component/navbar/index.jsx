@@ -6,7 +6,7 @@ import Socials from './assets/Socials'
 import Clock from './assets/Clock'
 
 const Navbar = () => {
-    const {setToggleMenu, isToggleMenu, setLoading, isLoading} = useContext(DataContext)
+    const {setToggleMenu, isToggleMenu} = useContext(DataContext)
     const location = useLocation()
     const menu = useRef(null)
     const linkItems= useRef(null)
@@ -21,7 +21,6 @@ const Navbar = () => {
 
     const handleClick = () => {
         setToggleMenu(!isToggleMenu)
-        setLoading(!isLoading)
     }
 
   return (
