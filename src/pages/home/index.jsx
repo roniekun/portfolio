@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom'
 import splitString from '../../assets/anim/SplitStrings'
 
 const Home = () => {
-  const { user, setTitle, setColor, color } = useContext(DataContext)
+  const { user, setTitle, setColor, color, isLoading } = useContext(DataContext)
   const profile = useRef(null)
   const services = useRef(null)
   const about = useRef(null)
@@ -98,6 +98,7 @@ const Home = () => {
         ref={home}
         className='flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-screen
          items-center z-0 overflow-hidden'>
+       
         <div 
           ref={hero}
           className='w-full self-center flex gap-y-3' >
@@ -109,7 +110,6 @@ const Home = () => {
                 {char}{index === 15 && <br/>}</span>
                ))}
             </h1>
-   
         </div>
         <span 
         onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
@@ -142,7 +142,7 @@ const Home = () => {
             <Works/>
         </section>
 
-          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center  bg-black py-[5vw] font-tertiary'>
+          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center  bg-zinc-950 py-[5vw] font-tertiary'>
           <h1 className='mt-5 font-semibold text-white text-sm font-secondary'>FAQ's</h1>
             <Accordion />
           </section>

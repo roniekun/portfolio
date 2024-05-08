@@ -12,7 +12,7 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 
 const Header = () => {
-  const { isMobile, isScrolled, isToggleMenu, color, setToggleMenu} = useContext(DataContext)
+  const { isMobile, isScrolled, isToggleMenu, isLoading} = useContext(DataContext)
   const location = useLocation()
   // refs
   const header = useRef(null)
@@ -47,9 +47,11 @@ const Header = () => {
   },{dependencies:[isScrolled] })
 
   return (
+    <>
+    {!isLoading &&
     <motion.header
       ref={header}
-      className={`md:mt-5 mt-3 absolute transition shadow-inner duration-300  z-20 overflow-hidden bg-opacity-[10%] bg-white backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2`}>
+      className={`md:mt-5 mt-3 absolute shadow-inner  z-20 overflow-hidden bg-opacity-[10%] bg-white backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2`}>
           <section className='flex flex-col'>
         <motion.div
           nitial={{opacity:0}}
@@ -68,7 +70,8 @@ const Header = () => {
         ref={nav}>
         {isMobile && <Navbar/>}
         </section>
-    </motion.header>
+    </motion.header>}
+    </>
   )
 }
 

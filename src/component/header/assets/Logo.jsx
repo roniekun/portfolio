@@ -10,15 +10,15 @@ const Logo = () => {
  
       useLayoutEffect(() => {
         if(!isLoading){
-                 let interval = null
+                let interval = null
                 let iteration = 0;
                 const initialContent = logo.current.textContent
                 clearInterval(interval);
                  interval = setInterval(() => {
                 logo.current.textContent = logo.current.textContent.split("")
-                .map((letter, index) => {
-                    if(index < iteration) {
-                    return initialContent[index];
+                .map((_, idx) => {
+                    if(idx < iteration) {
+                    return initialContent[idx];
                     }
                     return letters[Math.floor(Math.random() * 26)]
                 })
