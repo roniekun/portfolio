@@ -1,0 +1,35 @@
+/* src/styles/fonts.css */
+@font-face {
+  font-family: 'Neue Montreal';
+  font-style:normal;
+  font-weight: 200;
+  src: url('../fonts/otf/PPNeueMontreal-Thin.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-style:normal;
+  font-weight: 400;
+  src: url('../fonts/otf/PPNeueMontreal-Book.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-style:normal;
+  font-weight: 500;
+  src: url('../fonts/otf/PPNeueMontreal-Medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-style:normal;
+  font-weight: 600;
+  src: url('../fonts/otf/PPNeueMontreal-SemiBolditalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-style:normal;
+  font-weight: 700;
+  src: url('../fonts/otf/PPNeueMontreal-Bold.otf') format('opentype');
+}

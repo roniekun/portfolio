@@ -26,7 +26,7 @@ const Accordion = () => {
                     className='group flex justify-start items-center cursor-pointer'>
 
                         <h2
-                            className='cursor-pointer text-base font-bold text-left leading-relaxed md:text-lg font-base px-2 text-gray-50'>
+                            className='cursor-pointer text-base font-medium text-left leading-relaxed md:text-lg font-base px-2 text-gray-50'>
                              {data.question}
                         </h2>
                     </div>

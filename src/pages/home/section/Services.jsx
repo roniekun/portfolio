@@ -44,13 +44,13 @@ const Services = () => {
           <div className='flex flex-wrap mt-14 mx-[5vw] justify-left max-w-[70%]'>
               {words.map((word,idx) => (
             <div className='flex w-fit h-fit mr-2 overflow-hidden md:py-2'>
-                 <div className='word md:text-2xl text-[6vw] text-stone-900 primary-font transform translate-y-14'>
+                 <div className='word md:text-2xl text-[6vw] text-stone-900  font-normal transform translate-y-14'>
                   {word}
                </div> 
            </div>
               ))}
           </div>
-          <div className='relative rounded-2xl border my-5 w-5/6 bg-neutral-100 bg-opacity-25 h-[500px] mx-[5vw] self-end'> 
+          <div className='relative rounded-2xl border my-5 w-[90%] bg-neutral-100 bg-opacity-25 h-[500px] self-center'> 
           </div>
 
     </main>

@@ -102,7 +102,7 @@ const Home = () => {
           ref={hero}
           className='w-full self-center flex gap-y-3' >
             <h1
-             className='text-4xl tracking-normal font-bold uppercase font-primary text-balance'>
+             className='text-4xl tracking-normal font-primary uppercase text-balance'>
                {text.map((char, index) => (
                 <span
                  className='opacity-0' key={index}  ref={(el) => (heroChars.current[index] = el)} >
@@ -113,7 +113,7 @@ const Home = () => {
         </div>
         <span 
         onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-        className='absolute bottom-20 cursor-pointer  text-sm font-base uppercae font-secondary tracking-10 border rounded-3xl px-3 py-2'>
+        className='absolute bottom-20 cursor-pointer  text-sm font-base uppercae font-secondary uppercase tracking-10 border rounded-3xl px-3 py-2'>
          explore</span>
         </section>
 
@@ -142,7 +142,7 @@ const Home = () => {
             <Works/>
         </section>
 
-          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center  bg-black py-[5vw]'>
+          <section className='px-[5vw] gap-5 flex flex-col justify-center items-center  bg-black py-[5vw] font-tertiary'>
           <h1 className='mt-5 font-semibold text-white text-sm font-secondary'>FAQ's</h1>
             <Accordion />
           </section>

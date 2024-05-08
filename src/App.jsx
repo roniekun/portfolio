@@ -12,6 +12,7 @@ import { useRef, useContext, useEffect } from 'react'
 import useWindowSize from "./hooks/useWIndowHooks/useWIndowSize";
 import { useScroll, useTransform, AnimatePresence, motion} from 'framer-motion'
 import { DataContext } from "./context/DataContext";
+import './styles/font.css';
 
 function App() {
   const { id } = useParams()
@@ -42,9 +43,10 @@ function App() {
       const calcWidth = useTransform(scrollYProgress, [0 , 1], [0, width])
     
   return (
-        <main 
+    <div>
+      <main 
         ref={container}
-          className="flex flex-col bg-stone-100 w-screen relative">
+          className="flex flex-col bg-stone-100 w-screen relative font-tertiary">
          <motion.div
          style={{width: calcWidth}} 
          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800" />
@@ -60,6 +62,7 @@ function App() {
           </Routes>
         </AnimatePresence>
         </main>
+            </div>
   );
 }
 

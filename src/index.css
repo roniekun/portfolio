@@ -11,6 +11,10 @@
   font-optical-sizing: auto;
 
 }
+.font-tertiary{
+  font-family: "Neue Montreal";
+  font-optical-sizing: auto;
+}
 
 /* CUSTOM CSS */
 ::selection{
