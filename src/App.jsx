@@ -1,4 +1,5 @@
 import {  Routes, Route, useLocation,useParams } from "react-router-dom";
+import LoadingTransition from "./assets/anim/LoadingTransition";
 import Header from "./component/header";
 import Home from "./pages/home";
 import Gallery from "./pages/gallery"
@@ -42,7 +43,7 @@ function App() {
       const calcWidth = useTransform(scrollYProgress, [0 , 1], [0, width])
     
   return (
-    <div>
+    <LoadingTransition>
       <main 
         ref={container}
           className="flex flex-col bg-stone-100 w-screen relative font-tertiary">
@@ -61,7 +62,7 @@ function App() {
           </Routes>
         </AnimatePresence>
         </main>
-            </div>
+            </LoadingTransition>
   );
 }
 

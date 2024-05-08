@@ -7,7 +7,7 @@ const DataProvider = ({ children  }) => {
     const defaultBgColor = 'transparent'
 
     const [title, setTitle] = useState(document.title)
-    const [isLoading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(true)
     const [color, setColor] = useState(defaultColor)
     const [bgColor, setBgColor] = useState(defaultBgColor)
     const [isToggleMenu, setToggleMenu] = useState (false)
@@ -27,9 +27,9 @@ const DataProvider = ({ children  }) => {
     }
     useEffect(() => {
       setTimeout(() => {
-              setLoading(true)
-      }, 100);
-    }, [isLoading])
+              setLoading(false)
+      }, 3000);
+    }, [])
 
     //dynamic document title
         useEffect(() => {

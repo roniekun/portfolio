@@ -1,12 +1,15 @@
-import { useEffect, useRef } from 'react'
+import { useContext, useLayoutEffect, useRef } from 'react'
 import { letters } from '../../../utils/letters'
 import { useNavigate } from 'react-router-dom'
+import { DataContext } from '../../../context/DataContext'
 
 const Logo = () => {
   const navigate = useNavigate()
   const logo = useRef(null)
-
-      useEffect(() => {
+  const { isLoading } = useContext(DataContext)
+ 
+      useLayoutEffect(() => {
+        if(!isLoading){
                  let interval = null
                 let iteration = 0;
                 const initialContent = logo.current.textContent
@@ -26,7 +29,8 @@ const Logo = () => {
                 }
                 iteration += 1/3 ;
             }, 30);
-    }, [])
+        }
+    }, [isLoading])
 
   const handleClick = () => {
     navigate('/')

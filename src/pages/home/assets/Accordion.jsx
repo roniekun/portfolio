@@ -17,7 +17,7 @@ const Accordion = () => {
     return (
         <main className='h-auto w-full flex flex-col'>
             {questions.map((data, index) => (
-                <div key={index} className='flex flex-col gap-2 lg:mt-5 mt-2 overflow-hidden  justify-center rounded-2xl px-5 md:py-5 py-3 bg-neutral-50 bg-opacity-15'>
+                <div key={index} className='flex flex-col gap-2 lg:mt-5 mt-2 overflow-hidden  justify-center rounded-2xl lg:px-5 px-2 md:py-5 py-3 bg-neutral-50 bg-opacity-15'>
                     <span className='text-sm border rounded-lg border-gray-600 px-1 mx-2 w-fit text-gray-400'>
                     #0{index+1}</span>             
                     <div 
