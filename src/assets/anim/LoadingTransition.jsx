@@ -46,11 +46,10 @@ export default function LoadingTransition({children}) {
         textAnim()
          if(title){
              tl.to(window.document.body,{overflow:"hidden"})
-                .to(cover.current,{y: "10%",delay: 3 , duration: .3 , ease: "power1.in"})
+                .to(cover.current,{y: "10%",delay: 3 , duration: .3 , ease:"power4.inOut"})
                 .to(title.current,{opacity:0})
-                .to(container.current,{height:0})
-                .to( window.document.body,{overflow:"scroll", delay:.3}
-         )
+                .to(container.current,{height:0, ease: "power4.inOut"})
+                .to( window.document.body,{overflow:"scroll", delay:.3} )
         }
         }
         animate()
