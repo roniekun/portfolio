@@ -13,7 +13,7 @@ const Menu = () => {
       useEffect(() => {
                 let interval = null
                 let iteration = 0;
-                const initialContent = btn.current.textContent
+                const initialContent = isToggleMenu ? "CLOSE ": "MENUS"
                 clearInterval(interval);
                  interval = setInterval(() => {
                 btn.current.textContent = btn.current.textContent.split("")
@@ -42,19 +42,21 @@ const Menu = () => {
         }, [isToggleMenu]);
 
         const handleClick = () => {
-            setToggleMenu(!isToggleMenu)
+            setTimeout(() => {
+                 setToggleMenu(!isToggleMenu)
+            }, 100);
         }
 
     const handleMouseEvent = (event) => {
             let interval = null
             let iteration = 0;
             clearInterval(interval);
-            
+            const initialContent = isToggleMenu ? "CLOSE ": "MENUS"
             interval = setInterval(() => {
                 btn.current.textContent = btn.current.textContent.split("")
                 .map((_, idx) => {
                     if(idx < iteration) {
-                    return event.target.dataset.value[idx];
+                    return initialContent[idx]
                     }
                     return letters[Math.floor(Math.random() * 26)]
                 })
@@ -73,22 +75,20 @@ const Menu = () => {
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
 
-                className={`bg-blend-difference group flex items-center justify-center uppercase font-secondary relative 
+                className={`bg-blend-difference group transition flex items-center justify-center uppercase font-secondary relative 
                 mx-[5vw] -z-10 rounded-lg ${isToggleMenu? 'bg-neutral-500 border-2 bg-opacity-20' : 'bg-lime-400' } w-14 text-neutral-950`}> 
                { isToggleMenu ? <button  
                 ref={btn}
                 onMouseEnter={handleMouseEvent}
                 onMouseLeave={handleMouseEvent}
-                onClick={handleClick}
-               data-value="CLOSE">
+                onClick={handleClick}>
                                 CLOSE</button>
                                 : 
                 <button
                  onMouseEnter={handleMouseEvent}
                 onMouseLeave={handleMouseEvent}
                 onClick={handleClick}
-                ref={btn} 
-                data-value="MENU">
+                ref={btn}>
                                 MENU</button>}
                  </motion.div>
          </AnimatePresence>
