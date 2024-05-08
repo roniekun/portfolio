@@ -20,13 +20,15 @@ const Header = () => {
 
   useEffect(() => {
     if(isToggleMenu){
-      gsap.to(nav.current,{height: 'auto',  ease:'power2.inOut'})
-      gsap.fromTo(nav.current,{duration: .5, delay: 1, y: -5, ease: 'power1.in'},{delay: .3, y: 0, opacity: 1})
+      gsap.to(nav.current,{height: 'auto',  ease:'power4.inOut'})
+      gsap.fromTo(nav.current,{duration: .5, delay: 1, y: -5, ease: 'power4.inOut'},{delay: .3, y: 0, opacity: 1})
     }
     else{
       gsap.to(nav.current,{
           height: 0,
-          opacity: 0
+          opacity: 0,
+          ease:'power4.inOut',
+          duration: .7
         })
     }
   }, [isToggleMenu, isMobile])
@@ -66,7 +68,7 @@ const Header = () => {
           </section>
 
         <section
-        className='relative flex'
+        className='relative flex h-0'
         ref={nav}>
         {isMobile && <Navbar/>}
         </section>

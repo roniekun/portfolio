@@ -60,7 +60,7 @@ export default function LoadingTransition({children}) {
         <main>
             <div 
                   ref={container}
-                  className='fixed bg-zinc-950 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden' >
+                  className='fixed cursor-wait bg-zinc-950 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden' >
                   <div 
                   ref={titleContainer}
                   className='overflow-hidden relative'>
