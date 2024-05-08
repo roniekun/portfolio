@@ -12,7 +12,6 @@ import { useRef, useContext, useEffect } from 'react'
 import useWindowSize from "./hooks/useWIndowHooks/useWIndowSize";
 import { useScroll, useTransform, AnimatePresence, motion} from 'framer-motion'
 import { DataContext } from "./context/DataContext";
-import './styles/font.css';
 
 function App() {
   const { id } = useParams()
