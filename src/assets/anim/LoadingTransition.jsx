@@ -48,7 +48,7 @@ export default function LoadingTransition({children}) {
              tl.to(window.document.body,{overflow:"hidden"})
                 .to(cover.current,{y: "10%",delay: 3 , duration: .3 , ease:"power4.inOut"})
                 .to(title.current,{opacity:0})
-                .to(container.current,{height:0, ease: "power4.inOut"})
+                .to(container.current,{height:0, duration: .7, ease: "power4.inOut"})
                 .to( window.document.body,{overflow:"scroll", delay:.3} )
         }
         }
