@@ -7,7 +7,6 @@ const Services = () => {
 
   const text ="My goal is to provide a digital experience that serves a meaningful purpose while also giving your business a significant advantage."
   const words = text.split(" ")
-  console.log(words)
 
   useGSAP(()=>{
      gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +28,6 @@ const Services = () => {
 
       },
       onEnterBack: ()=> {
-        console.log('entered back')
 
       }
     });

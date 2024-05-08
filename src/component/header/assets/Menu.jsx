@@ -17,7 +17,7 @@ const Menu = () => {
                 clearInterval(interval);
                  interval = setInterval(() => {
                 btn.current.textContent = btn.current.textContent.split("")
-                .map((letter, idx) => {
+                .map((_, idx) => {
                     if(idx < iteration) {
                     return initialContent[idx];
                     }
@@ -30,7 +30,7 @@ const Menu = () => {
                 }
                 iteration += 1/3;
             }, 100);
-    }, [])
+    }, [isToggleMenu])
     
         useEffect(() => {
         if (isToggleMenu) {
@@ -72,17 +72,21 @@ const Menu = () => {
             <motion.div 
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
+
+                className={`bg-blend-difference group flex items-center justify-center uppercase font-secondary relative 
+                mx-[5vw] -z-10 rounded-lg ${isToggleMenu? 'bg-neutral-500 border-2 bg-opacity-20' : 'bg-lime-400' } w-14 text-neutral-950`}> 
+               { isToggleMenu ? <button  
+                ref={btn}
                 onMouseEnter={handleMouseEvent}
                 onMouseLeave={handleMouseEvent}
                 onClick={handleClick}
-                className='bg-blend-difference group flex items-center justify-center uppercase font-secondary relative 
-                mx-[5vw] -z-10 rounded-lg bg-lime-400 w-14 text-neutral-950'> 
-               { isToggleMenu ? <button  
-                ref={btn}
                data-value="CLOSE">
                                 CLOSE</button>
                                 : 
                 <button
+                 onMouseEnter={handleMouseEvent}
+                onMouseLeave={handleMouseEvent}
+                onClick={handleClick}
                 ref={btn} 
                 data-value="MENU">
                                 MENU</button>}
