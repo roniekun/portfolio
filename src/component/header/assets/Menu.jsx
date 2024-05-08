@@ -11,15 +11,15 @@ const Menu = () => {
     const btn = useRef(null) 
 
       useEffect(() => {
-                 let interval = null
+                let interval = null
                 let iteration = 0;
                 const initialContent = btn.current.textContent
                 clearInterval(interval);
                  interval = setInterval(() => {
                 btn.current.textContent = btn.current.textContent.split("")
-                .map((letter, index) => {
-                    if(index < iteration) {
-                    return initialContent[index];
+                .map((letter, idx) => {
+                    if(idx < iteration) {
+                    return initialContent[idx];
                     }
                     return letters[Math.floor(Math.random() * 26)]
                 })
@@ -52,9 +52,9 @@ const Menu = () => {
             
             interval = setInterval(() => {
                 btn.current.textContent = btn.current.textContent.split("")
-                .map((letter, index) => {
-                    if(index < iteration) {
-                    return event.target.dataset.value[index];
+                .map((_, idx) => {
+                    if(idx < iteration) {
+                    return event.target.dataset.value[idx];
                     }
                     return letters[Math.floor(Math.random() * 26)]
                 })
@@ -69,18 +69,24 @@ const Menu = () => {
     
   return (
         <AnimatePresence>
-            <motion.button 
-                data-value={isToggleMenu ? "close" : "menu"}
+            <motion.div 
                 initial={{opacity: 0}}
                 animate={{opacity: 1}}
-                ref={btn}
                 onMouseEnter={handleMouseEvent}
                 onMouseLeave={handleMouseEvent}
                 onClick={handleClick}
                 className='bg-blend-difference group flex items-center justify-center uppercase font-secondary relative 
-                mx-[5vw] w-auto  -z-10 rounded-lg text-black'> 
-               { isToggleMenu ? "close": "menu"}
-                 </motion.button>
+                mx-[5vw] -z-10 rounded-lg bg-lime-400 w-14 text-neutral-950'> 
+               { isToggleMenu ? <button  
+                ref={btn}
+               data-value="CLOSE">
+                                CLOSE</button>
+                                : 
+                <button
+                ref={btn} 
+                data-value="MENU">
+                                MENU</button>}
+                 </motion.div>
          </AnimatePresence>
   )
 }
