@@ -20,10 +20,10 @@ const DataProvider = ({ children  }) => {
     const [ inView, setInView ] = useState(false)
     
     const user = {
-      title: 'Ronie Benitez',
-      name: 'Ronie Benitez',
+      title: 'Studio',
+      name: 'Studio',
       email: 'roniebenitez01@gmail.com',
-      subject: 'Web Development Project'
+      subject: 'New Project'
     }
     useEffect(() => {
       setTimeout(() => {
@@ -67,6 +67,17 @@ const DataProvider = ({ children  }) => {
                 window.removeEventListener('resize', handleResize)
           }
         }, [])
+
+        //toggling menu
+        useEffect(() => {
+            if(isToggleMenu){
+              document.body.style.overflow="hidden"
+            }
+              else{
+                document.body.style.overflow="scroll"
+              }
+        }, [isToggleMenu])
+        
 
   return (
     <DataContext.Provider 

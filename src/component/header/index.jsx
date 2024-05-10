@@ -53,13 +53,14 @@ const Header = () => {
     {!isLoading &&
     <motion.header
       ref={header}
-      className={`md:mt-5 mt-3 absolute shadow-inner  z-20 overflow-hidden bg-opacity-[10%] bg-white backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2`}>
+      className={`md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden bg-opacity-[10%] bg-transparent 
+      backdrop-blur-lg bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2`}>
           <section className='flex flex-col'>
         <motion.div
           nitial={{opacity:0}}
           animate={{opacity:1}}
           transition={{delay:.3, durationg:.3}}
-            className={`flex relative  justify-between  items-center  md:h-14 h-[12vw]  z-0 opacity-0`}>
+            className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0 opacity-0`}>
             <div >
               <Logo />
             </div>

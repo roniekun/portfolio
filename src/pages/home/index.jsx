@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useRef, useEffect, useContext } from 'react'
 import { DataContext } from '../../context/DataContext'
 import Profile from './section/Profile'
+import { HeroBg } from './assets/images/HeroBg'
 import About from './section/About'
 import Works from './section/Works'
 import Services from './section/Services'
@@ -96,14 +97,14 @@ const Home = () => {
         className='relative flex flex-col top-0'>
         <section 
         ref={home}
-        className='flex flex-col  bg-stone-100 p-[5vw] lg:gap-y-2 justify-center h-screen
+        className='flex flex-col  100 text-neutral-100 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-screen
          items-center z-0 overflow-hidden'>
-       
+         <HeroBg />
         <div 
           ref={hero}
           className='w-full self-center flex gap-y-3' >
             <h1
-             className='text-4xl tracking-normal font-primary uppercase text-balance'>
+             className='text-3xl tracking-normal font-primary uppercase text-balance mx-[5vw]' >
                {text.map((char, index) => (
                 <span
                  className='opacity-0' key={index}  ref={(el) => (heroChars.current[index] = el)} >
@@ -113,7 +114,8 @@ const Home = () => {
         </div>
         <span 
         onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-        className='absolute bottom-20 cursor-pointer  text-sm font-base uppercae font-secondary uppercase tracking-10 border rounded-3xl px-3 py-2'>
+        className='absolute bottom-20 cursor-pointer text-white  text-sm font-base uppercae font-secondary uppercase 
+        tracking-10 border rounded-3xl px-3 py-2'>
          explore</span>
         </section>
 
