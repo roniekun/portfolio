@@ -79,7 +79,8 @@ const Nav = () => {
                 data-value={link.name}
                 onClick={() => handleClick(link.to)}
                 key={link.name}
-                 className={`group w-28 font-secondary cursor-pointer text-md text-neutral-100  rounded-3xl relative flex flex-col group justify-center uppercase hover:bg-lime-300
+                 className={`group w-28 font-secondary cursor-pointer text-md text-neutral-100  rounded-3xl relative flex 
+                 flex-col group justify-center uppercase hover:bg-lime-300 hover:text-black
                 items-center`}>
                  {link.name} 
                 </a>
