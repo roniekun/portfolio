@@ -22,9 +22,9 @@ const Clock = () => {
   };
 
   return (
-    <main className='flex flex-col gap-1 w-full font-primary font-medium'>
-        <span className='uppercase text-black text-[11px]'>local time</span>
-        <h1 className='text-black text-sm lowercase '>
+    <main className='flex flex-col gap-1 w-full font-primary font-medium text-neutral-100'>
+        <span className='uppercasetext-[11px]'>local time</span>
+        <h1 className='text-sm lowercase '>
         {currentTime.toLocaleTimeString([], timeOptions)}
         </h1>
     </main>

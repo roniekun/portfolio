@@ -55,7 +55,7 @@ const Profile = () => {
   return (
     <main 
         ref={profile}
-        className='w-full flex justify-center gap-y-5 items-center flex-col py-20 bg-black'>
+        className='w-full flex justify-center gap-y-5 items-center flex-col'>
          <div className=''>
          <Avatar />
          </div>

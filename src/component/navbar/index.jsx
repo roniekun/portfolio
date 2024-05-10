@@ -30,7 +30,7 @@ const Navbar = () => {
   
         <section
           ref={linkItems}
-          className='flex flex-col w-fit justify-start relative mt-5 items-start text-xl h-auto gap-7 mx-[10vw] opacity-1'>
+          className='flex flex-col w-fit justify-start relative mt-5 items-start text-xl h-auto gap-5 mx-[10vw] opacity-1'>
         
                 {links.map((link, index) => (
                 <div className='flex w-fit justify-start relative items-start group  overflow-hidden'>
@@ -38,7 +38,7 @@ const Navbar = () => {
                     to={link.to}
                     onClick={handleClick}
                     className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-medium capitalize font-primary
-                     flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-lime-400' : 'text-black'} `}
+                     flex text-balance h-[4vh] w-fit select-none ${link.to===location.pathname ? 'text-lime-400' : 'text-neutral-100'} `}
                     key={link.name}>
                      {link.name} 
                                     {/* <span className={`absolute -bottom-1 h-[3px] w-full  
@@ -49,7 +49,7 @@ const Navbar = () => {
 
         </section>
     <section className='flex flex-col gap-5 w-full'>
-            <Socials ref={socialsRef} /> 
+            <Socials/> 
        <div className='flex flex-col gap-1 mx-[2vw] mt-[5vw] self-end w-32 '>
         <Clock /></div>
     </section>

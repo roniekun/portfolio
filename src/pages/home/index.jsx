@@ -97,7 +97,7 @@ const Home = () => {
         className='relative flex flex-col top-0'>
         <section 
         ref={home}
-        className='flex flex-col  100 text-neutral-100 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-screen
+        className='flex flex-col  100 text-neutral-100 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
          items-center z-0 overflow-hidden'>
          <HeroBg />
         <div 
@@ -114,12 +114,14 @@ const Home = () => {
         </div>
         <span 
         onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-        className='absolute bottom-20 cursor-pointer text-white  text-sm font-base uppercae font-secondary uppercase 
+        className='absolute md:bottom-20 bottom-5 cursor-pointer text-white  text-sm font-base uppercae font-secondary uppercase 
         tracking-10 border rounded-3xl px-3 py-2'>
          explore</span>
         </section>
 
-        <section ref={profile}>
+        <section
+        className='md:py-20 py-10  bg-black'
+         ref={profile}>
           <Profile />
         </section>
 

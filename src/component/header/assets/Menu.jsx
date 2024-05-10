@@ -76,7 +76,7 @@ const Menu = () => {
                 animate={{opacity: 1}}
 
                 className={`bg-blend-difference group transition flex items-center justify-center uppercase font-secondary relative 
-                mx-[5vw] -z-10 rounded-lg ${isToggleMenu? 'bg-neutral-500 border-2 bg-opacity-20' : 'bg-lime-400' } w-14 text-neutral-950`}> 
+                mx-[5vw] -z-10 rounded-lg ${isToggleMenu? 'bg-neutral-500 border-2 text-neutral-100 bg-opacity-20' : 'bg-lime-400' } w-14`}> 
                { isToggleMenu ? <button  
                 ref={btn}
                 onMouseEnter={handleMouseEvent}
