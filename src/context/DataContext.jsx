@@ -20,8 +20,8 @@ const DataProvider = ({ children  }) => {
     const [ inView, setInView ] = useState(false)
     
     const user = {
-      title: 'Studio',
-      name: 'Studio',
+      title: 'Ronie Benitez',
+      name: 'Ronie Benitez',
       email: 'roniebenitez01@gmail.com',
       subject: 'New Project'
     }

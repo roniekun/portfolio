@@ -1,4 +1,5 @@
 import React from 'react'
+import bg from './video/background-video.webm'
 
 export const HeroBg = () => {
   return (
@@ -6,7 +7,7 @@ export const HeroBg = () => {
     <video 
     autoPlay loop muted
     className='absolute object-cover  h-full w-full '
-    src="src/pages/home/assets/video/background-video.webm"></video>
+    src={bg}></video>
     </div>
   )
 }
