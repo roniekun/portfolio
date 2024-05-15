@@ -50,22 +50,26 @@ const Home = () => {
     });
   }, [id]);
 
+  // hero animation
   useGSAP(
     () => {
       const tl = gsap.timeline();
-      heroChars.current.forEach((el, idx) => {
-        if (!isLoading) {
-          gsap.fromTo(
-            el,
-            {
-              y: "200%",
-              ease: "power4.out",
-              duration: 0.3,
-            },
-            { y: 0, delay: idx * 0.1 }
-          );
-        }
-      });
+      setTimeout(() => {
+        heroChars.current.forEach((el, idx) => {
+          if (!isLoading) {
+            gsap.fromTo(
+              el,
+              {
+                y: "200%",
+                ease: "power4.out",
+                duration: 0.3,
+              },
+              { y: 0, delay: idx * 0.1 }
+            );
+          }
+        });
+      }, 300);
+
       tl.fromTo(
         exploreRef.current,
         {
@@ -127,7 +131,7 @@ const Home = () => {
               >
                 <h1
                   ref={(el) => (heroChars.current[idx] = el)}
-                  className="leading-normal md:text-3xl text-lg tracking-normal font-primary translate-y-[200%] z-10
+                  className="md:text-4xl text-xl font-black leading-tight tracking-normal font-primary translate-y-[200%] z-10
              uppercase text-center "
                 >
                   {word}
@@ -137,14 +141,18 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <span
-          ref={exploreRef}
-          onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-          className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-neutral-400  text-xs flex justify-center items-center font-base uppercase font-primary
+        {!isLoading && (
+          <span
+            ref={exploreRef}
+            onClick={() =>
+              profile.current.scrollIntoView({ behavior: "smooth" })
+            }
+            className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-neutral-400  text-xs flex justify-center items-center font-base uppercase font-primary
         tracking-10 border rounded-full w-20 h-24"
-        >
-          explore
-        </span>
+          >
+            explore
+          </span>
+        )}
       </section>
 
       <section

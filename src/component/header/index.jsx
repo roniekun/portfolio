@@ -67,17 +67,14 @@ const Header = () => {
       }`}
         >
           <section className="flex flex-col">
-            <motion.div
-              nitial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, durationg: 0.3 }}
-              className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0 opacity-0`}
+            <div
+              className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0 `}
             >
               <div>
                 <Logo />
               </div>
               {isMobile ? <Menu /> : <Nav />}
-            </motion.div>
+            </div>
           </section>
 
           <section className="relative flex h-0" ref={nav}>

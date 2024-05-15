@@ -58,16 +58,16 @@ const Profile = () => {
       </div>
       <div className="flex relative items-center w-fit my-[5%] lg:w-[50%]">
         <h3 className="md:text-2xl text-xl leading-8 md:leading-normal  relative font-medium mx-2  text-center w-full  font-primary">
-          {text2.map((char, index) => (
+          {text2.map((char, idx) => (
             <span
               className={`opacity-0 relative ${
-                index > text2.length - 21 && "text-blue-600" 
+                idx > text2.length - 21 && "text-blue-600" 
               }`}
-              key={index}
-              ref={(el) => (avatarChars.current[index] = el)}
+              key={idx}
+              ref={(el) => (avatarChars.current[idx] = el)}
             >
               {char}
-              {index === text2.length - 21 && <br />}
+              {idx === text2.length - 21 && <br />}
             </span>
           ))}
         </h3>
