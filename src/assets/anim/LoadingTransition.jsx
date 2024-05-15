@@ -6,7 +6,7 @@ import { Timeline } from "gsap/gsap-core";
 import { letters } from "../../utils/letters";
 
 export default function LoadingTransition({ children }) {
-  const { isLoading } = useContext(DataContext);
+  const { isLoading, setLoading } = useContext(DataContext);
   const title = useRef(null);
   const cover = useRef(null);
   const titleContainer = useRef(null);
@@ -48,7 +48,13 @@ export default function LoadingTransition({ children }) {
           duration: 0.3,
           ease: "power4.inOut",
         })
-        .to(title.current, { opacity: 0 })
+        .to(title.current, { fontWeight: "bold" }, ".3")
+
+        .to(titleContainer.current, {
+          scale: 1.5,
+          duration: 0.7,
+        })
+        .to(title.current, { opacity: 0, delay: 0.7 })
         .to(container.current, {
           height: 0,
           duration: 0.7,
@@ -65,7 +71,7 @@ export default function LoadingTransition({ children }) {
         ref={container}
         className="fixed cursor-wait bg-zinc-950 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
       >
-        <div ref={titleContainer} className="overflow-hidden relative">
+        <div ref={titleContainer} className="overflow-hidden relative h-fit">
           <span
             ref={cover}
             className="w-full h-full bg-black transform -translate-y-full "

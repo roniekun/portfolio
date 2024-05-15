@@ -18,10 +18,12 @@ const Footer = () => {
         <h3 className="font-medium text-md md:text-lg lg:leading-10 md:leading-9 leading-8">
           Thinking of a project?
         </h3>
-        <h1 className="text-3xl uppercase">Reach out & share your vision</h1>
+        <h1 className="text-3xl uppercase text-lime-400">
+          Reach out & share your vision
+        </h1>
         <button
-          onClick={handleClick}
-          className="uppercase border rounded-full w-32 h-32 font-medium p-5"
+          onClick={()=>handleClick(user)}
+          className="transiton duration-300 hover:text-lime-400 hover:border-lime-400 uppercase border rounded-full w-32 h-32 font-medium p-5"
         >
           send us <br /> note
         </button>

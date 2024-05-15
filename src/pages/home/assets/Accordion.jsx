@@ -23,7 +23,11 @@ const Accordion = () => {
           } 
                 lg:px-5 md:py-5 bg-opacity-15 border-gray-400 border-b `}
         >
-          <span className="text-sm border rounded-lg border-gray-600 px-1 mt-1 md:mx-1 w-fit text-gray-400">
+          <span
+            className={`text-sm border rounded-lg border-gray-600 px-1 mt-1 md:mx-1 w-fit text-gray-400 ${
+              isActive[idx] && "text-lime-400"
+            }`}
+          >
             #0{idx + 1}
           </span>
           <div
@@ -31,7 +35,11 @@ const Accordion = () => {
             onClick={() => handleClick(idx)}
             className="group flex justify-start items-center cursor-pointer mb-2"
           >
-            <h2 className="cursor-pointer text-base font-medium text-left leading-relaxed md:text-xl font-base md:px-1 md:mt-5 text-gray-50">
+            <h2
+              className={`cursor-pointer text-base font-medium text-left leading-relaxed transition duration-300 md:text-xl font-base md:px-1 md:mt-5  ${
+                isActive[idx] ? "text-lime-400" : "text-neutral-100"
+              }`}
+            >
               {data.question}
             </h2>
           </div>

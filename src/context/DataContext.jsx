@@ -27,7 +27,7 @@ const DataProvider = ({ children }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 7000);
   }, []);
 
   //dynamic document title
