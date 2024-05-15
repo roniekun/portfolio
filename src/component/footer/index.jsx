@@ -31,9 +31,12 @@ const Footer = () => {
         <div className="">
           <Socials />
         </div>
-        <div className="text-right ">
-          <h2 className="capitalize ">
-            all rights reserved <br /> &copy;{date.getUTCFullYear()}
+        <div>
+          <h2 className="text-right capitalize">
+            all rights reserved <br />
+            <span className="lowercase">
+              roniecode&copy;{date.getUTCFullYear()}
+            </span>
           </h2>
         </div>
       </section>

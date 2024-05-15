@@ -9,8 +9,9 @@ import Accordion from "./assets/Accordion";
 import Footer from "../../component/footer";
 import Contact from "./section/Contact";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import splitString from "../../assets/anim/SplitStrings";
 
 const Home = () => {
@@ -27,8 +28,9 @@ const Home = () => {
   const container = useRef(null);
   const refsArray = [about, services, works, contact];
   let { id } = useParams();
-  const heroText = "webiste undre constrcution";
+  const heroTexts = ["webstie", "undre", "construciton"];
   const heroChars = useRef([]);
+  const exploreRef = useRef();
 
   useEffect(() => {
     location.title = "Freelance";
@@ -48,16 +50,33 @@ const Home = () => {
     });
   }, [id]);
 
-  useLayoutEffect(() => {
-    heroChars.current.forEach((el) => {
-      const randomDelay = Math.random(0.3, 3);
-      gsap.to(el, {
-        opacity: 1,
-        duration: 0.3,
-        delay: randomDelay,
+  useGSAP(
+    () => {
+      const tl = gsap.timeline();
+      heroChars.current.forEach((el, idx) => {
+        if (!isLoading) {
+          gsap.fromTo(
+            el,
+            {
+              y: "200%",
+              ease: "power4.out",
+              duration: 0.3,
+            },
+            { y: 0, delay: idx * 0.1 }
+          );
+        }
       });
-    });
-  }, [heroChars.current]);
+        tl.fromTo(
+          exploreRef.current,
+          {
+            opacity: 0,
+          },
+          { opacity: 1 }
+        );
+    },
+
+    { dependencies: [isLoading] }
+  );
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -90,7 +109,7 @@ const Home = () => {
     );
   }, []);
 
-  const text = splitString(heroText);
+  const text = splitString(heroTexts);
 
   return (
     <motion.main ref={container} className="relative flex flex-col top-0">
@@ -99,34 +118,46 @@ const Home = () => {
         className="flex flex-col relative 100 text-neutral-100 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
          items-center z-0 overflow-hidden bg-stone-950"
       >
-        <div ref={hero} className="w-full self-center flex gap-y-3 x">
-          <div
-            className="justify-center w-full md:text-3xl text-lg tracking-normal font-primary 
-             uppercase text-center leading-tight mx-[5vw]"
-          >
-            {text.map((char, index) => (
-              <span
-                className="opacity-0"
-                key={index}
-                ref={(el) => (heroChars.current[index] = el)}
+        <div ref={hero} className="w-full self-center flex ">
+          <div className="justify-center w-full flex items-center flex-col">
+            {heroTexts.map((word, idx) => (
+              <div
+                className="overflow-hidden justify-center flex items-center  h-fit"
+                key={idx}
               >
-                {char}
-                {index === 7 && <br />}
-              </span>
+                <h1
+                  ref={(el) => (heroChars.current[idx] = el)}
+                  className="leading-normal md:text-3xl text-lg tracking-normal font-primary translate-y-[200%] z-10
+             uppercase text-center "
+                >
+                  {word}
+                </h1>
+                <> {idx < heroTexts.length - 1 && <br />}</>
+              </div>
             ))}
           </div>
         </div>
         <span
+          ref={exploreRef}
           onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-          className="absolute md:bottom-20 bottom-5 cursor-pointer text-white text-xs flex justify-center items-center font-base uppercase font-primary
+          className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-white text-xs flex justify-center items-center font-base uppercase font-primary
         tracking-10 border rounded-full w-20 h-24"
         >
           explore
         </span>
       </section>
 
-      <section className="md:py-20 py-10  bg-black" ref={profile}>
+      <section
+        className="md:py-20 py-10  flex justify-center items-center relative bg-black flex-col border-b"
+        ref={profile}
+      >
         <Profile />
+        <Link
+          className="text-center relative cursor-pointer text-white text-xs flex justify-center items-center font-base uppercase font-primary
+        tracking-10 border rounded-full w-20 h-24"
+        >
+          learn <br /> more
+        </Link>
       </section>
 
       <section className="min-h-[800px]" id="about" ref={about}>
