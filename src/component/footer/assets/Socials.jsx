@@ -1,10 +1,8 @@
 import { linksData } from "../../../utils/data/linksData";
 
-import React from "react";
-
 const Socials = () => {
   return (
-    <main className="gap-x-5 gap-y-3 flex flex-wrap justify-around relative mx-[10vw]">
+    <main className="gap-x-5 gap-y-3 flex flex-wrap justify-around relative">
       {linksData.map((link, index) => (
         <div className="flex justify-evenly group relative" key={link.acn}>
           <a

@@ -14,7 +14,7 @@ const Cards = () => {
   }
 
   return (
-    <main  className='gap-10 place-items-center h-auto l group relative w-full lg:grid lg:grid-cols-2 font-secondary'>
+    <main  className='gap-10 place-items-center h-auto l group relative w-full lg:grid lg:grid-cols-2'>
     {cards.map((card, index)=>( 
     <div key={index}
         onClick={()=>handleClick(index)}

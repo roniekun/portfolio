@@ -33,3 +33,33 @@
   font-weight: 700;
   src: url('../fonts/otf/PPNeueMontreal-Bold.otf') format('opentype');
 }
+
+/* PPTelegraf */
+
+@font-face {
+  font-family: 'Telegraf';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/otf/PPTelegraf-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Telegraf';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/otf/PPTelegraf-RegularSlanted.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Telegraf';
+  font-style: oblique;
+  font-weight: 400;
+  src: url('../fonts/otf/PPTelegraf-RegularOblique.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Telegraf';
+  font-style:thin;
+  font-weight: 100;
+  src: url('../fonts/otf/PPTelegraf-Ultralight.otf') format('opentype');
+}
