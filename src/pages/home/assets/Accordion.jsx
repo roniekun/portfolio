@@ -41,9 +41,9 @@ const Accordion = () => {
             // ref={(el) => (answers.current[idx] = el)}
             className="transition h-0 duration-300 rounded-md  self-end"
           >
-            <h3 className=" text-stone-300 text-base text-left leading-normal px-2  md:text-lg md:mt-5 mt-3 mb-2">
+            <li className="text-stone-300 text-base text-left leading-normal px-2  md:text-lg md:mt-5 mt-3 mb-2">
               {data.answer}
-            </h3>
+            </li>
           </motion.div>
           {/* { idx !== questions.length-1 && <span className='h-[1px] w-full bg-neutral-700'/>} */}
         </div>
