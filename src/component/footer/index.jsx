@@ -32,7 +32,7 @@ const Footer = () => {
           <Socials />
         </div>
         <div className="text-right ">
-          <h2 className="capitalize font-base">
+          <h2 className="capitalize ">
             all rights reserved <br /> &copy;{date.getUTCFullYear()}
           </h2>
         </div>

@@ -118,8 +118,8 @@ const Home = () => {
         </div>
         <span
           onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-          className="absolute md:bottom-20 bottom-5 cursor-pointer text-white text-sm flex justify-center items-center font-base uppercase font-primary
-        tracking-10 border rounded-full w-28 h-28"
+          className="absolute md:bottom-20 bottom-5 cursor-pointer text-white text-xs flex justify-center items-center font-base uppercase font-primary
+        tracking-10 border rounded-full w-20 h-24"
         >
           explore
         </span>
@@ -150,9 +150,7 @@ const Home = () => {
       </section>
 
       <section className="px-[5vw] gap-5 flex flex-col justify-center items-center  bg-zinc-950 py-[5vw] ">
-        <h1 className="mt-5 font-semibold text-white text-sm">
-          FAQ's
-        </h1>
+        <h1 className="mt-5 font-semibold text-white text-sm">FAQ's</h1>
         <Accordion />
       </section>
 
