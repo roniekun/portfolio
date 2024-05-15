@@ -66,13 +66,13 @@ const Home = () => {
           );
         }
       });
-        tl.fromTo(
-          exploreRef.current,
-          {
-            opacity: 0,
-          },
-          { opacity: 1 }
-        );
+      tl.fromTo(
+        exploreRef.current,
+        {
+          opacity: 0,
+        },
+        { opacity: 1 }
+      );
     },
 
     { dependencies: [isLoading] }
@@ -115,7 +115,7 @@ const Home = () => {
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
         ref={home}
-        className="flex flex-col relative 100 text-neutral-100 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
+        className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
          items-center z-0 overflow-hidden bg-stone-950"
       >
         <div ref={hero} className="w-full self-center flex ">
@@ -140,7 +140,7 @@ const Home = () => {
         <span
           ref={exploreRef}
           onClick={() => profile.current.scrollIntoView({ behavior: "smooth" })}
-          className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-white text-xs flex justify-center items-center font-base uppercase font-primary
+          className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-neutral-400  text-xs flex justify-center items-center font-base uppercase font-primary
         tracking-10 border rounded-full w-20 h-24"
         >
           explore
@@ -148,12 +148,12 @@ const Home = () => {
       </section>
 
       <section
-        className="md:py-20 py-10  flex justify-center items-center relative bg-black flex-col border-b"
+        className="md:py-20 py-10  flex justify-center items-center relative bg-black flex-col border-b text-neutral-300"
         ref={profile}
       >
         <Profile />
         <Link
-          className="text-center relative cursor-pointer text-white text-xs flex justify-center items-center font-base uppercase font-primary
+          className="text-center relative cursor-pointer  text-xs flex justify-center items-center font-base uppercase font-primary
         tracking-10 border rounded-full w-20 h-24"
         >
           learn <br /> more
@@ -181,7 +181,7 @@ const Home = () => {
       </section>
 
       <section className="px-[5vw] gap-5 flex flex-col justify-center items-center  bg-zinc-950 py-[5vw] ">
-        <h1 className="mt-5 font-semibold text-white text-sm">FAQ's</h1>
+        <h1 className="mt-5 font-semibold text-sm">FAQ's</h1>
         <Accordion />
       </section>
 

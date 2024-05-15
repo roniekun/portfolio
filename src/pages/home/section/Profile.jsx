@@ -51,17 +51,17 @@ const Profile = () => {
   return (
     <main
       ref={profile}
-      className="w-full flex justify-center gap-y-5 items-center flex-col"
+      className="relative w-full flex justify-center gap-y-5 items-center flex-col"
     >
       <div className="flex justify-center items-center w-full relative">
         <Avatar />
       </div>
-      <div className="flex items-center w-fit my-[5%] lg:w-[50%]">
-        <h3 className="md:text-2xl text-xl leading-8 md:leading-normal   font-medium mx-2  text-center w-full  font-primary">
+      <div className="flex relative items-center w-fit my-[5%] lg:w-[50%]">
+        <h3 className="md:text-2xl text-xl leading-8 md:leading-normal  relative font-medium mx-2  text-center w-full  font-primary">
           {text2.map((char, index) => (
             <span
-              className={`opacity-0 ${
-                index > text2.length - 21 ? "text-blue-600" : "text-blue-50"
+              className={`opacity-0 relative ${
+                index > text2.length - 21 && "text-blue-600" 
               }`}
               key={index}
               ref={(el) => (avatarChars.current[index] = el)}

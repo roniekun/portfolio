@@ -31,8 +31,8 @@ const Footer = () => {
         <div className="">
           <Socials />
         </div>
-        <div>
-          <h2 className="text-right capitalize">
+        <div className="h-full relative self-end">
+          <h2 className="text-right capitalize ">
             all rights reserved <br />
             <span className="lowercase">
               roniecode&copy;{date.getUTCFullYear()}
