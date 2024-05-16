@@ -120,7 +120,7 @@ const Home = () => {
       <section
         ref={home}
         className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
-         items-center z-0 overflow-hidden bg-stone-950"
+         items-center z-0 overflow-hidden bg-black"
       >
         <div ref={hero} className="w-full self-center flex ">
           <div className="justify-center w-full flex items-center flex-col">
@@ -131,7 +131,7 @@ const Home = () => {
               >
                 <h1
                   ref={(el) => (heroChars.current[idx] = el)}
-                  className="md:text-4xl text-xl font-black leading-tight tracking-normal font-primary translate-y-[200%] z-10
+                  className="md:text-4xl text-xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10
              uppercase text-center "
                 >
                   {word}
@@ -189,7 +189,9 @@ const Home = () => {
       </section>
 
       <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] ">
-        <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">FAQ's</h1>
+        <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
+          FAQ's
+        </h1>
         <Accordion />
       </section>
 

@@ -24,8 +24,8 @@ const Accordion = () => {
                 lg:px-5 md:py-5 bg-opacity-15 border-gray-400 border-b `}
         >
           <span
-            className={`text-sm border rounded-lg border-gray-600 px-1 mt-1 md:mx-1 w-fit text-gray-400 ${
-              isActive[idx] && "text-lime-400"
+            className={`text-sm border rounded-lg border-gray-600 px-1 mt-1 transform duration-300 md:mx-1 w-fit text-gray-400 ${
+              isActive[idx] && "text-lime-400 border-lime-400"
             }`}
           >
             #0{idx + 1}

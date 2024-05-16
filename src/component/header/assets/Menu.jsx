@@ -10,26 +10,29 @@ const Menu = () => {
   const btn = useRef(null);
 
   useEffect(() => {
-    let interval = null;
-    let iteration = 0;
-    const initialContent = isToggleMenu ? "CLOSE " : "MENUS";
-    clearInterval(interval);
-    interval = setInterval(() => {
-      btn.current.textContent = btn.current.textContent
-        .split("")
-        .map((_, idx) => {
-          if (idx < iteration) {
-            return initialContent[idx];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        })
-        .join("");
+    setTimeout(() => {
+          let interval = null;
+          let iteration = 0;
+          const initialContent = isToggleMenu ? "CLOSE " : "MENUS";
+          clearInterval(interval);
+          interval = setInterval(() => {
+            btn.current.textContent = btn.current.textContent
+              .split("")
+              .map((_, idx) => {
+                if (idx < iteration) {
+                  return initialContent[idx];
+                }
+                return letters[Math.floor(Math.random() * 26)];
+              })
+              .join("");
 
-      if (iteration >= btn.current.textContent.length) {
-        clearInterval(interval);
-      }
-      iteration += 1 / 3;
-    }, 100);
+            if (iteration >= btn.current.textContent.length) {
+              clearInterval(interval);
+            }
+            iteration += 1 / 3;
+          }, 100);
+    }, 700);
+
   }, [isToggleMenu]);
 
   useEffect(() => {

@@ -14,28 +14,30 @@ const Nav = () => {
     { name: "contact", to: "/contact" },
   ];
   useEffect(() => {
-    linkArray.current.forEach((linkRef, idx) => {
-      let interval = null;
-      let iteration = 0;
-      const initialContent = linkRef.textContent;
-      clearInterval(interval);
-      interval = setInterval(() => {
-        linkRef.textContent = linkRef.textContent
-          .split("")
-          .map((_, idx) => {
-            if (idx < iteration) {
-              return initialContent[idx];
-            }
-            return letters[Math.floor(Math.random() * 26)];
-          })
-          .join("");
+    setTimeout(() => {
+      linkArray.current.forEach((linkRef, idx) => {
+        let interval = null;
+        let iteration = 0;
+        const initialContent = linkRef.textContent;
+        clearInterval(interval);
+        interval = setInterval(() => {
+          linkRef.textContent = linkRef.textContent
+            .split("")
+            .map((_, idx) => {
+              if (idx < iteration) {
+                return initialContent[idx];
+              }
+              return letters[Math.floor(Math.random() * 26)];
+            })
+            .join("");
 
-        if (iteration >= linkRef.textContent.length) {
-          clearInterval(interval);
-        }
-        iteration += 1 / 3;
-      }, 30);
-    });
+          if (iteration >= linkRef.textContent.length) {
+            clearInterval(interval);
+          }
+          iteration += 1 / 3;
+        }, 30);
+      });
+    }, 700);
   }, []);
 
   const handleMouseEvent = (i, event) => {

@@ -15,14 +15,14 @@ const Footer = () => {
   return (
     <footer className="h-auto relative min-h-[400px] w-full  flex flex-col p-[5vw] py-20 font-primary bg-stone-950 gap-10">
       <section className="relative flex-col flex w-full h-full flex-wrap text-gray-300 justify-center items-center gap-7">
-        <h3 className="font-medium text-md md:text-lg lg:leading-10 md:leading-9 leading-8">
+        <h3 className="font-medium text-base md:text-lg lg:leading-10 md:leading-9 leading-8 text-lime-400">
           Thinking of a project?
         </h3>
-        <h1 className="text-3xl uppercase text-lime-400">
+        <h1 className="text-3xl uppercase font-black md:text-left text-center">
           Reach out & share your vision
         </h1>
         <button
-          onClick={()=>handleClick(user)}
+          onClick={() => handleClick(user)}
           className="transiton duration-300 hover:text-lime-400 hover:border-lime-400 uppercase border rounded-full w-32 h-32 font-medium p-5"
         >
           send us <br /> note

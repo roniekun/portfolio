@@ -54,11 +54,11 @@ const Header = () => {
   // );
 
   return (
-    <>
-      {!isLoading && (
+    <main>
+      {!isLoading && 
         <motion.header
           ref={header}
-          className={`md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-300 transition-all
+          className={`md:mt-5 mt-3 fixed shadow-inner   z-20 overflow-hidden transtion duration-300 transition-all
            text-white bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2
       ${
         isToggleMenu
@@ -81,8 +81,8 @@ const Header = () => {
             {isMobile && <Navbar />}
           </section>
         </motion.header>
-      )}
-    </>
+      }
+    </main>
   );
 };
 

@@ -1,9 +1,10 @@
 import React, { useState, useContext, useLayoutEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
 import { DataContext } from "../../context/DataContext";
 import gsap from "gsap";
 import { Timeline } from "gsap/gsap-core";
+import CustomEase from "gsap/CustomEase";
 import { letters } from "../../utils/letters";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function LoadingTransition({ children }) {
   const { isLoading, setLoading } = useContext(DataContext);
@@ -13,6 +14,9 @@ export default function LoadingTransition({ children }) {
   const container = useRef(null);
 
   useLayoutEffect(() => {
+    const setLoadingState = () => {
+      setLoading(false);
+    };
     const textAnim = () => {
       let interval = null;
       let iteration = 0;
@@ -36,8 +40,9 @@ export default function LoadingTransition({ children }) {
       }, 50);
     };
 
-    const animate = () => {
+    const animateTimeline = () => {
       gsap.registerPlugin(Timeline);
+
       const tl = gsap.timeline();
       textAnim();
 
@@ -51,39 +56,53 @@ export default function LoadingTransition({ children }) {
         .to(title.current, { fontWeight: "bold" }, ".3")
 
         .to(titleContainer.current, {
-          scale: 1.5,
+          scale: 1.1,
           duration: 0.7,
+          ease: "expo.in",
         })
-        .to(title.current, { opacity: 0, delay: 0.7 })
-        .to(container.current, {
-          height: 0,
-          duration: 0.7,
-          ease: "power4.inOut",
+        .call(() => {
+          setLoadingState();
         })
+
         .to(window.document.body, { overflow: "scroll", delay: 0.3 });
     };
-    animate();
+
+    animateTimeline();
   }, []);
 
   return (
     <main>
-      <div
-        ref={container}
-        className="fixed cursor-wait bg-zinc-950 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
-      >
-        <div ref={titleContainer} className="overflow-hidden relative h-fit">
-          <span
-            ref={cover}
-            className="w-full h-full bg-black transform -translate-y-full "
-          ></span>
-          <h1
-            ref={title}
-            className="text-neutral-100 relative uppercase font-normal font-primary tracking-wide text-lg"
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            exit={{
+              height: 0,
+              transition: {
+                duration: 1,
+                ease: [0.76, 0, 0.24, 1],
+              },
+            }}
+            ref={container}
+            className="fixed cursor-wait bg-neutral-100 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
           >
-            roniecode
-          </h1>
-        </div>
-      </div>
+            <div
+              ref={titleContainer}
+              className="overflow-hidden relative h-fit p-2"
+            >
+              <span
+                ref={cover}
+                className="w-full h-full bg-neutral-200 transform -translate-y-full "
+              ></span>
+              <h1
+                ref={title}
+                className="text-neutral-950 relative uppercase font-normal font-primary tracking-wide text-lg text-clip"
+              >
+                roniecode
+              </h1>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       {children}
     </main>
   );

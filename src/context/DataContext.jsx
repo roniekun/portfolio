@@ -24,11 +24,6 @@ const DataProvider = ({ children }) => {
     email: "roniebenitez01@gmail.com",
     subject: "New Project",
   };
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 7000);
-  }, []);
 
   //dynamic document title
   useEffect(() => {
