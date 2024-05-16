@@ -60,6 +60,7 @@ export default function LoadingTransition({ children }) {
           duration: 0.7,
           ease: "expo.in",
         })
+        .to(title.current, { opacity: 0 })
         .call(() => {
           setLoadingState();
         })
@@ -83,7 +84,7 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className="fixed cursor-wait bg-neutral-100 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
+            className="fixed cursor-wait bg-neutral-800 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
           >
             <div
               ref={titleContainer}
@@ -91,11 +92,11 @@ export default function LoadingTransition({ children }) {
             >
               <span
                 ref={cover}
-                className="w-full h-full bg-neutral-200 transform -translate-y-full "
+                className="w-full h-full transform -translate-y-full "
               ></span>
               <h1
                 ref={title}
-                className="text-neutral-950 relative uppercase font-normal font-primary tracking-wide text-lg text-clip"
+                className="text-neutral-50 relative uppercase font-normal font-primary tracking-wide text-lg text-clip"
               >
                 roniecode
               </h1>
