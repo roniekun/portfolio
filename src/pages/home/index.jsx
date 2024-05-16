@@ -13,9 +13,10 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link, useParams } from "react-router-dom";
 import splitString from "../../assets/anim/SplitStrings";
+import PageTransition from "../../assets/anim/PageTransition";
 
 const Home = () => {
-  const { user, setTitle, setColor, color, isLoading } =
+  const { user, setTitle, setColor, color, isLoading, isTransition } =
     useContext(DataContext);
   const profile = useRef(null);
   const services = useRef(null);
@@ -35,6 +36,8 @@ const Home = () => {
   useEffect(() => {
     location.title = "Freelance";
     setTitle(`${location.title} - ${user.title} `);
+        window.scrollTo({ top });
+
   }, [location.pathname]);
 
   useEffect(() => {
@@ -141,7 +144,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        {!isLoading && (
+        {!isLoading || !isTransition && (
           <span
             ref={exploreRef}
             onClick={() =>

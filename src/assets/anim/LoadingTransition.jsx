@@ -56,11 +56,10 @@ export default function LoadingTransition({ children }) {
         .to(title.current, { fontWeight: "bold" }, ".3")
 
         .to(titleContainer.current, {
-          scale: 1.1,
           duration: 0.7,
+          opacity: 0 , delay: 1,
           ease: "expo.in",
         })
-        .to(title.current, { opacity: 0 })
         .call(() => {
           setLoadingState();
         })

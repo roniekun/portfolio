@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
-import { useLocation } from "react-router-dom";
 import { DataContext } from "../../context/DataContext";
+import { useLocation } from "react-router-dom";
 
 export default function PageTransition({ children }) {
+  const { isTransition } = useContext(DataContext);
   const location = useLocation();
-  const { isLoading } = useContext(DataContext);
 
   const anim = (variants) => {
     return {
@@ -27,28 +27,61 @@ export default function PageTransition({ children }) {
       },
     },
     leave: {
-      opacity: 1,
+      opacity: 0,
       transition: {
         duration: 0.3,
       },
     },
   };
-  const slide = {
+  const slideEnter = {
     start: {
-      top: "100vh",
+      top: "0",
     },
     enter: {
-      top: "100vh",
+      top: "-100vh",
+      transition: {
+        delay: 1,
+        duration: 1,
+        ease: [0.76, 0, 0.24, 1],
+      },
+      transitionEnd: {
+        top: "100vh",
+      },
     },
     leave: {
-      top: "0",
+      opacity: 1,
+      top: "0vh",
       transition: {
         duration: 1,
-        ease: [0.76, 0, 0.24, 1],        ease: [0.76, 0, 0.24, 1],
-
+        ease: [0.76, 0, 0.24, 1],
       },
     },
   };
+  const slideExit = {
+    start: {
+      top: "0",
+    },
+    enter: {
+      top: "-100vh",
+      transition: {
+        delay: 1,
+        duration: 1,
+        ease: [0.76, 0, 0.24, 1],
+      },
+      transitionEnd: {
+        top: "100vh",
+      },
+    },
+    leave: {
+      opacity: 1,
+      top: "0",
+      transition: {
+        duration: 1,
+        ease: [0.76, 0, 0.24, 1],
+      },
+    },
+  };
+
   const perspective = {
     start: {
       y: 0,
@@ -72,12 +105,12 @@ export default function PageTransition({ children }) {
   };
 
   return (
-    <motion.main>
-      <motion.div
-        className="bg-red-500 h-screen w-screen absolute z-10"
-        {...anim(slide)}
-      />
-      {children}
-    </motion.main>
+    <main>
+      <div className="bg-black">
+        <motion.div className="opacity-0" {...anim(opacity)}>
+          {children}
+        </motion.div>
+      </div>
+    </main>
   );
 }

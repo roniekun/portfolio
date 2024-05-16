@@ -6,7 +6,7 @@ import { DataContext } from "../../../context/DataContext";
 const Logo = () => {
   const navigate = useNavigate();
   const logo = useRef(null);
-  const { isLoading } = useContext(DataContext);
+  const { setIsTransition } = useContext(DataContext);
 
   useLayoutEffect(() => {
     setTimeout(() => {
@@ -34,6 +34,7 @@ const Logo = () => {
   }, []);
 
   const handleClick = () => {
+    setIsTransition(true);
     navigate("/");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

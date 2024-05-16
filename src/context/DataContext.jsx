@@ -7,6 +7,7 @@ const DataProvider = ({ children }) => {
 
   const [title, setTitle] = useState(document.title);
   const [isLoading, setLoading] = useState(true);
+  const [isTransition, setIsTransition] = useState(false);
   const [color, setColor] = useState(defaultColor);
   const [bgColor, setBgColor] = useState(defaultBgColor);
   const [isToggleMenu, setToggleMenu] = useState(false);
@@ -70,6 +71,13 @@ const DataProvider = ({ children }) => {
     }
   }, [isToggleMenu]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsTransition(false);
+    }, 1000);
+    console.log(isTransition);
+  }, [isTransition]);
+
   return (
     <DataContext.Provider
       value={{
@@ -86,6 +94,8 @@ const DataProvider = ({ children }) => {
         setTitle,
         isLoading,
         setLoading,
+        isTransition,
+        setIsTransition,
         isScrolled,
         isMobile,
         setMobile,

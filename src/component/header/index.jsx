@@ -11,7 +11,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 const Header = () => {
-  const { isMobile, isScrolled, isToggleMenu, isLoading } =
+  const { isMobile, isScrolled, isToggleMenu, isLoading, isTransition } =
     useContext(DataContext);
   const location = useLocation();
   // refs
@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
     <main>
-      {!isLoading && 
+      {!isLoading  && 
         <motion.header
           ref={header}
           className={`md:mt-5 mt-3 fixed shadow-inner   z-20 overflow-hidden transtion duration-300 transition-all
