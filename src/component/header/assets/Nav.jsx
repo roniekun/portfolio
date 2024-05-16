@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { letters } from "../../../utils/letters";
 
@@ -6,6 +6,7 @@ const Nav = () => {
   const button = useRef(null);
   const [height, setHeight] = useState();
   const linkArray = useRef([]);
+  const location = useLocation()
 
   const links = [
     { name: "about", to: "/about" },
