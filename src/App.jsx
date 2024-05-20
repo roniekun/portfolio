@@ -2,6 +2,7 @@ import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import LoadingTransition from "./assets/anim/LoadingTransition";
 import Header from "./component/header";
 import Home from "./pages/home";
+import AboutUser from "./pages/about";
 import Gallery from "./pages/gallery";
 import Notfound from "./pages/notfound";
 import Lenis from "@studio-freight/lenis";
@@ -63,6 +64,7 @@ function App() {
           <Routes location={location} key={location.key}>
             <Route exact path="/" element={<Home />} />
             <Route path="/:id/" element={<Home />} />
+            <Route exact path="/about-author" element={<AboutUser/>} />
             <Route path="/gallery/" element={<Gallery />} />
             <Route path="/gallery/:id/" element={<Gallery />} />
             <Route path="*" element={<Notfound />} />

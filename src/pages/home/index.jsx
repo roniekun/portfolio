@@ -122,7 +122,10 @@ const Home = () => {
         className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
          items-center z-0 overflow-hidden bg-black"
       >
-        <div ref={hero} className="w-full self-center flex ">
+        <div
+          ref={hero}
+          className="w-full self-center flex flex-col justify-center items-center gap-5"
+        >
           <div className="justify-center w-full flex items-center flex-col">
             {heroTexts.map((word, idx) => (
               <div
@@ -140,19 +143,19 @@ const Home = () => {
               </div>
             ))}
           </div>
+          {!isLoading && (
+            <span
+              ref={exploreRef}
+              onClick={() =>
+                profile.current.scrollIntoView({ behavior: "smooth" })
+              }
+              className="opacity-0 relative z-10 cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font font-primary uppercase font-bold
+        tracking-10  rounded-full w-32 h-32 transition duration-300 text-center"
+            >
+              Explore
+            </span>
+          )}
         </div>
-        {!isLoading && (
-          <span
-            ref={exploreRef}
-            onClick={() =>
-              profile.current.scrollIntoView({ behavior: "smooth" })
-            }
-            className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-neutral-400  text-xs flex justify-center items-center font-base uppercase font-primary
-        tracking-10 border rounded-full w-20 h-24"
-          >
-            explore
-          </span>
-        )}
       </section>
 
       <section
@@ -160,16 +163,12 @@ const Home = () => {
         ref={profile}
       >
         <Profile />
-        <Link
-          className="text-center relative cursor-pointer  text-xs flex justify-center items-center font-base uppercase font-primary
-        tracking-10 border rounded-full w-20 h-24"
-        >
-          learn <br /> more
-        </Link>
+
       </section>
 
       <section className="min-h-[800px]" id="about" ref={about}>
         <About />
+        
       </section>
 
       <section

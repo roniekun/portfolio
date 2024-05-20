@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -70,12 +71,13 @@ const About = () => {
             deliver an exceptional user experience.
           </p>
         </div>
-        {/* <section className='w-full flex justify-center min-h-[400px] py-20'>
-              <h1 className='text-gray-100 uppercase font-primary t text-2xl font-semibold '>tech stack</h1>
-            </section>
-             <section className='w-full flex justify-center min-h-[400px] py-20'>
-              <h1 className='text-gray-100 font-primary t text-2xl font-semibold uppercase'>roadmap</h1>
-            </section> */}
+        <Link
+          to="/about-author"
+          className="relative z-10 cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font font-primary uppercase font-bold
+        tracking-10  rounded-full w-32 h-32 transition duration-300 text-center self-center"
+        >
+          learn <br /> more
+        </Link>
       </div>
     </main>
   );
