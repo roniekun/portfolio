@@ -88,7 +88,7 @@ export default function LoadingTransition({ children }) {
               ></span>
               <h1
                 ref={title}
-                className="text-neutral-50 relative uppercase font-normal font-primary tracking-wide text-lg text-clip"
+                className="text-neutral-50 font-black relative uppercase  font-primary tracking-wide text-lg text-clip"
               >
                 roniecode
               </h1>

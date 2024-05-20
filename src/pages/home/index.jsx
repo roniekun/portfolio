@@ -64,11 +64,11 @@ const Home = () => {
                 y: "110%",
                 ease: "power4.out",
               },
-              { y: 0, delay: idx * 0.1, duration: idx + 1 * 0.7 }
+              { y: 0, delay: idx * 0.1, duration: idx === 0 ? 0.2 : idx * 0.3 }
             );
           }
         });
-      }, 1000);
+      }, 300);
 
       tl.fromTo(
         exploreRef.current,
