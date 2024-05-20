@@ -10,7 +10,6 @@ const MarqueeSlider = () => {
       className="w-full h-fit"
       autoFill
       direction={isScrolled ? "left" : "right"}
-      delay={5}
       speed={isScrolled ? 50 : 100}
     >
       <div className="uppercase text-3xl mx-5 text-lime-500">

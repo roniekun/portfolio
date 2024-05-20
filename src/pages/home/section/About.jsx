@@ -20,7 +20,7 @@ const About = () => {
         onEnter: () => {
           tl.to(container.current, { opacity: 1, stagger: 0.1, duration: 0.3 });
           tl.from(wd.current, { opacity: 0, y: 5 });
-          tl.from(ebt.current, { opacity: 0, y: 5, delay: .3 });
+          tl.from(ebt.current, { opacity: 0, y: 5, delay: 0.3 });
         },
         onLeaveBack: () => {
           gsap.to(container.current, { opacity: 0 });
@@ -50,7 +50,7 @@ const About = () => {
           About
         </h1>
         <div ref={wd} className="trigger-about flex flex-col gap-y-5">
-          <h1 className="capitalize font-black text-xl font-primary  text-blue-600">
+          <h1 className="capitalize font-black text-xl font-primary  text-lime-400">
             Web development
           </h1>
           <p className="text-lg lg:w-1/2 text-neutral-300 leading-tight mb-10">
@@ -61,7 +61,7 @@ const About = () => {
         </div>
 
         <div ref={ebt} className="flex flex-col gap-y-5">
-          <h1 className="capitalize font-black text-xl font-primary  leading-snug text-blue-600">
+          <h1 className="capitalize font-black text-xl font-primary  leading-snug text-lime-400">
             exploring backend Technologies
           </h1>
           <p className="text-lg lg:w-1/2 text-neutral-300 leading-tight mb-10">
@@ -71,13 +71,6 @@ const About = () => {
             deliver an exceptional user experience.
           </p>
         </div>
-        <Link
-          to="/about-author"
-          className="relative z-10 cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font font-primary uppercase font-bold
-        tracking-10  rounded-full w-32 h-32 transition duration-300 text-center self-center"
-        >
-          learn <br /> more
-        </Link>
       </div>
     </main>
   );

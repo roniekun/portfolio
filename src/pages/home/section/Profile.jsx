@@ -61,7 +61,7 @@ const Profile = () => {
           {text2.map((char, idx) => (
             <span
               className={`opacity-0 relative ${
-                idx > text2.length - 21 && "text-blue-600"
+                idx > text2.length - 21 && "text-lime-400"
               }`}
               key={idx}
               ref={(el) => (avatarChars.current[idx] = el)}
@@ -72,6 +72,7 @@ const Profile = () => {
           ))}
         </h3>
       </div>
+ 
     </main>
   );
 };

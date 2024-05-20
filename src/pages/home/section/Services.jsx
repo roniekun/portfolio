@@ -2,12 +2,25 @@ import React from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import ComparisonSlider from "../../../assets/components/ComparisonSlider";
+import { useRef } from "react";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const Services = () => {
+  const scrollAnimRefs = useRef([]);
+  const target = useRef(null);
+  const targetContainer = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: target,
+    container: targetContainer,
+  });
+console.log(scrollYProgress)
   const text =
+    "I leveraged design and technology to craft brands and products that excel, captivate, and grow seamlessly.";
+
+  const scrollAnimText = text.split(" ");
+  const text2 =
     "My goal is to provide a digital experience that serves a meaningful purpose while also giving your business a significant advantage.";
-  const words = text.split(" ");
+  const words = text2.split(" ");
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -38,6 +51,28 @@ const Services = () => {
 
   return (
     <main className="relative flex justify-left h-full flex-col my-5">
+      <section
+        ref={targetContainer}
+        className=" h-[200vh] p-[5vw] flex justify-center items-center"
+      >
+        <p ref={target} className="flex flex-wrap">
+          {scrollAnimText.map((word, idx) => {
+            const start = idx / scrollAnimText.length;
+            const end = start + 1 / scrollAnimText.length;
+            const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+            return (
+              <motion.span
+                ref={(el) => (scrollAnimRefs.current[idx] = el)}
+                key={idx}
+                style={{ opacity }}
+                className="text-3xl  text-black font-black mx-1 leading-normal h-fit"
+              >
+                {word}
+              </motion.span>
+            );
+          })}
+        </p>
+      </section>
       <div className="trigger-services flex flex-wrap mt-14 mx-[5vw] justify-left max-w-[70%]">
         {words.map((word, idx) => (
           <div className="flex w-fit h-fit mr-2 overflow-hidden md:py-2">

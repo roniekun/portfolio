@@ -120,11 +120,11 @@ const Home = () => {
       <section
         ref={home}
         className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
-         items-center z-0 overflow-hidden bg-black"
+         items-center z-0 overflow-hidden bg-stone-950"
       >
         <div
           ref={hero}
-          className="w-full self-center flex flex-col justify-center items-center gap-5"
+          className="w-full self-center flex flex-col justify-center items-center gap-5 "
         >
           <div className="justify-center w-full flex items-center flex-col">
             {heroTexts.map((word, idx) => (
@@ -134,7 +134,7 @@ const Home = () => {
               >
                 <h1
                   ref={(el) => (heroChars.current[idx] = el)}
-                  className="md:text-4xl text-xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10
+                  className="md:text-4xl text-xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10 
              uppercase text-center "
                 >
                   {word}
@@ -163,12 +163,10 @@ const Home = () => {
         ref={profile}
       >
         <Profile />
-
       </section>
 
       <section className="min-h-[800px]" id="about" ref={about}>
         <About />
-        
       </section>
 
       <section
