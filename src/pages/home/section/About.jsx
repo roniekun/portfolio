@@ -13,13 +13,13 @@ const About = () => {
       const tl = gsap.timeline();
       gsap.registerPlugin(ScrollTrigger);
       const trigger = ScrollTrigger.create({
-        trigger: container.current,
-        start: "top center",
+        trigger: ".trigger-about",
+        start: "top bottom",
         end: "bottom bottom",
         onEnter: () => {
           tl.to(container.current, { opacity: 1, stagger: 0.1, duration: 0.3 });
           tl.from(wd.current, { opacity: 0, y: 5 });
-          tl.from(ebt.current, { opacity: 0, y: 5 });
+          tl.from(ebt.current, { opacity: 0, y: 5, delay: .3 });
         },
         onLeaveBack: () => {
           gsap.to(container.current, { opacity: 0 });
@@ -48,7 +48,7 @@ const About = () => {
         <h1 className="text-sm  font-secondary self-center mt-5 mb-10 leading-tight font-semibold text-neutral-50 capitalize">
           About
         </h1>
-        <div ref={wd} className="flex flex-col gap-y-5">
+        <div ref={wd} className="trigger-about flex flex-col gap-y-5">
           <h1 className="capitalize font-black text-xl font-primary  text-blue-600">
             Web development
           </h1>

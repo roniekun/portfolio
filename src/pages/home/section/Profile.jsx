@@ -15,8 +15,8 @@ const Profile = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const trigger = ScrollTrigger.create({
-      trigger: profile.current,
-      start: "top top+=100px",
+      trigger: ".trigger-profile",
+      start: "top bottom",
       end: "bottom bottom",
       onEnter: () => {
         avatarChars.current.forEach((el) => {
@@ -56,12 +56,12 @@ const Profile = () => {
       <div className="flex justify-center items-center w-full relative">
         <Avatar />
       </div>
-      <div className="flex relative items-center w-fit my-[5%] lg:w-[50%]">
+      <div className="trigger-profile flex relative items-center w-fit my-[5%] lg:w-[50%]">
         <h3 className="md:text-2xl text-xl leading-8 md:leading-normal  relative font-medium mx-2  text-center w-full  font-primary">
           {text2.map((char, idx) => (
             <span
               className={`opacity-0 relative ${
-                idx > text2.length - 21 && "text-blue-600" 
+                idx > text2.length - 21 && "text-blue-600"
               }`}
               key={idx}
               ref={(el) => (avatarChars.current[idx] = el)}
@@ -72,7 +72,6 @@ const Profile = () => {
           ))}
         </h3>
       </div>
-
     </main>
   );
 };

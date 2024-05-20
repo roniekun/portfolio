@@ -2,6 +2,7 @@ import React from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import ComparisonSlider from "../../../assets/components/ComparisonSlider";
 
 const Services = () => {
   const text =
@@ -12,8 +13,8 @@ const Services = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const trigger = ScrollTrigger.create({
-      trigger: ".parent",
-      start: "top center",
+      trigger: ".trigger-services",
+      start: "top bottom",
       end: "bottom bottom",
 
       onEnter: () => {
@@ -36,8 +37,8 @@ const Services = () => {
   });
 
   return (
-    <main className="parent relative flex justify-left h-full flex-col">
-      <div className="flex flex-wrap mt-14 mx-[5vw] justify-left max-w-[70%]">
+    <main className="relative flex justify-left h-full flex-col my-5">
+      <div className="trigger-services flex flex-wrap mt-14 mx-[5vw] justify-left max-w-[70%]">
         {words.map((word, idx) => (
           <div className="flex w-fit h-fit mr-2 overflow-hidden md:py-2">
             <div className="word md:text-2xl text-[6vw] text-neutral-800 font-black  transform translate-y-14">

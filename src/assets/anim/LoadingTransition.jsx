@@ -47,17 +47,10 @@ export default function LoadingTransition({ children }) {
       textAnim();
 
       tl.to(window.document.body, { overflow: "hidden" })
-        .to(cover.current, {
-          y: "10%",
-          delay: 3,
-          duration: 0.3,
-          ease: "power4.inOut",
-        })
-        .to(title.current, { fontWeight: "bold" }, ".3")
-
+   
         .to(titleContainer.current, {
-          duration: 0.7,
-          opacity: 0 , delay: 1,
+          duration: .7,
+          opacity: 0 , delay: 3,
           ease: "expo.in",
         })
         .call(() => {

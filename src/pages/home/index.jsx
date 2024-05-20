@@ -61,22 +61,21 @@ const Home = () => {
             gsap.fromTo(
               el,
               {
-                y: "200%",
+                y: "110%",
                 ease: "power4.out",
-                duration: 0.3,
               },
-              { y: 0, delay: idx * 0.1 }
+              { y: 0, delay: idx * 0.1, duration: idx + 1 * 0.7 }
             );
           }
         });
-      }, 300);
+      }, 1000);
 
       tl.fromTo(
         exploreRef.current,
         {
           opacity: 0,
         },
-        { opacity: 1 }
+        { opacity: 1, delay: 2, duration: 0.3 }
       );
     },
 
@@ -117,102 +116,101 @@ const Home = () => {
   const text = splitString(heroTexts);
 
   return (
-      <motion.main ref={container} className="relative flex flex-col top-0">
-        <section
-          ref={home}
-          className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
+    <motion.main ref={container} className="relative flex flex-col top-0">
+      <section
+        ref={home}
+        className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
          items-center z-0 overflow-hidden bg-black"
-        >
-          <div ref={hero} className="w-full self-center flex ">
-            <div className="justify-center w-full flex items-center flex-col">
-              {heroTexts.map((word, idx) => (
-                <div
-                  className="overflow-hidden justify-center flex items-center  h-fit"
-                  key={idx}
-                >
-                  <h1
-                    ref={(el) => (heroChars.current[idx] = el)}
-                    className="md:text-4xl text-xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10
-             uppercase text-center "
-                  >
-                    {word}
-                  </h1>
-                  <> {idx < heroTexts.length - 1 && <br />}</>
-                </div>
-              ))}
-            </div>
-          </div>
-          {!isLoading ||
-            (!isTransition && (
-              <span
-                ref={exploreRef}
-                onClick={() =>
-                  profile.current.scrollIntoView({ behavior: "smooth" })
-                }
-                className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-neutral-400  text-xs flex justify-center items-center font-base uppercase font-primary
-        tracking-10 border rounded-full w-20 h-24"
+      >
+        <div ref={hero} className="w-full self-center flex ">
+          <div className="justify-center w-full flex items-center flex-col">
+            {heroTexts.map((word, idx) => (
+              <div
+                className="overflow-hidden justify-center flex items-center  h-fit"
+                key={idx}
               >
-                explore
-              </span>
+                <h1
+                  ref={(el) => (heroChars.current[idx] = el)}
+                  className="md:text-4xl text-xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10
+             uppercase text-center "
+                >
+                  {word}
+                </h1>
+                <> {idx < heroTexts.length - 1 && <br />}</>
+              </div>
             ))}
-        </section>
-
-        <section
-          className="md:py-20 py-10  flex justify-center items-center relative bg-black flex-col border-b text-neutral-300"
-          ref={profile}
-        >
-          <Profile />
-          <Link
-            className="text-center relative cursor-pointer  text-xs flex justify-center items-center font-base uppercase font-primary
+          </div>
+        </div>
+        {!isLoading && (
+          <span
+            ref={exploreRef}
+            onClick={() =>
+              profile.current.scrollIntoView({ behavior: "smooth" })
+            }
+            className="opacity-0 absolute md:bottom-20 bottom-5 cursor-pointer text-neutral-400  text-xs flex justify-center items-center font-base uppercase font-primary
         tracking-10 border rounded-full w-20 h-24"
           >
-            learn <br /> more
-          </Link>
-        </section>
+            explore
+          </span>
+        )}
+      </section>
 
-        <section className="min-h-[800px]" id="about" ref={about}>
-          <About />
-        </section>
-
-        <section
-          id="services"
-          ref={services}
-          className="flex min-h-[800px] flex-col  bg-zinc-300"
+      <section
+        className="md:py-20 py-10  flex justify-center items-center relative bg-black flex-col  text-neutral-300"
+        ref={profile}
+      >
+        <Profile />
+        <Link
+          className="text-center relative cursor-pointer  text-xs flex justify-center items-center font-base uppercase font-primary
+        tracking-10 border rounded-full w-20 h-24"
         >
-          <Services />
-        </section>
+          learn <br /> more
+        </Link>
+      </section>
 
-        <section
-          ref={works}
-          id="works"
-          className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border min-h-[800px]"
-        >
-          <Works />
-        </section>
+      <section className="min-h-[800px]" id="about" ref={about}>
+        <About />
+      </section>
 
-        <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] ">
-          <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
-            FAQ's
-          </h1>
-          <Accordion />
-        </section>
+      <section
+        id="services"
+        ref={services}
+        className="flex min-h-[800px] flex-col  bg-zinc-300"
+      >
+        <Services />
+      </section>
 
-        <section
-          className="min-h-[800px] z-10 flex justify-center bg-neutral-100"
-          id="contact"
-          ref={contact}
-        >
-          <Contact />
-        </section>
+      <section
+        ref={works}
+        id="works"
+        className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border min-h-[800px]"
+      >
+        <Works />
+      </section>
 
-        {/* footer */}
-        <section ref={footer} className="z-10">
-          <div></div>
-          <div className="lg:col-span-2 sm:w-full">
-            <Footer />
-          </div>
-        </section>
-      </motion.main>
+      <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] ">
+        <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
+          FAQ's
+        </h1>
+        <Accordion />
+      </section>
+
+      <section
+        className="min-h-[800px] z-10 flex justify-center bg-neutral-100"
+        id="contact"
+        ref={contact}
+      >
+        <Contact />
+      </section>
+
+      {/* footer */}
+      <section ref={footer} className="z-10">
+        <div></div>
+        <div className="lg:col-span-2 sm:w-full">
+          <Footer />
+        </div>
+      </section>
+    </motion.main>
   );
 };
 
