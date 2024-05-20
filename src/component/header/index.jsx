@@ -4,11 +4,9 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect, useContext, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
 import Logo from "./assets/Logo";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Navbar from "../navbar";
 import Nav from "./assets/Nav";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const Header = () => {
   const { isMobile, isScrolled, isToggleMenu, isLoading, isTransition } =
@@ -18,47 +16,30 @@ const Header = () => {
   const header = useRef(null);
   const nav = useRef(null);
 
+  const controls = useAnimation();
+
   useEffect(() => {
     if (isToggleMenu) {
-      gsap.to(nav.current, { height: "auto", ease: "power4.inOut" });
-      gsap.fromTo(
-        nav.current,
-        { duration: 0.5, delay: 1, y: -5, ease: "power4.inOut" },
-        { delay: 0.3, y: 0, opacity: 1 }
-      );
+      controls.start({
+        height: "auto",
+        opacity: 1,
+        transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
+      });
     } else {
-      gsap.to(nav.current, {
+      controls.start({
         height: 0,
         opacity: 0,
-        ease: "power4.inOut",
-        duration: 0.7,
+        transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
       });
     }
-  }, [isToggleMenu, isMobile]);
-
-  // useGSAP(
-  //   () => {
-  //     if (isScrolled) {
-  //       gsap.to(header.current, { y: -10, duration: 0.3 });
-  //       setTimeout(() => {
-  //         header.current.style.display = "none";
-  //       }, 100);
-  //     } else {
-  //       gsap.to(header.current, { y: 0, duration: 0.3 });
-  //       setTimeout(() => {
-  //         header.current.style.display = "block";
-  //       }, 100);
-  //     }
-  //   },
-  //   { dependencies: [isScrolled] }
-  // );
+  }, [isToggleMenu, controls]);
 
   return (
     <main>
-      {!isLoading  && 
+      {!isLoading && (
         <motion.header
           ref={header}
-          className={`md:mt-5 mt-3 fixed shadow-inner   z-20 overflow-hidden transtion duration-300 transition-all
+          className={`md:mt-5 mt-3 fixed shadow-inner   z-20 overflow-hidden transtion duration-700 transition-all
            text-white bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2
       ${
         isToggleMenu
@@ -77,11 +58,11 @@ const Header = () => {
             </div>
           </section>
 
-          <section className="relative flex h-0" ref={nav}>
+          <motion.section className="relative flex h-0" animate={controls}>
             {isMobile && <Navbar />}
-          </section>
+          </motion.section>
         </motion.header>
-      }
+      )}
     </main>
   );
 };
