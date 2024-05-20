@@ -10,8 +10,9 @@ const Services = () => {
   const target = useRef(null);
   const targetContainer = useRef(null);
   const { scrollYProgress } = useScroll({
-    target: target,
-    container: targetContainer,
+    target: target.current,
+    container: targetContainer.current,
+    offset: ['start, end', 'end center']
   });
 console.log(scrollYProgress)
   const text =
@@ -65,7 +66,7 @@ console.log(scrollYProgress)
                 ref={(el) => (scrollAnimRefs.current[idx] = el)}
                 key={idx}
                 style={{ opacity }}
-                className="text-3xl  text-black font-black mx-1 leading-normal h-fit"
+                className="md:text-3xl text-xl  text-black font-black mx-1 leading-normal h-fit"
               >
                 {word}
               </motion.span>
