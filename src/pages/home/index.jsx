@@ -194,7 +194,7 @@ const Home = () => {
         <Works />
       </section>
 
-      <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] ">
+      <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] z-10">
         <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
           <span className="text-lime-400">Questions? </span>
           Answer.
