@@ -17,12 +17,16 @@ const AboutUser = () => {
 
   return (
     <PageTransition>
-      <main className="">
-        <div className="flex flex-col justify-center item-center min-h-[400px] bg-neutral-300">
-          <h1 className="text-center text-2xl mb-10">About</h1>
-          <MarqueeSlider />
-        </div>
-        <Footer />
+      <main className="flex flex-col ">
+        <section className="relative z-10 bg-red-500">
+          <div className="flex relative flex-col justify-center item-center h-[800px] bg-black">
+            <h1 className="text-center text-2xl mb-10">About</h1>
+            <MarqueeSlider />
+          </div>
+        </section>
+        <section>
+          <Footer />
+        </section>
       </main>
     </PageTransition>
   );
