@@ -14,12 +14,12 @@ const Footer = () => {
 
   return (
     <div
-      className="relative h-[800px]"
+      className="relative h-screen"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="relative h-[calc(100vh+800px)] -top-[100vh]">
-        <div className="sticky top-[calc(100vh-800px)]">
-          <footer className="relative h-[800px] w-full  flex flex-col p-[5vw] py-20 font-primary bg-stone-950 gap-10">
+      <div className="relative h-[calc(100vh+100vh)] -top-[100vh]">
+        <div className="sticky top-[calc(100vh-100vh)]">
+          <footer className="relative h-screen w-full  flex flex-col p-[5vw] py-20 font-primary bg-stone-950 gap-10">
             <section className="relative flex-col flex w-full h-full flex-wrap text-gray-300 justify-center items-center gap-7">
               <h3 className="font-medium text-base md:text-lg lg:leading-10 md:leading-9 leading-8 text-lime-400">
                 Thinking of a project?
