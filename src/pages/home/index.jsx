@@ -13,7 +13,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link, useParams } from "react-router-dom";
 import splitString from "../../assets/anim/SplitStrings";
-import PageTransition from "../../assets/anim/PageTransition";
 
 const Home = () => {
   const { user, setTitle, setColor, color, isLoading, isTransition } =
@@ -32,12 +31,12 @@ const Home = () => {
   const heroTexts = ["webstie", "undre", "construciton"];
   const heroChars = useRef([]);
   const exploreRef = useRef();
-
+//setting meta tags
   useEffect(() => {
     location.title = "Freelance";
     setTitle(`${location.title} - ${user.title} `);
   }, [location.pathname]);
-
+//scroll in to view
   useEffect(() => {
     refsArray.forEach((ref) => {
       if (ref.current.id === id) {
@@ -81,12 +80,12 @@ const Home = () => {
 
     { dependencies: [isLoading] }
   );
-
+//on-scroll hero animation
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
     tl.to(hero.current, {
-      y: "50%",
+      // y: "50%",
       ease: [0.76, 0, 0.24, 1],
       opacity: 0.5,
       scrollTrigger: {
@@ -119,14 +118,14 @@ const Home = () => {
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
         ref={home}
-        className="flex flex-col relative 100 text-neutral-300 p-[5vw] lg:gap-y-2 justify-center md:h-[800px] h-[85vh]
-         items-center z-0 overflow-hidden bg-stone-950"
+        className="flex flex-col relative  text-neutral-300 p-[5vw] lg:gap-y-5 gap-y-5 md:h-[800px] h-[85vh]
+         z-0 overflow-hidden bg-stone-950 justify-center items-end"
       >
         <div
           ref={hero}
-          className="w-full self-center flex flex-col justify-center items-center gap-5 "
+          className="w-full flex flex-col justify-end items-end gap-5"
         >
-          <div className="justify-center w-full flex items-center flex-col">
+          <div className="justify-center w-full flex items-center flex-col ">
             {heroTexts.map((word, idx) => (
               <div
                 className="overflow-hidden justify-center flex items-center  h-fit"
@@ -144,16 +143,26 @@ const Home = () => {
             ))}
           </div>
           {!isLoading && (
-            <span
+            <div
               ref={exploreRef}
-              onClick={() =>
-                profile.current.scrollIntoView({ behavior: "smooth" })
-              }
-              className="opacity-0 relative z-10 cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font font-primary uppercase font-bold
-        tracking-10  rounded-full w-32 h-32 transition duration-300 text-center"
+              className="flex md:flex-row flex-col gap-2 relative self-center mb-24"
             >
-              Explore
-            </span>
+              <span
+                className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-400 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
+        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
+              >
+                Get in touch
+              </span>
+              <span
+                onClick={() =>
+                  profile.current.scrollIntoView({ behavior: "smooth" })
+                }
+                className="cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
+        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
+              >
+                Explore
+              </span>
+            </div>
           )}
         </div>
       </section>
@@ -187,7 +196,8 @@ const Home = () => {
 
       <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] ">
         <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
-          FAQ's
+          <span className="text-lime-400">Questions? </span>
+            Answer.
         </h1>
         <Accordion />
       </section>

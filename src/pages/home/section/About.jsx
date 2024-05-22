@@ -3,12 +3,13 @@ import gsap from "gsap";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { stacks, techs } from "../utils/stack";
 
 const About = () => {
   const container = useRef(null);
   const wd = useRef(null);
   const ebt = useRef(null);
-
+  //start of animation
   useGSAP(
     () => {
       const tl = gsap.timeline();
@@ -44,12 +45,15 @@ const About = () => {
     <main className=" bg-black">
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[800px] w-full opacity-0"
+        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0"
       >
         <h1 className="text-sm  font-secondary self-center mt-5 mb-10 leading-tight font-semibold text-neutral-50 capitalize">
           About
         </h1>
-        <div ref={wd} className="trigger-about flex flex-col gap-y-5">
+        <div
+          ref={wd}
+          className="trigger-about flex flex-col gap-y-5 lg:text-left text-center"
+        >
           <h1 className="capitalize font-black text-xl font-primary  text-lime-400">
             Web development
           </h1>
@@ -60,8 +64,11 @@ const About = () => {
           </p>
         </div>
 
-        <div ref={ebt} className="flex flex-col gap-y-5">
-          <h1 className="capitalize font-black text-xl font-primary  leading-snug text-lime-400">
+        <div
+          ref={ebt}
+          className="flex flex-col gap-y-5 lg:text-left text-center"
+        >
+          <h1 className="capitalize font-black text-xl font-primary   leading-snug text-lime-400">
             exploring backend Technologies
           </h1>
           <p className="text-lg lg:w-1/2 text-neutral-300 leading-tight mb-10">
@@ -72,6 +79,23 @@ const About = () => {
           </p>
         </div>
       </div>
+      <section className="min-h-screen p-[5vw] gap-y-5 flex flex-col">
+        <h1 className="text-sm text-center text-blue-100 font-black font-secondary">
+          Stack
+        </h1>
+        <div className="w-full">
+          <div className="relative text-lime-400 text-2xl flex flex-wrap">
+            {stacks.map((stack, idx) => (
+              <span
+                className="m-3 border  border-lime-400 font-secondary rounded-md p-5 w-fit "
+                key={idx}
+              >
+                {stack.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

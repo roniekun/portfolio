@@ -37,7 +37,7 @@ const Accordion = () => {
           >
             <h2
               className={`cursor-pointer text-base font-medium text-left leading-relaxed transition duration-300 md:text-xl font-base md:px-1 md:mt-5  ${
-                isActive[idx] ? "text-lime-400" : "text-neutral-100"
+                isActive[idx] ? "text-lime-400" : "text-blue-100"
               }`}
             >
               {data.question}

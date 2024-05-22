@@ -30,8 +30,11 @@ const Navbar = () => {
         ref={linkItems}
         className="flex flex-col w-fit justify-start relative mt-5 items-start text-xl h-auto gap-5 mx-[10vw] opacity-1"
       >
-        {links.map((link, index) => (
-          <div className="flex w-fit justify-start relative items-start group  overflow-hidden">
+        {links.map((link, idx) => (
+          <div
+            key={idx}
+            className="flex w-fit justify-start relative items-start group  overflow-hidden"
+          >
             <Link
               to={link.to}
               onClick={handleClick}
@@ -39,7 +42,6 @@ const Navbar = () => {
                      flex text-balance h-[4vh] w-fit select-none ${
                        link.to === location.pathname && "text-lime-400"
                      } `}
-              key={link.name}
             >
               {link.name}
               {/* <span className={`absolute -bottom-1 h-[3px] w-full  

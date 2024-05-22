@@ -75,7 +75,6 @@ const DataProvider = ({ children }) => {
     setTimeout(() => {
       setIsTransition(false);
     }, 1000);
-    console.log(isTransition);
   }, [isTransition]);
 
   return (

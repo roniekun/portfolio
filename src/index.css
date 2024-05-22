@@ -2,20 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CUSTOM FONTS */
-.font-primary {
-  font-family: "Telegraf", sans-serif;
-}
-.font-secondary {
-  font-family: "Kode Mono", monospace;
-  font-optical-sizing: auto;
-}
-.font-tertiary {
-  font-family: "Neue Montreal";
-  font-optical-sizing: auto;
-}
+/* custom css */
 
-/* CUSTOM CSS */
 ::selection {
   background-color: greenyellow;
   color: black;
