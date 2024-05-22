@@ -21,7 +21,7 @@ const About = () => {
         onEnter: () => {
           tl.to(container.current, { opacity: 1, stagger: 0.1, duration: 0.3 });
           tl.from(wd.current, { opacity: 0, y: 5 });
-          tl.from(ebt.current, { opacity: 0, y: 5, delay: 0.3 });
+          tl.from(ebt.current, { opacity: 0, y: 5 });
         },
         onLeaveBack: () => {
           gsap.to(container.current, { opacity: 0 });
@@ -45,19 +45,16 @@ const About = () => {
     <main className=" bg-black">
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0"
+        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 gap-y-10"
       >
-        <h1 className="text-sm  font-secondary self-center mt-5 mb-10 leading-tight font-semibold text-neutral-50 capitalize">
-          About
-        </h1>
         <div
           ref={wd}
-          className="trigger-about flex flex-col gap-y-5 lg:text-left text-center"
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center sticky top-[calc(100vh-70vh)]  border-neutral-100 border items-center justify-center "
         >
-          <h1 className="capitalize font-black text-xl font-primary  text-lime-400">
+          <h1 className="capitalize font-black text-xl font-primary  text-blue-500">
             Web development
           </h1>
-          <p className="text-lg lg:w-1/2 text-neutral-300 leading-tight mb-10">
+          <p className="lg:text-2xl  text-neutral-300 leading-tight mb-10">
             Adapting to the ever-evolving world of web development, crafting
             intuitive interfaces and functional websites that engage users and
             convey the essence of a brand or concept.{" "}
@@ -66,12 +63,12 @@ const About = () => {
 
         <div
           ref={ebt}
-          className="flex flex-col gap-y-5 lg:text-left text-center"
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center bg-stone-950  border-lime-400 border"
         >
           <h1 className="capitalize font-black text-xl font-primary   leading-snug text-lime-400">
             exploring backend Technologies
           </h1>
-          <p className="text-lg lg:w-1/2 text-neutral-300 leading-tight mb-10">
+          <p className="lg:text-2xl text-neutral-300 leading-tight mb-10">
             My journey extends beyond frontend design; I continually explore and
             master back-end technologies, databases, and server management, to
             create end-to-end solutions that provide seamless functionality and

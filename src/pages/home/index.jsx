@@ -31,12 +31,12 @@ const Home = () => {
   const heroTexts = ["webstie", "undre", "construciton"];
   const heroChars = useRef([]);
   const exploreRef = useRef();
-//setting meta tags
+  //setting meta tags
   useEffect(() => {
     location.title = "Freelance";
     setTitle(`${location.title} - ${user.title} `);
   }, [location.pathname]);
-//scroll in to view
+  //scroll in to view
   useEffect(() => {
     refsArray.forEach((ref) => {
       if (ref.current.id === id) {
@@ -80,7 +80,7 @@ const Home = () => {
 
     { dependencies: [isLoading] }
   );
-//on-scroll hero animation
+  //on-scroll hero animation
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline();
@@ -118,7 +118,7 @@ const Home = () => {
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 p-[5vw] lg:gap-y-5 gap-y-5 md:h-[800px] h-[85vh]
+        className="flex flex-col relative  text-neutral-300 p-[5vw] lg:gap-y-5 gap-y-5 md:h-[800px] h-screen
          z-0 overflow-hidden bg-stone-950 justify-center items-end"
       >
         <div
@@ -145,7 +145,7 @@ const Home = () => {
           {!isLoading && (
             <div
               ref={exploreRef}
-              className="flex md:flex-row flex-col gap-2 relative self-center mb-24"
+              className="flex md:flex-row flex-col gap-2 relative self-center"
             >
               <span
                 className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-400 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
@@ -197,7 +197,7 @@ const Home = () => {
       <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] ">
         <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
           <span className="text-lime-400">Questions? </span>
-            Answer.
+          Answer.
         </h1>
         <Accordion />
       </section>
@@ -211,11 +211,8 @@ const Home = () => {
       </section>
 
       {/* footer */}
-      <section ref={footer} className="z-10">
-        <div></div>
-        <div className="lg:col-span-2 sm:w-full">
-          <Footer />
-        </div>
+      <section ref={footer}>
+        <Footer />
       </section>
     </motion.main>
   );
