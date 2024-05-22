@@ -63,7 +63,7 @@ const About = () => {
 
         <div
           ref={ebt}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center bg-stone-950  border-lime-400 border"
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center bg-stone-950  border-lime-400 border sticky top-[calc(100vh-70vh)] "
         >
           <h1 className="capitalize font-black text-xl font-primary   leading-snug text-lime-400">
             exploring backend Technologies
