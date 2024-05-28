@@ -1,4 +1,3 @@
-import React from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -7,14 +6,6 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 const Services = () => {
   const scrollAnimRefs = useRef([]);
-  const target = useRef(null);
-  const targetContainer = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: targetContainer,
-    offset: ["start, end", "end start"],
-  });
-  const progress = scrollYProgress;
 
   const text =
     "I leveraged design and technology to craft brands and products that excel, captivate, and grow seamlessly.";
@@ -53,23 +44,17 @@ const Services = () => {
 
   return (
     <main className="relative flex justify-left h-full flex-col my-5">
-      <section
-        ref={targetContainer}
-        className="relative h-[200vh] p-[5vw] flex justify-center items-center"
-      >
-        <p ref={target} className="relative flex flex-wrap">
+      <section className="relative h-[200vh] p-[5vw] flex justify-center items-center">
+        <p className="relative flex flex-wrap">
           {scrollAnimText.map((word, idx) => {
-            const start = idx / scrollAnimText.length;
-            const end = start + 1 / scrollAnimText.length;
-            const opacity = useTransform(progress, [start, end], [0, 1]);
             return (
-              <motion.span
-                ref={(el) => (scrollAnimRefs.current[idx] = el)}
+              <span
+                // ref={(el) => (scrollAnimRefs.current[idx] = el)}
                 key={idx}
                 className="md:text-3xl text-xl  text-black font-black mx-1 leading-normal h-fit"
               >
                 {word}
-              </motion.span>
+              </span>
             );
           })}
         </p>

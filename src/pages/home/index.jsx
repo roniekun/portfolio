@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { useRef, useLayoutEffect, useEffect, useContext } from "react";
+import {
+  useState,
+  useRef,
+  useLayoutEffect,
+  useEffect,
+  useContext,
+} from "react";
 import { DataContext } from "../../context/DataContext";
 import Profile from "./section/Profile";
 import About from "./section/About";
@@ -114,6 +120,29 @@ const Home = () => {
 
   const text = splitString(heroTexts);
 
+  
+
+const arrayItem = [
+  "creatives",
+  "designers",
+  "artists",
+  "photographers",
+  "freelancers",
+];
+
+const ItemComponent = () => {
+  return (
+    <div>
+      {arrayItem.map((item, idx) => (
+        <div
+        className="absolute"
+         key={idx}>
+          {item}
+        </div>
+      ))}
+    </div>
+  );
+};
   return (
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
@@ -148,15 +177,16 @@ const Home = () => {
               className="flex md:flex-row flex-col gap-2 relative self-center"
             >
               <span
+                onClick={() =>
+                  contact.current.scrollIntoView({ behavior: "smooth" })
+                }
                 className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-400 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
         tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
               >
                 Get in touch
               </span>
               <span
-                onClick={() =>
-                  profile.current.scrollIntoView({ behavior: "smooth" })
-                }
+                c
                 className="cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
         tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
               >
@@ -165,6 +195,9 @@ const Home = () => {
             </div>
           )}
         </div>
+        {/* <div className="relative self-center md:text-lg w-full transition duration-300">
+          Web Development for {ItemComponent()}
+        </div> */}
       </section>
 
       <section
@@ -203,7 +236,7 @@ const Home = () => {
       </section>
 
       <section
-        className="min-h-[800px] z-10 flex justify-center bg-neutral-100"
+        className="min-h-[800px] z-10 flex justify-center bg-neutral-100 rounded-b-xl "
         id="contact"
         ref={contact}
       >

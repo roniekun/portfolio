@@ -30,11 +30,10 @@ const Logo = () => {
         }
         iteration += 1 / 3;
       }, 30);
-    }, 700);
+    }, 1000);
   }, []);
 
   const handleClick = () => {
-    setIsTransition(true);
     navigate("/");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

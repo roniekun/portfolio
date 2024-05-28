@@ -32,18 +32,18 @@ const DataProvider = ({ children }) => {
   }, [title]);
 
   //scrolling listener
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > currentScroll);
-      setCurrentScroll(window.scrollY);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrolled(window.scrollY > currentScroll);
+  //     setCurrentScroll(window.scrollY);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [window.scrollY]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [window.scrollY]);
 
   // responsive screen size
   useEffect(() => {

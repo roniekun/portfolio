@@ -15,7 +15,7 @@ const About = () => {
       const tl = gsap.timeline();
       gsap.registerPlugin(ScrollTrigger);
       const trigger = ScrollTrigger.create({
-        trigger: ".trigger-about",
+        trigger: wd.current,
         start: "top bottom",
         end: "bottom bottom",
         onEnter: () => {
@@ -77,10 +77,8 @@ const About = () => {
         </div>
       </div>
       <section className="min-h-screen p-[5vw] gap-y-5 flex flex-col">
-        <h1 className="text-sm text-center text-blue-100 font-black font-secondary">
-          Stack
-        </h1>
-        <div className="w-full">
+        <div className="w-full grid grid-cols-2">
+          <h1 className="text-white uppercase text-xl font-bold">techstack</h1>
           <div className="relative text-lime-400 text-2xl flex flex-wrap">
             {stacks.map((stack, idx) => (
               <span
@@ -88,6 +86,20 @@ const About = () => {
                 key={idx}
               >
                 {stack.name}
+              </span>
+            ))}
+          </div>
+        </div>
+        <span className="w-full bg-zinc-500 h-1" />
+        <div className="w-full grid grid-cols-2">
+          <h1 className="text-white uppercase text-xl font-bold">Software</h1>
+          <div className="relative text-lime-400 text-2xl flex flex-wrap">
+            {techs.map((item, idx) => (
+              <span
+                className="m-3 border  border-lime-400 font-secondary rounded-md p-5 w-fit "
+                key={idx}
+              >
+                {item.name}
               </span>
             ))}
           </div>

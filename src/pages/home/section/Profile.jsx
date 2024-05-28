@@ -56,8 +56,14 @@ const Profile = () => {
       <div className="flex justify-center items-center w-full relative">
         <Avatar />
       </div>
-      <div className="trigger-profile flex relative items-center w-fit my-[5%] lg:w-[50%]">
-        <h3 className="md:text-2xl text-xl leading-8 md:leading-normal  relative font-medium mx-2  text-center w-full  font-primary">
+      <div className="flex gap-2 self-center transform justify-center items-center mb-2">
+        <span className="w-2 h-2 mb-1 rounded-full bg-lime-500" />
+        <h3 className="uppercase text-sm  text-blue-100 font-secondary">
+          Available for Freelance
+        </h3>
+      </div>
+      <div className="trigger-profile flex relative items-center w-fit px-[5vw]  lg:w-[50%]">
+        <h3 className="md:text-2xl text-xl leading-8    relative font-medium mx-2  text-center w-full  font-primary">
           {text2.map((char, idx) => (
             <span
               className={`opacity-0 relative ${
@@ -72,7 +78,6 @@ const Profile = () => {
           ))}
         </h3>
       </div>
- 
     </main>
   );
 };

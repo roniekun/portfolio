@@ -77,7 +77,7 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className="fixed cursor-wait bg-stone-950 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
+            className="fixed cursor-wait bg-zinc-900 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
           >
             <div
               ref={titleContainer}

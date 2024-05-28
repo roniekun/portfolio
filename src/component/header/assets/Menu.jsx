@@ -10,7 +10,6 @@ const Menu = () => {
   const btn = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
           let interval = null;
           let iteration = 0;
           const initialContent = isToggleMenu ? "CLOSE " : "MENUS";
@@ -31,7 +30,6 @@ const Menu = () => {
             }
             iteration += 1 / 3;
           }, 100);
-    }, 700);
 
   }, [isToggleMenu]);
 
