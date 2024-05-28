@@ -51,21 +51,21 @@ const About = () => {
           ref={wd}
           className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center sticky top-[calc(100vh-70vh)]  border-neutral-100 border items-center justify-center "
         >
-          <h1 className="capitalize font-black text-xl font-primary  text-blue-500">
+          <h1 className="capitalize font-black text-xl font-primary text-neutral-400">
             Web development
           </h1>
           <p className="lg:text-2xl  text-neutral-300 leading-tight mb-10">
             Adapting to the ever-evolving world of web development, crafting
             intuitive interfaces and functional websites that engage users and
-            convey the essence of a brand or concept.{" "}
+            convey the essence of a brand or concept.
           </p>
         </div>
 
         <div
           ref={ebt}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center bg-stone-950  border-lime-400 border sticky top-[calc(100vh-70vh)] "
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center bg-neutral-800  border-zinc-700 border sticky top-[calc(100vh-70vh)] "
         >
-          <h1 className="capitalize font-black text-xl font-primary   leading-snug text-lime-400">
+          <h1 className="capitalize font-black text-xl font-primary   leading-snug text-neutral-400">
             exploring backend Technologies
           </h1>
           <p className="lg:text-2xl text-neutral-300 leading-tight mb-10">
@@ -79,7 +79,7 @@ const About = () => {
       <section className="min-h-screen p-[5vw] gap-y-5 flex flex-col">
         <div className="w-full grid grid-cols-2">
           <h1 className="text-white uppercase text-xl font-bold">techstack</h1>
-          <div className="relative text-lime-400 text-2xl flex flex-wrap">
+          <div className="relative text-lime-400 md:text-2xl flex flex-wrap">
             {stacks.map((stack, idx) => (
               <span
                 className="m-3 border  border-lime-400 font-secondary rounded-md p-5 w-fit "
@@ -93,7 +93,7 @@ const About = () => {
         <span className="w-full bg-zinc-500 h-1" />
         <div className="w-full grid grid-cols-2">
           <h1 className="text-white uppercase text-xl font-bold">Software</h1>
-          <div className="relative text-lime-400 text-2xl flex flex-wrap">
+          <div className="relative text-lime-400 md:text-2xl flex flex-wrap">
             {techs.map((item, idx) => (
               <span
                 className="m-3 border  border-lime-400 font-secondary rounded-md p-5 w-fit "

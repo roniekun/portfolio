@@ -56,9 +56,9 @@ const Profile = () => {
       <div className="flex justify-center items-center w-full relative">
         <Avatar />
       </div>
-      <div className="flex gap-2 self-center transform justify-center items-center mb-2">
+      <div className="flex gap-2 self-center transform justify-center items-center mb-2 border rounded-full p-4 border-stone-500">
         <span className="w-2 h-2 mb-1 rounded-full bg-lime-500" />
-        <h3 className="uppercase text-sm  text-blue-100 font-secondary">
+        <h3 className="uppercase text-sm  text-blue-100 ">
           Available for Freelance
         </h3>
       </div>

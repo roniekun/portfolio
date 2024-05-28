@@ -49,9 +49,9 @@ export default function LoadingTransition({ children }) {
       tl.to(window.document.body, { overflow: "hidden" })
 
         .to(titleContainer.current, {
-          duration: 0.7,
+          duration: 2,
           opacity: 0,
-          delay: 3,
+          delay: 2.5,
           ease: "expo.in",
         })
         .call(() => {
@@ -77,7 +77,7 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className="fixed cursor-wait bg-zinc-900 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
+            className="fixed cursor-wait bg-zinc-100 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
           >
             <div
               ref={titleContainer}
@@ -89,7 +89,7 @@ export default function LoadingTransition({ children }) {
               ></span>
               <h1
                 ref={title}
-                className="text-lime-400 font-black relative uppercase  font-primary tracking-wide text-lg text-clip"
+                className="text-stone-800 font-black relative uppercase  font-primary tracking-wide text-xl"
               >
                 roniecode
               </h1>
