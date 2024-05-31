@@ -79,7 +79,7 @@ const Menu = () => {
                 mx-[5vw] -z-10 rounded-lg ${
                   isToggleMenu
                     ? "bg-neutral-500 border-2 text-neutral-100 bg-opacity-20"
-                    : "bg-lime-400"
+                    : "bg-lime-500"
                 }`}
       >
         {isToggleMenu ? (

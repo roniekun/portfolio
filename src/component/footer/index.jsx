@@ -20,11 +20,11 @@ const Footer = () => {
       <div className="relative h-[calc(100vh+100vh)] -top-[100vh]">
         <div className="sticky top-[calc(100vh-100vh)]">
           <footer className="relative h-screen w-full  flex flex-col p-[5vw] py-20 font-primary bg-stone-950 gap-10">
-            <section className="relative flex-col flex w-full h-full flex-wrap text-gray-300 justify-center items-center gap-7">
+            <section className="relative flex-col flex w-full h-full flex-wrap text-blue-50 justify-center items-center gap-7">
               <h3 className="font-medium text-base md:text-lg lg:leading-10 md:leading-9 leading-8 text-lime-400">
                 Thinking of a project?
               </h3>
-              <h1 className="text-3xl uppercase font-black md:text-left text-center text-blue-100">
+              <h1 className="text-3xl uppercase font-black md:text-left text-center ">
                 Reach out & share your vision
               </h1>
               <button

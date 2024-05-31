@@ -7,6 +7,7 @@ import {
   useContext,
 } from "react";
 import { DataContext } from "../../context/DataContext";
+import HeroTexts from "./assets/HeroTexts";
 import Profile from "./section/Profile";
 import About from "./section/About";
 import Works from "./section/Works";
@@ -120,29 +121,6 @@ const Home = () => {
 
   const text = splitString(heroTexts);
 
-  
-
-const arrayItem = [
-  "creatives",
-  "designers",
-  "artists",
-  "photographers",
-  "freelancers",
-];
-
-const ItemComponent = () => {
-  return (
-    <div>
-      {arrayItem.map((item, idx) => (
-        <div
-        className="absolute"
-         key={idx}>
-          {item}
-        </div>
-      ))}
-    </div>
-  );
-};
   return (
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
@@ -180,14 +158,14 @@ const ItemComponent = () => {
                 onClick={() =>
                   contact.current.scrollIntoView({ behavior: "smooth" })
                 }
-                className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-400 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
+                className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-500 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
         tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
               >
                 Get in touch
               </span>
               <span
                 c
-                className="cursor-pointer text-lime-400 border-lime-400 ring ring-inset ring-lime-400 text-base hover:bg-lime-500 hover:border-lime-400 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
+                className="cursor-pointer text-lime-500 border-lime-500 ring ring-inset ring-lime-500 text-base hover:bg-lime-500 hover:border-lime-500 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
         tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
               >
                 Explore
@@ -195,9 +173,10 @@ const ItemComponent = () => {
             </div>
           )}
         </div>
-        {/* <div className="relative self-center md:text-lg w-full transition duration-300">
-          Web Development for {ItemComponent()}
-        </div> */}
+        <div className="flex relative w-full transition h-auto duration-300 leading-tight  justify-center items-start text-[1.2rem]">
+          <h1 className="whitespace-nowrap">Custom Web Solutions for</h1>
+          <HeroTexts />
+        </div>
       </section>
 
       <section
@@ -229,14 +208,14 @@ const ItemComponent = () => {
 
       <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] z-10">
         <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
-          <span className="text-lime-400">Questions? </span>
+          <span className="text-lime-500">Questions? </span>
           Answer.
         </h1>
         <Accordion />
       </section>
 
       <section
-        className="min-h-[800px] z-10 flex justify-center bg-neutral-100 rounded-b-xl "
+        className="min-h-[800px] z-10 flex justify-center bg-neutral-500 rounded-b-xl "
         id="contact"
         ref={contact}
       >

@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
+    windowHeight: window.innerHeight,
+    windowWidth: window.innerWidth,
   });
 
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
-        height: window.innerHeight,
-        width: window.innerWidth,
+        windowHeight: window.innerHeight,
+        windowWidth: window.innerWidth,
       });
     };
 

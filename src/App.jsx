@@ -21,7 +21,7 @@ import { DataContext } from "./context/DataContext";
 
 function App() {
   const { id } = useParams();
-  const { width } = useWindowSize();
+  const { windowWidth } = useWindowSize();
   const location = useLocation();
   const lenis = new Lenis();
 
@@ -45,12 +45,13 @@ function App() {
     setYProgress(scrollYProgress);
   }, [scrollYProgress]);
 
-  const calcWidth = useTransform(scrollYProgress, [0, 1], [0, width]);
+  const calcWidth = useTransform(scrollYProgress, [0, 1], [0, windowWidth]);
 
   return (
     <LoadingTransition>
       <main
         ref={container}
+        style={{width:windowWidth}}
         className="flex flex-col bg-stone-100 w-screen font-primary"
       >
         <motion.div

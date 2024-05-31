@@ -2,7 +2,6 @@ import React, { useState, useContext, useLayoutEffect, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
 import gsap from "gsap";
 import { Timeline } from "gsap/gsap-core";
-import CustomEase from "gsap/CustomEase";
 import { letters } from "../../utils/letters";
 import { AnimatePresence, motion } from "framer-motion";
 
