@@ -22,8 +22,6 @@ const HeroTexts = () => {
     let index = 1;
 
     let tl = gsap.timeline();
-    const refHeight = refsArray.current[0].getBoundingClientRect().height;
-    setHeight(refHeight);
     const interval = setInterval(() => {
       tl.to(slider.current, {
         y: `-${height * index}`,
@@ -40,6 +38,11 @@ const HeroTexts = () => {
 
     return () => clearInterval(interval); // Cleanup the interval on unmount
   }, [itemsArray.length, height, refsArray.length]);
+
+  useLayoutEffect(() => {
+    const refHeight = refsArray.current[0].getBoundingClientRect().height;
+    setHeight(refHeight);
+  }, [windowWidth]);
 
   return (
     <div
