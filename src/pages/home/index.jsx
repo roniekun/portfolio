@@ -148,34 +148,35 @@ const Home = () => {
                 <> {idx < heroTexts.length - 1 && <br />}</>
               </div>
             ))}
-            <div className="flex relative w-full transition h-auto duration-300 leading-tight  justify-center items-start  text-[1rem] whitespace-nowrap">
-              <h1 >Custom Web Solutions for</h1>
-              <HeroTexts />
-            </div>
+
+            {!isLoading && (
+              <div
+                ref={exploreRef}
+                className="flex md:flex-row flex-col gap-2 relative self-center"
+              >
+                <span
+                  onClick={() =>
+                    contact.current.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-500 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
+        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
+                >
+                  Get in touch
+                </span>
+                <span
+                  c
+                  className="cursor-pointer text-lime-500 border-lime-500 ring ring-inset ring-lime-500 text-base hover:bg-lime-500 hover:border-lime-500 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
+        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
+                >
+                  Explore
+                </span>
+              </div>
+            )}
           </div>
-          {!isLoading && (
-            <div
-              ref={exploreRef}
-              className="flex md:flex-row flex-col gap-2 relative self-center"
-            >
-              <span
-                onClick={() =>
-                  contact.current.scrollIntoView({ behavior: "smooth" })
-                }
-                className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-500 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
-        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
-              >
-                Get in touch
-              </span>
-              <span
-                c
-                className="cursor-pointer text-lime-500 border-lime-500 ring ring-inset ring-lime-500 text-base hover:bg-lime-500 hover:border-lime-500 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
-        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
-              >
-                Explore
-              </span>
-            </div>
-          )}
+        </div>
+        <div className="flex absolute top-[90vh] left-0 w-full transition px-[5vw] h-auto duration-300 leading-tight  justify-start items-start  text-[1rem] whitespace-nowrap">
+          <h1>Custom Web Solutions for</h1>
+          <HeroTexts />
         </div>
       </section>
 
