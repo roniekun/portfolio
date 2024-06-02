@@ -10,12 +10,12 @@ const HeroTexts = () => {
   const [height, setHeight] = useState([]);
 
   const itemsArray = [
-    { item: "photographers", height: undefined },
-    { item: "designers", height: undefined },
-    { item: "artists", height: undefined },
-    { item: "freelancers", height: undefined },
-    { item: "creatives", height: undefined },
-    { item: "photographers", height: undefined },
+    { item: "Photographers", height: undefined },
+    { item: "Designers", height: undefined },
+    { item: "Digital Artists", height: undefined },
+    { item: "Freelancers", height: undefined },
+    { item: "Creatives", height: undefined },
+    { item: "Photographers", height: undefined },
   ];
 
   useLayoutEffect(() => {
@@ -59,7 +59,7 @@ const HeroTexts = () => {
           <h1
             style={{ height: item.height }}
             ref={(el) => (refsArray.current[idx] = el)}
-            className="relative  w-fit h-fit mx-2 capitalize p-0 m-0 text-lime-500 "
+            className="relative  w-fit h-fit mx-2 capitalize p-0 m-0 text-lime-500 font-black"
             key={idx}
           >
             {item.item}
