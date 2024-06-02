@@ -148,8 +148,8 @@ const Home = () => {
                 <> {idx < heroTexts.length - 1 && <br />}</>
               </div>
             ))}
-            <div className="flex relative w-full transition h-auto duration-300 leading-tight  justify-center items-start  text-[1.2rem]">
-              <h1 className="whitespace-nowrap">Custom Web Solutions for</h1>
+            <div className="flex relative w-full transition h-auto duration-300 leading-tight  justify-center items-start  text-[1rem] whitespace-nowrap">
+              <h1 >Custom Web Solutions for</h1>
               <HeroTexts />
             </div>
           </div>
