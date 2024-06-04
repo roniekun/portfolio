@@ -125,7 +125,7 @@ const Home = () => {
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 p-[5vw] lg:gap-y-5 gap-y-5 md:h-[800px] h-screen
+        className="flex flex-col relative  text-neutral-300 p-[5vw] lg:gap-y-5 gap-y-5 lg:h-[800px] h-screen
          z-0 overflow-hidden bg-stone-950 justify-center items-end"
       >
         <div
@@ -140,7 +140,7 @@ const Home = () => {
               >
                 <h1
                   ref={(el) => (heroChars.current[idx] = el)}
-                  className="md:text-4xl text-xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10 
+                  className="md:text-4xl text-2xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10 
              uppercase text-center "
                 >
                   {word}
@@ -166,7 +166,7 @@ const Home = () => {
                 <span
                   c
                   className="cursor-pointer text-lime-500 border-lime-500 ring ring-inset ring-lime-500 text-base hover:bg-lime-500 hover:border-lime-500 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
-        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
+                   tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
                 >
                   Explore
                 </span>

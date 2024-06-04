@@ -51,7 +51,7 @@ function App() {
     <LoadingTransition>
       <main
         ref={container}
-        style={{width:windowWidth}}
+        style={{ width: windowWidth }}
         className="flex flex-col bg-stone-100 w-screen font-primary"
       >
         <motion.div
@@ -65,7 +65,7 @@ function App() {
           <Routes location={location} key={location.key}>
             <Route exact path="/" element={<Home />} />
             <Route path="/:id/" element={<Home />} />
-            <Route exact path="/about-author" element={<AboutUser/>} />
+            <Route exact path="/about-author" element={<AboutUser />} />
             <Route path="/gallery/" element={<Gallery />} />
             <Route path="/gallery/:id/" element={<Gallery />} />
             <Route path="*" element={<Notfound />} />

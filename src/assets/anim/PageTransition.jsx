@@ -1,11 +1,7 @@
 import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
-import { DataContext } from "../../context/DataContext";
-import { useLocation } from "react-router-dom";
 
 export default function PageTransition({ children }) {
-  const { isTransition } = useContext(DataContext);
-  const location = useLocation();
 
   const anim = (variants) => {
     return {

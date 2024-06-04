@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { stacks, techs } from "../utils/stack";
+import Marquee from "react-fast-marquee";
 
 const About = () => {
   const container = useRef(null);
@@ -49,7 +50,7 @@ const About = () => {
       >
         <div
           ref={wd}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center sticky top-[calc(100vh-70vh)]  border-neutral-100 border items-center justify-center "
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center "
         >
           <h1 className="capitalize font-black text-xl font-primary text-neutral-400">
             Web development
@@ -63,7 +64,7 @@ const About = () => {
 
         <div
           ref={ebt}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center bg-neutral-800  border-zinc-700 border sticky top-[calc(100vh-70vh)] "
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center"
         >
           <h1 className="capitalize font-black text-xl font-primary   leading-snug text-neutral-400">
             exploring backend Technologies
@@ -76,29 +77,28 @@ const About = () => {
           </p>
         </div>
       </div>
-      <section className="min-h-screen p-[5vw] gap-y-5 flex flex-col">
-        <div className="w-full grid grid-cols-2">
-          <h1 className="text-white uppercase text-xl font-bold">techstack</h1>
-          <div className="relative text-lime-400 md:text-2xl flex flex-wrap">
+      <section className="pb-[200px] p-[5vw] gap-y-5 flex flex-col justify-center items-center">
+        <div className="w-full gap-5 flex flex-col">
+          <h1 className="font-secodary text-lime-500 uppercase text-center font-black">
+            techstack
+          </h1>
+          <Marquee autoFill className="gap-2 text-white">
             {stacks.map((stack, idx) => (
               <span
-                className="m-3 border  border-lime-400 font-secondary rounded-md p-5 w-fit "
+                className="font-secondary md:text-2xl text-lg m-3 "
                 key={idx}
               >
                 {stack.name}
               </span>
             ))}
-          </div>
+          </Marquee>
         </div>
         <span className="w-full bg-zinc-500 h-1" />
         <div className="w-full grid grid-cols-2">
-          <h1 className="text-white uppercase text-xl font-bold">Software</h1>
+          <h1 className="text-white uppercase text-lh font-bold">Software</h1>
           <div className="relative text-lime-400 md:text-2xl flex flex-wrap">
             {techs.map((item, idx) => (
-              <span
-                className="m-3 border  border-lime-400 font-secondary rounded-md p-5 w-fit "
-                key={idx}
-              >
+              <span className="font-primary mx-3" key={idx}>
                 {item.name}
               </span>
             ))}
