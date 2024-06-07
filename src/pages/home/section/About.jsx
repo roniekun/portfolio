@@ -27,12 +27,8 @@ const About = () => {
         onLeaveBack: () => {
           gsap.to(container.current, { opacity: 0 });
         },
-        onLeave: () => {
-          console.log("leave");
-        },
-        onEnterBack: () => {
-          console.log("entered back");
-        },
+        onLeave: () => {},
+        onEnterBack: () => {},
       });
 
       return () => {
@@ -46,16 +42,16 @@ const About = () => {
     <main className=" bg-black">
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 gap-y-10"
+        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 "
       >
         <div
           ref={wd}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center "
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-2 text-center  items-center justify-center "
         >
-          <h1 className="capitalize font-black text-xl font-primary text-neutral-400">
+          <h1 className="capitalize font-black text-xl font-secondary  text-neutral-400">
             Web development
           </h1>
-          <p className="lg:text-2xl  text-neutral-300 leading-tight mb-10">
+          <p className="lg:text-2xl text-secondary  text-neutral-300 leading-tight mb-10">
             Adapting to the ever-evolving world of web development, crafting
             intuitive interfaces and functional websites that engage users and
             convey the essence of a brand or concept.
@@ -64,9 +60,9 @@ const About = () => {
 
         <div
           ref={ebt}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-5 text-center  items-center justify-center"
+          className="flex p-[5vw] rounded-2xl flex-col gap-y-2 text-center  items-center justify-center"
         >
-          <h1 className="capitalize font-black text-xl font-primary   leading-snug text-neutral-400">
+          <h1 className="capitalize font-black text-xl  font-secondary  leading-snug text-neutral-400">
             exploring backend Technologies
           </h1>
           <p className="lg:text-2xl text-neutral-300 leading-tight mb-10">
@@ -98,7 +94,7 @@ const About = () => {
           <h1 className="text-white uppercase text-lh font-bold">Software</h1>
           <div className="relative text-lime-400 md:text-2xl flex flex-wrap">
             {techs.map((item, idx) => (
-              <span className="font-primary mx-3" key={idx}>
+              <span className=" mx-3" key={idx}>
                 {item.name}
               </span>
             ))}

@@ -181,7 +181,7 @@ const Home = () => {
       </section>
 
       <section
-        className="md:py-20 py-10  flex justify-center items-center relative bg-black flex-col  text-neutral-300"
+        className=" flex justify-center items-center relative bg-black flex-col  text-neutral-300"
         ref={profile}
       >
         <Profile />
@@ -202,12 +202,12 @@ const Home = () => {
       <section
         ref={works}
         id="works"
-        className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl bg-stone-400 w-full box-border min-h-[800px]"
+        className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl w-full lg:px-[20vw] px-[5vw] relative box-border min-h-[800px]"
       >
         <Works />
       </section>
 
-      <section className="px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] z-10">
+      <section className="md:px-[20vw] px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] z-10">
         <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
           <span className="text-lime-500">Questions? </span>
           Answer.

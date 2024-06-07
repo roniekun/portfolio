@@ -9,7 +9,13 @@ import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import Scrollbtn from "./assets/scrollto";
 import { ScrollTrigger } from "gsap/all";
-import { useRef, useContext, useEffect } from "react";
+import {
+  useRef,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import useWindowSize from "./hooks/useWIndowHooks/useWIndowSize";
 import {
   useScroll,
@@ -35,30 +41,33 @@ function App() {
   gsap.ticker.lagSmoothing(0);
 
   const container = useRef(null);
-  const { setYProgress } = useContext(DataContext);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
 
-  useEffect(() => {
-    setYProgress(scrollYProgress);
-  }, [scrollYProgress]);
+  const calcProgress = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
-  const calcWidth = useTransform(scrollYProgress, [0, 1], [0, windowWidth]);
+  const [currentProgress, setCurrentProgress] = useState(0);
+
+  useEffect(() => {
+    // Subscription to update the state with the current value
+    const unsubscribe = calcProgress.onChange((latest) => {
+      setCurrentProgress(Math.round(latest));
+    });
+
+    // Cleanup subscription on component unmount
+    return () => unsubscribe();
+  }, [calcProgress]);
 
   return (
     <LoadingTransition>
       <main
         ref={container}
         style={{ width: windowWidth }}
-        className="flex flex-col bg-stone-100 w-screen font-primary"
+        className="flex flex-col bg-stone-100 w-screen font-tertiary"
       >
-        <motion.div
-          style={{ width: calcWidth }}
-          className="h-1 z-50 top-0 rounded-lg fixed bg-gradient-to-r  from-slate-800 via-blue-700 to-slate-800"
-        />
-        <Scrollbtn />
+        <Scrollbtn scrollProgress={currentProgress} />
         <Header />
 
         <AnimatePresence mode="wait">
