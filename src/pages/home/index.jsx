@@ -208,7 +208,7 @@ const Home = () => {
         <Works />
       </section>
 
-      <section className="flex justify-center items-center p-[5vw] h-auto]">
+      <section className="flex justify-center items-center p-[5vw] h-auto] my-[20vh] ">
         <Testimonials />
       </section>
 

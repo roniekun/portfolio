@@ -77,7 +77,7 @@ export default function LoadingTransition({ children }) {
                 className="relative text-base font-black uppercase font-primary text-lime-500 overflow-hidden flex"
               ></div>
             </div>
-            <span className="text-lime-500 text-xl absolute top-[90vh] font-secondary left-[60vw] m-2">
+            <span className="text-lime-500 text-xl absolute top-[80vh] font-primary  left-[60vw] m-2">
               {progress}%
             </span>
           </motion.div>

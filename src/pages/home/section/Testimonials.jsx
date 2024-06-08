@@ -4,29 +4,32 @@ import { useTransform, useScroll, motion } from "framer-motion";
 
 const Testimonials = () => {
   const [height, setHeight] = useState();
-  const mainContainerRef = useRef(null);
   const sliderContainerRef = useRef(null);
   const refsArray = useRef([]);
   const { scrollYProgress } = useScroll({
-    target: mainContainerRef,
+    target: sliderContainerRef,
     offset: ["start start", "end end"],
   });
 
   useLayoutEffect(() => {
     const height = refsArray.current[1].offsetHeight;
     const totalHeight = height * 5;
-    setHeight(Math.round(totalHeight + 100));
+    setHeight(Math.round(totalHeight + 300));
   }, []);
 
   return (
-    <motion.main
-      ref={mainContainerRef}
-      className="relative lg:grid grid-cols-2 flex flex-col-reverse mb-[10vh]"
-    >
+    <div className="flex lg:flex-row-reverse flex-col">
+      <div className="flex lg:sticky lg:top-[25vh] top-0 justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
+        <span className="relative text-xl leading-tight font-normal indent-5">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+          repudiandae voluptate accusantium doloremque enim ipsam, optio harum
+          sed soluta aut mollitia reprehenderit quis explicabo? Dignissi mos quo
+          et corrupti quisquam harum!
+        </span>
+      </div>
       <motion.div
-        style={{ height: `${height}px` }}
         ref={sliderContainerRef}
-        className="w-full flex-col relative flex gap-2"
+        className="lg:w-1/2 flex-col relative flex gap-2 "
       >
         {testimonials.map((item, idx) => {
           const range = [idx * 0.25, 1];
@@ -35,35 +38,31 @@ const Testimonials = () => {
           return (
             <motion.div
               key={idx}
+              style={{ scale: scale }}
               ref={(el) => (refsArray.current[idx] = el)}
-              style={{
-                backgroundColor: item.color,
-                scale: scale,
-                top: `calc(15vh + ${idx * 30}px)`,
-              }}
-              className={`sticky bg-opacity-50 border border-opacity-25 backdrop-blur-xl rounded-2xl p-[5vw] flex flex-col flex-1 justify-center items-start gap-y-10`}
+              className={`h-screen w-full p-[2vw] flex flex-col justify-center sticky  top-0  lg:items-center items-start`}
             >
-              <div className="self-center w-[150px] aspect-square border rounded-full"></div>
-              <div>
-                <h2 className="text-xl">{item.testimonial}</h2>
-              </div>
-              <div className="gap-1 flex flex-col">
-                <h2 className="font-normal text-lg">{item.name}</h2>
-                <h3 className="text-base">{item.rating}</h3>
+              <div
+                style={{
+                  backgroundColor: item.color,
+                  top: `calc(-5vh + ${idx * 30}px)`,
+                }}
+                className="bg-opacity-50 relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center p-[2vw]"
+              >
+                <div className="self-center w-[150px] aspect-square border rounded-full"></div>
+                <div>
+                  <h2 className="text-xl">{item.testimonial}</h2>
+                </div>
+                <div className="gap-1 flex flex-col self-start">
+                  <h2 className="font-normal text-lg">{item.name}</h2>
+                  <h3 className="text-base">{item.rating}</h3>
+                </div>
               </div>
             </motion.div>
           );
         })}
       </motion.div>
-      <div className="flex relative justify-center items-start p-[2vw] md:p-[5vw] py-20">
-        <span className="sticky top-[30vh] text-xl leading-tight font-normal">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-          repudiandae voluptate accusantium doloremque enim ipsam, optio harum
-          sed soluta aut mollitia reprehenderit quis explicabo? Dignissi mos quo
-          et corrupti quisquam harum!
-        </span>
-      </div>
-    </motion.main>
+    </div>
   );
 };
 
