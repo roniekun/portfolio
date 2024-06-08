@@ -51,12 +51,10 @@ function App() {
   const [currentProgress, setCurrentProgress] = useState(0);
 
   useEffect(() => {
-    // Subscription to update the state with the current value
     const unsubscribe = calcProgress.onChange((latest) => {
       setCurrentProgress(Math.round(latest));
     });
 
-    // Cleanup subscription on component unmount
     return () => unsubscribe();
   }, [calcProgress]);
 

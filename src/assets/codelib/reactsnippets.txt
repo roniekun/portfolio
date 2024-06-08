@@ -1,2 +1,12 @@
 //spreading ref from an array
                                             ref={(el) => (refArray.current[index] = el)}
+
+ // getting the value of motion (useTransform Hook)     
+      
+        useEffect(() => {
+            const unsubscribe = calcProgress.onChange((latest) => {
+            setCurrentProgress(Math.round(latest));
+            });
+
+            return () => unsubscribe();
+        }, [calcProgress]);                                      

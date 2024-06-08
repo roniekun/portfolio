@@ -15,15 +15,20 @@ const Accordion = () => {
 
   return (
     <main className="h-auto w-full flex flex-col">
+      <h1 className="mt-5 font-semibold text-sm relative text-neutral-50 self-center my-10">
+        <span className="text-lime-500">Questions? </span>
+        Answer.
+      </h1>
       {questions.map((data, idx) => (
         <div
           key={idx}
           className={`flex flex-col gap-1  mt-2 overflow-hidden  justify-center 
                 lg:px-5 md:py-1 bg-opacity-15 border-gray-500 border-b ${
-                idx === 0 && "border-t pt-2"} `}
+                  idx === 0 && "border-t pt-2"
+                } `}
         >
           <span
-            className={`text-sm border rounded-lg border-gray-600 px-1 mt-1 transform duration-300 md:mx-1 w-fit text-blue-50 ${
+            className={`text-sm border rounded-lg border-gray-600 px-1 mt-1 transform duration-300 md:mx-1 w-fit text-neutral-50 ${
               isActive[idx] && "text-lime-500 border-lime-500"
             }`}
           >
@@ -36,7 +41,7 @@ const Accordion = () => {
           >
             <h2
               className={`cursor-pointer text-base font-medium text-left leading-relaxed transition duration-300 md:text-lg font-base md:px-1 md:mt-5  ${
-                isActive[idx] ? "text-lime-500" : "text-blue-100"
+                isActive[idx] ? "text-lime-500" : "text-neutral-100"
               }`}
             >
               {data.question}

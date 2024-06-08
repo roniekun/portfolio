@@ -20,6 +20,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link, useParams } from "react-router-dom";
 import splitString from "../../assets/anim/SplitStrings";
+import Testimonials from "./section/Testimonials";
 
 const Home = () => {
   const { user, setTitle, setColor, color, isLoading, isTransition } =
@@ -207,16 +208,16 @@ const Home = () => {
         <Works />
       </section>
 
+      <section className="flex justify-center items-center p-[5vw] h-auto]">
+        <Testimonials />
+      </section>
+
       <section className="md:px-[20vw] px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] z-10">
-        <h1 className="mt-5 font-semibold text-sm relative text-neutral-50">
-          <span className="text-lime-500">Questions? </span>
-          Answer.
-        </h1>
         <Accordion />
       </section>
 
       <section
-        className="min-h-[800px] z-10 flex justify-center bg-neutral-500 rounded-b-xl "
+        className="min-h-[800px] z-10 flex justify-center bg-zinc-900 rounded-b-xl "
         id="contact"
         ref={contact}
       >

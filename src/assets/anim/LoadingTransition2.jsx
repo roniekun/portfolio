@@ -2,48 +2,55 @@ import React, { useState, useContext, useLayoutEffect, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
 import gsap from "gsap";
 import { Timeline } from "gsap/gsap-core";
+import { letters } from "../../utils/letters";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function LoadingTransition({ children }) {
   const { isLoading, setLoading } = useContext(DataContext);
   const title = useRef(null);
+  const cover = useRef(null);
   const titleContainer = useRef(null);
   const container = useRef(null);
-  const textsArray = ["hi", "welcome", "to", "ronie", "code"];
-  const [text, setText] = useState();
-  const [progress, setProgress] = useState(0);
 
   useLayoutEffect(() => {
     const setLoadingState = () => {
       setLoading(false);
     };
+    const textAnim = () => {
+      let interval = null;
+      let iteration = 0;
+      const initialContent = title.current.textContent;
+      clearInterval(interval);
+      interval = setInterval(() => {
+        title.current.textContent = title.current.textContent
+          .split("")
+          .map((_, idx) => {
+            if (idx < iteration) {
+              return initialContent[idx];
+            }
+            return letters[Math.floor(Math.random() * 26)];
+          })
+          .join("");
 
-    let timer = 0;
-    setInterval(() => {
-      if (timer <= 100) {
-        setProgress(timer + 1);
-      }
-      timer += 3;
-    }, 20);
-
-    let idx = 0;
-    setInterval(() => {
-      if (idx <= textsArray.length - 1) {
-        setText(textsArray[idx]);
-      }
-      idx++;
-    }, 300);
+        if (iteration >= title.current.textContent.length) {
+          clearInterval(interval);
+        }
+        iteration += 1 / 3;
+      }, 50);
+    };
 
     const animateTimeline = () => {
       gsap.registerPlugin(Timeline);
 
       const tl = gsap.timeline();
+      textAnim();
 
       tl.to(window.document.body, { overflow: "hidden" })
 
         .to(titleContainer.current, {
-          duration: 3,
+          duration: 2,
           opacity: 0,
+          delay: 1.2,
           ease: "expo.in",
         })
         .call(() => {
@@ -69,18 +76,23 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className="fixed cursor-wait w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden bg-zinc-900 text-neutral-400"
+            className="fixed cursor-wait bg-zinc-100 w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden"
           >
-            <div ref={titleContainer} className="overflow-hidden relative p-2">
-              <div
+            <div
+              ref={titleContainer}
+              className="overflow-hidden relative h-fit p-2"
+            >
+              <span
+                ref={cover}
+                className="w-full h-full transform -translate-y-full "
+              ></span>
+              <h1
                 ref={title}
-                className="relative text-base font-black uppercase font-primary text-lime-500 overflow-hidden flex"
+                className="text-stone-800 relative uppercase font-primary font-black tracking-wide text-base"
               >
-              </div>
+                roniecode
+              </h1>
             </div>
-            <span className="text-lime-500 text-xl absolute top-0 font-secondary left-0 m-2">
-              loading {progress}%
-            </span>
           </motion.div>
         )}
       </AnimatePresence>

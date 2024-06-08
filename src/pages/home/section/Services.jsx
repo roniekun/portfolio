@@ -20,7 +20,7 @@ const Services = () => {
 
     const trigger = ScrollTrigger.create({
       trigger: ".trigger-services",
-      start: "top bottom",
+      start: "top-=200px bottom",
       end: "bottom bottom",
 
       onEnter: () => {
