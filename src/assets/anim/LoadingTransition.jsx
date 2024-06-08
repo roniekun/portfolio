@@ -42,7 +42,7 @@ export default function LoadingTransition({ children }) {
       tl.to(window.document.body, { overflow: "hidden" })
 
         .to(titleContainer.current, {
-          duration: 3,
+          duration: 2,
           opacity: 0,
           ease: "expo.in",
         })
@@ -75,11 +75,10 @@ export default function LoadingTransition({ children }) {
               <div
                 ref={title}
                 className="relative text-base font-black uppercase font-primary text-lime-500 overflow-hidden flex"
-              >
-              </div>
+              ></div>
             </div>
-            <span className="text-lime-500 text-xl absolute top-0 font-secondary left-0 m-2">
-              loading {progress}%
+            <span className="text-lime-500 text-xl absolute top-[90vh] font-secondary left-[60vw] m-2">
+              {progress}%
             </span>
           </motion.div>
         )}

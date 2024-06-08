@@ -39,23 +39,24 @@ const Testimonials = () => {
               style={{
                 backgroundColor: item.color,
                 scale: scale,
-                top: `calc(15vh + ${idx * 25}px)`,
+                top: `calc(15vh + ${idx * 30}px)`,
               }}
-              className={`sticky bg-opacity-50 border border-opacity-25 backdrop-blur-xl rounded-2xl p-[5vw] flex flex-col h-[60vh] justify-center items-start gap-y-10`}
+              className={`sticky bg-opacity-50 border border-opacity-25 backdrop-blur-xl rounded-2xl p-[5vw] flex flex-col flex-1 justify-center items-start gap-y-10`}
             >
+              <div className="self-center w-[150px] aspect-square border rounded-full"></div>
               <div>
                 <h2 className="text-xl">{item.testimonial}</h2>
               </div>
               <div className="gap-1 flex flex-col">
-                <h2 className="font-medium text-lg">{item.name}</h2>
+                <h2 className="font-normal text-lg">{item.name}</h2>
                 <h3 className="text-base">{item.rating}</h3>
               </div>
             </motion.div>
           );
         })}
       </motion.div>
-      <div className="flex relative justify-center items-start p-[5vw] py-20">
-        <span className="sticky top-[40vh] text-xl leading-tight font-bold">
+      <div className="flex relative justify-center items-start p-[2vw] md:p-[5vw] py-20">
+        <span className="sticky top-[30vh] text-xl leading-tight font-normal">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
           repudiandae voluptate accusantium doloremque enim ipsam, optio harum
           sed soluta aut mollitia reprehenderit quis explicabo? Dignissi mos quo
