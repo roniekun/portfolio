@@ -31,9 +31,13 @@ const Cards = () => {
             <h1 className="text-md uppercase text-zinc-900  font-semibold">
               {card.title}
             </h1>
-            <div className="flex gap-2 text-xs font-secondary self-start text-zinc-600 px-1">
-              <p className="border">{card.tags.js}</p>
-              <p className="border">{card.tags.css}</p>
+            <span className="font-secondary text-xs">tags:</span>
+            <div className="flex gap-2 text-xs font-secondary self-start text-zinc-600  mb-3">
+              {card.tags.map((tag, idx) => (
+                <span className="border px-1 whitespace-nowrap" key={idx}>
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>
