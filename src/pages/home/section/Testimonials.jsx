@@ -3,19 +3,12 @@ import { testimonials } from "../utils/testimonials";
 import { useTransform, useScroll, motion } from "framer-motion";
 
 const Testimonials = () => {
-  const [height, setHeight] = useState();
   const sliderContainerRef = useRef(null);
   const refsArray = useRef([]);
   const { scrollYProgress } = useScroll({
     target: sliderContainerRef,
     offset: ["start start", "end end"],
   });
-
-  useLayoutEffect(() => {
-    const height = refsArray.current[1].offsetHeight;
-    const totalHeight = height * 5;
-    setHeight(Math.round(totalHeight + 300));
-  }, []);
 
   return (
     <div className="flex lg:flex-row-reverse flex-col gap-10">
@@ -36,7 +29,7 @@ const Testimonials = () => {
           const scale = useTransform(scrollYProgress, range, [1, targetScale]);
           return (
             <motion.div
-              whileInView={{ opacity: 1, duration: 1 }}
+              whileInView={{ opacity: 1, duration: 0.3 }}
               key={idx}
               style={{ scale: scale }}
               ref={(el) => (refsArray.current[idx] = el)}
