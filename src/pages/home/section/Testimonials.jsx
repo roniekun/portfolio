@@ -18,8 +18,8 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div className="flex lg:flex-row-reverse flex-col">
-      <div className="flex lg:sticky lg:top-[25vh] top-0 justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
+    <div className="flex lg:flex-row-reverse flex-col gap-10">
+      <div className="flex lg:sticky lg:top-[25vh]  justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
         <span className="relative text-xl leading-tight font-normal text-balance">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
           repudiandae voluptate accusantium doloremque enim ipsam, Dignissi mos
@@ -36,17 +36,18 @@ const Testimonials = () => {
           const scale = useTransform(scrollYProgress, range, [1, targetScale]);
           return (
             <motion.div
+              whileInView={{ opacity: 1, duration: 1 }}
               key={idx}
               style={{ scale: scale }}
               ref={(el) => (refsArray.current[idx] = el)}
-              className={`h-screen w-full flex flex-col justify-center sticky  top-0  lg:items-center items-start`}
+              className={`h-1/2 w-full flex flex-col justify-center sticky opacity-0  top-[15vh]  lg:items-center items-start`}
             >
               <div
                 style={{
                   backgroundColor: item.color,
                   top: `calc(-5vh + ${idx * 30}px)`,
                 }}
-                className="bg-opacity-50 relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw]"
+                className="bg-opacity-50 relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
               >
                 <div className="self-center w-[150px] aspect-square border rounded-full"></div>
                 <div className="gap-1 flex flex-col self-center items-center">
@@ -56,7 +57,9 @@ const Testimonials = () => {
                   <h3 className="text-base">Rating: {item.rating} stars </h3>
                 </div>
                 <div>
-                  <h2 className="text-lg md:text-xl">&quot;{item.testimonial}&quot;</h2>
+                  <h2 className="text-lg md:text-xl">
+                    &quot;{item.testimonial}&quot;
+                  </h2>
                 </div>
               </div>
             </motion.div>

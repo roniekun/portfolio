@@ -44,7 +44,7 @@ const Services = () => {
 
   return (
     <main className="relative flex justify-left h-full flex-col my-5">
-      <section className="relative h-[200vh] p-[5vw] flex justify-center items-center">
+      <section className="relative h-screen p-[5vw] flex justify-center items-center">
         <p className="relative flex flex-wrap">
           {scrollAnimText.map((word, idx) => {
             return (
