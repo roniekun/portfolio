@@ -182,7 +182,7 @@ const Home = () => {
       </section>
 
       <section
-        className=" flex justify-center items-center relative bg-black flex-col  text-neutral-300"
+        className=" flex justify-center items-center relative bg-black flex-col  text-neutral-300 py-[10vh]"
         ref={profile}
       >
         <Profile />
@@ -208,7 +208,7 @@ const Home = () => {
         <Works />
       </section>
 
-      <section className="flex justify-center items-center lg:p-[5vw] p-[5vw] h-auto] my-[10vh] mb-[20vh] ">
+      <section className="flex justify-center items-center lg:p-[5vw] p-[5vw] h-auto] my-[10vh] mb-[50vh] ">
         <Testimonials />
       </section>
 

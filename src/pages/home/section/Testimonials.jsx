@@ -25,7 +25,7 @@ const Testimonials = () => {
       >
         {testimonials.map((item, idx) => {
           const range = [idx * 0.25, 1];
-          const targetScale = 1 - (testimonials.length - 1 - idx) * 0.05;
+          const targetScale = 1 - (testimonials.length - 1 - idx) * 0.03;
           const scale = useTransform(scrollYProgress, range, [1, targetScale]);
           return (
             <motion.div
@@ -33,12 +33,14 @@ const Testimonials = () => {
               key={idx}
               style={{ scale: scale }}
               ref={(el) => (refsArray.current[idx] = el)}
-              className={`h-1/2 w-full flex flex-col justify-center sticky opacity-0  top-[15vh]  lg:items-center items-start`}
+              className={`${
+                idx === testimonials.length ? "h-1/2" : "h-screen"
+              } w-full flex  flex-col justify-center sticky opacity-0  top-0 lg:items-center items-start`}
             >
               <div
                 style={{
                   backgroundColor: item.color,
-                  top: `calc(-5vh + ${idx * 30}px)`,
+                  top: `calc(0vh + ${idx * 20}px)`,
                 }}
                 className="bg-opacity-50 relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
               >
