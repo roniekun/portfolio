@@ -75,7 +75,7 @@ const Home = () => {
             );
           }
         });
-      }, 300);
+      }, 500);
 
       tl.fromTo(
         exploreRef.current,
@@ -162,7 +162,7 @@ const Home = () => {
                   className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-500 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
         tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
                 >
-                  Get in touch
+                  Start a project
                 </span>
                 <span
                   c

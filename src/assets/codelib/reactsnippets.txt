@@ -2,6 +2,7 @@
                                             ref={(el) => (refArray.current[index] = el)}
 
  // getting the value of motion (useTransform Hook)     
+
       
         useEffect(() => {
             const unsubscribe = calcProgress.onChange((latest) => {
@@ -9,4 +10,21 @@
             });
 
             return () => unsubscribe();
-        }, [calcProgress]);                                      
+        }, [calcProgress]);                                 
+
+//scrolling listener
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrolled(window.scrollY > currentScroll);
+  //     setCurrentScroll(window.scrollY);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [window.scrollY]);
+
+  // responsive screen size     

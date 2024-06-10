@@ -36,10 +36,8 @@ const Profile = () => {
         });
       },
       onLeave: () => {
-        console.log("leave");
       },
       onEnterBack: () => {
-        console.log("entered back");
       },
     });
 

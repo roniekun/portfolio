@@ -31,21 +31,7 @@ const DataProvider = ({ children }) => {
     document.title = title;
   }, [title]);
 
-  //scrolling listener
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     setScrolled(window.scrollY > currentScroll);
-  //     setCurrentScroll(window.scrollY);
-  //   };
 
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [window.scrollY]);
-
-  // responsive screen size
   useEffect(() => {
     const handleResize = () => {
       setMobile(window.innerWidth < 1024);

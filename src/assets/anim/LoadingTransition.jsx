@@ -1,6 +1,7 @@
 import React, { useState, useContext, useLayoutEffect, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
 import gsap from "gsap";
+import splitString from "./SplitStrings";
 import { Timeline } from "gsap/gsap-core";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -9,30 +10,25 @@ export default function LoadingTransition({ children }) {
   const title = useRef(null);
   const titleContainer = useRef(null);
   const container = useRef(null);
-  const textsArray = ["hi", "welcome", "to", "ronie", "code"];
+  const customText = "roniecode";
   const [text, setText] = useState();
   const [progress, setProgress] = useState(0);
+  const titleTexts = splitString(customText);
 
   useLayoutEffect(() => {
     const setLoadingState = () => {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     };
 
     let timer = 0;
     setInterval(() => {
       if (timer <= 100) {
-        setProgress(timer + 1);
+        setProgress(timer++);
       }
       timer += 3;
-    }, 20);
-
-    let idx = 0;
-    setInterval(() => {
-      if (idx <= textsArray.length - 1) {
-        setText(textsArray[idx]);
-      }
-      idx++;
-    }, 300);
+    }, 60);
 
     const animateTimeline = () => {
       gsap.registerPlugin(Timeline);
@@ -42,7 +38,7 @@ export default function LoadingTransition({ children }) {
       tl.to(window.document.body, { overflow: "hidden" })
 
         .to(titleContainer.current, {
-          duration: 2,
+          duration: 3,
           opacity: 0,
           ease: "expo.in",
         })
@@ -64,6 +60,7 @@ export default function LoadingTransition({ children }) {
             exit={{
               height: 0,
               transition: {
+                delay: 0.5,
                 duration: 1,
                 ease: [0.76, 0, 0.24, 1],
               },
@@ -71,13 +68,34 @@ export default function LoadingTransition({ children }) {
             ref={container}
             className="fixed cursor-wait w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden bg-zinc-900 text-neutral-400"
           >
-            <div ref={titleContainer} className="overflow-hidden relative p-2">
-              <div
-                ref={title}
-                className="relative text-base font-black uppercase font-primary text-lime-500 overflow-hidden flex"
-              ></div>
+            <div
+              ref={title}
+              className="flex flex-row uppercase text-2xl md:text-4xl font-primary text-lime-500 font-bold overflow-hidden"
+            >
+              {titleTexts.map((text, idx) => (
+                <motion.h1
+                  initial={{ y: "100%", opacity: 0 }}
+                  transition={{
+                    delay: idx * 0.03,
+                    duration: 0.3,
+                    ease: [0.76, 0, 0.24, 1],
+                  }}
+                  animate={{
+                    y: 0,
+                    opacity: 1,
+                  }}
+                  exit={{
+                    y: "-100%",
+                    opacity: 0,
+                  }}
+                  className="flex translate-y-full justify-center items-center"
+                >
+                  {text}
+                </motion.h1>
+              ))}
             </div>
-            <span className="text-lime-500 text-xl absolute top-[80vh] font-primary  left-[60vw] m-2">
+
+            <span className="text-lime-500 text-xl absolute top-[80vh] font-primary font-black  left-[60vw] m-2">
               {progress}%
             </span>
           </motion.div>
