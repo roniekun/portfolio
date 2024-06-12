@@ -20,13 +20,16 @@ const About = () => {
         start: "top bottom",
         end: "bottom bottom",
         onEnter: () => {
-          tl.to(container.current, { opacity: 1, stagger: 0.1, duration: 0.3 });
-          tl.from(wd.current, { opacity: 0, y: 5 });
-          tl.from(ebt.current, { opacity: 0, y: 5 });
+          tl.to(container.current, {
+            opacity: 1,
+            stagger: 0.1,
+            duration: 0.3,
+          });
+          tl.from(wd.current, { opacity: 0, x: -50 })
+          tl.from(ebt.current, { opacity: 0, x: 50 })
+ 
         },
-        onLeaveBack: () => {
-          gsap.to(container.current, { opacity: 0 });
-        },
+        onLeaveBack: () => {},
         onLeave: () => {},
         onEnterBack: () => {},
       });
@@ -42,7 +45,7 @@ const About = () => {
     <main className=" bg-black">
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 "
+        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0"
       >
         <div
           ref={wd}

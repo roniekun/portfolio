@@ -38,7 +38,7 @@ const Home = () => {
   let { id } = useParams();
   const heroTexts = ["webstie", "undre", "construciton"];
   const heroChars = useRef([]);
-  const exploreRef = useRef();
+  const heroBtnRef = useRef();
   //setting meta tags
   useEffect(() => {
     location.title = "Freelance";
@@ -78,11 +78,11 @@ const Home = () => {
       }, 500);
 
       tl.fromTo(
-        exploreRef.current,
+        heroBtnRef.current,
         {
           opacity: 0,
         },
-        { opacity: 1, delay: 2, duration: 0.3 }
+        { opacity: 1, delay: 1.5, duration: 0.3 }
       );
     },
 
@@ -126,7 +126,7 @@ const Home = () => {
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 p-[5vw] lg:gap-y-5 gap-y-5 lg:h-[800px] h-screen
+        className="flex flex-col relative  text-neutral-300 p-[10vw] lg:gap-y-5 gap-y-5 lg:h-[800px] h-screen
          z-0 overflow-hidden bg-stone-950 justify-center items-end"
       >
         <div
@@ -152,24 +152,17 @@ const Home = () => {
 
             {!isLoading && (
               <div
-                ref={exploreRef}
+                ref={heroBtnRef}
                 className="flex md:flex-row flex-col gap-2 relative self-center"
               >
                 <span
                   onClick={() =>
                     contact.current.scrollIntoView({ behavior: "smooth" })
                   }
-                  className="relative z-10 cursor-pointer text-neutral-400 border-neutral-400 ring ring-inset ring-neutral-400 text-base hover:bg-neutral-500 hover:border-lime-500 hover:text-black flex justify-center items-center font font-primary uppercase font-bold
-        tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
+                  className="relative z-10 cursor-pointer text-xl text-neutral-400 border-neutral-400 my-10 hover:text-lime-500 flex justify-center items-center font font-primary font-bold underline
+        tracking-10  rounded-xl w-full h-16 py-5 px-7 transition duration-300 text-center whitespace-nowrap"
                 >
                   Start a project
-                </span>
-                <span
-                  c
-                  className="cursor-pointer text-lime-500 border-lime-500 ring ring-inset ring-lime-500 text-base hover:bg-lime-500 hover:border-lime-500 hover:text-black flex justify-center font-secondary items-center font uppercase font-bold
-                   tracking-10  rounded-xl lg:w-32 w-full h-16 py-5 px-7 transition duration-300 text-center"
-                >
-                  Explore
                 </span>
               </div>
             )}
@@ -208,7 +201,7 @@ const Home = () => {
         <Works />
       </section>
 
-      <section className="flex justify-center items-center lg:p-[5vw] p-[5vw] h-auto] my-[10vh] mb-[50vh] ">
+      <section className="flex justify-center items-center lg:p-[10vw] p-[10vw] h-auto] my-[10vh] mb-[50vh] ">
         <Testimonials />
       </section>
 

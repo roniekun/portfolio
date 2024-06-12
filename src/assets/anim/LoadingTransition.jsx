@@ -38,8 +38,7 @@ export default function LoadingTransition({ children }) {
       tl.to(window.document.body, { overflow: "hidden" })
 
         .to(titleContainer.current, {
-          duration: 3,
-          opacity: 0,
+          duration: 1,
           ease: "expo.in",
         })
         .call(() => {
@@ -66,11 +65,11 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className="fixed cursor-wait w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden bg-zinc-900 text-neutral-400"
+            className="fixed text-neutral-800 cursor-wait w-[100vw] h-[100vh] z-50 flex justify-center items-center flex-col overflow-hidden bg-white "
           >
             <div
-              ref={title}
-              className="flex flex-row uppercase text-2xl md:text-4xl font-primary text-lime-500 font-bold overflow-hidden"
+              ref={titleContainer}
+              className="flex flex-row uppercase text-2xl md:text-4xl font-primary  font-bold overflow-hidden"
             >
               {titleTexts.map((text, idx) => (
                 <motion.h1
@@ -95,7 +94,7 @@ export default function LoadingTransition({ children }) {
               ))}
             </div>
 
-            <span className="text-lime-500 text-xl absolute top-[80vh] font-primary font-black  left-[60vw] m-2">
+            <span className="text-xl absolute top-[80vh] font-primary font-medium  right-[10vw] m-2">
               {progress}%
             </span>
           </motion.div>

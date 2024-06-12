@@ -39,8 +39,7 @@ const Header = () => {
       {!isLoading && (
         <motion.header
           ref={header}
-          className={`md:mt-5 mt-3 fixed shadow-inner   z-20 overflow-hidden transtion duration-700 transition-all
-           text-white bg-blend-difference  rounded-3xl transform left-1/2  w-11/12 -translate-x-1/2
+          className={`md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-700 transition-all  text-white bg-blend-difference  transform rounded-xl left-1/2   -translate-x-1/2 lg:w-4/5 w-11/12
       ${
         isToggleMenu
           ? "bg-black bg-opacity-20 backdrop-blur-md"
@@ -49,7 +48,7 @@ const Header = () => {
         >
           <section className="flex flex-col">
             <div
-              className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0 `}
+              className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0`}
             >
               <div>
                 <Logo />

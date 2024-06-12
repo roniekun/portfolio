@@ -35,7 +35,7 @@ const Testimonials = () => {
               ref={(el) => (refsArray.current[idx] = el)}
               className={`${
                 idx === testimonials.length ? "h-1/2" : "h-screen"
-              } w-full flex  flex-col justify-center sticky opacity-0  top-0 lg:items-center items-start`}
+              } w-full flex  flex-col justify-center sticky opacity-60  top-0 lg:items-center items-start`}
             >
               <div
                 style={{

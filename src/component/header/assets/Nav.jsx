@@ -6,7 +6,7 @@ const Nav = () => {
   const button = useRef(null);
   const [height, setHeight] = useState();
   const linkArray = useRef([]);
-  const location = useLocation()
+  const location = useLocation();
 
   const links = [
     { name: "about", to: "/about" },
@@ -73,7 +73,7 @@ const Nav = () => {
   };
 
   return (
-    <main className="gap-x-10 flex items-center  relative  justify-center mx-5 h-full">
+    <main className="gap-x-7 flex items-center  relative  justify-center m-5 h-full">
       {links.map((link, idx) => (
         <div key={idx} className="flex flex-col">
           <a
@@ -83,8 +83,8 @@ const Nav = () => {
             data-value={link.name}
             onClick={() => handleClick(link.to)}
             key={link.name}
-            className={`group w-28 font-primary cursor-pointer text-md text-neutral-100  rounded-3xl relative flex 
-                 flex-col group justify-center uppercase hover:bg-lime-400 hover:text-black
+            className={`group w-24 font-primary cursor-pointer  text-neutral-100  rounded-xl relative flex py-2
+                 flex-col group justify-center uppercase hover:text-lime-500
                 items-center`}
           >
             {link.name}
