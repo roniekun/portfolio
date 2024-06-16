@@ -19,8 +19,8 @@ export default function LoadingTransition({ children }) {
   const charsArray = useRef([]);
 
   useLayoutEffect(() => {
-    const tCWidth = titleContainer.current.offsetWidth;
-    setWidth(tCWidth);
+    const tCWidth = titleContainer.current.getBoundingClientRect().width;
+    setWidth(Math.round(tCWidth));
     const setLoadingState = () => {
       setLoading(false);
     };

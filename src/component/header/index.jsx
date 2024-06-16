@@ -39,7 +39,7 @@ const Header = () => {
       {!isLoading && (
         <motion.header
           ref={header}
-          className={`md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-700 transition-all  text-white bg-blend-difference  transform rounded-xl left-1/2   -translate-x-1/2 lg:w-4/5 w-11/12
+          className={`md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-700 transition-all  text-white bg-blend-difference  transform rounded-xl left-1/2  -translate-x-1/2 lg:w-4/5 w-11/12
       ${
         isToggleMenu
           ? "bg-black bg-opacity-20 backdrop-blur-md"

@@ -41,7 +41,7 @@ const Logo = () => {
     <main
       onClick={handleClick}
       className="tracking-wide title-font font-primary transition duration-500 
-     relative select-none cursor-pointer mx-[2vw]"
+     relative select-none cursor-pointer mx-[5vw]"
     >
       <h1 ref={logo}>RONIECODE</h1>
     </main>
