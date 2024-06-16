@@ -196,12 +196,12 @@ const Home = () => {
       <section
         ref={works}
         id="works"
-        className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl w-full lg:px-[20vw] px-[5vw] relative box-border min-h-[800px]"
+        className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl w-full lg:px-[20vw]  px-[5vw] relative box-border min-h-[800px]"
       >
         <Works />
       </section>
 
-      <section className="flex justify-center items-center lg:p-[10vw] p-[10vw] h-auto] my-[10vh] mb-[50vh] ">
+      <section className="flex justify-center items-center lg:p-[10vw] p-[5vw] h-auto] lg:my-[10vh] lg:mb-[50vh] ">
         <Testimonials />
       </section>
 
