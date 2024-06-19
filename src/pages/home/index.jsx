@@ -123,10 +123,10 @@ const Home = () => {
   const text = splitString(heroTexts);
 
   return (
-    <motion.main ref={container} className="relative flex flex-col">
+    <motion.main ref={container} className="relative flex flex-col h-auto w-full">
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 lg:gap-y-5 gap-y-5 min-h-[90vh]
+        className="flex flex-col relative  text-neutral-300 lg:gap-y-5 gap-y-5 min-h-[90vh] lg:h-screen
          z-0  justify-center items-center bg-gradient-to-br from-slate-600 via-slate-800 to-black"
       >
         <div
@@ -175,7 +175,7 @@ const Home = () => {
       </section>
 
       <section
-        className=" flex justify-center items-center relative bg-black flex-col  text-neutral-300 py-[10vh]"
+        className="flex justify-center items-center relative bg-black flex-col  text-neutral-300 py-[10vh]"
         ref={profile}
       >
         <Profile />
