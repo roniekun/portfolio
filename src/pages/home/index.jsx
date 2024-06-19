@@ -123,17 +123,20 @@ const Home = () => {
   const text = splitString(heroTexts);
 
   return (
-    <motion.main ref={container} className="relative flex flex-col h-auto w-full">
+    <motion.main
+      ref={container}
+      className="relative flex flex-col h-auto w-full"
+    >
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 lg:gap-y-5 gap-y-5 min-h-[90vh] lg:h-screen
+        className="flex flex-col relative  text-neutral-300 min-h-[90vh] lg:h-screen
          z-0  justify-center items-center bg-gradient-to-br from-slate-600 via-slate-800 to-black"
       >
         <div
           ref={hero}
-          className="w-full flex flex-col justify-end items-end gap-5"
+          className="w-full flex flex-col justify-end items-end gap-5 overflow-hidden"
         >
-          <div className="justify-center w-full flex items-center flex-col ">
+          <div className="justify-center w-full flex items-center flex-col overflow-hidden ">
             {heroTexts.map((word, idx) => (
               <div
                 className="overflow-hidden justify-center flex items-center  h-fit"

@@ -2,11 +2,13 @@ import { useContext, useLayoutEffect, useRef } from "react";
 import { letters } from "../../../utils/letters";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../../context/DataContext";
+import useWindowSize from "../../../hooks/useWIndowHooks/useWIndowSize";
 
 const Logo = () => {
   const navigate = useNavigate();
   const logo = useRef(null);
   const { setIsTransition } = useContext(DataContext);
+  const {windowWidth} = useWindowSize()
 
   useLayoutEffect(() => {
     setTimeout(() => {
@@ -31,7 +33,7 @@ const Logo = () => {
         iteration += 1 / 3;
       }, 30);
     }, 1000);
-  }, []);
+  }, [windowWidth]);
 
   return (
     <main
