@@ -127,7 +127,7 @@ const Home = () => {
       <section
         ref={home}
         className="flex flex-col relative  text-neutral-300 lg:gap-y-5 gap-y-5 lg:h-[800px] min-h-[90vh]
-         z-0  bg-stone-950 justify-center items-center"
+         z-0  justify-center items-center bg-gradient-to-br from-slate-600 via-slate-800 to-black"
       >
         <div
           ref={hero}
