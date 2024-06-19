@@ -126,7 +126,7 @@ const Home = () => {
     <motion.main ref={container} className="relative flex flex-col top-0">
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 p-[10vw] lg:gap-y-5 gap-y-5 lg:h-[800px] h-screen
+        className="flex flex-col relative  text-neutral-300 lg:gap-y-5 gap-y-5 lg:h-[800px] min-h-[90vh]
          z-0 overflow-hidden bg-stone-950 justify-center items-end"
       >
         <div
@@ -168,7 +168,7 @@ const Home = () => {
             )}
           </div>
         </div>
-        <div className="flex absolute top-[90vh] left-0 w-full transition px-[5vw] h-auto duration-300 leading-tight  justify-start items-start  text-[1rem] whitespace-nowrap">
+        <div className="flex absolute top-[85%] left-0 w-full transition px-[5vw] h-auto duration-300 leading-tight  justify-start items-start  text-[1rem] whitespace-nowrap">
           <h1>Custom Web Solutions for</h1>
           <HeroTexts />
         </div>

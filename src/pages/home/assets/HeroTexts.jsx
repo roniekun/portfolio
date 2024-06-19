@@ -59,7 +59,7 @@ const HeroTexts = () => {
           <h1
             style={{ height: item.height }}
             ref={(el) => (refsArray.current[idx] = el)}
-            className="relative  w-fit h-fit mx-2 capitalize p-0 m-0 text-lime-500 font-black"
+            className="relative  w-fit h-fit mx-1 capitalize p-0 m-0 text-lime-500 font-black"
             key={idx}
           >
             {item.item}
