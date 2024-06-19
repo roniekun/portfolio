@@ -71,14 +71,15 @@ export default function LoadingTransition({ children }) {
             ref={container}
             className="fixed text-neutral-800 cursor-wait w-screen h-screen z-50 flex overflow-hidden bg-white justify-center items-center font-primary"
           >
-            <div style={{ width: `${width}px` }} className="">
+            <div style={{ width: `${width}px` }}>
               <div
+                style={{ width: `${width}px` }}
                 ref={titleSlider}
-                className="relative rounded-md pt-3 overflow-hidden"
+                className="relative rounded-md pt-3 overflow-hidden bg-lime-500"
               >
                 <div
                   ref={titleContainer}
-                  className="flex uppercase text-2xl md:text-4xl font-bold rounded-md "
+                  className="flex uppercase text-2xl md:text-4xl font-bold rounded-md px-2"
                 >
                   {titleTexts.map((text, idx) => (
                     <h1

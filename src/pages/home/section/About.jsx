@@ -45,7 +45,7 @@ const About = () => {
     <main className=" bg-black">
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0"
+        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 overflow-hidden"
       >
         <div
           ref={wd}
