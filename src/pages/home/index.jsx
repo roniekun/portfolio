@@ -23,7 +23,7 @@ import splitString from "../../assets/anim/SplitStrings";
 import Testimonials from "./section/Testimonials";
 
 const Home = () => {
-  const { user, setTitle, setColor, color, isLoading, isTransition } =
+  const { user, setTitle, setColor, color, isLoading, setLoading } =
     useContext(DataContext);
   const profile = useRef(null);
   const services = useRef(null);

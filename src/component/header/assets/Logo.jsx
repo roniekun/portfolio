@@ -33,15 +33,10 @@ const Logo = () => {
     }, 1000);
   }, []);
 
-  const handleClick = () => {
-    navigate("/");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
   return (
     <main
-      onClick={handleClick}
       className="tracking-wide title-font font-primary transition duration-500 
-     relative select-none cursor-pointer mx-[5vw]"
+     relative select-none cursor-pointer mx-[5vw] lg:mx-[2vw]"
     >
       <h1 ref={logo}>RONIECODE</h1>
     </main>

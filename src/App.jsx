@@ -26,10 +26,12 @@ import {
 import { DataContext } from "./context/DataContext";
 
 function App() {
+  const { setLoading } = useContext(DataContext);
   const { id } = useParams();
   const { windowWidth } = useWindowSize();
   const location = useLocation();
   const lenis = new Lenis();
+  setLoading(false);
 
   gsap.registerPlugin(ScrollTrigger);
   lenis.on("scroll", ScrollTrigger.update);
@@ -59,7 +61,7 @@ function App() {
   }, [calcProgress]);
 
   return (
-    <LoadingTransition>
+    <>
       <main
         ref={container}
         style={{ width: windowWidth }}
@@ -79,7 +81,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
-    </LoadingTransition>
+    </>
   );
 }
 
