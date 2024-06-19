@@ -19,7 +19,7 @@ export default function LoadingTransition({ children }) {
   const charsArray = useRef([]);
 
   useLayoutEffect(() => {
-    const tCWidth = titleContainer.current.getBoundingClientRect().width;
+    const tCWidth = titleContainer.current.offsetWidth;
     setWidth(Math.round(tCWidth));
     const setLoadingState = () => {
       setLoading(false);
@@ -69,28 +69,28 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className="fixed text-neutral-800 cursor-wait w-[100vw] h-[100vh] z-50 flex overflow-hidden bg-white justify-center items-center font-primary"
+            className="fixed text-neutral-800 cursor-wait w-[100vw] h-[100vh] z-50 flex overflow-hidden bg-white justify-center items-center"
           >
+            <div
+              style={{ width: `${width}px` }}
+              ref={titleSlider}
+              className="relative rounded-md pt-3 overflow-hidden bg-lime-500"
+            >
               <div
-                style={{ width: `${width}px` }}
-                ref={titleSlider}
-                className="relative rounded-md pt-3 overflow-hidden bg-lime-500"
+                ref={titleContainer}
+                className="flex uppercase text-2xl md:text-4xl font-bold rounded-md"
               >
-                <div
-                  ref={titleContainer}
-                  className="flex uppercase text-2xl md:text-4xl font-bold rounded-md"
-                >
-                  {titleTexts.map((text, idx) => (
-                    <h1
-                      id="char"
-                      key={idx}
-                      ref={(el) => (charsArray.current[idx] = el)}
-                      className="flex translate-y-full justify-center items-center"
-                    >
-                      {text}
-                    </h1>
-                  ))}
-                </div>
+                {titleTexts.map((text, idx) => (
+                  <h1
+                    id="char"
+                    key={idx}
+                    ref={(el) => (charsArray.current[idx] = el)}
+                    className="flex translate-y-full justify-center items-center"
+                  >
+                    {text}
+                  </h1>
+                ))}
+              </div>
             </div>
 
             <span className="text-xl absolute top-[80vh] font-primary font-medium  right-[10vw] m-2">
