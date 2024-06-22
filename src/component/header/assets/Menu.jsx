@@ -6,31 +6,31 @@ import { letters } from "../../../utils/letters";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Menu = () => {
-  const { setToggleMenu, isToggleMenu } = useContext(DataContext);
+  const { setToggleMenu, isToggleMenu, textColorPrimary, borderColor } =
+    useContext(DataContext);
   const btn = useRef(null);
 
   useEffect(() => {
-          let interval = null;
-          let iteration = 0;
-          const initialContent = isToggleMenu ? "CLOSE " : "MENUS";
-          clearInterval(interval);
-          interval = setInterval(() => {
-            btn.current.textContent = btn.current.textContent
-              .split("")
-              .map((_, idx) => {
-                if (idx < iteration) {
-                  return initialContent[idx];
-                }
-                return letters[Math.floor(Math.random() * 26)];
-              })
-              .join("");
+    let interval = null;
+    let iteration = 0;
+    const initialContent = isToggleMenu ? "CLOSE " : "MENUS";
+    clearInterval(interval);
+    interval = setInterval(() => {
+      btn.current.textContent = btn.current.textContent
+        .split("")
+        .map((_, idx) => {
+          if (idx < iteration) {
+            return initialContent[idx];
+          }
+          return letters[Math.floor(Math.random() * 26)];
+        })
+        .join("");
 
-            if (iteration >= btn.current.textContent.length) {
-              clearInterval(interval);
-            }
-            iteration += 1 / 3;
-          }, 100);
-
+      if (iteration >= btn.current.textContent.length) {
+        clearInterval(interval);
+      }
+      iteration += 1 / 3;
+    }, 100);
   }, [isToggleMenu]);
 
   useEffect(() => {
@@ -75,15 +75,14 @@ const Menu = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`bg-blend-difference group transition flex items-center justify-center uppercase font-primary relative text-black  px-8 w-14
+        className={`${borderColor}  group transition flex items-center  justify-center border-2 uppercase font-primary relative  px-8 w-14
                 mx-[5vw] -z-10 rounded-lg ${
-                  isToggleMenu
-                    ? "bg-neutral-500 border-2 text-neutral-100 bg-opacity-20"
-                    : "bg-lime-500"
+                  isToggleMenu && `${textColorPrimary}  bg-opacity-20`
                 }`}
       >
         {isToggleMenu ? (
           <button
+            className="bg-blend-difference"
             ref={btn}
             onMouseEnter={handleMouseEvent}
             onMouseLeave={handleMouseEvent}

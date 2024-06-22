@@ -14,7 +14,7 @@ const Accordion = () => {
   };
 
   return (
-    <main className="h-auto w-full flex flex-col">
+    <main className="h-auto w-full flex flex-col font-primary">
       <h1 className="mt-5 font-semibold text-sm relative text-neutral-50 self-center my-10">
         <span className="text-lime-500">Questions? </span>
         Answer.

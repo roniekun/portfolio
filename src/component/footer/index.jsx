@@ -13,7 +13,7 @@ const Footer = () => {
   };
 
   return (
-    <div
+    <main
       className="relative h-screen"
       // style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
@@ -51,7 +51,7 @@ const Footer = () => {
           </footer>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

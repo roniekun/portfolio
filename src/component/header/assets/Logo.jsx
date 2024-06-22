@@ -7,7 +7,6 @@ import useWindowSize from "../../../hooks/useWIndowHooks/useWIndowSize";
 const Logo = () => {
   const navigate = useNavigate();
   const logo = useRef(null);
-  const { setIsTransition } = useContext(DataContext);
   const {windowWidth} = useWindowSize()
 
   useLayoutEffect(() => {
@@ -37,7 +36,7 @@ const Logo = () => {
 
   return (
     <main
-      className="tracking-wide title-font font-primary transition duration-500 
+      className="tracking-wide title-font font-primary 
      relative select-none cursor-pointer mx-[5vw] lg:mx-[2vw]"
     >
       <h1 ref={logo}>RONIECODE</h1>

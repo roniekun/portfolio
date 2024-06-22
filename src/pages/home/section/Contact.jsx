@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const Contact = () => {
   return (
-    <main className="w-full flex justify-center flex-col items-center">
+    <main className="w-full flex justify-center flex-col items-center font-primary">
       <h1 className="font-semibold font-secondary text-sm capitalize">
         Contact
       </h1>

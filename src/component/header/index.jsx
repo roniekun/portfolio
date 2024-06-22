@@ -9,8 +9,14 @@ import Navbar from "../navbar";
 import Nav from "./assets/Nav";
 
 const Header = () => {
-  const { isMobile, isScrolled, isToggleMenu, isLoading, isTransition } =
-    useContext(DataContext);
+  const {
+    isMobile,
+    isScrolled,
+    isToggleMenu,
+    isLoading,
+    textColorPrimary,
+    bg,
+  } = useContext(DataContext);
   const location = useLocation();
   // refs
   const header = useRef(null);
@@ -39,14 +45,12 @@ const Header = () => {
       {!isLoading && (
         <motion.header
           ref={header}
-          className={`md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-700 transition-all  text-white bg-blend-difference  transform rounded-xl left-1/2  -translate-x-1/2 lg:w-4/5 w-11/12
+          className={`${textColorPrimary} md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-700 transition-all  bg-blend-difference  transform rounded-xl left-1/2  -translate-x-1/2 lg:w-4/5 w-11/12
       ${
-        isToggleMenu
-          ? "bg-black bg-opacity-20 backdrop-blur-md"
-          : "bg-transparent"
+        isToggleMenu ? `${bg} bg-opacity-40 backdrop-blur-md` : "bg-transparent"
       }`}
         >
-          <section className="flex flex-col">
+          <section className="flex flex-col relative">
             <div
               className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0`}
             >

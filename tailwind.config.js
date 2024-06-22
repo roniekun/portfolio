@@ -4,9 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        primary: ["Telegraf", "sans-serif"],
-        secondary: ["Kode Mono", "monospace"],
-        tertiary: ["Neue Montreal", "sans-serif"],
+        primary: ["Neue Montreal", "sans-serif"],
+        secondary: ["Telegraf", "sans-serif"],
       },
       screens: {},
       fontSize: {

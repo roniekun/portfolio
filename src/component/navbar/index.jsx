@@ -3,6 +3,7 @@ import { useContext, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
 import Socials from "./assets/Socials";
 import Clock from "./assets/Clock";
+import Theme from "./assets/Theme";
 
 const Navbar = () => {
   const { setToggleMenu, isToggleMenu } = useContext(DataContext);
@@ -52,7 +53,8 @@ const Navbar = () => {
       </section>
       <section className=" relative flex flex-col gap-5 w-full">
         <Socials />
-        <div className="flex flex-col gap-1 mx-[2vw] mt-[5vw] self-end w-32 ">
+        <div className="relative flex w-full justify-between px-[5vw] my-10">
+          <Theme />
           <Clock />
         </div>
       </section>

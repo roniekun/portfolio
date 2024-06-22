@@ -129,8 +129,8 @@ const Home = () => {
     >
       <section
         ref={home}
-        className="flex flex-col relative  text-neutral-300 min-h-[90vh] lg:h-screen
-         z-0  justify-center items-center bg-gradient-to-br from-slate-600 via-slate-800 to-black"
+        className="flex flex-col relative  min-h-[90vh] lg:h-screen
+         z-0  justify-center items-center"
       >
         <div
           ref={hero}
@@ -144,7 +144,7 @@ const Home = () => {
               >
                 <h1
                   ref={(el) => (heroChars.current[idx] = el)}
-                  className="md:text-4xl text-2xl font-black select-none leading-tight tracking-normal font-primary translate-y-[200%] z-10 
+                  className="md:text-4xl text-2xl font-black select-none leading-tight tracking-normal font-secondary translate-y-[200%] z-10 
              uppercase text-center "
                 >
                   {word}
@@ -178,7 +178,7 @@ const Home = () => {
       </section>
 
       <section
-        className="flex justify-center items-center relative bg-black flex-col  text-neutral-300 py-[10vh]"
+        className="flex justify-center items-center relative flex-col  text-neutral-300 py-[10vh]"
         ref={profile}
       >
         <Profile />
@@ -191,7 +191,7 @@ const Home = () => {
       <section
         id="services"
         ref={services}
-        className="flex min-h-[800px] flex-col  bg-zinc-300"
+        className="flex min-h-[800px] flex-col "
       >
         <Services />
       </section>
@@ -213,7 +213,7 @@ const Home = () => {
       </section>
 
       <section
-        className="min-h-[800px] z-10 flex justify-center bg-zinc-900 rounded-b-xl "
+        className="min-h-[800px] z-10 flex justify-center bg-zinc-900 rounded-b-xl relative"
         id="contact"
         ref={contact}
       >
@@ -221,7 +221,7 @@ const Home = () => {
       </section>
 
       {/* footer */}
-      <section ref={footer}>
+      <section ref={footer} className="relative">
         <Footer />
       </section>
     </motion.main>

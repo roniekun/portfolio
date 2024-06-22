@@ -25,9 +25,8 @@ const About = () => {
             stagger: 0.1,
             duration: 0.3,
           });
-          tl.from(wd.current, { opacity: 0, x: -50 })
-          tl.from(ebt.current, { opacity: 0, x: 50 })
- 
+          tl.from(wd.current, { opacity: 0, x: -50 });
+          tl.from(ebt.current, { opacity: 0, x: 50 });
         },
         onLeaveBack: () => {},
         onLeave: () => {},
@@ -42,19 +41,17 @@ const About = () => {
   );
 
   return (
-    <main className=" bg-black">
+    <>
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 overflow-hidden"
+        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 overflow-hidden font-primary"
       >
         <div
           ref={wd}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-2 text-center  items-center justify-center "
+          className="grid grid-cols-2 relative w-full p-[5vw] gap-10 rounded-2xl text-balance"
         >
-          <h1 className="capitalize font-black text-xl font-secondary  text-neutral-400">
-            Web development
-          </h1>
-          <p className="lg:text-2xl text-secondary  text-neutral-300 leading-tight mb-10">
+          <h1 className="capitalize text-2xl relative ">Web development</h1>
+          <p className="lg:text-xl text-secondary  leading-tight">
             Adapting to the ever-evolving world of web development, crafting
             intuitive interfaces and functional websites that engage users and
             convey the essence of a brand or concept.
@@ -63,12 +60,12 @@ const About = () => {
 
         <div
           ref={ebt}
-          className="flex p-[5vw] rounded-2xl flex-col gap-y-2 text-center  items-center justify-center"
+          className="grid grid-cols-2 p-[5vw] rounded-2xl gap-10 text-balance "
         >
-          <h1 className="capitalize font-black text-xl  font-secondary  leading-snug text-neutral-400">
+          <h1 className="capitalize  text-2xl">
             exploring backend Technologies
           </h1>
-          <p className="lg:text-2xl text-neutral-300 leading-tight mb-10">
+          <p className="lg:text-xl leading-tight mb-10">
             My journey extends beyond frontend design; I continually explore and
             master back-end technologies, databases, and server management, to
             create end-to-end solutions that provide seamless functionality and
@@ -76,17 +73,14 @@ const About = () => {
           </p>
         </div>
       </div>
-      <section className="pb-[200px] p-[5vw] gap-y-5 flex flex-col justify-center items-center">
-        <div className="w-full gap-5 flex flex-col">
-          <h1 className="font-secodary text-lime-500 uppercase text-center font-black">
+      <section className=" relative pb-[200px] p-[5vw] gap-y-5 flex flex-col justify-center font-primary items-center">
+        <div className="relative w-full gap-5 flex ">
+          <h1 className="relative font-secodary text-lime-500 uppercase text-balance">
             techstack
           </h1>
-          <Marquee autoFill className="gap-2 text-white">
+          <Marquee autoFill className="relative gap-2 flex">
             {stacks.map((stack, idx) => (
-              <span
-                className="font-secondary md:text-2xl text-lg m-3 "
-                key={idx}
-              >
+              <span className="relative md:text-2xl text-lg mx-3" key={idx}>
                 {stack.name}
               </span>
             ))}
@@ -94,7 +88,7 @@ const About = () => {
         </div>
         <span className="w-full bg-zinc-500 h-1" />
         <div className="w-full grid grid-cols-2">
-          <h1 className="text-white uppercase text-lh font-bold">Software</h1>
+          <h1 className=" uppercase text-lg font-bold">Software</h1>
           <div className="relative text-lime-400 md:text-2xl flex flex-wrap">
             {techs.map((item, idx) => (
               <span className=" mx-3" key={idx}>
@@ -104,7 +98,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 };
 

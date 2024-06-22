@@ -43,7 +43,7 @@ const Services = () => {
   });
 
   return (
-    <main className="relative flex justify-left h-full flex-col my-5">
+    <main className="relative flex justify-left h-full flex-col my-5 font-primary">
       <section className="relative h-screen p-[5vw] flex justify-center items-center">
         <p className="relative flex flex-wrap">
           {scrollAnimText.map((word, idx) => {
@@ -51,7 +51,7 @@ const Services = () => {
               <span
                 // ref={(el) => (scrollAnimRefs.current[idx] = el)}
                 key={idx}
-                className="md:text-3xl text-xl  text-black font-black mx-1 leading-normal h-fit"
+                className="md:text-3xl text-xl  font-black mx-1 leading-normal h-fit"
               >
                 {word}
               </span>
@@ -65,7 +65,7 @@ const Services = () => {
             key={idx}
             className="flex w-fit h-fit mr-2 overflow-hidden md:py-2"
           >
-            <div className="word md:text-2xl text-[6vw] text-neutral-800 font-black  transform translate-y-14">
+            <div className="word md:text-2xl text-[6vw]  font-black  transform translate-y-14">
               {word}
             </div>
           </div>

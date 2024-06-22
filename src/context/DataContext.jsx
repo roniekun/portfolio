@@ -18,6 +18,7 @@ const DataProvider = ({ children }) => {
   const [scrollRef, setScrollRef] = useState();
   const [yProgress, setYProgress] = useState(0);
   const [inView, setInView] = useState(false);
+  const [isDarkTheme, setDarkTheme] = useState(false);
 
   const user = {
     title: "Ronie Benitez",
@@ -26,11 +27,20 @@ const DataProvider = ({ children }) => {
     subject: "New Project",
   };
 
+  //custom themes
+  const textColorPrimary = isDarkTheme
+    ? "text-neutral-200"
+    : "text-neutral-900";
+  const textColorSecondary = isDarkTheme
+    ? "text-neutral-700"
+    : "text-neutral-300";
+  const borderColor = isDarkTheme ? "border-lime-100" : "border-neutral-900";
+  const bg = isDarkTheme ? "bg-neutral-900" : "bg-neutral-100";
+
   //dynamic document title
   useEffect(() => {
     document.title = title;
   }, [title]);
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,6 +83,10 @@ const DataProvider = ({ children }) => {
         defaultBgColor,
         color,
         bgColor,
+        bg,
+        textColorPrimary,
+        textColorSecondary,
+        borderColor,
         setColor,
         setBgColor,
         title,
@@ -92,6 +106,8 @@ const DataProvider = ({ children }) => {
         setYProgress,
         inView,
         setInView,
+        setDarkTheme,
+        isDarkTheme,
       }}
     >
       {children}

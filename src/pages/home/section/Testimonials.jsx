@@ -11,7 +11,7 @@ const Testimonials = () => {
   });
 
   return (
-    <div className="flex lg:flex-row-reverse flex-col gap-10">
+    <div className="flex lg:flex-row-reverse flex-col gap-10 font-primary">
       <div className="flex lg:sticky lg:top-[25vh]  justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
         <span className="relative text-xl leading-tight font-normal text-balance">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias

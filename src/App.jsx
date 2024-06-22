@@ -26,7 +26,7 @@ import {
 import { DataContext } from "./context/DataContext";
 
 function App() {
-  const { setLoading } = useContext(DataContext);
+  const { setLoading, textColorPrimary, bg } = useContext(DataContext);
   const { id } = useParams();
   const { windowWidth } = useWindowSize();
   const location = useLocation();
@@ -65,7 +65,7 @@ function App() {
       <main
         ref={container}
         style={{ width: windowWidth }}
-        className="flex flex-col bg-stone-100 w-screen font-tertiary"
+        className={`flex flex-col w-screen font-tertiary ${textColorPrimary} ${bg}`}
       >
         <Scrollbtn scrollProgress={currentProgress} />
         <Header />
