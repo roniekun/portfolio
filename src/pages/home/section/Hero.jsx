@@ -78,12 +78,6 @@ const Hero = forwardRef((props, ref) => {
   }, []);
 
   const text = splitString(heroTexts);
-      const navigate = useNavigate();
-
-  const handleClick = ()=>{
-    navigate("/contact")
-
-  }
 
   return (
     <section
@@ -118,7 +112,7 @@ const Hero = forwardRef((props, ref) => {
               className="flex md:flex-row flex-col gap-2 relative self-center"
             >
               <span
-                onClick={handleClick}
+                onClick={props.scrollFn}
                 className="relative z-10 cursor-pointer text-xl text-neutral-400 border-neutral-400 my-10 hover:text-lime-500 flex justify-center items-center font font-primary font-bold underline
         tracking-10  rounded-xl w-full h-16 py-5 px-7 transition duration-300 text-center whitespace-nowrap"
               >

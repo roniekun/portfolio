@@ -7,7 +7,7 @@ import useWindowSize from "../../../hooks/useWIndowHooks/useWIndowSize";
 const Logo = () => {
   const navigate = useNavigate();
   const logo = useRef(null);
-  const {windowWidth} = useWindowSize()
+  const { windowWidth } = useWindowSize();
 
   useLayoutEffect(() => {
     setTimeout(() => {
@@ -34,8 +34,13 @@ const Logo = () => {
     }, 1000);
   }, [windowWidth]);
 
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
     <main
+      onClick={handleClick}
       className="tracking-wide title-font font-primary 
      relative select-none cursor-pointer mx-[5vw] lg:mx-[2vw]"
     >
