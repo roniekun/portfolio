@@ -1,15 +1,13 @@
 import React from "react";
 import { useContext } from "react";
-import { DataContext } from "../../../context/DataContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const Theme = () => {
-  const { setDarkTheme, isDarkTheme } = useContext(DataContext);
+  const { toggleThemeFn, isDarkTheme } = useContext(ThemeContext);
 
-  const handleClick = () => {
-    setDarkTheme(!isDarkTheme);
-  };
+
   return (
-    <button className="font-primary " onClick={handleClick}>
+    <button className="font-primary " onClick={toggleThemeFn}>
       Night Mode : {isDarkTheme ? "ON" : "OFF"}
     </button>
   );

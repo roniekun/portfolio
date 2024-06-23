@@ -23,15 +23,22 @@ import {
   AnimatePresence,
   motion,
 } from "framer-motion";
+import { ThemeContext } from "./context/ThemeContext";
 import { DataContext } from "./context/DataContext";
 
 function App() {
-  const { setLoading, textColorPrimary, bg } = useContext(DataContext);
+  const { textColorPrimary, bg } = useContext(ThemeContext);
+  const { setLoading } = useContext(DataContext);
   const { id } = useParams();
   const { windowWidth } = useWindowSize();
   const location = useLocation();
   const lenis = new Lenis();
-  setLoading(false);
+
+  useLayoutEffect(() => {
+     setLoading(false);
+  }, [])
+  
+
 
   gsap.registerPlugin(ScrollTrigger);
   lenis.on("scroll", ScrollTrigger.update);
@@ -53,7 +60,7 @@ function App() {
   const [currentProgress, setCurrentProgress] = useState(0);
 
   useEffect(() => {
-    const unsubscribe = calcProgress.onChange((latest) => {
+    const unsubscribe = calcProgress.on("change", (latest) => {
       setCurrentProgress(Math.round(latest));
     });
 
