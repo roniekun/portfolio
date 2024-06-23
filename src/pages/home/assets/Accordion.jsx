@@ -14,8 +14,8 @@ const Accordion = () => {
   };
 
   return (
-    <main className="h-auto w-full flex flex-col font-primary">
-      <h1 className="mt-5 font-semibold text-sm relative text-neutral-50 self-center my-10">
+    <section className="h-auto w-full flex flex-col font-primary  p-[5vw] lg:p-[10vw]">
+      <h1 className="mt-5 font-semibold text-base relative self-center my-10">
         <span className="text-lime-500">Questions? </span>
         Answer.
       </h1>
@@ -28,7 +28,7 @@ const Accordion = () => {
                 } `}
         >
           <span
-            className={`text-sm border rounded-lg border-gray-600 px-1 mt-1 transform duration-300 md:mx-1 w-fit text-neutral-50 ${
+            className={`text-base border rounded-lg border-gray-600 px-1 mt-1 transform duration-300 md:mx-1 w-fit ${
               isActive[idx] && "text-lime-500 border-lime-500"
             }`}
           >
@@ -41,7 +41,7 @@ const Accordion = () => {
           >
             <h2
               className={`cursor-pointer text-base font-medium text-left leading-relaxed transition duration-300 md:text-lg font-base md:px-1 md:mt-5  ${
-                isActive[idx] ? "text-lime-500" : "text-neutral-100"
+                isActive[idx] && "text-lime-500"
               }`}
             >
               {data.question}
@@ -53,14 +53,14 @@ const Accordion = () => {
             // ref={(el) => (answers.current[idx] = el)}
             className="transition h-0 duration-300 rounded-md  self-end"
           >
-            <li className="text-stone-300 text-sm text-left leading-normal px-2  md:text-base list-none md:mt-5 mt-3 mb-2">
+            <li className="text-base text-left leading-normal px-2  md:text-base list-none md:mt-5 mt-3 mb-2">
               {data.answer}
             </li>
           </motion.div>
           {/* { idx !== questions.length-1 && <span className='h-[1px] w-full bg-neutral-700'/>} */}
         </div>
       ))}
-    </main>
+    </section>
   );
 };
 

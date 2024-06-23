@@ -11,7 +11,7 @@ const Testimonials = () => {
   });
 
   return (
-    <div className="flex lg:flex-row-reverse flex-col gap-10 font-primary">
+    <section className="flex lg:flex-row-reverse flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw]">
       <div className="flex lg:sticky lg:top-[25vh]  justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
         <span className="relative text-xl leading-tight font-normal text-balance">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
@@ -41,8 +41,11 @@ const Testimonials = () => {
                   backgroundColor: item.color,
                   top: `calc(0vh + ${idx * 20}px)`,
                 }}
-                className="bg-opacity-50 relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
+                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
               >
+                <span className="flex bg-opacity-70 justify-center items-center absolute w-[70px] h-[70px] text-2xl top-0 right-0 border rounded-bl-xl bg-neutral-400">
+                  {idx + 1}
+                </span>
                 <div className="self-center w-[150px] aspect-square border rounded-full"></div>
                 <div className="gap-1 flex flex-col self-center items-center">
                   <h2 className="font-normal text-base md:text-lg">
@@ -60,7 +63,7 @@ const Testimonials = () => {
           );
         })}
       </motion.div>
-    </div>
+    </section>
   );
 };
 

@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 import Avatar from "../assets/Avatar";
 import splitString from "../../../assets/anim/SplitStrings";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-const Profile = () => {
+const Profile = forwardRef((props, ref) => {
   const profile = useRef(null);
   const avatarChars = useRef([]);
   const text2 = splitString(
@@ -47,7 +47,8 @@ const Profile = () => {
   }, [avatarChars.current]);
 
   return (
-    <main
+    <section ref={ref} id={props.id}>
+    <div
       ref={profile}
       className="relative w-full overflow-hidden h-auto  flex-col"
     >
@@ -71,8 +72,9 @@ const Profile = () => {
           </h3>
         </div>
       </div>
-    </main>
+    </div>
+    </section>
   );
-};
+});
 
 export default Profile;

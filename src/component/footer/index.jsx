@@ -1,10 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import SendGmail from "../../assets/SendGmail";
 import { useContext } from "react";
 import Socials from "./assets/Socials";
 import { DataContext } from "../../context/DataContext";
 
-const Footer = () => {
+const Footer = forwardRef ((props, ref) => {
   const { user } = useContext(DataContext);
   const date = new Date();
 
@@ -14,6 +14,7 @@ const Footer = () => {
 
   return (
     <main
+    ref={ref}
       className="relative h-screen"
       // style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
@@ -53,6 +54,6 @@ const Footer = () => {
       </div>
     </main>
   );
-};
+});
 
 export default Footer;

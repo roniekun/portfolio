@@ -1,16 +1,16 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Marquee from "react-fast-marquee";
 
-const Contact = () => {
+const Contact = forwardRef((props, ref) => {
   return (
-    <main className="w-full flex justify-center flex-col items-center font-primary">
-      <h1 className="font-semibold font-secondary text-sm capitalize">
-        Contact
-      </h1>
-
-      <div className="md:w-1/2 relative mt-5 w-11/12    mx-[5vw]  ">
+    <section
+      id={props.id}
+      ref={ref}
+      className="overflow-hidden relative w-full flex justify-center flex-col items-center font-primary z-10 bg-neutral-800  p-y[5vw] lg:py-[10vw] rounded-b-lg"
+    >
+      <div className="md:w-1/2 relative mt-5 w-11/12  mx-[5vw]  ">
         <div className="w-full my-5">
-          <h1 className="text-xl text-lime-500">
+          <h1 className="text-xl md:text-2xl text-lime-500">
             Let's collaborate to transform your digital presence and drive
             engagement. Contact me today to start bringing your vision to life!
           </h1>
@@ -53,13 +53,13 @@ const Contact = () => {
           </button>
         </form>
       </div>
-      <Marquee className="my-5 absolute -z-10" autoFill direction="left">
-        <h1 className="text-[10rem] font-medium text-white mx-5">
+      <Marquee className="my-5 absolute-z-20 " autoFill direction="left">
+        <h1 className="text-[10rem] font-medium mx-5">
           Get in touch - Contact
         </h1>
       </Marquee>
-    </main>
+    </section>
   );
-};
+});
 
 export default Contact;

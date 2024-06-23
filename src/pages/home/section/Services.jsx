@@ -1,10 +1,10 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 
-const Services = () => {
+const Services = forwardRef((props, ref) => {
   const scrollAnimRefs = useRef([]);
 
   const text =
@@ -43,8 +43,12 @@ const Services = () => {
   });
 
   return (
-    <main className="relative flex justify-left h-full flex-col my-5 font-primary">
-      <section className="relative h-screen p-[5vw] flex justify-center items-center">
+    <section
+      ref={ref}
+      id={props.id}
+      className="relative flex justify-left h-full flex-col my-5 font-primary  p-[5vw] lg:p-[10vw]"
+    >
+      {/* <section className="relative h-screen flex justify-center items-center">
         <p className="relative flex flex-wrap">
           {scrollAnimText.map((word, idx) => {
             return (
@@ -58,8 +62,8 @@ const Services = () => {
             );
           })}
         </p>
-      </section>
-      <div className="trigger-services flex flex-wrap mt-14 mx-[5vw] justify-left max-w-[70%]">
+      </section> */}
+      <div className="trigger-services flex flex-wrap mt-14  justify-left ">
         {words.map((word, idx) => (
           <div
             key={idx}
@@ -71,9 +75,9 @@ const Services = () => {
           </div>
         ))}
       </div>
-      <div className="relative rounded-2xl border my-5 w-[90%] bg-neutral-100 bg-opacity-25 h-[500px] self-center"></div>
-    </main>
+      <div className="relative rounded-2xl border my-5 w-full bg-neutral-100 bg-opacity-25 h-[500px] self-center"></div>
+    </section>
   );
-};
+});
 
 export default Services;

@@ -7,15 +7,15 @@ const HeroTexts = () => {
   const slider = useRef(null);
   const refsArray = useRef([]);
   const container = useRef(null);
-  const [height, setHeight] = useState([]);
+  const [height, setHeight] = useState(0);
 
   const itemsArray = [
-    { item: "Photographers", height: undefined },
-    { item: "Designers", height: undefined },
-    { item: "Digital Artists", height: undefined },
-    { item: "Freelancers", height: undefined },
-    { item: "Creatives", height: undefined },
-    { item: "Photographers", height: undefined },
+    { item: "Photographers"},
+    { item: "Designers"},
+    { item: "Digital Artists"},
+    { item: "Freelancers"},
+    { item: "Creatives"},
+    { item: "Photographers"},
   ];
 
   useLayoutEffect(() => {
@@ -25,12 +25,14 @@ const HeroTexts = () => {
     const interval = setInterval(() => {
       tl.to(slider.current, {
         y: `-${height * index}`,
+      
         onComplete: () => {
           if (index === itemsArray.length - 1) {
             gsap.set(slider.current, { y: 0 });
             index = 1;
           } else {
             index++;
+         
           }
         },
       });
@@ -41,18 +43,19 @@ const HeroTexts = () => {
 
   useLayoutEffect(() => {
     const refHeight = refsArray.current[0].getBoundingClientRect().height;
-    setHeight(refHeight);
+    setHeight(Math.round(refHeight));
+         console.log(height);
   }, [windowWidth]);
 
   return (
     <div
-      style={{ height: height }}
+      style={{ height: `${height }px`}}
       ref={container}
       className="overflow-hidden relative "
     >
       <div
         className="relative"
-        style={{ height: height * itemsArray }}
+        style={{ height: `${height * itemsArray}px` }}
         ref={slider}
       >
         {itemsArray.map((item, idx) => (

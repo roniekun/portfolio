@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import gsap from "gsap";
 import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
@@ -6,7 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { stacks, techs } from "../utils/stack";
 import Marquee from "react-fast-marquee";
 
-const About = () => {
+const About = forwardRef((props, ref) => {
   const container = useRef(null);
   const wd = useRef(null);
   const ebt = useRef(null);
@@ -41,17 +41,19 @@ const About = () => {
   );
 
   return (
-    <>
+    <section ref={ref} {...props}>
       <div
         ref={container}
-        className="main p-[5vw] flex flex-col min-h-[600px] w-full opacity-0 overflow-hidden font-primary"
+        className="main flex flex-col w-full opacity-0 overflow-hidden font-primary  p-[5vw] lg:p-[10vw]"
       >
         <div
           ref={wd}
-          className="grid grid-cols-2 relative w-full p-[5vw] gap-10 rounded-2xl text-balance"
+          className="grid grid-cols-3 relative w-full p-[5vw] gap-10 rounded-2xl text-balance"
         >
-          <h1 className="capitalize text-2xl relative ">Web development</h1>
-          <p className="lg:text-xl text-secondary  leading-tight">
+          <h1 className="capitalize relative md:text-xl text-base font-medium">
+            Web development
+          </h1>
+          <p className="text-base lg:text-xl text-secondary  leading-tight col-span-2">
             Adapting to the ever-evolving world of web development, crafting
             intuitive interfaces and functional websites that engage users and
             convey the essence of a brand or concept.
@@ -60,12 +62,12 @@ const About = () => {
 
         <div
           ref={ebt}
-          className="grid grid-cols-2 p-[5vw] rounded-2xl gap-10 text-balance "
+          className="grid grid-cols-3 p-[5vw] rounded-2xl gap-10 text-balance "
         >
-          <h1 className="capitalize  text-2xl">
+          <h1 className="capitalize relative md:text-xl text-base font-medium">
             exploring backend Technologies
           </h1>
-          <p className="lg:text-xl leading-tight mb-10">
+          <p className="text-base lg:text-xl leading-tight mb-10  col-span-2">
             My journey extends beyond frontend design; I continually explore and
             master back-end technologies, databases, and server management, to
             create end-to-end solutions that provide seamless functionality and
@@ -98,8 +100,8 @@ const About = () => {
           </div>
         </div>
       </section>
-    </>
+    </section>
   );
-};
+});
 
 export default About;

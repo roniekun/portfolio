@@ -50,16 +50,14 @@ const Header = () => {
         isToggleMenu ? `${bg} bg-opacity-40 backdrop-blur-md` : "bg-transparent"
       }`}
         >
-          <section className="flex flex-col relative">
-            <div
+            <section
               className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0`}
             >
               <div>
                 <Logo />
               </div>
               {isMobile ? <Menu /> : <Nav />}
-            </div>
-          </section>
+            </section>
 
           <motion.section className="relative flex h-0" animate={controls}>
             {isMobile && <Navbar />}

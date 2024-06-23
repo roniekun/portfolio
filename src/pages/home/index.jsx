@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
-import {
-  useState,
-  useRef,
-  useLayoutEffect,
-  useEffect,
-  useContext,
-} from "react";
+import { useRef, useEffect, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-import HeroTexts from "./assets/HeroTexts";
+import Hero from "./section/Hero";
 import Profile from "./section/Profile";
 import About from "./section/About";
 import Works from "./section/Works";
@@ -15,30 +9,22 @@ import Services from "./section/Services";
 import Accordion from "./assets/Accordion";
 import Footer from "../../component/footer";
 import Contact from "./section/Contact";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link, useParams } from "react-router-dom";
-import splitString from "../../assets/anim/SplitStrings";
+import { useParams } from "react-router-dom";
 import Testimonials from "./section/Testimonials";
 
 const Home = () => {
-  const { user, setTitle, setColor, color, isLoading, setLoading } =
-    useContext(DataContext);
+  const { user, setTitle} = useContext(DataContext);
   const profile = useRef(null);
   const services = useRef(null);
   const about = useRef(null);
   const works = useRef(null);
   const contact = useRef(null);
   const footer = useRef(null);
-  const home = useRef(null);
   const hero = useRef(null);
   const container = useRef(null);
   const refsArray = [about, services, works, contact];
   let { id } = useParams();
-  const heroTexts = ["webstie", "undre", "construciton"];
-  const heroChars = useRef([]);
-  const heroBtnRef = useRef();
+
   //setting meta tags
   useEffect(() => {
     location.title = "Freelance";
@@ -48,182 +34,26 @@ const Home = () => {
   useEffect(() => {
     refsArray.forEach((ref) => {
       if (ref.current.id === id) {
-        setTimeout(() => {
-          ref.current.scrollIntoView({ behavior: "smooth" });
-          setTitle(
-            `${id.charAt(0).toUpperCase() + id.slice(1)} - ${user.title}`
-          );
-        }, 100);
+        ref.current.scrollIntoView({ behavior: "smooth" });
+        setTitle(`${id.charAt(0).toUpperCase() + id.slice(1)} - ${user.title}`);
       }
     });
   }, [id]);
-
-  // hero animation
-  useGSAP(
-    () => {
-      const tl = gsap.timeline();
-      setTimeout(() => {
-        heroChars.current.forEach((el, idx) => {
-          if (!isLoading) {
-            gsap.fromTo(
-              el,
-              {
-                y: "110%",
-                ease: "power4.out",
-              },
-              { y: 0, delay: idx * 0.1, duration: idx === 0 ? 0.2 : idx * 0.3 }
-            );
-          }
-        });
-      }, 500);
-
-      tl.fromTo(
-        heroBtnRef.current,
-        {
-          opacity: 0,
-        },
-        { opacity: 1, delay: 1.5, duration: 0.3 }
-      );
-    },
-
-    { dependencies: [isLoading] }
-  );
-  //on-scroll hero animation
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap.timeline();
-    tl.to(hero.current, {
-      // y: "50%",
-      ease: [0.76, 0, 0.24, 1],
-      opacity: 0.5,
-      scrollTrigger: {
-        trigger: home.current,
-        start: "top+=20% top",
-        end: "bottom-=20% top+=10%",
-        scrub: true,
-      },
-    });
-    tl.fromTo(
-      home.current,
-      {
-        filter: "brightness(100%)",
-      },
-      {
-        filter: "brightness(0%)",
-        scrollTrigger: {
-          trigger: hero.current,
-          start: "center top",
-          end: "bottom+=600px top",
-          scrub: true,
-        },
-      }
-    );
-  }, []);
-
-  const text = splitString(heroTexts);
 
   return (
     <motion.main
       ref={container}
       className="relative flex flex-col h-auto w-full"
     >
-      <section
-        ref={home}
-        className="flex flex-col relative  min-h-[90vh] lg:h-screen
-         z-0  justify-center items-center"
-      >
-        <div
-          ref={hero}
-          className="w-full flex flex-col justify-end items-end gap-5 overflow-hidden"
-        >
-          <div className="justify-center w-full flex items-center flex-col overflow-hidden ">
-            {heroTexts.map((word, idx) => (
-              <div
-                className="overflow-hidden justify-center flex items-center  h-fit"
-                key={idx}
-              >
-                <h1
-                  ref={(el) => (heroChars.current[idx] = el)}
-                  className="md:text-4xl text-2xl font-black select-none leading-tight tracking-normal font-secondary translate-y-[200%] z-10 
-             uppercase text-center "
-                >
-                  {word}
-                </h1>
-                <> {idx < heroTexts.length - 1 && <br />}</>
-              </div>
-            ))}
-
-            {!isLoading && (
-              <div
-                ref={heroBtnRef}
-                className="flex md:flex-row flex-col gap-2 relative self-center"
-              >
-                <span
-                  onClick={() =>
-                    contact.current.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="relative z-10 cursor-pointer text-xl text-neutral-400 border-neutral-400 my-10 hover:text-lime-500 flex justify-center items-center font font-primary font-bold underline
-        tracking-10  rounded-xl w-full h-16 py-5 px-7 transition duration-300 text-center whitespace-nowrap"
-                >
-                  Start a project
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="flex absolute top-[85%] left-0 w-full transition px-[5vw] h-auto duration-300 leading-tight  justify-start items-start  text-[1rem] whitespace-nowrap">
-          <h1>Custom Web Solutions for</h1>
-          <HeroTexts />
-        </div>
-      </section>
-
-      <section
-        className="flex justify-center items-center relative flex-col  text-neutral-300 py-[10vh]"
-        ref={profile}
-      >
-        <Profile />
-      </section>
-
-      <section className="min-h-[800px]" id="about" ref={about}>
-        <About />
-      </section>
-
-      <section
-        id="services"
-        ref={services}
-        className="flex min-h-[800px] flex-col "
-      >
-        <Services />
-      </section>
-
-      <section
-        ref={works}
-        id="works"
-        className="flex flex-col lg:gap-10 gap-5 z-10 rounded-t-3xl w-full lg:px-[20vw]  px-[5vw] relative box-border min-h-[800px]"
-      >
-        <Works />
-      </section>
-
-      <section className="flex justify-center items-center lg:p-[10vw] p-[5vw] h-auto] lg:my-[10vh] lg:mb-[50vh] ">
-        <Testimonials />
-      </section>
-
-      <section className="md:px-[20vw] px-[5vw] gap-5 flex flex-col justify-center items-center relative  bg-zinc-950 py-[5vw] z-10">
-        <Accordion />
-      </section>
-
-      <section
-        className="min-h-[800px] z-10 flex justify-center bg-zinc-900 rounded-b-xl relative"
-        id="contact"
-        ref={contact}
-      >
-        <Contact />
-      </section>
-
-      {/* footer */}
-      <section ref={footer} className="relative">
-        <Footer />
-      </section>
+      <Hero ref={hero} />
+      <Profile ref={profile} id={"profile"} />
+      <About ref={about} id={"about"} />
+      <Services ref={services} id={"services"} />
+      <Works ref={works} id={"works"} />
+      <Testimonials />
+      <Accordion />
+      <Contact ref={contact} id={"contact"} />
+      <Footer ref={footer} />
     </motion.main>
   );
 };
