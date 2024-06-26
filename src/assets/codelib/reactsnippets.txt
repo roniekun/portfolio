@@ -28,3 +28,14 @@
   // }, [window.scrollY]);
 
   // responsive screen size     
+
+  //timer
+
+
+    let timer = 0;
+    setInterval(() => {
+      if (timer <= 100) {
+        setProgress(timer++);
+      }
+      timer += 3;
+    }, 60);

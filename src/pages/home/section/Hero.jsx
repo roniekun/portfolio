@@ -82,7 +82,7 @@ const Hero = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="flex flex-col relative  min-h-[90vh] lg:h-screen
+      className="flex flex-col relative  h-[90vh] lg:h-screen
          z-0  justify-center items-center  p-[5vw] lg:p-[10vw]"
     >
       <div

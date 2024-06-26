@@ -34,11 +34,9 @@ function App() {
   const location = useLocation();
   const lenis = new Lenis();
 
-  useLayoutEffect(() => {
-     setLoading(false);
-  }, [])
-  
-
+  // useLayoutEffect(() => {
+  //    setLoading(false);
+  // }, [])
 
   gsap.registerPlugin(ScrollTrigger);
   lenis.on("scroll", ScrollTrigger.update);
@@ -68,7 +66,7 @@ function App() {
   }, [calcProgress]);
 
   return (
-    <>
+    <LoadingTransition>
       <main
         ref={container}
         style={{ width: windowWidth }}
@@ -88,7 +86,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </main>
-    </>
+    </LoadingTransition>
   );
 }
 
