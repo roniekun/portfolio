@@ -26,6 +26,8 @@ export default function LoadingTransition({ children }) {
   const percentRef = useRef(null);
   const [loadingHeight, setLoadingHeight] = useState();
 
+  const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
   useLayoutEffect(() => {
     setIsDarkTheme(false);
     const tCWidth = titleContainer.current.offsetWidth;
@@ -52,17 +54,17 @@ export default function LoadingTransition({ children }) {
     if (isLoading) {
       tl.add(
         gsap.to(onesRef.current, {
-          y: `-${onesHeight - percentHeight}%`,
+          y: `-${onesHeight - percentHeight}px`,
           ease: "power2.in",
           duration: 2,
         }),
         gsap.to(tenthsRef.current, {
-          y: `-${tenthsHeight - percentHeight}%`,
+          y: `-${tenthsHeight - percentHeight}px`,
           duration: 3,
           ease: "power2.in",
         }),
         gsap.to(hundredthsRef.current, {
-          y: `${hundredthsHeight - percentHeight}%`,
+          y: `-${hundredthsHeight - percentHeight}px`,
           delay: 2.5,
           duration: 0.5,
           ease: "power2.in",
@@ -132,33 +134,25 @@ export default function LoadingTransition({ children }) {
 
             <div
               style={{ height: `${loadingHeight}px` }}
-              className="text-4xl absolute top-[10vh]  left-[10vw] m-2 flex font-primary"
+              className="text-4xl absolute top-[10vh]  left-[10vw] m-2 flex font-primary overflow-hidden"
             >
-              <div ref={hundredthsRef} className="flex flex-col w-fit">
+              <div ref={hundredthsRef} className="flex flex-col w-fit h-fit">
                 <span className="opacity-0">0</span>
-                <span>1</span>
+                <span className="bg-transparent">1</span>
               </div>
-              <div ref={tenthsRef} className="relative flex flex-col h-fit w-fit">
-                <span>0</span>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>4</span>
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
-                <span>0</span>
+              <div
+                ref={tenthsRef}
+                className="relative flex flex-col h-fit w-fit"
+              >
+                {numsArray.map((i, idx) => (
+                  <div key={idx}>{i}</div>
+                ))}
               </div>
 
               <div ref={onesRef} className="relative flex flex-col h-fit w-fit">
-                <span>5</span>
-                <span>6</span>
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
-                <span>0</span>
+                {numsArray.map((i, idx) => (
+                  <div key={idx}>{i}</div>
+                ))}
               </div>
               <div ref={percentRef} className="h-fit">
                 %
