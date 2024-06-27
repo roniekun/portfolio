@@ -26,14 +26,16 @@ export default function LoadingTransition({ children }) {
   const percentRef = useRef(null);
   const [loadingHeight, setLoadingHeight] = useState();
 
-  const numsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const numsArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
   useLayoutEffect(() => {
     setIsDarkTheme(false);
     const tCWidth = titleContainer.current.offsetWidth;
     setWidth(Math.round(tCWidth));
     const setLoadingState = () => {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
     };
 
     const percentHeight = Math.round(
@@ -103,7 +105,7 @@ export default function LoadingTransition({ children }) {
             exit={{
               opacity: 0,
               transition: {
-                duration: 0.3,
+                duration: 1,
                 ease: [0.76, 0, 0.24, 1],
               },
             }}
