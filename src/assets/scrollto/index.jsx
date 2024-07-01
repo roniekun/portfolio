@@ -55,7 +55,7 @@ const Scrollbtn = ({ scrollProgress }) => {
         ref={button}
         id="btn"
         onClick={handleClick}
-        className="cursor-pointer scale-0 bg-white fixed z-40 bottom-10 rounded-full flex text-neutral-900 justify-center md:h-14 md:w-14 h-12 w-12 items-center shadow-2xl right-[5vw] shadow-glow hover:shadow-glow-hover transition duration-300  flex-col m-5"
+        className="cursor-pointer scale-0 bg-white fixed z-20 bottom-10 rounded-full flex text-neutral-900 justify-center md:h-14 md:w-14 h-12 w-12 items-center shadow-2xl right-[5vw] shadow-glow hover:shadow-glow-hover transition duration-300  flex-col m-5"
       >
         <LuArrowUpToLine className="w-7 h-7 brightness-200" />
         {/* <span className="text-xs">{scrollProgress}%</span> */}
