@@ -7,22 +7,40 @@ import Logo from "./assets/Logo";
 import { motion, useAnimation } from "framer-motion";
 import Navbar from "../navbar";
 import Nav from "./assets/Nav";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Header = () => {
-  const {
-    isMobile,
-    isScrolled,
-    isToggleMenu,
-    isLoading,
-    textColorPrimary,
-    bg,
-  } = useContext(DataContext);
+  const { isMobile, setToggleMenu, isToggleMenu, isLoading } =
+    useContext(DataContext);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  const { textColorPrimary, bg } = useContext(ThemeContext);
   // refs
   const header = useRef(null);
   const nav = useRef(null);
 
   const controls = useAnimation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(isScrolled);
+  }, [isScrolled]);
 
   useEffect(() => {
     if (isToggleMenu) {
@@ -45,23 +63,21 @@ const Header = () => {
       {!isLoading && (
         <motion.header
           ref={header}
-          className={`${textColorPrimary} md:mt-5 mt-3 fixed shadow-inner  z-20 overflow-hidden transtion duration-700 transition-all  bg-blend-difference  transform rounded-xl left-1/2  -translate-x-1/2 lg:w-4/5 w-11/12
-      ${
-        isToggleMenu ? `${bg} bg-opacity-40 backdrop-blur-md` : "bg-transparent"
-      }`}
+          className={` ${
+            isScrolled ? bg : "bg-transparent"
+          } fixed z-30 overflow-hidden transtion  w-full duration-700 transition-all `}
         >
-            <section
-              className={`flex relative  justify-between  items-center  md:h-12 h-[12vw]  z-0`}
-            >
-              <div>
-                <Logo />
-              </div>
-              {isMobile ? <Menu /> : <Nav />}
-            </section>
+          <section
+            className={`flex relative  justify-between px-[5vw] py-3  items-center  z-0 w-full text-xl font-secondary font-semibold`}
+          >
+            <h1 className="uppercase">Roniecode</h1>
+            {isMobile && <Menu />}
+          </section>
 
-          <motion.section className="relative flex h-0" animate={controls}>
-            {isMobile && <Navbar />}
-          </motion.section>
+          <motion.section
+            className="relative flex h-0"
+            animate={controls}
+          ></motion.section>
         </motion.header>
       )}
     </main>

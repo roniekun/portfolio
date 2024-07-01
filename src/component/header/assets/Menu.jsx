@@ -75,7 +75,7 @@ const Menu = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`${borderColor}  group transition flex items-center  justify-center border-2 uppercase font-primary relative  px-8 w-14
+        className={`${borderColor}  group transition flex items-center  justify-center uppercase  relative  px-8 w-14
                 mx-[5vw] -z-10 rounded-lg ${
                   isToggleMenu && `${textColorPrimary}  bg-opacity-20`
                 }`}

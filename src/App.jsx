@@ -1,6 +1,8 @@
 import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import LoadingTransition from "./assets/anim/LoadingTransition";
 import Header from "./component/header";
+import Navbar from "./component/navbar";
+import Nav from "./component/header/assets/Nav";
 import Home from "./pages/home";
 import AboutUser from "./pages/about";
 import Gallery from "./pages/gallery";
@@ -28,15 +30,15 @@ import { DataContext } from "./context/DataContext";
 
 function App() {
   const { textColorPrimary, bg } = useContext(ThemeContext);
-  const { setLoading } = useContext(DataContext);
+  const { isDesktop, isMobile, isToggleMenu } = useContext(DataContext);
   const { id } = useParams();
   const { windowWidth } = useWindowSize();
   const location = useLocation();
   const lenis = new Lenis();
 
   // useLayoutEffect(() => {
-  //    setLoading(false);
-  // }, [])
+  //   setLoading(false);
+  // }, []);
 
   gsap.registerPlugin(ScrollTrigger);
   lenis.on("scroll", ScrollTrigger.update);
@@ -74,7 +76,8 @@ function App() {
       >
         <Scrollbtn scrollProgress={currentProgress} />
         <Header />
-
+        {isDesktop && <Nav />}
+        {isMobile && <Navbar />}
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
             <Route exact path="/" element={<Home />} />

@@ -73,7 +73,7 @@ const Nav = () => {
   };
 
   return (
-    <main className="gap-x-5 uppercase flex items-center  relative  justify-center m-5 h-full">
+    <main className=" uppercase flex items-center  fixed bottom-[5vh] backdrop-blur-lg  z-30  rounded-md -translate-x-1/2 left-1/2 justify-center m-5">
       {links.map((link, idx) => (
         <div key={idx} className="flex flex-col">
           <a

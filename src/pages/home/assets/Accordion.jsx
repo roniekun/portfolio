@@ -14,7 +14,7 @@ const Accordion = () => {
   };
 
   return (
-    <section className="h-auto w-full flex flex-col font-primary  p-[5vw] lg:p-[10vw]">
+    <section className="h-auto w-full flex flex-col font-primary  p-[5vw] lg:p-[20vw]">
       <h1 className="mt-5 font-semibold text-base relative self-center my-10">
         <span className="text-lime-500">Questions? </span>
         Answer.
@@ -40,7 +40,7 @@ const Accordion = () => {
             className="group flex justify-start items-center cursor-pointer mb-2"
           >
             <h2
-              className={`cursor-pointer text-base font-medium text-left leading-relaxed transition duration-300 md:text-lg font-base md:px-1 md:mt-5  ${
+              className={`cursor-pointer text-base font-medium text-left leading-relaxed transition duration-300 md:text-xl font-base md:px-1 md:mt-5  ${
                 isActive[idx] && "text-lime-500"
               }`}
             >
@@ -53,7 +53,7 @@ const Accordion = () => {
             // ref={(el) => (answers.current[idx] = el)}
             className="transition h-0 duration-300 rounded-md  self-end"
           >
-            <li className="text-base text-left leading-normal px-2  md:text-base list-none md:mt-5 mt-3 mb-2">
+            <li className="text-base text-left leading-normal px-2  md:text-lg list-none md:mt-5 mt-3 mb-2">
               {data.answer}
             </li>
           </motion.div>
