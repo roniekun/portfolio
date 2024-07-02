@@ -9,6 +9,7 @@ const Menu = () => {
   const { setToggleMenu, isToggleMenu, textColorPrimary, borderColor } =
     useContext(DataContext);
   const btn = useRef(null);
+  const [isDisabled, setDisabled] = useState();
 
   useEffect(() => {
     let interval = null;
@@ -42,11 +43,12 @@ const Menu = () => {
   }, [isToggleMenu]);
 
   const handleClick = () => {
+    setDisabled(true);
+    setToggleMenu(!isToggleMenu);
     setTimeout(() => {
-      setToggleMenu(!isToggleMenu);
-    }, 100);
+      setDisabled(false);
+    }, 1000);
   };
-
   const handleMouseEvent = (event) => {
     let interval = null;
     let iteration = 0;
@@ -84,6 +86,7 @@ const Menu = () => {
           <button
             className="bg-blend-difference"
             ref={btn}
+            disabled={isDisabled}
             onMouseEnter={handleMouseEvent}
             onMouseLeave={handleMouseEvent}
             onClick={handleClick}

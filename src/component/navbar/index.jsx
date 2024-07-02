@@ -32,7 +32,7 @@ const Navbar = () => {
         width: "100vw",
         ease: "power2.inOut",
         duration: 1,
-        left: 0,
+        delay: 0.3,
       });
     } else {
       tl.to(".nav", {
@@ -41,8 +41,10 @@ const Navbar = () => {
         left: "100%",
         width: 0,
         alignItems: "end",
+        onComplete: () => {
+          gsap.set(".nav", { left: 0, alignItems: "start" });
+        },
       });
-      tl.set(".nav", { left: 0, width: 0, alignItems: "start" });
     }
   }, [isToggleMenu]);
 
