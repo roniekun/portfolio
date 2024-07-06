@@ -73,9 +73,9 @@ const Nav = () => {
   };
 
   return (
-    <main className=" uppercase flex items-center  fixed bottom-[5vh] backdrop-blur-lg  z-30  rounded-md -translate-x-1/2 left-1/2 justify-center m-5">
+    <main className=" uppercase flex items-center  fixed bottom-[5vh] backdrop-blur-lg  z-30  rounded-md -translate-x-1/2 left-1/2 justify-center m-5 gap-5">
       {links.map((link, idx) => (
-        <div key={idx} className="flex flex-col">
+        <div key={idx} className="flex">
           <a
             onMouseEnter={(e) => handleMouseEvent(idx, e)}
             onMouseLeave={(e) => handleMouseEvent(idx, e)}
@@ -83,8 +83,7 @@ const Nav = () => {
             data-value={link.name}
             onClick={() => handleClick(link.to)}
             key={link.name}
-            className={`group w-24 font-primary cursor-pointer   rounded-xl relative flex py-2
-                 flex-col group justify-center  hover:text-lime-500
+            className={`group w-24 font-primary cursor-pointer   rounded-xl relative flex py-2 font-medium text-base flex-col group justify-center  hover:text-lime-500
                 items-center`}
           >
             {link.name}

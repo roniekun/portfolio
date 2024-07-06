@@ -32,7 +32,9 @@ const Navbar = () => {
         width: "100vw",
         ease: "power2.inOut",
         duration: 1,
-        delay: 0.3,
+        onComplete: () => {
+          gsap.set(".nav", { alignItems: "end" });
+        },
       });
     } else {
       tl.to(".nav", {
@@ -40,7 +42,6 @@ const Navbar = () => {
         ease: "power2.inOut",
         left: "100%",
         width: 0,
-        alignItems: "end",
         onComplete: () => {
           gsap.set(".nav", { left: 0, alignItems: "start" });
         },

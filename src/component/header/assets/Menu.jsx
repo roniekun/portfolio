@@ -9,7 +9,8 @@ const Menu = () => {
   const { setToggleMenu, isToggleMenu, textColorPrimary, borderColor } =
     useContext(DataContext);
   const btn = useRef(null);
-  const [isDisabled, setDisabled] = useState();
+  const [isDisabled, setDisabled] = useState(false);
+  const timerRef = useRef(null);
 
   useEffect(() => {
     let interval = null;
@@ -42,13 +43,6 @@ const Menu = () => {
     }
   }, [isToggleMenu]);
 
-  const handleClick = () => {
-    setDisabled(true);
-    setToggleMenu(!isToggleMenu);
-    setTimeout(() => {
-      setDisabled(false);
-    }, 1000);
-  };
   const handleMouseEvent = (event) => {
     let interval = null;
     let iteration = 0;
@@ -71,6 +65,21 @@ const Menu = () => {
       iteration += 1 / 3;
     }, 30);
   };
+
+  const handleClick = () => {
+    setDisabled((prevState) => !prevState);
+    setToggleMenu((prevState) => !prevState);
+    timerRef.current = setTimeout(() => {
+      setDisabled((prevState) => !prevState);
+    }, 1500);
+  };
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <AnimatePresence>

@@ -8,6 +8,7 @@ import { motion, useAnimation } from "framer-motion";
 import Navbar from "../navbar";
 import Nav from "./assets/Nav";
 import { ThemeContext } from "../../context/ThemeContext";
+import gsap from "gsap";
 
 const Header = () => {
   const { isMobile, setToggleMenu, isToggleMenu, isLoading } =
@@ -24,11 +25,11 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setIsScrolled(true);
-      } else {
+      setIsScrolled(window.scrollY > 500);
+      return () => {
         setIsScrolled(false);
-      }
+        console.log(isScrolled);
+      };
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -37,10 +38,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    console.log(isScrolled);
-  }, [isScrolled]);
 
   useEffect(() => {
     if (isToggleMenu) {
@@ -65,10 +62,10 @@ const Header = () => {
           ref={header}
           className={` ${
             isScrolled ? bg : "bg-transparent"
-          } fixed z-30 overflow-hidden transtion  w-full duration-700 transition-all `}
+          }  z-30 overflow-hidden transtion  w-full duration-700 transition top-0 fixed`}
         >
           <section
-            className={`flex relative  justify-between px-[5vw] py-3  items-center  z-0 w-full text-xl font-secondary font-semibold`}
+            className={`flex relative  justify-between md:justify-center px-[5vw] py-3  items-center  z-0 w-full text-xl font-secondary font-semibold`}
           >
             <h1 className="uppercase">Roniecode</h1>
             {isMobile && <Menu />}

@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 import Testimonials from "./section/Testimonials";
 
 const Home = () => {
-  const { user, setTitle } = useContext(DataContext);
+  const { user, setTitle, isMobile } = useContext(DataContext);
   const profile = useRef(null);
   const services = useRef(null);
   const about = useRef(null);
@@ -27,7 +27,7 @@ const Home = () => {
 
   useEffect(() => {
     if (location.pathname === "/") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, []);
 
@@ -40,7 +40,12 @@ const Home = () => {
   useEffect(() => {
     refsArray.forEach((ref) => {
       if (ref.current.id === id) {
-        ref.current.scrollIntoView({ behavior: "smooth" });
+        setTimeout(
+          () => {
+            ref.current.scrollIntoView({ behavior: "smooth" });
+          },
+          isMobile ? 1000 : 0
+        );
         setTitle(`${id.charAt(0).toUpperCase() + id.slice(1)} - ${user.title}`);
       }
     });
