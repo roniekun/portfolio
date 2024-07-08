@@ -40,12 +40,9 @@ const Home = () => {
   useEffect(() => {
     refsArray.forEach((ref) => {
       if (ref.current.id === id) {
-        setTimeout(
-          () => {
-            ref.current.scrollIntoView({ behavior: "smooth" });
-          },
-          isMobile ? 1000 : 0
-        );
+        setTimeout(() => {
+          ref.current.scrollIntoView({ behavior: "smooth" });
+        }, 0);
         setTitle(`${id.charAt(0).toUpperCase() + id.slice(1)} - ${user.title}`);
       }
     });

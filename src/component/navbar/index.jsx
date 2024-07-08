@@ -1,4 +1,4 @@
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useLayoutEffect, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
 import Socials from "./assets/Socials";
@@ -11,6 +11,7 @@ const Navbar = () => {
   const { bg, textColorPrimary } = useContext(ThemeContext);
   const { setToggleMenu, isToggleMenu } = useContext(DataContext);
   const location = useLocation();
+  const navigate = useNavigate();
   const menu = useRef(null);
   const linkItems = useRef(null);
 
@@ -21,8 +22,11 @@ const Navbar = () => {
     { name: "contact", to: "/contact" },
   ];
 
-  const handleClick = () => {
+  const handleClick = (link) => {
     setToggleMenu(!isToggleMenu);
+    setTimeout(() => {
+      navigate(link.to);
+    }, 1000);
   };
 
   useLayoutEffect(() => {
@@ -63,9 +67,8 @@ const Navbar = () => {
             key={idx}
             className="flex w-fit justify-start relative items-start group "
           >
-            <Link
-              to={link.to}
-              onClick={handleClick}
+            <a
+              onClick={() => handleClick(link)}
               className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-semibold uppercase flex text-balance h-[4vh] w-fit select-none ${
                 link.to === location.pathname && "text-lime-400"
               } `}
@@ -73,7 +76,7 @@ const Navbar = () => {
               {link.name}
               {/* <span className={`absolute -bottom-1 h-[3px] w-full  
                                     ${link.to===location.pathname ? 'bg-orange-500' : 'bg-gray-100'} rounded-lg scale-x-0 origin-right transition-transform duration-300 ease-out group-hover:scale-x-100 group-hover:origin-left`}></span> */}
-            </Link>
+            </a>
           </div>
         ))}
       </section>

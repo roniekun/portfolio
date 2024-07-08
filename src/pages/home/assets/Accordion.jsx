@@ -27,8 +27,8 @@ const Accordion = () => {
         <div
           key={idx}
           className={`flex flex-col gap-1  mt-2 overflow-hidden  justify-center 
-                lg:px-5 md:py-1 bg-opacity-15 border-gray-500 border-b ${
-                  idx === 0 && "border-t pt-2"
+                lg:px-5 md:py-1 bg-opacity-15 border-gray-500 border-t ${
+                  idx === 0 && "pt-2"
                 } `}
         >
           <span

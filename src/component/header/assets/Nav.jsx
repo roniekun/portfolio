@@ -1,10 +1,13 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const Nav = () => {
   const button = useRef(null);
   const [height, setHeight] = useState();
   const linkArray = useRef([]);
+  const onMouseLeaveRef = useRef();
+  const onMouseEnterRef = useRef();
   const location = useLocation();
 
   const links = [
@@ -20,23 +23,80 @@ const Nav = () => {
   };
 
   const handleMouseEnter = (idx) => {
-    linkArray.current[idx].textContent = links[idx].name;
-  };
-  const handleMouseLeave = (idx) => {
-    linkArray.current[idx].textContent = links[idx].icon;
+    if (links[idx] && linkArray.current[idx]) {
+      let text = links[idx].name;
+      let firstChar = text.charAt(0);
+      let charactersArray = text.slice(1).split("");
+      linkArray.current[idx].textContent = firstChar; // Start with the first character
+
+      const typeWriterEffect = (i) => {
+        if (i < charactersArray.length) {
+          linkArray.current[idx].textContent += charactersArray[i];
+          onMouseEnterRef.current = setTimeout(
+            () => typeWriterEffect(i + 1),
+            30
+          ); // Adjust the interval as needed
+        }
+      };
+
+      typeWriterEffect(0);
+    } else {
+      console.error("Invalid index or element not found");
+    }
   };
 
+  const handleMouseLeave = (idx) => {
+    if (linkArray.current[idx]) {
+      let text = links[idx].name;
+      let firstChar = text.charAt(0);
+      let remainingText = text.slice(1);
+
+      const reverseTypeWriterEffect = (i) => {
+        if (i >= 0) {
+          linkArray.current[idx].textContent =
+            firstChar + remainingText.substring(0, i);
+          onMouseLeaveRef.current = setTimeout(
+            () => reverseTypeWriterEffect(i - 1),
+            30
+          ); // Adjust the interval as needed
+        }
+      };
+
+      reverseTypeWriterEffect(remainingText.length - 1);
+    } else {
+      console.error("Invalid index or element not found");
+    }
+  };
+  //   useEffect(() => {
+  //     return () => {
+  //       if (onMouseEnterRef ) {
+  //         clearTimeout(onMouseEnterRef);
+  //       }
+  //     };
+  //   }, [onMouseEnterRef]);
+
+  // useEffect(() => {
+  //   return () => {
+  //     if (onMouseLeaveRef) {
+  //       clearTimeout(onMouseLeaveRef)
+  //     }
+  //   };
+  // }, [onMouseLeaveRef]);
+
   return (
-    <main className="capitalize flex flex-col items-center  fixed right-[5vw] backdrop-blur-lg  bottom-1/2 translate-y-1/2 z-30  rounded-md - justify-center gap-5">
+    <main className="capitalize flex flex-col items-center  fixed right-[5vw]  w-24  bottom-1/2 translate-y-1/2 z-30  rounded-md - justify-center gap-5">
       {links.map((link, idx) => (
-        <div key={idx} className="flex">
+        <div
+          key={idx}
+          className="flex min-w-14 h-14 justify-center items-center rounded-full bg-neutral-100 bg-opacity-20"
+        >
           <a
             onMouseEnter={() => handleMouseEnter(idx)}
             onMouseLeave={() => handleMouseLeave(idx)}
             ref={(el) => (linkArray.current[idx] = el)}
             onClick={() => handleClick(link.to)}
             key={link.name}
-            className={`group w-24 font-primary cursor-pointer  transition duration-300  rounded-xl relative flex py-2 font-medium text-lg flex-col group justify-center  hover:text-lime-500
+            className={`group px-2 font-primary cursor-pointer  transition duration-300  rounded-xl relative flex py-2 font-medium text-lg flex-col group justify-center  hover:text-lime-500
                 items-center`}
           >
             {link.icon}
