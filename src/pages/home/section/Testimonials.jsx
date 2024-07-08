@@ -1,8 +1,10 @@
-import React, { useRef, useLayoutEffect, useState } from "react";
+import React, { useRef, useLayoutEffect, useState, useContext } from "react";
 import { testimonials } from "../utils/testimonials";
 import { useTransform, useScroll, motion } from "framer-motion";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const Testimonials = () => {
+  const { bg, textColorPrimary } = useContext(ThemeContext);
   const sliderContainerRef = useRef(null);
   const refsArray = useRef([]);
   const { scrollYProgress } = useScroll({
@@ -11,7 +13,9 @@ const Testimonials = () => {
   });
 
   return (
-    <section className="flex lg:flex-row-reverse flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw]">
+    <section
+      className={`${textColorPrimary} ${bg} relative flex lg:flex-row-reverse flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw]`}
+    >
       <div className="flex lg:sticky lg:top-[25vh]  justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
         <span className="relative text-xl leading-tight font-normal text-balance">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias

@@ -1,10 +1,12 @@
-import React, { useRef, useEffect, forwardRef } from "react";
+import React, { useRef, useEffect, forwardRef, useContext } from "react";
 import Avatar from "../assets/Avatar";
 import splitString from "../../../assets/anim/SplitStrings";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const Profile = forwardRef((props, ref) => {
+  const { bg, textColorPrimary } = useContext(ThemeContext);
   const profile = useRef(null);
   const avatarChars = useRef([]);
   const text2 = splitString(
@@ -35,10 +37,8 @@ const Profile = forwardRef((props, ref) => {
           });
         });
       },
-      onLeave: () => {
-      },
-      onEnterBack: () => {
-      },
+      onLeave: () => {},
+      onEnterBack: () => {},
     });
 
     return () => {
@@ -48,31 +48,31 @@ const Profile = forwardRef((props, ref) => {
 
   return (
     <section ref={ref} id={props.id}>
-    <div
-      ref={profile}
-      className="relative w-full overflow-hidden h-auto  flex-col"
-    >
-      <div className="relative flex flex-col  h-[500px] justify-end items-center">
-        <Avatar />
+      <div
+        ref={profile}
+        className={`${textColorPrimary} ${bg} relative w-full overflow-hidden h-auto  flex-col`}
+      >
+        <div className="relative flex flex-col  h-[500px] justify-end items-center">
+          <Avatar />
 
-        <div className="trigger-profile flex relative items-center w-fit px-[5vw] my-10  lg:w-[50%]">
-          <h3 className="md:text-2xl text-xl leading-8    relative font-medium mx-2  text-center w-full  font-primary">
-            {text2.map((char, idx) => (
-              <span
-                className={`opacity-0 relative ${
-                  idx > text2.length - 21 && "text-lime-400"
-                }`}
-                key={idx}
-                ref={(el) => (avatarChars.current[idx] = el)}
-              >
-                {char}
-                {idx === text2.length - 21 && <br />}
-              </span>
-            ))}
-          </h3>
+          <div className="trigger-profile flex relative items-center w-fit px-[5vw] my-10  lg:w-[50%]">
+            <h3 className="md:text-2xl text-xl leading-8    relative font-medium mx-2  text-center w-full  font-primary">
+              {text2.map((char, idx) => (
+                <span
+                  className={`opacity-0 relative ${
+                    idx > text2.length - 21 && "text-lime-400"
+                  }`}
+                  key={idx}
+                  ref={(el) => (avatarChars.current[idx] = el)}
+                >
+                  {char}
+                  {idx === text2.length - 21 && <br />}
+                </span>
+              ))}
+            </h3>
+          </div>
         </div>
       </div>
-    </div>
     </section>
   );
 });

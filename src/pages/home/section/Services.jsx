@@ -1,11 +1,13 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { forwardRef, useRef } from "react";
+import { forwardRef, useContext, useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const Services = forwardRef((props, ref) => {
   const scrollAnimRefs = useRef([]);
+  const { bg, textColorPrimary } = useContext(ThemeContext);
 
   const text =
     "I leveraged design and technology to craft brands and products that excel, captivate, and grow seamlessly.";
@@ -46,7 +48,7 @@ const Services = forwardRef((props, ref) => {
     <section
       ref={ref}
       id={props.id}
-      className="relative flex justify-left h-full flex-col my-5 font-primary  p-[5vw] lg:p-[10vw]"
+      className={`${textColorPrimary} ${bg} relative flex justify-left h-full flex-col font-primary  p-[5vw] lg:p-[10vw]`}
     >
       {/* <section className="relative h-screen flex justify-center items-center">
         <p className="relative flex flex-wrap">

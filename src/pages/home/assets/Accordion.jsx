@@ -1,9 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { questions } from "../utils/question";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const Accordion = () => {
   const [isActive, setActive] = useState(questions.map(() => false));
+  const { bg, textColorPrimary } = useContext(ThemeContext);
 
   const handleClick = (idx) => {
     setActive((prevArray) => {
@@ -14,7 +16,9 @@ const Accordion = () => {
   };
 
   return (
-    <section className="h-auto w-full flex flex-col font-primary  p-[5vw] lg:p-[20vw]">
+    <section
+      className={`${textColorPrimary} ${bg} relative h-auto w-full flex flex-col font-primary  p-[5vw] lg:p-[20vw]`}
+    >
       <h1 className="mt-5 font-semibold text-base relative self-center my-10">
         <span className="text-lime-500">Questions? </span>
         Answer.

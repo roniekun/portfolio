@@ -1,12 +1,13 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, useContext } from "react";
 import gsap from "gsap";
-import { Link } from "react-router-dom";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { stacks, techs } from "../utils/stack";
 import Marquee from "react-fast-marquee";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 const About = forwardRef((props, ref) => {
+  const { bg, textColorPrimary } = useContext(ThemeContext);
   const container = useRef(null);
   const wd = useRef(null);
   const ebt = useRef(null);
@@ -41,10 +42,10 @@ const About = forwardRef((props, ref) => {
   );
 
   return (
-    <section ref={ref} {...props}>
+    <section className={`${bg} ${textColorPrimary} relative`} ref={ref} {...props}>
       <div
         ref={container}
-        className="main flex flex-col w-full opacity-0 overflow-hidden font-primary  p-[5vw] lg:p-[10vw]"
+        className={`main flex flex-col w-full opacity-0 relative overflow-hidden font-primary  p-[5vw] lg:p-[10vw]`}
       >
         <div
           ref={wd}

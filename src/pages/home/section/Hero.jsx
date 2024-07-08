@@ -82,7 +82,7 @@ const Hero = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="flex flex-col relative  h-[90vh] lg:h-screen
+      className="flex flex-col sticky top-0  h-[90vh] lg:h-screen
          z-0  justify-center items-center  p-[5vw] lg:p-[10vw]"
     >
       <div
@@ -122,7 +122,7 @@ const Hero = forwardRef((props, ref) => {
           )}
         </div>
       </div>
-      <div className="flex absolute top-[85%] left-0 w-full transition  px-[5vw] lg:px-[10vw] h-auto duration-300 leading-tight  justify-start items-start  text-[1rem] whitespace-nowrap">
+      <div className="flex  top-[85%] left-1/2 w-full transition  px-[5vw] lg:px-[10vw] h-auto duration-300 leading-tight  justify-start items-start  text-[1rem] whitespace-nowrap">
         <h1>Custom Web Solutions for</h1>
         <HeroTexts />
       </div>

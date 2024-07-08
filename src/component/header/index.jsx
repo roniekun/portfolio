@@ -6,7 +6,7 @@ import { DataContext } from "../../context/DataContext";
 import Logo from "./assets/Logo";
 import { motion, useAnimation } from "framer-motion";
 import Navbar from "../navbar";
-import Nav from "./assets/Nav";
+import Nav from "./assets/Nav3";
 import { ThemeContext } from "../../context/ThemeContext";
 import gsap from "gsap";
 
