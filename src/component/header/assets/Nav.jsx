@@ -27,7 +27,7 @@ const Nav = () => {
       let text = links[idx].name;
       let firstChar = text.charAt(0);
       let charactersArray = text.slice(1).split("");
-      linkArray.current[idx].textContent = firstChar; // Start with the first character
+      linkArray.current[idx].textContent = firstChar;
 
       const typeWriterEffect = (i) => {
         if (i < charactersArray.length) {
@@ -35,13 +35,11 @@ const Nav = () => {
           onMouseEnterRef.current = setTimeout(
             () => typeWriterEffect(i + 1),
             30
-          ); // Adjust the interval as needed
+          );
         }
       };
 
       typeWriterEffect(0);
-    } else {
-      console.error("Invalid index or element not found");
     }
   };
 
@@ -63,8 +61,6 @@ const Nav = () => {
       };
 
       reverseTypeWriterEffect(remainingText.length - 1);
-    } else {
-      console.error("Invalid index or element not found");
     }
   };
   //   useEffect(() => {

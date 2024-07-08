@@ -14,18 +14,11 @@ const Testimonials = () => {
 
   return (
     <section
-      className={`${textColorPrimary} ${bg} relative flex lg:flex-row-reverse flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw]`}
+      className={`${textColorPrimary} ${bg} relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw]`}
     >
-      <div className="flex lg:sticky lg:top-[25vh]  justify-start h-fit items-start p-[5vw] md:p-[5vw] lg:w-1/2 lg:my-20">
-        <span className="relative text-xl leading-tight font-normal text-balance">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-          repudiandae voluptate accusantium doloremque enim ipsam, Dignissi mos
-          quo et corrupti quisquam harum!
-        </span>
-      </div>
       <motion.div
         ref={sliderContainerRef}
-        className="lg:w-1/2 flex-col relative flex gap-2 "
+        className="lg:w-1/2 flex-col relative flex gap-10   my-[20vh] "
       >
         {testimonials.map((item, idx) => {
           const range = [idx * 0.25, 1];
@@ -36,11 +29,9 @@ const Testimonials = () => {
               key={idx}
               style={{ scale: scale }}
               ref={(el) => (refsArray.current[idx] = el)}
-              className={`${
-                idx === testimonials.length ? "h-1/2" : "h-screen"
-              } w-full flex  flex-col justify-center sticky  top-0 lg:items-center items-start`}
+              className={`h-fit w-full flex  flex-col justify-center sticky  top-[20vh] lg:items-center items-start`}
             >
-              <div
+              <motion.div
                 style={{
                   backgroundColor: item.color,
                   top: `calc(0vh + ${idx * 20}px)`,
@@ -62,7 +53,7 @@ const Testimonials = () => {
                     &quot;{item.testimonial}&quot;
                   </h2>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           );
         })}

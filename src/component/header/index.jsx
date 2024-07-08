@@ -65,7 +65,7 @@ const Header = () => {
           }  z-30 overflow-hidden transtion  w-full duration-700 transition top-0 fixed`}
         >
           <section
-            className={`flex relative  justify-between md:justify-center px-[5vw] py-3  items-center  z-0 w-full text-xl font-secondary font-semibold`}
+            className={`flex relative  justify-between lg:justify-center px-[5vw] py-3  items-center  z-0 w-full text-xl font-secondary font-semibold`}
           >
             <h1 className="uppercase">Roniecode</h1>
             {isMobile && <Menu />}

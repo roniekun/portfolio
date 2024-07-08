@@ -136,7 +136,7 @@ export default function LoadingTransition({ children }) {
 
             <div
               style={{ height: `${loadingHeight}px` }}
-              className="text-4xl self-center relative p-2  m-2 flex font-semibold overflow-hidden font-secondary"
+              className="md:text-2xl  text-base self-center relative p-2  m-2 flex font-semibold overflow-hidden font-secondary"
             >
               <div ref={hundredthsRef} className="flex flex-col w-fit h-fit">
                 <span className="opacity-0">0</span>
