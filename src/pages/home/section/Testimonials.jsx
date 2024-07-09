@@ -2,15 +2,41 @@ import React, { useRef, useLayoutEffect, useState, useContext } from "react";
 import { testimonials } from "../utils/testimonials";
 import { useTransform, useScroll, motion } from "framer-motion";
 import { ThemeContext } from "../../../context/ThemeContext";
+import gsap from "gsap";
 
 const Testimonials = () => {
   const { bg, textColorPrimary } = useContext(ThemeContext);
   const sliderContainerRef = useRef(null);
   const refsArray = useRef([]);
+  const cardsArray = useRef([]);
   const { scrollYProgress } = useScroll({
     target: sliderContainerRef,
     offset: ["start start", "end end"],
   });
+
+  useLayoutEffect(() => {
+    const triggers = cardsArray.current.map((card, idx) =>
+      gsap.fromTo(
+        card,
+        {
+          opacity: idx === 0 ? 1 : 0,
+        },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom-=20%",
+            end: "bottom bottom ",
+            scrub: true,
+          },
+        }
+      )
+    );
+
+    return () => {
+      triggers.forEach((trigger) => trigger.scrollTrigger.kill());
+    };
+  }, []);
 
   return (
     <section
@@ -32,11 +58,12 @@ const Testimonials = () => {
               className={`h-fit w-full flex  flex-col justify-center sticky  top-[20vh] lg:items-center items-start`}
             >
               <motion.div
+                ref={(el) => (cardsArray.current[idx] = el)}
                 style={{
                   backgroundColor: item.color,
                   top: `calc(0vh + ${idx * 20}px)`,
                 }}
-                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[500px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
+                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
               >
                 <span className="flex bg-opacity-70 justify-center items-center absolute w-[70px] h-[70px] text-2xl top-0 right-0 border rounded-bl-xl bg-neutral-400">
                   {idx + 1}
