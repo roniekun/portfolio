@@ -50,7 +50,7 @@ const Testimonials = () => {
           trigger: titleRef.current,
           scrub: true,
           start: "bottom top",
-          end: "bottom+=200px top",
+          end: "bottom+=100vh top",
         },
       }
     );
@@ -66,7 +66,7 @@ const Testimonials = () => {
       >
         <h1
           ref={titleRef}
-          className="uppercase self-center sticky top-[10vh] text-2xl font-medium mb-[20vh]"
+          className="uppercase self-center sticky top-[10vh] text-2xl font-medium pb-[50vh]"
         >
           cards title
         </h1>
