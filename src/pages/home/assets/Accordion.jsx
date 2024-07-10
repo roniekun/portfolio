@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import { questions } from "../utils/question";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "../../../context/ThemeContext";
+import { GrAdd } from "react-icons/gr";
 
 const Accordion = () => {
   const [isActive, setActive] = useState(questions.map(() => false));
@@ -34,15 +35,20 @@ const Accordion = () => {
           <div
             key={idx}
             onClick={() => handleClick(idx)}
-            className="group flex justify-start items-center cursor-pointer my-2"
+            className="group flex items-center cursor-pointer my-2 justify-between gap-x-5"
           >
             <h2
-              className={`cursor-pointer text-lg font-medium text-left leading-relaxed transition duration-300  font-base   ${
+              className={` w-full cursor-pointer text-lg font-medium text-left leading-relaxed transition duration-300  font-base   ${
                 isActive[idx] && "text-lime-500"
               }`}
             >
               {data.question}
             </h2>
+            <GrAdd
+              className={` flex transition-transform duration-300 text-lg ${
+                isActive[idx] && "rotate-45"
+              }`}
+            />
           </div>
           <motion.div
             animate={{ height: isActive[idx] ? "auto" : "0" }}
@@ -50,7 +56,11 @@ const Accordion = () => {
             // ref={(el) => (answers.current[idx] = el)}
             className="transition h-0 duration-300 rounded-md  self-end"
           >
-            <li className="text-lg text-left leading-normal  md:text-lg list-none md:mt-5 mt-3">
+            <li
+              className={`text-lg text-left leading-normal  md:text-lg list-none md:mt-5 mt-3 opacity-0 transition-opacity duration-1000  ${
+                isActive[idx] && "opacity-100"
+              }`}
+            >
               {data.answer}
             </li>
           </motion.div>
