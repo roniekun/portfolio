@@ -62,7 +62,7 @@ const Header = () => {
           ref={header}
           className={` ${
             isScrolled ? bg : "bg-transparent"
-          }  z-30 overflow-hidden transtion  w-full duration-700 transition top-0 fixed`}
+          }  z-40 overflow-hidden transtion  w-full duration-700 transition top-0 fixed`}
         >
           <section
             className={`flex relative  justify-between lg:justify-center px-[5vw] py-3  items-center  z-0 w-full text-base font-secondary font-semibold`}

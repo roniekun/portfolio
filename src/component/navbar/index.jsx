@@ -56,7 +56,7 @@ const Navbar = () => {
   return (
     <nav
       ref={menu}
-      className={`nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-20  transition  duration-300 py-[10vw] font-secondary overflow-hidden ${bg} ${textColorPrimary}`}
+      className={`nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  transition  duration-300 py-[10vw] font-secondary overflow-hidden ${bg} ${textColorPrimary}`}
     >
       <section
         ref={linkItems}

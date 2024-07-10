@@ -5,7 +5,7 @@ import { ThemeContext } from "../../../context/ThemeContext";
 import gsap from "gsap";
 
 const Testimonials = () => {
-  const { bg, textColorPrimary } = useContext(ThemeContext);
+  const { bg, textColorPrimary, textColorSecondary } = useContext(ThemeContext);
   const containerRef = useRef(null);
   const titleRef = useRef(null);
   const sliderContainerRef = useRef(null);
@@ -58,7 +58,7 @@ const Testimonials = () => {
 
   return (
     <section
-      className={`${textColorPrimary} ${bg} relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw] z-20`}
+      className={`${bg} text-neutral-900 relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw] z-20`}
     >
       <motion.div
         ref={sliderContainerRef}
@@ -84,7 +84,7 @@ const Testimonials = () => {
               <motion.div
                 ref={(el) => (cardsArray.current[idx] = el)}
                 style={{
-                  backgroundColor: item.color,
+                  backgroundColor: "whitesmoke",
                   top: `calc(0vh + ${idx * 20}px)`,
                 }}
                 className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-5 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
@@ -97,7 +97,9 @@ const Testimonials = () => {
                   <h2 className="font-normal text-base md:text-lg">
                     {item.name}
                   </h2>
-                  <h3 className="text-base">Rating: {item.rating} stars </h3>
+                  <h3 className={`${textColorSecondary} text-base`}>
+                    Rating: {item.rating} stars{" "}
+                  </h3>
                 </div>
                 <div>
                   <h2 className="text-lg ">&quot;{item.testimonial}&quot;</h2>
