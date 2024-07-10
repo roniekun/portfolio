@@ -40,7 +40,7 @@ const Testimonials = () => {
 
   return (
     <section
-      className={`${textColorPrimary} ${bg} relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw]`}
+      className={`${textColorPrimary} ${bg} relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw] z-20`}
     >
       <motion.div
         ref={sliderContainerRef}
