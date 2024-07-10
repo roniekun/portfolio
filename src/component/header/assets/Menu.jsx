@@ -86,8 +86,8 @@ const Menu = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`${borderColor}  group  flex items-center  justify-center  relative  px-8 w-14 font-normal capitalize
-                mx-[5vw] -z-10 rounded-lg ${
+        className={`${borderColor}  group  flex items-center  justify-center  relative  px-8 w-14  capitalize
+                 -z-10 rounded-lg ${
                   isToggleMenu && `${textColorPrimary}  bg-opacity-20`
                 }`}
       >
@@ -108,6 +108,7 @@ const Menu = () => {
             onMouseLeave={handleMouseEvent}
             onClick={handleClick}
             ref={btn}
+            disabled={isDisabled}
           >
             MENU
           </button>

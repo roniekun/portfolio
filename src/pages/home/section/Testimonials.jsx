@@ -15,7 +15,7 @@ const Testimonials = () => {
   });
 
   useLayoutEffect(() => {
-    const triggers = cardsArray.current.map((card, idx) =>
+    const triggers = refsArray.current.map((card, idx) =>
       gsap.fromTo(
         card,
         {
@@ -25,8 +25,8 @@ const Testimonials = () => {
           opacity: 1,
           scrollTrigger: {
             trigger: card,
-            start: "top bottom-=20%",
-            end: "bottom bottom ",
+            start: "top-=50% center",
+            end: "center+=50% bottom-=20% ",
             scrub: true,
           },
         }
@@ -63,7 +63,7 @@ const Testimonials = () => {
                   backgroundColor: item.color,
                   top: `calc(0vh + ${idx * 20}px)`,
                 }}
-                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-10 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
+                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-5 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
               >
                 <span className="flex bg-opacity-70 justify-center items-center absolute w-[70px] h-[70px] text-2xl top-0 right-0 border rounded-bl-xl bg-neutral-400">
                   {idx + 1}
@@ -76,9 +76,7 @@ const Testimonials = () => {
                   <h3 className="text-base">Rating: {item.rating} stars </h3>
                 </div>
                 <div>
-                  <h2 className="text-lg md:text-xl">
-                    &quot;{item.testimonial}&quot;
-                  </h2>
+                  <h2 className="text-lg ">&quot;{item.testimonial}&quot;</h2>
                 </div>
               </motion.div>
             </motion.div>
