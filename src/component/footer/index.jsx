@@ -25,7 +25,7 @@ const Footer = forwardRef((props, ref) => {
               <h3 className="font-medium text-base md:text-lg text-lime-400 imelg:leading-10 md:leading-9 leading-8 mt-[5vw]">
                 Thinking of a project?
               </h3>
-              <h1 className="text-3xl uppercase font-black  flex md:text-left text-center ">
+              <h1 className="text-3xl uppercase font-black  flex text-center ">
                 Reach out & share your vision
               </h1>
               <button

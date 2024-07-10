@@ -6,7 +6,7 @@ const Contact = forwardRef((props, ref) => {
     <section
       id={props.id}
       ref={ref}
-      className="overflow-hidden relative w-full flex justify-center flex-col items-center font-primary z-10 bg-neutral-800  p-y[5vw] lg:py-[10vw] rounded-b-lg"
+      className="overflow-hidden relative w-full flex justify-center flex-col items-center font-primary z-10 bg-neutral-800  p-y[5vw] lg:py-[10vw]"
     >
       <div className="md:w-1/2 relative mt-5 w-11/12  mx-[5vw]  ">
         <div className="w-full my-5">
