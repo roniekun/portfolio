@@ -1,12 +1,50 @@
-import React, { forwardRef } from "react";
+import React, {
+  forwardRef,
+  useContext,
+  useLayoutEffect,
+  useState,
+} from "react";
 import Marquee from "react-fast-marquee";
+import { ThemeContext } from "../../../context/ThemeContext";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Contact = forwardRef((props, ref) => {
+  const [theme, setTheme] = useState({
+    loadedBg: "#262626",
+    loadedTextColor: "whitesmoke",
+  });
+
+  const { bg, textColorPrimary, loadThemeFn } = useContext(ThemeContext);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const trigger = ScrollTrigger.create({
+      trigger: ref.current,
+      start: "top-=56px top",
+      end: "bottom bottom",
+
+      onEnter: () => {
+        loadThemeFn(theme);
+      },
+      onLeaveBack: () => {
+   
+      },
+      onLeave: () => {},
+      onEnterBack: () => {},
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, []);
+
   return (
     <section
       id={props.id}
       ref={ref}
-      className="overflow-hidden relative w-full flex justify-center flex-col items-center font-primary z-10 bg-neutral-800  p-y[5vw] lg:py-[10vw]"
+      className="overflow-hidden relative w-full flex justify-center flex-col items-center font-primary z-10 bg-neutral-800  p-y[5vw] py-[10vw]"
     >
       <div className="md:w-1/2 relative mt-5 w-11/12  mx-[5vw]  ">
         <div className="w-full my-5">

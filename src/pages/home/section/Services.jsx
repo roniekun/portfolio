@@ -48,7 +48,7 @@ const Services = forwardRef((props, ref) => {
     <section
       ref={ref}
       id={props.id}
-      className={`${textColorPrimary} ${bg} relative flex justify-left h-full flex-col font-primary  p-[5vw] lg:p-[10vw]`}
+      className={`${textColorPrimary} ${bg} relative flex justify-left h-full flex-col font-primary  p-[5vw] lg:p-[10vw] py-[10vh]`}
     >
       {/* <section className="relative h-screen flex justify-center items-center">
         <p className="relative flex flex-wrap">

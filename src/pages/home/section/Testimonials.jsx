@@ -58,7 +58,7 @@ const Testimonials = () => {
 
   return (
     <section
-      className={`${bg} text-neutral-900 relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw] z-20`}
+      className={`${bg} text-neutral-900 relative flex justify-center items-center flex-col gap-10 font-primary py-[10vh]  px-[5vw] lg:px-[10vw] z-20`}
     >
       <motion.div
         ref={sliderContainerRef}
@@ -98,11 +98,13 @@ const Testimonials = () => {
                     {item.name}
                   </h2>
                   <h3 className={`${textColorSecondary} text-base`}>
-                    Rating: {item.rating} stars{" "}
+                    Rating: {item.rating} stars
                   </h3>
                 </div>
                 <div>
-                  <h2 className="text-lg ">&quot;{item.testimonial}&quot;</h2>
+                  <h2 className="text-lg leading-relaxed">
+                    &quot;{item.testimonial}&quot;
+                  </h2>
                 </div>
               </motion.div>
             </motion.div>

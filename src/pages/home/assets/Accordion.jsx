@@ -18,7 +18,7 @@ const Accordion = () => {
 
   return (
     <section
-      className={`${textColorPrimary} ${bg} relative h-auto w-full flex flex-col font-primary z-20  p-[5vw] lg:p-[25vw]`}
+      className={`${textColorPrimary} ${bg} relative h-auto w-full flex flex-col font-primary z-20  p-[5vw] lg:p-[25vw] py-[10vh]`}
     >
       <h1 className="mt-5 font-semibold md:text-2xl text-xl relative self-center my-10">
         <span className="text-lime-500">Questions? </span>
@@ -38,7 +38,7 @@ const Accordion = () => {
             className="group flex items-center cursor-pointer my-2 justify-between gap-x-5"
           >
             <h2
-              className={` w-full cursor-pointer text-lg font-medium text-left leading-relaxed transition duration-300  font-base   ${
+              className={` w-full cursor-pointer text-lg font-medium text-left leading-relaxed transition duration-300  ${
                 isActive[idx] && "text-lime-500"
               }`}
             >

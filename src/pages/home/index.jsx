@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
+import { useParams } from "react-router-dom";
 import Hero from "./section/Hero";
 import Profile from "./section/Profile";
 import About from "./section/About";
@@ -9,8 +10,8 @@ import Services from "./section/Services";
 import Accordion from "./assets/Accordion";
 import Footer from "../../component/footer";
 import Contact from "./section/Contact";
-import { useParams } from "react-router-dom";
 import Testimonials from "./section/Testimonials";
+import Bento from "./section/Bento";
 
 const Home = () => {
   const { user, setTitle, isMobile } = useContext(DataContext);
@@ -61,6 +62,7 @@ const Home = () => {
       <Profile ref={profile} id={"profile"} />
       <About ref={about} id={"about"} />
       <Services ref={services} id={"services"} />
+      <Bento />
       <Works ref={works} id={"works"} />
       <Testimonials />
       <Accordion />

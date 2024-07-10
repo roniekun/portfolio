@@ -1,7 +1,13 @@
 import React from "react";
 import Menu from "./assets/Menu";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect, useContext, useRef } from "react";
+import {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useContext,
+  useRef,
+} from "react";
 import { DataContext } from "../../context/DataContext";
 import Logo from "./assets/Logo";
 import { motion, useAnimation } from "framer-motion";
@@ -16,7 +22,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  const { textColorPrimary, bg } = useContext(ThemeContext);
+  const { textColorPrimary, bg, loadedTheme } = useContext(ThemeContext);
+  const { loadedBg, loadedTextColor } = loadedTheme;
+
   // refs
   const header = useRef(null);
   const nav = useRef(null);
@@ -55,17 +63,22 @@ const Header = () => {
     }
   }, [isToggleMenu, controls]);
 
+  useLayoutEffect(() => {
+    console.log(loadedBg);
+    gsap.to(header.current, { backgroundColor: loadedBg, color: loadedTextColor });
+  }, [loadedBg]);
+
   return (
     <main>
       {!isLoading && (
         <motion.header
           ref={header}
-          className={` ${
+          className={`${textColorPrimary} ${
             isScrolled ? bg : "bg-transparent"
-          }  z-40 overflow-hidden transtion  w-full duration-700 transition top-0 fixed`}
+          }  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-700 transition top-0 fixed`}
         >
           <section
-            className={`flex relative  justify-between lg:justify-center px-[5vw] py-3  items-center  z-0 w-full text-base font-secondary font-semibold`}
+            className={`flex relative  justify-between lg:justify-center px-[5vw] items-center  z-0 w-full text-base font-secondary font-semibold`}
           >
             <h1 className="uppercase">Roniecode</h1>
             {isMobile && <Menu />}

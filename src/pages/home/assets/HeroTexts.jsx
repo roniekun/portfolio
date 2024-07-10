@@ -44,7 +44,6 @@ const HeroTexts = () => {
   useLayoutEffect(() => {
     const refHeight = refsArray.current[0].getBoundingClientRect().height;
     setHeight(Math.round(refHeight));
-         console.log(height);
   }, [windowWidth]);
 
   return (
