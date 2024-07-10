@@ -26,7 +26,7 @@ const Testimonials = () => {
           scrollTrigger: {
             trigger: card,
             start: "top-=50% center",
-            end: "center+=50% bottom-=20% ",
+            end: "center+=50% bottom",
             scrub: true,
           },
         }
