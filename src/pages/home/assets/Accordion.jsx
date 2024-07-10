@@ -18,9 +18,9 @@ const Accordion = () => {
 
   return (
     <section
-      className={`${textColorPrimary} ${bg} relative h-auto w-full flex flex-col font-primary z-20  p-[5vw] lg:p-[20vw]`}
+      className={`${textColorPrimary} ${bg} relative h-auto w-full flex flex-col font-primary z-20  p-[5vw] lg:p-[25vw]`}
     >
-      <h1 className="mt-5 font-semibold md:text-2xl text-lg relative self-center my-10">
+      <h1 className="mt-5 font-semibold md:text-2xl text-xl relative self-center my-10">
         <span className="text-lime-500">Questions? </span>
         Answer.
       </h1>
@@ -57,7 +57,7 @@ const Accordion = () => {
             className="transition h-0 duration-300 rounded-md  self-end"
           >
             <li
-              className={`text-lg text-left leading-normal  md:text-lg list-none md:mt-5 mt-3 opacity-0 transition-opacity duration-1000  ${
+              className={`text-lg text-left leading-normal  md:text-lg list-none md:mt-5 mt-3 opacity-0 transition-opacity duration-1000 mb-3  ${
                 isActive[idx] && "opacity-100"
               }`}
             >

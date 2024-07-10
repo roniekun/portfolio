@@ -6,6 +6,8 @@ import gsap from "gsap";
 
 const Testimonials = () => {
   const { bg, textColorPrimary } = useContext(ThemeContext);
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
   const sliderContainerRef = useRef(null);
   const refsArray = useRef([]);
   const cardsArray = useRef([]);
@@ -19,7 +21,7 @@ const Testimonials = () => {
       gsap.fromTo(
         card,
         {
-          opacity: idx === 0 ? 1 : 0,
+          opacity: 0,
         },
         {
           opacity: 1,
@@ -38,14 +40,36 @@ const Testimonials = () => {
     };
   }, []);
 
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      titleRef.current,
+      { opacity: 1 },
+      {
+        opacity: 0,
+        scrollTrigger: {
+          trigger: titleRef.current,
+          scrub: true,
+          start: "bottom top",
+          end: "bottom+=200px top",
+        },
+      }
+    );
+  }, []);
+
   return (
     <section
       className={`${textColorPrimary} ${bg} relative flex justify-center items-center flex-col gap-10 font-primary  px-[5vw] lg:px-[10vw] z-20`}
     >
       <motion.div
         ref={sliderContainerRef}
-        className="lg:w-1/2 flex-col relative flex gap-10   my-[20vh] "
+        className="lg:w-1/2 flex-col relative flex gap-10 my-[20vh] "
       >
+        <h1
+          ref={titleRef}
+          className="uppercase self-center sticky top-[10vh] text-2xl font-medium mb-[20vh]"
+        >
+          cards title
+        </h1>
         {testimonials.map((item, idx) => {
           const range = [idx * 0.25, 1];
           const targetScale = 1 - (testimonials.length - 1 - idx) * 0.03;
@@ -65,7 +89,7 @@ const Testimonials = () => {
                 }}
                 className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-5 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
               >
-                <span className="flex bg-opacity-70 justify-center items-center absolute w-[70px] h-[70px] text-2xl top-0 right-0 border rounded-bl-xl bg-neutral-400">
+                <span className="flex bg-opacity-70 justify-center items-center absolute w-[50px] h-[50px] text-xl top-0 right-0 border rounded-bl-xl bg-neutral-400">
                   {idx + 1}
                 </span>
                 <div className="self-center w-[150px] aspect-square border rounded-full"></div>
