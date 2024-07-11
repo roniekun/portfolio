@@ -64,19 +64,13 @@ const Navbar = () => {
       backgroundColor: isLoadedTheme ? loadedBg : bg,
       color: isLoadedTheme ? loadedTextColor : textColorPrimary,
     });
-  }, [
-    isLoadedTheme,
-    loadedBg,
-    bg,
-    loadedTextColor,
-    textColorPrimary,
-  ]);
+  }, [isLoadedTheme, loadedBg, bg, loadedTextColor, textColorPrimary]);
 
   return (
     <nav
       ref={navRef}
       style={{ color: textColorPrimary, background: bg }}
-      className={` nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  transition   py-[10vw] font-secondary overflow-hidden `}
+      className={` nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  py-[10vw] font-secondary overflow-hidden `}
     >
       <section
         ref={linkItems}
