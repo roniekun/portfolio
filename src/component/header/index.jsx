@@ -19,10 +19,10 @@ import gsap from "gsap";
 const Header = () => {
   const { isMobile, setToggleMenu, isToggleMenu, isLoading } =
     useContext(DataContext);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   const {
+    isScrolled,
     isLoadedTheme,
     theme: { bg, textColorPrimary },
     loadedTheme: { loadedBg, loadedTextColor },
@@ -33,22 +33,6 @@ const Header = () => {
   const nav = useRef(null);
 
   const controls = useAnimation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 500);
-      return () => {
-        setIsScrolled(false);
-        console.log(isScrolled);
-      };
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     if (isToggleMenu) {
@@ -80,7 +64,7 @@ const Header = () => {
         : textColorPrimary,
       duration: 0,
     });
-  }, [isLoadedTheme, loadedBg, isScrolled]);
+  }, [isLoadedTheme, loadedBg, isScrolled, bg, loadedTextColor, textColorPrimary]);
 
   return (
     <main>

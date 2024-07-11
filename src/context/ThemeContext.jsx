@@ -18,6 +18,23 @@ const ThemeProvider = ({ children }) => {
     borderColor: "#A3A3A3", ////bg-neutral-400
     bg: "#171717", //bg-neutral-900
   };
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 500);
+        return () => {
+          setIsScrolled(false);
+          console.log(isScrolled);
+        };
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
 
   const [theme, setTheme] = useState(() => {
     return JSON.parse(localStorage.getItem("theme")) || light;
@@ -29,8 +46,8 @@ const ThemeProvider = ({ children }) => {
   };
   const [isLoadedTheme, setIsLoadedTheme] = useState();
   const [loadedTheme, setLoadedTheme] = useState({
-    loadedBg: undefined,
-    loadedTextColor: undefined,
+    loadedBg: null,
+    loadedTextColor: null,
   });
 
   const loadThemeFn = (theme) => {
@@ -48,6 +65,7 @@ const ThemeProvider = ({ children }) => {
   return (
     <ThemeContext.Provider
       value={{
+        isScrolled,
         setTheme,
         theme,
         dark,
