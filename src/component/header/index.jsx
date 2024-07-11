@@ -80,13 +80,13 @@ const Header = () => {
         : textColorPrimary,
       duration: 0,
     });
-  }, [isLoadedTheme, isScrolled]);
+  }, [isLoadedTheme, loadedBg, isScrolled]);
 
   return (
     <main>
       {!isLoading && (
         <motion.header
-        style={{color: textColorPrimary}}
+          style={{ color: textColorPrimary }}
           ref={header}
           className={`bg-transparent  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-300 transition top-0 fixed`}
         >

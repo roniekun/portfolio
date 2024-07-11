@@ -15,10 +15,10 @@ const Footer = forwardRef((props, ref) => {
   const handleClick = (user) => {
     SendGmail(user);
   };
-  const theme = useState({
+  const theme = {
     loadedBg: "#0C0A09",
     loadedTextColor: "whitesmoke",
-  });
+  }
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,15 +26,12 @@ const Footer = forwardRef((props, ref) => {
     const trigger = ScrollTrigger.create({
       trigger: ref.current,
       start: "bottom-=56px bottom",
-      end: "bottom+=100px bottom",
-      markers: true,
+      end: "bottom bottom",
 
       onEnter: () => {
         loadThemeFn(theme);
-        setIsLoadedTheme(true);
       },
       onLeaveBack: () => {
-        setIsLoadedTheme(false);
       },
       onLeave: () => {},
       onEnterBack: () => {},

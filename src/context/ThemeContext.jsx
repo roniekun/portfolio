@@ -27,7 +27,7 @@ const ThemeProvider = ({ children }) => {
     setTheme(theme.name === "light" ? dark : light);
     localStorage.setItem("theme", JSON.stringify(theme));
   };
-  const [isLoadedTheme, setIsLoadedTheme] = useState(false);
+  const [isLoadedTheme, setIsLoadedTheme] = useState();
   const [loadedTheme, setLoadedTheme] = useState({
     loadedBg: undefined,
     loadedTextColor: undefined,
@@ -35,8 +35,11 @@ const ThemeProvider = ({ children }) => {
 
   const loadThemeFn = (theme) => {
     setLoadedTheme(theme);
-    console.log(theme);
   };
+
+  useEffect(() => {
+    console.log(loadedTheme);
+  }, [loadedTheme]);
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));

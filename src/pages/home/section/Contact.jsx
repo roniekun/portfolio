@@ -16,28 +16,30 @@ const Contact = forwardRef((props, ref) => {
     theme: { bg, textColorPrimary },
   } = useContext(ThemeContext);
 
-  const [theme, setTheme] = useState({
+  const theme = {
     loadedBg: "#262626",
     loadedTextColor: "whitesmoke",
-  });
-  
+  };
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const trigger = ScrollTrigger.create({
       trigger: ref.current,
       start: "top-=56px top",
-      end: "bottom bottom",
+      end: "bottom top",
 
       onEnter: () => {
         loadThemeFn(theme);
-        setIsLoadedTheme(true);
+        setIsLoadedTheme((prevState) => !prevState);
       },
       onLeaveBack: () => {
-        setIsLoadedTheme(false);
+        setIsLoadedTheme(setIsLoadedTheme((prevState) => !prevState));
       },
       onLeave: () => {},
-      onEnterBack: () => {},
+      onEnterBack: () => {
+        loadThemeFn(theme);
+      },
     });
 
     return () => {

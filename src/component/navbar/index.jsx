@@ -10,12 +10,14 @@ import gsap from "gsap";
 const Navbar = () => {
   const {
     theme: { bg, textColorPrimary },
+    isLoadedTheme,
+    loadedTheme: { loadedBg, loadedTextColor },
   } = useContext(ThemeContext);
 
   const { setToggleMenu, isToggleMenu } = useContext(DataContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const menu = useRef(null);
+  const navRef = useRef(null);
   const linkItems = useRef(null);
 
   const links = [
@@ -56,9 +58,16 @@ const Navbar = () => {
     }
   }, [isToggleMenu]);
 
+  useLayoutEffect(() => {
+    gsap.to(navRef.current, {
+      backgroundColor: isLoadedTheme ? loadedBg : bg,
+      color: isLoadedTheme ? loadedTextColor : textColorPrimary,
+    });
+  }, [isLoadedTheme, loadedBg]);
+
   return (
     <nav
-      ref={menu}
+      ref={navRef}
       style={{ color: textColorPrimary, background: bg }}
       className={` nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  transition  duration-300 py-[10vw] font-secondary overflow-hidden `}
     >
