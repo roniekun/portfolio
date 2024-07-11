@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
+
 import { useParams } from "react-router-dom";
 import Hero from "./section/Hero";
 import Profile from "./section/Profile";
@@ -8,13 +9,14 @@ import About from "./section/About";
 import Works from "./section/Works";
 import Services from "./section/Services";
 import Accordion from "./assets/Accordion";
-import Footer from "../../component/footer";
 import Contact from "./section/Contact";
 import Testimonials from "./section/Testimonials";
 import Bento from "./section/Bento";
+import Footer from "../../component/footer";
 
 const Home = () => {
   const { user, setTitle, isMobile } = useContext(DataContext);
+
   const profile = useRef(null);
   const services = useRef(null);
   const about = useRef(null);
@@ -56,7 +58,7 @@ const Home = () => {
   return (
     <motion.main
       ref={container}
-      className="relative flex flex-col h-auto w-full"
+      className={`relative flex flex-col h-auto w-full`}
     >
       <Hero ref={hero} scrollFn={scrollIntoView} />
       <Profile ref={profile} id={"profile"} />

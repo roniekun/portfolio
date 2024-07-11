@@ -2,46 +2,58 @@ import { createContext, useState, useEffect } from "react";
 const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(() => {
-    return JSON.parse(localStorage.getItem("theme")) || false;
-  });
   //custom themes
-  let textColorPrimary = isDarkTheme ? "text-neutral-200" : "text-neutral-900";
-  let textColorSecondary = isDarkTheme
-    ? "text-neutral-500"
-    : "text-neutral-800";
-  let borderColor = isDarkTheme ? "border-lime-100" : "border-neutral-900";
-  let bg = isDarkTheme ? "bg-neutral-900" : "bg-neutral-100";
+  const light = {
+    name: "light",
+    textColorPrimary: "#171717", //text-neutral-900
+    textColorSecondary: "#262626", //text-neutral-800
+    borderColor: "#171717", //"border-neutral-900",
+    bg: "#F5F5F5",
+  };
 
-    const [loadedTheme, setLoadedTheme] = useState({ loadedBg: bg, loadedTextColor:textColorPrimary });
+  const dark = {
+    name: "dark",
+    textColorPrimary: "#E5E5E5", //text-neutral-200
+    textColorSecondary: "#A3A3A3", //text-neutral-400
+    borderColor: "#A3A3A3", ////bg-neutral-400
+    bg: "#171717", //bg-neutral-900
+  };
 
+  const [theme, setTheme] = useState(() => {
+    return JSON.parse(localStorage.getItem("theme")) || light;
+  });
 
   const toggleThemeFn = () => {
-    const newTheme = !isDarkTheme;
-    console.log(newTheme);
-    setIsDarkTheme(newTheme);
-    localStorage.setItem("theme", JSON.stringify(newTheme));
+    setTheme(theme.name === "light" ? dark : light);
+    localStorage.setItem("theme", JSON.stringify(theme));
   };
+  const [isLoadedTheme, setIsLoadedTheme] = useState(false);
+  const [loadedTheme, setLoadedTheme] = useState({
+    loadedBg: undefined,
+    loadedTextColor: undefined,
+  });
+
   const loadThemeFn = (theme) => {
-    setLoadedTheme(theme)
+    setLoadedTheme(theme);
+    console.log(theme);
   };
 
   useEffect(() => {
-    localStorage.setItem("theme", JSON.stringify(isDarkTheme));
-  }, [isDarkTheme]);
+    localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <ThemeContext.Provider
       value={{
-        setIsDarkTheme,
-        isDarkTheme,
+        setTheme,
+        theme,
+        dark,
+        light,
+        isLoadedTheme,
+        setIsLoadedTheme,
         toggleThemeFn,
         loadThemeFn,
         loadedTheme,
-        textColorPrimary,
-        textColorSecondary,
-        bg,
-        borderColor,
       }}
     >
       {children}

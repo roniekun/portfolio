@@ -9,7 +9,7 @@ const Socials = () => {
         <div className="flex justify-evenly group relative" key={link.acn}>
           <a
             href={link.url}
-            className={`relative fill-neutral-100 hover:opacity-90 w-7 h-7 justify-center flex items-center transition  opacity-1 uppercasexl px-1 uppercase  tracking-widest font-semibold`}
+            className={`relative fill-neutral-100 hover:opacity-90 w-7 h-7 justify-center flex items-center opacity-1 uppercasexl px-1 uppercase  tracking-widest font-semibold`}
             key={link.name}
             target="_blank"
             rel="noopener noreferrer"

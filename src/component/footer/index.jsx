@@ -1,16 +1,49 @@
 import React, { forwardRef } from "react";
 import SendGmail from "../../assets/SendGmail";
-import { useContext } from "react";
+import { useContext, useState, useLayoutEffect } from "react";
 import Socials from "./assets/Socials";
 import { DataContext } from "../../context/DataContext";
+import { ThemeContext } from "../../context/ThemeContext";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Footer = forwardRef((props, ref) => {
   const { user } = useContext(DataContext);
+  const { loadThemeFn, setIsLoadedTheme } = useContext(ThemeContext);
   const date = new Date();
 
   const handleClick = (user) => {
     SendGmail(user);
   };
+  const theme = useState({
+    loadedBg: "#0C0A09",
+    loadedTextColor: "whitesmoke",
+  });
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const trigger = ScrollTrigger.create({
+      trigger: ref.current,
+      start: "bottom-=56px bottom",
+      end: "bottom+=100px bottom",
+      markers: true,
+
+      onEnter: () => {
+        loadThemeFn(theme);
+        setIsLoadedTheme(true);
+      },
+      onLeaveBack: () => {
+        setIsLoadedTheme(false);
+      },
+      onLeave: () => {},
+      onEnterBack: () => {},
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, []);
 
   return (
     <main

@@ -10,13 +10,17 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Contact = forwardRef((props, ref) => {
+  const {
+    loadThemeFn,
+    setIsLoadedTheme,
+    theme: { bg, textColorPrimary },
+  } = useContext(ThemeContext);
+
   const [theme, setTheme] = useState({
     loadedBg: "#262626",
     loadedTextColor: "whitesmoke",
   });
-
-  const { bg, textColorPrimary, loadThemeFn } = useContext(ThemeContext);
-
+  
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -27,9 +31,10 @@ const Contact = forwardRef((props, ref) => {
 
       onEnter: () => {
         loadThemeFn(theme);
+        setIsLoadedTheme(true);
       },
       onLeaveBack: () => {
-   
+        setIsLoadedTheme(false);
       },
       onLeave: () => {},
       onEnterBack: () => {},

@@ -7,7 +7,9 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 const Services = forwardRef((props, ref) => {
   const scrollAnimRefs = useRef([]);
-  const { bg, textColorPrimary } = useContext(ThemeContext);
+  const {
+    theme: { bg, textColorPrimary },
+  } = useContext(ThemeContext);
 
   const text =
     "I leveraged design and technology to craft brands and products that excel, captivate, and grow seamlessly.";
@@ -48,7 +50,8 @@ const Services = forwardRef((props, ref) => {
     <section
       ref={ref}
       id={props.id}
-      className={`${textColorPrimary} ${bg} relative flex justify-left h-full flex-col font-primary  p-[5vw] lg:p-[10vw] py-[10vh]`}
+      style={{ color: textColorPrimary, background: bg }}
+      className={`relative flex justify-left h-full flex-col font-primary  p-[5vw] lg:p-[10vw] py-[10vh]`}
     >
       {/* <section className="relative h-screen flex justify-center items-center">
         <p className="relative flex flex-wrap">

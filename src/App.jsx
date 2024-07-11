@@ -70,9 +70,9 @@ function App() {
   return (
     <LoadingTransition>
       <main
+        style={{ width: windowWidth, color: textColorPrimary, background: bg }}
         ref={container}
-        style={{ width: windowWidth }}
-        className={`flex flex-col w-screen font-tertiary ${textColorPrimary} ${bg}`}
+        className={`flex flex-col w-screen font-tertiary `}
       >
         <Scrollbtn scrollProgress={currentProgress} />
         <Header />

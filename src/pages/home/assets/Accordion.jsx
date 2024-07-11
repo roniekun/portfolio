@@ -6,7 +6,9 @@ import { GrAdd } from "react-icons/gr";
 
 const Accordion = () => {
   const [isActive, setActive] = useState(questions.map(() => false));
-  const { bg, textColorPrimary } = useContext(ThemeContext);
+  const {
+    theme: { bg, textColorPrimary },
+  } = useContext(ThemeContext);
 
   const handleClick = (idx) => {
     setActive((prevArray) => {
@@ -18,7 +20,8 @@ const Accordion = () => {
 
   return (
     <section
-      className={`${textColorPrimary} ${bg} relative h-auto w-full flex flex-col font-primary z-20  p-[5vw] lg:p-[25vw] py-[10vh]`}
+      style={{ color: textColorPrimary, background: bg }}
+      className={` relative h-auto w-full flex flex-col font-primary z-20  p-[5vw] lg:p-[25vw] py-[10vh]`}
     >
       <h1 className="mt-5 font-semibold md:text-2xl text-xl relative self-center my-10">
         <span className="text-lime-500">Questions? </span>

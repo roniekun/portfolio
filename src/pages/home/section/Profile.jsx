@@ -6,7 +6,9 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { ThemeContext } from "../../../context/ThemeContext";
 
 const Profile = forwardRef((props, ref) => {
-  const { bg, textColorPrimary } = useContext(ThemeContext);
+  const {
+    theme: { bg, textColorPrimary },
+  } = useContext(ThemeContext);
   const profile = useRef(null);
   const avatarChars = useRef([]);
   const text2 = splitString(
@@ -47,10 +49,15 @@ const Profile = forwardRef((props, ref) => {
   }, [avatarChars.current]);
 
   return (
-    <section ref={ref} id={props.id}>
+    <section
+      ref={ref}
+      id={props.id}
+      className="relative"
+      style={{ color: textColorPrimary, background: bg }}
+    >
       <div
         ref={profile}
-        className={`${textColorPrimary} ${bg} relative w-full overflow-hidden h-auto  flex-col`}
+        className={` relative w-full overflow-hidden h-auto  flex-col`}
       >
         <div className="relative flex flex-col  h-[500px] justify-end items-center">
           <Avatar />

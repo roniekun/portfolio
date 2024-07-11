@@ -1,14 +1,14 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../../context/ThemeContext";
 
 const Theme = () => {
-  const { toggleThemeFn, isDarkTheme } = useContext(ThemeContext);
-
+  const { toggleThemeFn, theme } = useContext(ThemeContext);
+  const { name } = theme;
 
   return (
-    <button className="font-primary " onClick={toggleThemeFn}>
-      Night Mode : {isDarkTheme ? "ON" : "OFF"}
+    <button className="font-primary uppercase " onClick={toggleThemeFn}>
+      Night Mode : {name === "dark" ? " On" : "off"}
     </button>
   );
 };

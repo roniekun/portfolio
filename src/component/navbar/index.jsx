@@ -8,7 +8,10 @@ import { ThemeContext } from "../../context/ThemeContext";
 import gsap from "gsap";
 
 const Navbar = () => {
-  const { bg, textColorPrimary } = useContext(ThemeContext);
+  const {
+    theme: { bg, textColorPrimary },
+  } = useContext(ThemeContext);
+
   const { setToggleMenu, isToggleMenu } = useContext(DataContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,7 +59,8 @@ const Navbar = () => {
   return (
     <nav
       ref={menu}
-      className={`nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  transition  duration-300 py-[10vw] font-secondary overflow-hidden ${bg} ${textColorPrimary}`}
+      style={{ color: textColorPrimary, background: bg }}
+      className={` nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  transition  duration-300 py-[10vw] font-secondary overflow-hidden `}
     >
       <section
         ref={linkItems}

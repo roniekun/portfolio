@@ -22,8 +22,11 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  const { textColorPrimary, bg, loadedTheme } = useContext(ThemeContext);
-  const { loadedBg, loadedTextColor } = loadedTheme;
+  const {
+    isLoadedTheme,
+    theme: { bg, textColorPrimary },
+    loadedTheme: { loadedBg, loadedTextColor },
+  } = useContext(ThemeContext);
 
   // refs
   const header = useRef(null);
@@ -64,18 +67,28 @@ const Header = () => {
   }, [isToggleMenu, controls]);
 
   useLayoutEffect(() => {
-    console.log(loadedBg);
-    gsap.to(header.current, { backgroundColor: loadedBg, color: loadedTextColor });
-  }, [loadedBg]);
+    gsap.to(header.current, {
+      backgroundColor: isScrolled
+        ? isLoadedTheme
+          ? loadedBg
+          : bg
+        : "transparent",
+      color: isScrolled
+        ? isLoadedTheme
+          ? loadedTextColor
+          : textColorPrimary
+        : textColorPrimary,
+      duration: 0,
+    });
+  }, [isLoadedTheme, isScrolled]);
 
   return (
     <main>
       {!isLoading && (
         <motion.header
+        style={{color: textColorPrimary}}
           ref={header}
-          className={`${textColorPrimary} ${
-            isScrolled ? bg : "bg-transparent"
-          }  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-700 transition top-0 fixed`}
+          className={`bg-transparent  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-300 transition top-0 fixed`}
         >
           <section
             className={`flex relative  justify-between lg:justify-center px-[5vw] items-center  z-0 w-full text-base font-secondary font-semibold`}

@@ -8,7 +8,8 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 export default function LoadingTransition({ children }) {
   const { isLoading, setLoading } = useContext(DataContext);
-  const { setIsDarkTheme, bg, textColorPrimary } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const { bg, textColorPrimary } = theme;
   const title = useRef(null);
   const titleContainer = useRef(null);
   const titleSlider = useRef(null);
@@ -29,7 +30,6 @@ export default function LoadingTransition({ children }) {
   const numsArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
   useLayoutEffect(() => {
-    setIsDarkTheme(false);
     const tCWidth = titleContainer.current.offsetWidth;
     setWidth(Math.round(tCWidth));
     const setLoadingState = () => {
@@ -110,7 +110,8 @@ export default function LoadingTransition({ children }) {
               },
             }}
             ref={container}
-            className={`fixed cursor-wait w-[100vw] h-[100vh] z-50 flex overflow-hidden  justify-center items-center ${textColorPrimary} ${bg}`}
+            style={{ color: textColorPrimary, background: bg }}
+            className={`fixed cursor-wait w-[100vw] h-[100vh] z-50 flex overflow-hidden  justify-center items-center`}
           >
             <div
               style={{ width: `${width}px` }}
@@ -135,10 +136,13 @@ export default function LoadingTransition({ children }) {
             </div>
 
             <div
-              style={{ height: `${loadingHeight}px` }}
+              style={{ height: `${loadingHeight}px`, color: textColorPrimary }}
               className="text-2xl  self-center relative p-2  m-2 flex font-semibold overflow-hidden font-secondary"
             >
-              <div ref={hundredthsRef} className="flex flex-col w-fit h-fit">
+              <div
+                ref={hundredthsRef}
+                className="relative flex flex-col w-fit h-fit"
+              >
                 <span className="opacity-0">0</span>
                 <span className="bg-transparent">1</span>
               </div>

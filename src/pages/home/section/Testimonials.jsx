@@ -5,7 +5,9 @@ import { ThemeContext } from "../../../context/ThemeContext";
 import gsap from "gsap";
 
 const Testimonials = () => {
-  const { bg, textColorPrimary, textColorSecondary } = useContext(ThemeContext);
+  const {
+    theme: { bg, textColorPrimary, textColorSecondary },
+  } = useContext(ThemeContext);
   const containerRef = useRef(null);
   const titleRef = useRef(null);
   const sliderContainerRef = useRef(null);
@@ -58,7 +60,8 @@ const Testimonials = () => {
 
   return (
     <section
-      className={`${bg} text-neutral-900 relative flex justify-center items-center flex-col gap-10 font-primary py-[10vh]  px-[5vw] lg:px-[10vw] z-20`}
+    style={{color: textColorPrimary, background:bg}}
+      className={`relative flex justify-center items-center flex-col gap-10 font-primary py-[10vh]  px-[5vw] lg:px-[10vw] z-20`}
     >
       <motion.div
         ref={sliderContainerRef}
