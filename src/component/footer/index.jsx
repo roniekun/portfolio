@@ -18,23 +18,26 @@ const Footer = forwardRef((props, ref) => {
   const theme = {
     loadedBg: "#0C0A09",
     loadedTextColor: "whitesmoke",
-  }
+  };
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const trigger = ScrollTrigger.create({
       trigger: ref.current,
-      start: "bottom-=56px bottom",
-      end: "bottom bottom",
+      start: "bottom-=10px bottom",
+      end: "bottom-=5px bottom",
 
       onEnter: () => {
         loadThemeFn(theme);
       },
-      onLeaveBack: () => {
+
+      onLeave: () => {
+        loadThemeFn(theme);
       },
-      onLeave: () => {},
-      onEnterBack: () => {},
+      onEnterBack: () => {
+        loadThemeFn(theme);
+      },
     });
 
     return () => {

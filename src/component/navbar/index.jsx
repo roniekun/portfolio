@@ -100,6 +100,9 @@ const Navbar = () => {
           <Theme />
           <Clock />
         </div>
+        <h2 className="uppercase self-center text-lime-500 font-bold text-lg">
+          available for freelance
+        </h2>
       </section>
     </nav>
   );

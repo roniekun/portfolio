@@ -7,7 +7,7 @@ const Theme = () => {
   const { name } = theme;
 
   return (
-    <button className="font-primary uppercase " onClick={toggleThemeFn}>
+    <button className=" uppercase font-bold" onClick={toggleThemeFn}>
       Night Mode : {name === "dark" ? " On" : "off"}
     </button>
   );
