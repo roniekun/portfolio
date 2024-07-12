@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import SendGmail from "../../assets/SendGmail";
-import { useContext, useState, useLayoutEffect } from "react";
+import { useContext, useState, useLayoutEffect, useRef } from "react";
 import Socials from "./assets/Socials";
 import { DataContext } from "../../context/DataContext";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -11,6 +11,7 @@ const Footer = forwardRef((props, ref) => {
   const { user } = useContext(DataContext);
   const { loadThemeFn, setIsLoadedTheme } = useContext(ThemeContext);
   const date = new Date();
+  const targetRef = useRef(null);
 
   const handleClick = (user) => {
     SendGmail(user);
@@ -24,7 +25,7 @@ const Footer = forwardRef((props, ref) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const trigger = ScrollTrigger.create({
-      trigger: ref.current,
+      trigger: targetRef.current,
       start: "bottom-=10px bottom",
       end: "bottom-=5px bottom",
 
@@ -51,7 +52,10 @@ const Footer = forwardRef((props, ref) => {
       className="relative h-screen bg-stone-950"
       // style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="relative h-[calc(100vh+100vh)] -top-[100vh]">
+      <div
+        ref={targetRef}
+        className="relative h-[calc(100vh+100vh)] -top-[100vh]"
+      >
         <div className="sticky top-[calc(100vh-100vh)] ">
           <footer className="relative h-full l w-full justify-start  flex items-start pt-[100px] p-[5vw] flex-col lg:p-[10vw] md:py-20 font-primary  gap-10 overflow-scroll">
             <section className="relative flex-1 flex-col flex w-full h-full flex-wrap text-blue-50 justify-center items-center gap-7">

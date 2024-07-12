@@ -22,7 +22,7 @@ const ThemeProvider = ({ children }) => {
 
     useEffect(() => {
       const handleScroll = () => {
-        setIsScrolled(window.scrollY > 500);
+        setIsScrolled(window.scrollY > 200);
         return () => {
           setIsScrolled(false);
           console.log(isScrolled);

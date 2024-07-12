@@ -63,13 +63,18 @@ const Navbar = () => {
     gsap.to(navRef.current, {
       backgroundColor: isLoadedTheme ? loadedBg : bg,
       color: isLoadedTheme ? loadedTextColor : textColorPrimary,
+      fill: isLoadedTheme ? loadedTextColor : textColorPrimary,
     });
   }, [isLoadedTheme, loadedBg, bg, loadedTextColor, textColorPrimary]);
 
   return (
     <nav
       ref={navRef}
-      style={{ color: textColorPrimary, background: bg }}
+      style={{
+        color: textColorPrimary,
+        background: bg,
+        fill: textColorPrimary,
+      }}
       className={` nav fixed w-0 flex h-screen  flex-col gap-16 items-start justify-start z-30  py-[10vw] font-secondary overflow-hidden `}
     >
       <section
