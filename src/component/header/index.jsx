@@ -1,6 +1,6 @@
 import React from "react";
 import Menu from "./assets/Menu";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   useState,
   useEffect,
@@ -64,7 +64,14 @@ const Header = () => {
         : textColorPrimary,
       duration: 0,
     });
-  }, [isLoadedTheme, loadedBg, isScrolled, bg, loadedTextColor, textColorPrimary]);
+  }, [
+    isLoadedTheme,
+    loadedBg,
+    isScrolled,
+    bg,
+    loadedTextColor,
+    textColorPrimary,
+  ]);
 
   return (
     <main>
@@ -72,12 +79,16 @@ const Header = () => {
         <motion.header
           style={{ color: textColorPrimary }}
           ref={header}
-          className={`bg-transparent  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-300 transition top-0 fixed`}
+          className={`${
+            isScrolled && "shadow-sm"
+          } bg-transparent  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-300 transition top-0 fixed`}
         >
           <section
             className={`flex relative  justify-between lg:justify-center px-[5vw] items-center  z-0 w-full text-base font-secondary font-semibold`}
           >
-            <h1 className="uppercase">Roniecode</h1>
+            <Link to="/" className="uppercase">
+              Roniecode
+            </Link>
             {isMobile && <Menu />}
           </section>
 

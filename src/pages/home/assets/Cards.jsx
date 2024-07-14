@@ -28,10 +28,10 @@ const Cards = () => {
             alt="albumcover"
           />
           <div className="w-full px-[2vw] flex flex-col gap-2 self-center">
-            <h1 className="text-md uppercase text-zinc-900  font-semibold">
+            <h1 className="text-md uppercase text-zinc-900 font-secondary  font-semibold">
               {card.title}
             </h1>
-            <span className="font-secondary text-xs">tags:</span>
+            <h3 className="font-secondary text-sm">description</h3>
             <div className="flex gap-2 text-xs font-secondary self-start text-zinc-600  mb-3">
               {card.tags.map((tag, idx) => (
                 <span className="border px-1 whitespace-nowrap" key={idx}>

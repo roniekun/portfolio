@@ -56,12 +56,12 @@ const About = forwardRef((props, ref) => {
       >
         <div
           ref={wd}
-          className="grid grid-cols-3 relative w-full p-[5vw] gap-10 rounded-2xl text-balance"
+          className="flex flex-col relative w-full p-[5vw] gap-10 rounded-2xl text-balance"
         >
-          <h1 className="capitalize relative md:text-xl text-base font-medium">
+          <h1 className="capitalize relative md:text-xl text-lg font-medium">
             Web development
           </h1>
-          <p className="text-base lg:text-xl text-secondary  leading-tight col-span-2">
+          <p className="text-lg lg:text-xl text-secondary  leading-tight col-span-2">
             Adapting to the ever-evolving world of web development, crafting
             intuitive interfaces and functional websites that engage users and
             convey the essence of a brand or concept.
@@ -70,12 +70,12 @@ const About = forwardRef((props, ref) => {
 
         <div
           ref={ebt}
-          className="grid grid-cols-3 p-[5vw] rounded-2xl gap-10 text-balance "
+          className="flex flex-col p-[5vw] rounded-2xl gap-10 text-balance "
         >
-          <h1 className="capitalize relative md:text-xl text-base font-medium">
+          <h1 className="capitalize relative md:text-xl text-lg font-medium">
             exploring backend Technologies
           </h1>
-          <p className="text-base lg:text-xl leading-tight mb-10  col-span-2">
+          <p className="text-lg lg:text-xl leading-tight mb-10  col-span-2">
             My journey extends beyond frontend design; I continually explore and
             master back-end technologies, databases, and server management, to
             create end-to-end solutions that provide seamless functionality and

@@ -116,7 +116,7 @@ export default function LoadingTransition({ children }) {
             <div
               style={{ width: `${width}px` }}
               ref={titleSlider}
-              className="relative rounded-md pt-3 overflow-hidden"
+              className="relative rounded-md overflow-hidden"
             >
               <div
                 ref={titleContainer}
@@ -129,7 +129,6 @@ export default function LoadingTransition({ children }) {
                     ref={(el) => (charsArray.current[idx] = el)}
                     className="flex translate-y-full justify-center items-center"
                   >
-                    {/* {text} */}
                   </h1>
                 ))}
               </div>
