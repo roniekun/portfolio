@@ -1,15 +1,17 @@
-import React, { forwardRef, useRef, useContext } from "react";
+import React, { forwardRef, useRef, useContext, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { stacks, techs } from "../utils/stack";
 import Marquee from "react-fast-marquee";
 import { ThemeContext } from "../../../context/ThemeContext";
+import { DataContext } from "../../../context/DataContext";
 
 const About = forwardRef((props, ref) => {
   const {
     theme: { bg, textColorPrimary },
   } = useContext(ThemeContext);
+  const { setPathData } = useContext(DataContext);
   const container = useRef(null);
   const wd = useRef(null);
   const ebt = useRef(null);
@@ -23,6 +25,8 @@ const About = forwardRef((props, ref) => {
         start: "top bottom",
         end: "bottom bottom",
         onEnter: () => {
+          setPathData({ path: "/about", color: "#121212" });
+
           tl.to(container.current, {
             opacity: 1,
             stagger: 0.1,
@@ -31,7 +35,9 @@ const About = forwardRef((props, ref) => {
           tl.from(wd.current, { opacity: 0, x: -50 });
           tl.from(ebt.current, { opacity: 0, x: 50 });
         },
-        onLeaveBack: () => {},
+        onLeaveBack: () => {
+          setPathData({ path: null, color: null });
+        },
         onLeave: () => {},
         onEnterBack: () => {},
       });

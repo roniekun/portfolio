@@ -128,15 +128,14 @@ export default function LoadingTransition({ children }) {
                     key={idx}
                     ref={(el) => (charsArray.current[idx] = el)}
                     className="flex translate-y-full justify-center items-center"
-                  >
-                  </h1>
+                  ></h1>
                 ))}
               </div>
             </div>
 
             <div
               style={{ height: `${loadingHeight}px`, color: textColorPrimary }}
-              className="text-2xl  self-center relative p-2  m-2 flex font-semibold overflow-hidden font-secondary"
+              className="text-2xl  self-center relative flex font-medium overflow-hidden font-primary leading-normal"
             >
               <div
                 ref={hundredthsRef}
@@ -150,18 +149,18 @@ export default function LoadingTransition({ children }) {
                 className="relative flex flex-col h-fit w-fit"
               >
                 {numsArray.map((i, idx) => (
-                  <div key={idx}>{i}</div>
+                  <span key={idx}>{i}</span>
                 ))}
               </div>
 
               <div ref={onesRef} className="relative flex flex-col h-fit w-fit">
                 {numsArray.map((i, idx) => (
-                  <div key={idx}>{i}</div>
+                  <span key={idx}>{i}</span>
                 ))}
               </div>
-              <div ref={percentRef} className="h-fit">
+              <span ref={percentRef} className="h-fit">
                 %
-              </div>
+              </span>
             </div>
           </motion.div>
         )}

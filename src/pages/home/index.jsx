@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-
+import Path from "./assets/Path";
 import { useParams } from "react-router-dom";
 import Hero from "./section/Hero";
 import Profile from "./section/Profile";
@@ -60,6 +60,7 @@ const Home = () => {
       ref={container}
       className={`relative flex flex-col h-auto w-full`}
     >
+      <Path />
       <Hero ref={hero} scrollFn={scrollIntoView} />
       <Profile ref={profile} id={"profile"} />
       <About ref={about} id={"about"} />

@@ -18,23 +18,22 @@ const ThemeProvider = ({ children }) => {
     borderColor: "#A3A3A3", ////bg-neutral-400
     bg: "#171717", //bg-neutral-900
   };
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    useEffect(() => {
-      const handleScroll = () => {
-        setIsScrolled(window.scrollY > 200);
-        return () => {
-          setIsScrolled(false);
-          console.log(isScrolled);
-        };
-      };
-
-      window.addEventListener("scroll", handleScroll);
-
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 200);
       return () => {
-        window.removeEventListener("scroll", handleScroll);
+        setIsScrolled(false);
       };
-    }, []);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const [theme, setTheme] = useState(() => {
     return JSON.parse(localStorage.getItem("theme")) || light;
@@ -53,10 +52,6 @@ const ThemeProvider = ({ children }) => {
   const loadThemeFn = (theme) => {
     setLoadedTheme(theme);
   };
-
-  useEffect(() => {
-    console.log(loadedTheme);
-  }, [loadedTheme]);
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));

@@ -13,6 +13,7 @@ const DataProvider = ({ children }) => {
   const [isToggleMenu, setToggleMenu] = useState(false);
   const [isScrolled, setScrolled] = useState(false);
   const [currentScroll, setCurrentScroll] = useState(0);
+  const [pathData, setPathData] = useState({path: null, color: null})
   const [isMobile, setMobile] = useState(false);
   const [isDesktop, setDesktop] = useState(false);
   const [scrollRef, setScrollRef] = useState();
@@ -66,6 +67,8 @@ const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        pathData, 
+        setPathData,
         user,
         scrollRef,
         setScrollRef,
