@@ -88,7 +88,7 @@ const Navbar = () => {
           >
             <a
               onClick={() => handleClick(link)}
-              className={`z-10 relative bg-transparent cursor-pointer text-[4vh] font-semibold uppercase flex text-balance h-[4vh] w-fit select-none ${
+              className={`z-10 relative bg-transparent cursor-pointer text-[4vh] lg:text-3xl font-semibold uppercase flex text-balance h-[4vh] w-fit select-none ${
                 link.to === location.pathname && "text-lime-400"
               } `}
             >

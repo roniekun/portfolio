@@ -1,25 +1,14 @@
 import React from "react";
 import Menu from "./assets/Menu";
 import { Link, useLocation } from "react-router-dom";
-import {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-  useRef,
-} from "react";
+import { useEffect, useLayoutEffect, useContext, useRef } from "react";
 import { DataContext } from "../../context/DataContext";
-import Logo from "./assets/Logo";
 import { motion, useAnimation } from "framer-motion";
-import Navbar from "../navbar";
-import Nav from "./assets/Nav3";
 import { ThemeContext } from "../../context/ThemeContext";
 import gsap from "gsap";
 
 const Header = () => {
-  const { isMobile, setToggleMenu, isToggleMenu, isLoading } =
-    useContext(DataContext);
-  const location = useLocation();
+  const { isDesktop, isToggleMenu, isLoading } = useContext(DataContext);
 
   const {
     isScrolled,
@@ -84,12 +73,21 @@ const Header = () => {
           } bg-transparent  z-40 overflow-hidden transtion flex justify-center items-center  h-[56px] w-full duration-300 transition top-0 fixed`}
         >
           <section
-            className={`flex relative  justify-between lg:justify-center px-[5vw] items-center  z-0 w-full text-base font-secondary font-semibold`}
+            className={`flex relative  justify-between  px-[5vw] items-center  z-0 w-full text-base font-secondary font-semibold`}
           >
+            {isDesktop && (
+              <Link
+                to="/contact"
+                className="font-primary font-medium uppercase  text-xs"
+              >
+                Work with us
+              </Link>
+            )}
+
             <Link to="/" className="uppercase">
               Roniecode
             </Link>
-            {isMobile && <Menu />}
+            <Menu />
           </section>
 
           <motion.section

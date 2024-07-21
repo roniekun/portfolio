@@ -59,11 +59,11 @@ const Profile = forwardRef((props, ref) => {
         ref={profile}
         className={` relative w-full overflow-hidden h-auto  flex-col`}
       >
-        <div className="relative flex flex-col  h-[500px] justify-end items-center">
+        <div className="relative flex flex-col  h-auto  items-center">
           <Avatar />
 
           <div className="trigger-profile flex relative items-center w-fit px-[5vw] my-10  lg:w-[50%]">
-            <h3 className="md:text-2xl text-xl leading-8    relative font-medium mx-2  text-center w-full  font-primary">
+            <h3 className="md:text-2xl text-xl leading-8  relative font-medium mx-2  text-center w-full  font-primary">
               {text2.map((char, idx) => (
                 <span
                   className={`opacity-0 relative ${

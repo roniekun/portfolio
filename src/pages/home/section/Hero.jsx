@@ -10,7 +10,9 @@ import { ThemeContext } from "../../../context/ThemeContext";
 
 const Hero = forwardRef((props, ref) => {
   const { isLoading } = useContext(DataContext);
-  const {theme:{bg, textColorPrimary}}= useContext(ThemeContext)
+  const {
+    theme: { bg, textColorPrimary },
+  } = useContext(ThemeContext);
   const hero = useRef(null);
   const heroTexts = ["webstie", "undre", "construciton"];
   const heroChars = useRef([]);
@@ -83,9 +85,9 @@ const Hero = forwardRef((props, ref) => {
 
   return (
     <section
-      style={{color: textColorPrimary, background: bg}}
+      style={{ color: textColorPrimary, background: bg }}
       ref={ref}
-      className="flex flex-col sticky top-0  sm:h-[800px] h-[90vh] lg:h-screen
+      className="flex flex-col relative sm:h-[800px] h-[90vh] lg:h-screen
          z-0  justify-center items-center  p-[5vw] lg:p-[10vw]"
     >
       <div

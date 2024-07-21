@@ -30,9 +30,9 @@ const Avatar = () => {
   }, []);
 
   return (
-    <div className="trigger-avatar rounded-sm flex h-auto top-0 scale-110 absolute">
+    <div className="trigger-avatar rounded-sm flex h-auto  top-0 scale-110  bg-red-300 lg:w-[800px]">
       <img
-        className="object-cover h-[500px] relative brightness-75 filter"
+        className="object-cover h-full w-full  relative"
         src={myImage}
         alt="avatar"
         placeholder="blur"

@@ -58,16 +58,16 @@ export default function LoadingTransition({ children }) {
         gsap.to(onesRef.current, {
           y: `-${onesHeight - percentHeight}px`,
           ease: "power2.in",
-          duration: 2,
+          duration: 1.5,
         }),
         gsap.to(tenthsRef.current, {
           y: `-${tenthsHeight - percentHeight}px`,
-          duration: 3,
+          duration: 2,
           ease: "power2.in",
         }),
         gsap.to(hundredthsRef.current, {
           y: `-${hundredthsHeight - percentHeight}px`,
-          delay: 2.5,
+          delay: 1.5,
           duration: 0.5,
           ease: "power2.in",
         })
@@ -135,7 +135,7 @@ export default function LoadingTransition({ children }) {
 
             <div
               style={{ height: `${loadingHeight}px`, color: textColorPrimary }}
-              className="text-2xl  self-center relative flex font-medium overflow-hidden font-primary leading-normal"
+              className="text-2xl  self-center relative flex font-medium overflow-hidden font-primary"
             >
               <div
                 ref={hundredthsRef}

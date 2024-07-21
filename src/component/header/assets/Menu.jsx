@@ -86,10 +86,9 @@ const Menu = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className={`${borderColor}  group  flex items-center  justify-center  relative  px-8 w-14  capitalize
-                 -z-10 rounded-lg ${
-                  isToggleMenu && `${textColorPrimary}  bg-opacity-20`
-                }`}
+        className={`${borderColor} ${
+          isToggleMenu && `${textColorPrimary}  bg-opacity-20`
+        }  group  flex items-center  justify-center font-medium  relative  px-8 w-14  capitalize lg:text-xs -z-10 rounded-lg `}
       >
         {isToggleMenu ? (
           <button

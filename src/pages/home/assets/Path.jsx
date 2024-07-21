@@ -11,7 +11,7 @@ const Path = () => {
       {isDesktop && (
         <div
           style={{ color: color }}
-          className="fixed left-[5vw] top-[50vh] z-40"
+          className="fixed left-[5vw] top-[50vh] z-20 text-xs uppercase"
         >
           {path}
         </div>
