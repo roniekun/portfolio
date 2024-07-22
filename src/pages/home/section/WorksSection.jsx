@@ -5,7 +5,7 @@ import { ThemeContext } from "../../../context/ThemeContext";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-const Works = forwardRef((props, ref) => {
+const WorksSection = forwardRef((props, ref) => {
   const { setPathData } = useContext(DataContext);
 
   const {
@@ -55,4 +55,4 @@ const Works = forwardRef((props, ref) => {
   );
 });
 
-export default Works;
+export default WorksSection;

@@ -7,7 +7,7 @@ import Marquee from "react-fast-marquee";
 import { ThemeContext } from "../../../context/ThemeContext";
 import { DataContext } from "../../../context/DataContext";
 
-const About = forwardRef((props, ref) => {
+const AboutSection = forwardRef((props, ref) => {
   const {
     theme: { bg, textColorPrimary },
   } = useContext(ThemeContext);
@@ -118,4 +118,4 @@ const About = forwardRef((props, ref) => {
   );
 });
 
-export default About;
+export default AboutSection;

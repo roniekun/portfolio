@@ -5,7 +5,7 @@ import { forwardRef, useContext, useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { ThemeContext } from "../../../context/ThemeContext";
 
-const Services = forwardRef((props, ref) => {
+const ServicesSection = forwardRef((props, ref) => {
   const scrollAnimRefs = useRef([]);
   const {
     theme: { bg, textColorPrimary },
@@ -85,4 +85,4 @@ const Services = forwardRef((props, ref) => {
   );
 });
 
-export default Services;
+export default ServicesSection;

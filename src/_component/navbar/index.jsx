@@ -5,7 +5,7 @@ import Socials from "./assets/Socials";
 import Clock from "./assets/Clock";
 import Theme from "./assets/Theme";
 import { ThemeContext } from "../../context/ThemeContext";
-import gsap from "gsap";
+import { gsap } from "gsap";
 
 const Navbar = () => {
   const {
@@ -15,7 +15,7 @@ const Navbar = () => {
     loadedTheme: { loadedBg, loadedTextColor },
   } = useContext(ThemeContext);
 
-  const { setToggleMenu, isToggleMenu } = useContext(DataContext);
+  const { setToggleMenu, isToggleMenu, isDesktop } = useContext(DataContext);
   const location = useLocation();
   const navigate = useNavigate();
   const navRef = useRef(null);
@@ -32,7 +32,7 @@ const Navbar = () => {
     setToggleMenu(!isToggleMenu);
     setTimeout(() => {
       navigate(link.to);
-    }, 1000);
+    }, isDesktop ? 1500 : 1000);
   };
 
   useLayoutEffect(() => {
@@ -40,16 +40,16 @@ const Navbar = () => {
     if (isToggleMenu) {
       tl.to(".nav", {
         width: "100vw",
-        ease: "power2.inOut",
-        duration: 1,
+        ease: "expo.in",
+        duration: isDesktop ? 1.5 : 1,
         onComplete: () => {
           gsap.set(".nav", { alignItems: "end" });
         },
       });
     } else {
       tl.to(".nav", {
-        duration: 1,
-        ease: "power2.inOut",
+        duration: isDesktop ? 1.5 : 1,
+        ease: "expo.in",
         left: "100%",
         width: 0,
         onComplete: () => {
@@ -79,7 +79,7 @@ const Navbar = () => {
     >
       <section
         ref={linkItems}
-        className="flex flex-col w-screen justify-start relative mt-5 items-start text-xl h-auto gap-5 p-[5vw] opacity-1"
+        className="flex flex-col lg:flex-row w-screen justify-evenly relative mt-5 items-start text-xl h-auto gap-5 p-[5vw] opacity-1"
       >
         {links.map((link, idx) => (
           <div

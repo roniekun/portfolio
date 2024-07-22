@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
-import Footer from "../../component/footer";
+import Footer from "../../_component/footer";
 import PageTransition from "../../assets/anim/PageTransition";
 
 const Notfound = () => {

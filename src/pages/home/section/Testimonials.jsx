@@ -61,7 +61,7 @@ const Testimonials = () => {
   return (
     <section
     style={{color: textColorPrimary, background:bg}}
-      className={`relative flex justify-center items-center flex-col gap-10 font-primary py-[10vh]  px-[5vw] lg:px-[10vw] z-20`}
+      className={`relative flex justify-center items-center flex-col gap-10 font-primary py-[10vh]  px-[5vw] lg:px-[10vw] `}
     >
       <motion.div
         ref={sliderContainerRef}

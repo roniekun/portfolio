@@ -1,20 +1,20 @@
 import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import LoadingTransition from "./assets/anim/LoadingTransition";
-import Header from "./component/header";
-import Navbar from "./component/navbar";
-import Home from "./pages/home";
-import AboutUser from "./pages/about";
+import Header from "./_component/header";
+import Navbar from "./_component/navbar";
+import HomePage from "./pages/home";
+import AboutPage from "./pages/about";
 import Gallery from "./pages/gallery";
 import Notfound from "./pages/notfound";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import Scrollbtn from "./assets/scrollto";
 import { ScrollTrigger } from "gsap/all";
+
 import {
   useRef,
   useContext,
   useEffect,
-  useLayoutEffect,
   useState,
 } from "react";
 import useWindowSize from "./hooks/useWIndowHooks/useWIndowSize";
@@ -78,9 +78,9 @@ function App() {
         <Navbar />
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.key}>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/:id/" element={<Home />} />
-            <Route exact path="/about-author" element={<AboutUser />} />
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/:id/" element={<HomePage />} />
+            <Route exact path="/about-author" element={<AboutPage />} />
             <Route path="/gallery/" element={<Gallery />} />
             <Route path="/gallery/:id/" element={<Gallery />} />
             <Route path="*" element={<Notfound />} />

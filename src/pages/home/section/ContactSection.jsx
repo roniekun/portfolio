@@ -9,7 +9,7 @@ import { ThemeContext } from "../../../context/ThemeContext";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-const Contact = forwardRef((props, ref) => {
+const ContactSection = forwardRef((props, ref) => {
   const {
     loadThemeFn,
     setIsLoadedTheme,
@@ -107,4 +107,4 @@ const Contact = forwardRef((props, ref) => {
   );
 });
 
-export default Contact;
+export default ContactSection;

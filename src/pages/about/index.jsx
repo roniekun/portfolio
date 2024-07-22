@@ -1,4 +1,4 @@
-import Footer from "../../component/footer";
+import Footer from "../../_component/footer";
 import { useEffect, useContext } from "react";
 import PageTransition from "../../assets/anim/PageTransition";
 import { DataContext } from "../../context/DataContext";

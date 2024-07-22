@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { DataContext } from "../../context/DataContext";
 import { ThemeContext } from "../../context/ThemeContext";
 import Invalid from "./assets/Invalid";
-import Footer from "../../component/footer";
+import Footer from "../../_component/footer";
 import PageTransition from "../../assets/anim/PageTransition";
 
 const Gallery = () => {

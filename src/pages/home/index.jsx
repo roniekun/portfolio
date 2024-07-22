@@ -5,16 +5,16 @@ import Path from "./assets/Path";
 import { useParams } from "react-router-dom";
 import Hero from "./section/Hero";
 import Profile from "./section/Profile";
-import About from "./section/About";
-import Works from "./section/Works";
-import Services from "./section/Services";
+import AboutSection from "./section/AboutSection";
+import WorksSection from "./section/WorksSection";
+import ServicesSection from "./section/ServicesSection";
 import Accordion from "./assets/Accordion";
-import Contact from "./section/Contact";
+import ContactSection from "./section/ContactSection";
 import Testimonials from "./section/Testimonials";
 import Bento from "./section/Bento";
-import Footer from "../../component/footer";
+import Footer from "../../_component/footer";
 
-const Home = () => {
+const HomePage = () => {
   const { user, setTitle, isMobile } = useContext(DataContext);
 
   const profile = useRef(null);
@@ -63,16 +63,16 @@ const Home = () => {
       <Path />
       <Hero ref={hero} scrollFn={scrollIntoView} />
       <Profile ref={profile} id={"profile"} />
-      <About ref={about} id={"about"} />
-      <Services ref={services} id={"services"} />
+      <AboutSection ref={about} id={"about"} />
+      <ServicesSection ref={services} id={"services"} />
       <Bento />
-      <Works ref={works} id={"works"} />
+      <WorksSection ref={works} id={"works"} />
       <Testimonials />
       <Accordion />
-      <Contact ref={contact} id={"contact"} />
+      <ContactSection ref={contact} id={"contact"} />
       <Footer ref={footer} />
     </motion.main>
   );
 };
 
-export default Home;
+export default HomePage;
