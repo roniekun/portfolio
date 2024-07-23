@@ -3,15 +3,15 @@ import { useRef, useEffect, useContext } from "react";
 import { DataContext } from "../../context/DataContext";
 import Path from "./assets/Path";
 import { useParams } from "react-router-dom";
-import Hero from "./section/Hero";
-import Profile from "./section/Profile";
-import AboutSection from "./section/AboutSection";
-import WorksSection from "./section/WorksSection";
-import ServicesSection from "./section/ServicesSection";
+import Hero from "./_sections/Hero";
+import Profile from "./_sections/Profile";
+import AboutSection from "./_sections/AboutSection";
+import WorksSection from "./_sections/WorksSection";
+import ServicesSection from "./_sections/ServicesSection";
 import Accordion from "./assets/Accordion";
-import ContactSection from "./section/ContactSection";
-import Testimonials from "./section/Testimonials";
-import Bento from "./section/Bento";
+import ContactSection from "./_sections/ContactSection";
+import Testimonials from "./_sections/Testimonials";
+import Bento from "./_sections/Bento";
 import Footer from "../../_component/footer";
 
 const HomePage = () => {

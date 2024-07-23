@@ -1,13 +1,9 @@
-import React, {
-  forwardRef,
-  useContext,
-  useLayoutEffect,
-  useState,
-} from "react";
+import React, { forwardRef, useContext, useLayoutEffect } from "react";
 import Marquee from "react-fast-marquee";
 import { ThemeContext } from "../../../context/ThemeContext";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { z } from "zod";
 
 const ContactSection = forwardRef((props, ref) => {
   const {
@@ -46,6 +42,11 @@ const ContactSection = forwardRef((props, ref) => {
       trigger.kill();
     };
   }, []);
+
+  const formSchema = z.object({
+    username: z.string(),
+    email: z.string().email({message: "invalid email address"}),
+  });
 
   return (
     <section

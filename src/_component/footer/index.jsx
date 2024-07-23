@@ -49,8 +49,8 @@ const Footer = forwardRef((props, ref) => {
   return (
     <main
       ref={targetRef}
-      className="relative h-screen bg-stone-950 -z-10"
-      // style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+      className="relative h-screen bg-stone-950"
+      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <div className="relative h-[calc(100vh+100vh)] -top-[100vh]">
         <div className="sticky top-[calc(100vh-100vh)] ">
