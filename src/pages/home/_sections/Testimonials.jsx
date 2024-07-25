@@ -19,18 +19,18 @@ const Testimonials = () => {
   });
 
   useLayoutEffect(() => {
-    const triggers = refsArray.current.map((card, idx) =>
+    const triggers = cardsArray.current.map((item, idx) =>
       gsap.fromTo(
-        card,
+        item,
         {
           opacity: 0,
         },
         {
           opacity: 1,
           scrollTrigger: {
-            trigger: card,
+            trigger: item,
             start: "top-=50% center",
-            end: "center+=50% bottom",
+            end: "bottom bottom-=10%",
             scrub: true,
           },
         }
