@@ -91,7 +91,7 @@ const Testimonials = () => {
                   backgroundColor: "whitesmoke",
                   top: `calc(0vh + ${idx * 20}px)`,
                 }}
-                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-5 flex flex-col justify-center items-center px-[5vw] shadow-2xl"
+                className="overflow-hidden relative border border-opacity-25 backdrop-blur-xl  w-full h-[400px] rounded-2xl gap-y-5 flex flex-col justify-center items-center px-[5vw] shadow-2xl opacity-0"
               >
                 <span className="flex bg-opacity-70 justify-center items-center absolute w-[50px] h-[50px] text-xl top-0 right-0 border rounded-bl-xl bg-neutral-400">
                   {idx + 1}
