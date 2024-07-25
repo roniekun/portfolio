@@ -19,28 +19,29 @@ const Testimonials = () => {
   });
 
   useLayoutEffect(() => {
-    const triggers = cardsArray.current.map((item, idx) =>
-      gsap.fromTo(
-        item,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: item,
-            start: "top-=50% center",
-            end: "bottom bottom-=10%",
-            scrub: true,
+    if (cardsArray.current) {
+      const triggers = cardsArray.current.map((item, idx) =>
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
           },
-        }
-      )
-    );
-
-    return () => {
-      triggers.forEach((trigger) => trigger.scrollTrigger.kill());
-    };
-  }, []);
+          {
+            opacity: 1,
+            scrollTrigger: {
+              trigger: item,
+              start: "top-=50% center",
+              end: "bottom bottom",
+              scrub: true,
+            },
+          }
+        )
+      );
+      // return () => {
+      //   triggers.forEach((trigger) => trigger.scrollTrigger.kill());
+      // };
+    }
+  }, [cardsArray.current]);
 
   useLayoutEffect(() => {
     gsap.fromTo(
