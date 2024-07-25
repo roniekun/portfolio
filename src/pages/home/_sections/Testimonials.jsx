@@ -20,7 +20,7 @@ const Testimonials = () => {
 
   useLayoutEffect(() => {
     if (cardsArray.current) {
-      const triggers = cardsArray.current.map((item, idx) =>
+      cardsArray.current.forEach((item) =>
         gsap.fromTo(
           item,
           {
@@ -37,9 +37,6 @@ const Testimonials = () => {
           }
         )
       );
-      return () => {
-        triggers.forEach((trigger) => trigger.scrollTrigger.kill());
-      };
     }
   }, [cardsArray.current]);
 
