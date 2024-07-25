@@ -30,16 +30,16 @@ const Testimonials = () => {
             opacity: 1,
             scrollTrigger: {
               trigger: item,
-              start: "top-=50% center",
-              end: "bottom bottom",
+              start: "top-=200px center",
+              end: "top center",
               scrub: true,
             },
           }
         )
       );
-      // return () => {
-      //   triggers.forEach((trigger) => trigger.scrollTrigger.kill());
-      // };
+      return () => {
+        triggers.forEach((trigger) => trigger.scrollTrigger.kill());
+      };
     }
   }, [cardsArray.current]);
 
