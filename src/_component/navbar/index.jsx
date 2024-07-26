@@ -6,6 +6,7 @@ import Clock from "./assets/Clock";
 import Theme from "./assets/Theme";
 import { ThemeContext } from "../../context/ThemeContext";
 import { gsap } from "gsap";
+import TextSlider from "../../assets/anim/TextSlider";
 
 const Navbar = () => {
   const {
@@ -30,9 +31,12 @@ const Navbar = () => {
 
   const handleClick = (link) => {
     setToggleMenu(!isToggleMenu);
-    setTimeout(() => {
-      navigate(link.to);
-    }, isDesktop ? 1500 : 1000);
+    setTimeout(
+      () => {
+        navigate(link.to);
+      },
+      isDesktop ? 1500 : 1000
+    );
   };
 
   useLayoutEffect(() => {
@@ -105,9 +109,14 @@ const Navbar = () => {
           <Theme />
           <Clock />
         </div>
-        <h2 className="uppercase self-center text-lime-500 font-bold text-lg">
-          available for freelance
-        </h2>
+        <div className="self-center m-5">
+          <TextSlider
+            title="available for freelance"
+            position="relative"
+            speed="0.05"
+            size="24"
+          />
+        </div>
       </section>
     </nav>
   );

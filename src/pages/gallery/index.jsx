@@ -5,6 +5,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import Invalid from "./assets/Invalid";
 import Footer from "../../_component/footer";
 import PageTransition from "../../assets/anim/PageTransition";
+import TextSlider from "../../assets/anim/TextSlider";
 
 const Gallery = () => {
   const { user, setTitle } = useContext(DataContext);
@@ -25,10 +26,10 @@ const Gallery = () => {
 
   return (
     <PageTransition>
-      <main className="relative min-h-screen flex-col">
+      <main className="relative min-h-screen flex-col font-primary">
         <section
           style={{ backgroundColor: bg, color: textColorPrimary }}
-          className="min-h-screen relative flex place-items-center justify-center z-20"
+          className="min-h-screen relative flex flex-col place-items-center justify-center overflow-hidden"
         >
           {isValid ? (
             <div className="relative h-full w-full flex flex-col justify-center items-center">
@@ -38,6 +39,12 @@ const Gallery = () => {
           ) : (
             <Invalid />
           )}
+          <TextSlider
+            title="nothing to display - nothing to display - nothing to display - nothing to display -  nothing to display - nothing to display - nothing to display - nothing to display -"
+            position="relative"
+            speed="0.05"
+            size="50"
+          />
         </section>
         <Footer />
       </main>
